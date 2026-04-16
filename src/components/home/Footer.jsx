@@ -19,7 +19,7 @@ export default function Footer() {
               <img
                 src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/77e6b1f2e_Gemini_Generated_Image_pixvcspixvcspixv1.png"
                 alt="All Access Rentals"
-                className="h-14 w-auto object-contain"
+                className="h-28 w-auto object-contain"
               />
             </a>
             <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">

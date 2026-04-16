@@ -15,16 +15,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <a href="/" className="flex items-center gap-2 mb-6 group">
-              <div className="relative">
-                <div className="w-10 h-10 bg-orange-500 flex items-center justify-center font-barlow font-bold text-black text-lg">
-                  AA
-                </div>
-              </div>
-              <div>
-                <div className="font-barlow text-white font-bold text-xl leading-none tracking-wider">ALL ACCESS</div>
-                <div className="text-orange-500 text-[9px] tracking-[0.25em] uppercase font-semibold">Services</div>
-              </div>
+            <a href="/" className="flex items-center mb-6">
+              <img
+                src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/77e6b1f2e_Gemini_Generated_Image_pixvcspixvcspixv1.png"
+                alt="All Access Rentals"
+                className="h-14 w-auto object-contain"
+              />
             </a>
             <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
               Southern California's premier aerial work platform rental, sales, and service provider. JLG Authorized Dealer.

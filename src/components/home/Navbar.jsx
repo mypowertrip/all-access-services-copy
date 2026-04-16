@@ -55,17 +55,12 @@ export default function Navbar() {
       <nav className={`transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg shadow-black/50' : 'bg-black/80 backdrop-blur-sm'} border-b border-white/5`}>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <div className="w-10 h-10 bg-orange-500 flex items-center justify-center font-barlow font-900 text-black text-lg font-black hidden">
-                AA
-              </div>
-              <div className="absolute -inset-0.5 bg-orange-500/30 blur-sm group-hover:bg-orange-400/40 transition-all hidden" />
-            </div>
-            <div>
-              <div className="font-barlow text-white font-bold text-xl leading-none tracking-wider hidden">ALL ACCESS</div>
-              <div className="text-orange-500 text-[9px] tracking-[0.25em] uppercase font-semibold hidden">Services</div>
-            </div>
+          <a href="/" className="flex items-center group">
+            <img
+              src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/77e6b1f2e_Gemini_Generated_Image_pixvcspixvcspixv1.png"
+              alt="All Access Rentals"
+              className="h-12 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Nav */}

@@ -55,12 +55,17 @@ export default function Navbar() {
       <nav className={`transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg shadow-black/50' : 'bg-black/80 backdrop-blur-sm'} border-b border-white/5`}>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex items-center group">
-            <img
-              src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/77e6b1f2e_Gemini_Generated_Image_pixvcspixvcspixv1.png"
-              alt="All Access Rentals"
-              className="h-20 w-auto object-contain"
-            />
+          <a href="/" className="flex items-center gap-2 group">
+            <div className="relative">
+              
+
+              
+              
+            </div>
+            <div>
+              
+              
+            </div>
           </a>
 
           {/* Desktop Nav */}

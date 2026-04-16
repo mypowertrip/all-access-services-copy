@@ -68,7 +68,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-gray-300 text-lg md:text-xl max-w-xl mb-10 leading-relaxed"
           >
-            Premium aerial work platform rentals, sales, and service across 4 Southern California locations. JLG-authorized dealer and ClearSky™ connected fleet.
+            JLG's Only Factory-Authorized Sales & Service Center in the United States.
           </motion.p>
 
           {/* CTA buttons */}

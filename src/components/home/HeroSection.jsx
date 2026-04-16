@@ -52,13 +52,14 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl text-white leading-none tracking-tight mb-6"
+            className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-tight mb-6"
           >
-            REACH
+            <span className="text-white">REACH</span>
             <br />
-            <span className="text-orange-500">HIGHER.</span>
+            <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>HIGHER.</span>
             <br />
-            <span className="text-white">WORK SMARTER.</span>
+            <span className="text-white">WORK </span>
+            <span style={{ WebkitTextStroke: '2px white', color: 'transparent' }}>SMARTER.</span>
           </motion.h1>
 
           {/* Sub */}
@@ -66,7 +67,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-gray-300 text-lg md:text-xl max-w-xl mb-10 leading-relaxed"
+            className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-semibold drop-shadow-lg"
           >
             JLG's Only Factory-Authorized Sales & Service Center in the United States.
           </motion.p>

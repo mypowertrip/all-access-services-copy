@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
-import GCLanding from './pages/GCLanding';
+
+import Home from './pages/Home';
+import Equipment from './pages/Equipment';
+import Reserve from './pages/Reserve';
 import GCDashboard from './pages/GCDashboard';
 import GCFleet from './pages/GCFleet';
 import GCLayout from './components/gc/GCLayout';
@@ -13,30 +16,27 @@ import GCLayout from './components/gc/GCLayout';
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
-  // Show loading spinner while checking app public settings or auth
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+      <div className="fixed inset-0 flex items-center justify-center bg-white">
+        <div className="w-7 h-7 border-3 border-slate-200 border-t-orange rounded-full animate-spin" style={{ borderWidth: 3, borderTopColor: 'hsl(22 96% 51%)' }} />
       </div>
     );
   }
 
-  // Handle authentication errors
   if (authError) {
-    if (authError.type === 'user_not_registered') {
-      return <UserNotRegisteredError />;
-    } else if (authError.type === 'auth_required') {
-      // Redirect to login automatically
-      navigateToLogin();
-      return null;
-    }
+    if (authError.type === 'user_not_registered') return <UserNotRegisteredError />;
+    if (authError.type === 'auth_required') { navigateToLogin(); return null; }
   }
 
-  // Render the main app
   return (
     <Routes>
-      <Route path="/" element={<GCLanding />} />
+      {/* Public site */}
+      <Route path="/" element={<Home />} />
+      <Route path="/equipment" element={<Equipment />} />
+      <Route path="/reserve" element={<Reserve />} />
+
+      {/* Ground Control dashboard (member portal) */}
       <Route element={<GCLayout />}>
         <Route path="/dashboard" element={<GCDashboard />} />
         <Route path="/dashboard/fleet" element={<GCFleet />} />
@@ -47,14 +47,13 @@ const AuthenticatedApp = () => {
         <Route path="/dashboard/alerts" element={<GCDashboard />} />
         <Route path="/dashboard/settings" element={<GCDashboard />} />
       </Route>
+
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };
 
-
 function App() {
-
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
@@ -64,7 +63,7 @@ function App() {
         <Toaster />
       </QueryClientProvider>
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;

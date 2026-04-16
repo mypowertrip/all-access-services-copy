@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Gauge, Ruler, Weight } from 'lucide-react';
 
-const BOOM_IMG = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&fit=crop";
-const SCISSOR_IMG = "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?w=800&fit=crop";
-const TELEHANDLER_IMG = "https://images.unsplash.com/photo-1611095973763-414019e72400?w=800&fit=crop";
-const LOWLEVEL_IMG = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&fit=crop";
-const FORKLIFT_IMG = "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&fit=crop";
+const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/85ca86919_generated_image.png";
+const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/305282a55_generated_image.png";
+const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/98a96e5cb_generated_image.png";
+const LOWLEVEL_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/004ceff0b_generated_image.png";
+const FORKLIFT_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/75f563281_generated_image.png";
 
 const equipment = [
   {
@@ -86,9 +86,9 @@ export default function EquipmentTypesSection() {
               className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500"
             >
               {/* Image */}
-              <div className="aspect-[4/3] relative overflow-hidden">
-                <img src={eq.img} alt={eq.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent" />
+              <div className="aspect-[4/3] relative overflow-hidden bg-zinc-800">
+                <img src={eq.img} alt={eq.name} className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent" />
                 
                 {/* Number badge */}
                 <div className="absolute top-4 left-4 w-10 h-10 border border-orange-500/50 flex items-center justify-center font-barlow text-orange-500 font-bold">

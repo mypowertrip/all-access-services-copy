@@ -18,8 +18,8 @@ const AuthenticatedApp = () => {
 
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-white">
-        <div className="w-7 h-7 border-3 border-slate-200 border-t-orange rounded-full animate-spin" style={{ borderWidth: 3, borderTopColor: 'hsl(22 96% 51%)' }} />
+      <div className="fixed inset-0 flex items-center justify-center bg-black">
+        <div className="w-7 h-7 border-3 border-zinc-800 border-t-orange rounded-full animate-spin" style={{ borderWidth: 3, borderTopColor: 'hsl(24 100% 50%)' }} />
       </div>
     );
   }

@@ -1,0 +1,113 @@
+import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react';
+
+const footerLinks = {
+  'Equipment': ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments'],
+  'Services': ['Equipment Rentals', 'Equipment Sales', 'Service & Repair', 'Parts Store', 'Training'],
+  'Company': ['About Us', 'Our Locations', 'Careers', 'Contact Us', 'Blog'],
+  'Support': ['Request a Quote', 'Schedule Service', 'Resources', 'FAQ', 'Safety Information'],
+};
+
+export default function Footer() {
+  return (
+    <footer className="bg-black border-t border-zinc-900">
+      {/* Main footer */}
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-12">
+          {/* Brand column */}
+          <div className="lg:col-span-2">
+            <a href="/" className="flex items-center gap-2 mb-6 group">
+              <div className="relative">
+                <div className="w-10 h-10 bg-orange-500 flex items-center justify-center font-barlow font-bold text-black text-lg">
+                  AA
+                </div>
+              </div>
+              <div>
+                <div className="font-barlow text-white font-bold text-xl leading-none tracking-wider">ALL ACCESS</div>
+                <div className="text-orange-500 text-[9px] tracking-[0.25em] uppercase font-semibold">Services</div>
+              </div>
+            </a>
+            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
+              Southern California's premier aerial work platform rental, sales, and service provider. JLG Authorized Dealer.
+            </p>
+            <div className="space-y-3">
+              <a href="tel:8887775990" className="flex items-center gap-3 text-orange-400 font-semibold text-sm hover:text-orange-300 transition-colors">
+                <Phone className="w-4 h-4" />
+                888-777-5990
+              </a>
+              <a href="mailto:info@allaccessservices.com" className="flex items-center gap-3 text-gray-400 text-sm hover:text-orange-400 transition-colors">
+                <Mail className="w-4 h-4" />
+                info@allaccessservices.com
+              </a>
+            </div>
+
+            {/* Social */}
+            <div className="flex items-center gap-4 mt-8">
+              {[
+              { Icon: Facebook, label: 'Facebook' },
+              { Icon: Instagram, label: 'Instagram' },
+              { Icon: Linkedin, label: 'LinkedIn' },
+              { Icon: Youtube, label: 'YouTube' },
+            ].map(({ Icon, label }) => (
+                <a key={label} href="#" className="w-9 h-9 bg-zinc-900 hover:bg-orange-500 flex items-center justify-center text-gray-400 hover:text-black transition-all">
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Link columns */}
+          {Object.entries(footerLinks).map(([title, links]) => (
+            <div key={title}>
+              <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4">{title}</h3>
+              <ul className="space-y-2.5">
+                {links.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-gray-400 text-sm hover:text-orange-400 transition-colors">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Newsletter */}
+      <div className="border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h4 className="text-white font-bold mb-1">Get Inventory Updates</h4>
+              <p className="text-gray-500 text-sm">Be the first to know about new arrivals and special offers.</p>
+            </div>
+            <form className="flex w-full md:w-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 md:w-64 bg-zinc-900 border border-zinc-800 text-white text-sm px-4 py-3 focus:outline-none focus:border-orange-500 transition-colors"
+              />
+              <button type="submit" className="bg-orange-500 hover:bg-orange-400 text-black font-bold px-6 py-3 flex items-center gap-2 transition-colors">
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+            <p>© {new Date().getFullYear()} All Access Services. All rights reserved.</p>
+            <div className="flex items-center gap-6">
+              <a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-orange-400 transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-orange-400 transition-colors">Accessibility</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

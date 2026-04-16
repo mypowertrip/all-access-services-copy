@@ -3,7 +3,11 @@ module.exports = {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
-    extend: {
+  	extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        barlow: ['var(--font-barlow)'],
+      },
       fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
       borderRadius: {
         lg: 'var(--radius)',
@@ -44,5 +48,11 @@ module.exports = {
       }
     }
   },
+  safelist: [
+    'bg-orange-500', 'bg-teal-500', 'bg-teal-400', 'text-orange-500', 'text-orange-400', 
+    'text-teal-400', 'border-orange-500', 'border-teal-500', 'bg-zinc-900', 'bg-zinc-950',
+    'border-zinc-800', 'text-zinc-600', 'text-zinc-500', 'bg-green-500', 'text-green-400',
+    'bg-red-500'
+  ],
   plugins: [require("tailwindcss-animate")],
 }

@@ -104,7 +104,7 @@ export default function HeroSection() {
           >
             {[
               { val: '4', label: 'SoCal Locations' },
-              { val: '500+', label: 'Units in Fleet' },
+              { val: '3000+', label: 'Units in Fleet' },
               { val: '25+', label: 'Years Experience' },
               { val: '24/7', label: 'Support Available' },
             ].map((stat) => (

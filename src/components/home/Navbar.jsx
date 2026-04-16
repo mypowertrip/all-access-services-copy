@@ -59,7 +59,7 @@ export default function Navbar() {
             <img
               src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/77e6b1f2e_Gemini_Generated_Image_pixvcspixvcspixv1.png"
               alt="All Access Rentals"
-              className="h-40 w-auto object-contain"
+              className="h-60 w-auto object-contain"
             />
           </a>
 

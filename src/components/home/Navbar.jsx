@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react';
 import { Phone, MapPin, Menu, X, ChevronDown, Search } from 'lucide-react';
 
 const navLinks = [
-  {
-    label: 'Rentals',
-    children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments'],
-  },
-  {
-    label: 'Equipment for Sale',
-    children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory'],
-  },
-  { label: 'Parts Store' },
-  { label: 'Service & Repair' },
-  { label: 'Resources' },
-];
+{
+  label: 'Rentals',
+  children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments']
+},
+{
+  label: 'Equipment for Sale',
+  children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory']
+},
+{ label: 'Parts Store' },
+{ label: 'Service & Repair' },
+{ label: 'Resources' }];
+
 
 const locations = ['San Diego', 'Orange County', 'Riverside', 'Los Angeles'];
 
@@ -38,12 +38,12 @@ export default function Navbar() {
             888-777-5990
           </a>
           <div className="flex items-center gap-6">
-            {locations.map((loc) => (
-              <a key={loc} href="#locations" className="flex items-center gap-1 text-xs text-gray-400 hover:text-orange-400 transition-colors">
+            {locations.map((loc) =>
+            <a key={loc} href="#locations" className="flex items-center gap-1 text-xs text-gray-400 hover:text-orange-400 transition-colors">
                 <MapPin className="w-3 h-3" />
                 {loc}
               </a>
-            ))}
+            )}
           </div>
           <a href="#contact" className="bg-orange-500 hover:bg-orange-400 text-black text-xs font-bold px-4 py-1.5 transition-colors uppercase tracking-wider">
             Contact Us
@@ -57,41 +57,41 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <div className="w-10 h-10 bg-orange-500 flex items-center justify-center font-barlow font-900 text-black text-lg font-black">
+              <div className="w-10 h-10 bg-orange-500 flex items-center justify-center font-barlow font-900 text-black text-lg font-black hidden">
                 AA
               </div>
-              <div className="absolute -inset-0.5 bg-orange-500/30 blur-sm group-hover:bg-orange-400/40 transition-all" />
+              <div className="absolute -inset-0.5 bg-orange-500/30 blur-sm group-hover:bg-orange-400/40 transition-all hidden" />
             </div>
             <div>
-              <div className="font-barlow text-white font-bold text-xl leading-none tracking-wider">ALL ACCESS</div>
-              <div className="text-orange-500 text-[9px] tracking-[0.25em] uppercase font-semibold">Services</div>
+              <div className="font-barlow text-white font-bold text-xl leading-none tracking-wider hidden">ALL ACCESS</div>
+              <div className="text-orange-500 text-[9px] tracking-[0.25em] uppercase font-semibold hidden">Services</div>
             </div>
           </a>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <div
-                key={link.label}
-                className="relative group"
-                onMouseEnter={() => setActiveDropdown(link.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
+            {navLinks.map((link) =>
+            <div
+              key={link.label}
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown(link.label)}
+              onMouseLeave={() => setActiveDropdown(null)}>
+              
                 <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-300 hover:text-orange-400 transition-colors">
                   {link.label}
                   {link.children && <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />}
                 </button>
-                {link.children && activeDropdown === link.label && (
-                  <div className="absolute top-full left-0 mt-1 w-52 bg-black/95 border border-orange-500/20 backdrop-blur-md shadow-xl shadow-black/50 overflow-hidden">
-                    {link.children.map((child) => (
-                      <a key={child} href="#" className="block px-4 py-2.5 text-sm text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition-all border-b border-white/5 last:border-0">
+                {link.children && activeDropdown === link.label &&
+              <div className="absolute top-full left-0 mt-1 w-52 bg-black/95 border border-orange-500/20 backdrop-blur-md shadow-xl shadow-black/50 overflow-hidden">
+                    {link.children.map((child) =>
+                <a key={child} href="#" className="block px-4 py-2.5 text-sm text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition-all border-b border-white/5 last:border-0">
                         {child}
                       </a>
-                    ))}
-                  </div>
                 )}
+                  </div>
+              }
               </div>
-            ))}
+            )}
           </div>
 
           {/* Right actions */}
@@ -109,24 +109,24 @@ export default function Navbar() {
         </div>
 
         {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="lg:hidden bg-black/98 border-t border-white/5 px-4 py-4 space-y-1">
-            {navLinks.map((link) => (
-              <a key={link.label} href="#" className="block py-3 px-2 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+        {mobileOpen &&
+        <div className="lg:hidden bg-black/98 border-t border-white/5 px-4 py-4 space-y-1">
+            {navLinks.map((link) =>
+          <a key={link.label} href="#" className="block py-3 px-2 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                 {link.label}
               </a>
-            ))}
+          )}
             <div className="pt-4 space-y-2">
-              {locations.map((loc) => (
-                <div key={loc} className="flex items-center gap-2 text-xs text-gray-500 py-1">
+              {locations.map((loc) =>
+            <div key={loc} className="flex items-center gap-2 text-xs text-gray-500 py-1">
                   <MapPin className="w-3 h-3 text-orange-500" />
                   {loc}
                 </div>
-              ))}
+            )}
             </div>
           </div>
-        )}
+        }
       </nav>
-    </header>
-  );
+    </header>);
+
 }

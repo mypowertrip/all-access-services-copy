@@ -44,7 +44,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 mb-6"
           >
             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
-            <span className="text-orange-400 text-xs font-semibold tracking-widest uppercase">Southern California's #1 Equipment Provider</span>
+            <span className="text-orange-400 text-xs font-semibold tracking-widest uppercase">JLG's Only Factory Authorized Dealer and Service Center in the USA</span>
           </motion.div>
 
           {/* Headline */}

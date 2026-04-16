@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Gauge, Ruler, Weight } from 'lucide-react';
 
-const JLG_BASE = "https://www.jlg.com/_next/image?url=%2Fdfsmedia%2Fe4042b10c9ce4595b4cc059f1299f079%2F";
-
-const BOOM_IMG = JLG_BASE + "142273-source%2F450aj-extended-rear-lf-gallery-1600x1200&w=640&q=75";
-const SCISSOR_IMG = JLG_BASE + "149399-source%2Fae-davinci-series-plp-series-103024&w=640&q=75";
-const TELEHANDLER_IMG = JLG_BASE + "146631-source%2Fe313-350x350&w=640&q=75";
-const LOWLEVEL_IMG = JLG_BASE + "148143-source%2Fnon-powered-ecolifts-plp-series-103024&w=640&q=75";
+const BOOM_IMG = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&fit=crop";
+const SCISSOR_IMG = "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?w=800&fit=crop";
+const TELEHANDLER_IMG = "https://images.unsplash.com/photo-1611095973763-414019e72400?w=800&fit=crop";
+const LOWLEVEL_IMG = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&fit=crop";
 const FORKLIFT_IMG = "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&fit=crop";
 
 const equipment = [
@@ -90,7 +88,7 @@ export default function EquipmentTypesSection() {
               {/* Image */}
               <div className="aspect-[4/3] relative overflow-hidden">
                 <img src={eq.img} alt={eq.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent" />
                 
                 {/* Number badge */}
                 <div className="absolute top-4 left-4 w-10 h-10 border border-orange-500/50 flex items-center justify-center font-barlow text-orange-500 font-bold">

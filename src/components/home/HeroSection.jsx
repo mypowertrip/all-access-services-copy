@@ -52,7 +52,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-tight mb-6"
+            className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6"
           >
             <span className="text-white">REACH</span>
             <br />

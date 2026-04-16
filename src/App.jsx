@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
-import Landing from './pages/Landing';
-import Dashboard from './pages/Dashboard';
-import DashboardLayout from './components/dashboard/DashboardLayout';
+import GCLanding from './pages/GCLanding';
+import GCDashboard from './pages/GCDashboard';
+import GCFleet from './pages/GCFleet';
+import GCLayout from './components/gc/GCLayout';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -35,9 +36,16 @@ const AuthenticatedApp = () => {
   // Render the main app
   return (
     <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route element={<DashboardLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<GCLanding />} />
+      <Route element={<GCLayout />}>
+        <Route path="/dashboard" element={<GCDashboard />} />
+        <Route path="/dashboard/fleet" element={<GCFleet />} />
+        <Route path="/dashboard/map" element={<GCDashboard />} />
+        <Route path="/dashboard/maintenance" element={<GCDashboard />} />
+        <Route path="/dashboard/equipment" element={<GCDashboard />} />
+        <Route path="/dashboard/rentals" element={<GCDashboard />} />
+        <Route path="/dashboard/alerts" element={<GCDashboard />} />
+        <Route path="/dashboard/settings" element={<GCDashboard />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>

@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Gauge, Ruler, Weight } from 'lucide-react';
 
-const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/85ca86919_generated_image.png";
-const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/305282a55_generated_image.png";
-const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/98a96e5cb_generated_image.png";
-const LOWLEVEL_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/004ceff0b_generated_image.png";
+const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/d691b3fe6_boom-lift.png";
+const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/45bbda75b_scissor-lift.png";
+const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8f9a3cf95_telehandler.png";
+const LOWLEVEL_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/ae9c0d38b_low-level-access.png";
 const FORKLIFT_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/75f563281_generated_image.png";
 
 const equipment = [

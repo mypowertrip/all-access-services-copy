@@ -1,18 +1,12 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Gauge, Ruler, Weight } from 'lucide-react';
 
-const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png";
 const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b576b6a80_generated_91f959ee.png";
-const KNUCKLE_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/0661309d6_generated_e5ffb81d.png";
+const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png";
 const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/01c29d10b_generated_459b7c93.png";
+const LOWLEVEL_IMG = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&fit=crop";
 
 const equipment = [
-  {
-    name: 'Scissor Lifts',
-    subtitle: 'Vertical Access',
-    img: SCISSOR_IMG,
-    specs: { height: '20-60 ft', capacity: '500-1500 lbs', types: '10+ models' },
-  },
   {
     name: 'Boom Lifts',
     subtitle: 'Extended Reach',
@@ -20,16 +14,22 @@ const equipment = [
     specs: { height: '40-185 ft', capacity: '500-1000 lbs', types: '15+ models' },
   },
   {
-    name: 'Knuckle Booms',
-    subtitle: 'Articulating',
-    img: KNUCKLE_IMG,
-    specs: { height: '40-135 ft', capacity: '500-1000 lbs', types: '12+ models' },
+    name: 'Scissor Lifts',
+    subtitle: 'Vertical Access',
+    img: SCISSOR_IMG,
+    specs: { height: '20-60 ft', capacity: '500-1500 lbs', types: '10+ models' },
   },
   {
     name: 'Telehandlers',
     subtitle: 'Material Handling',
     img: TELEHANDLER_IMG,
     specs: { height: '20-55 ft', capacity: '5000-12000 lbs', types: '8+ models' },
+  },
+  {
+    name: 'Low Level Access',
+    subtitle: 'Ground Level',
+    img: LOWLEVEL_IMG,
+    specs: { height: '6-20 ft', capacity: '250-800 lbs', types: '6+ models' },
   },
 ];
 

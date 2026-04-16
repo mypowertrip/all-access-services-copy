@@ -42,13 +42,15 @@ const equipment = [
 
 export default function EquipmentTypesSection() {
   return (
-    <section className="bg-gradient-to-b from-black via-zinc-950 to-black py-24 relative overflow-hidden">
+    <section className="bg-[#111111] py-24 relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 grid-bg opacity-10" />
       
-      {/* Glow effects */}
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
+      {/* ClearSky hex decorations */}
+      <svg className="absolute right-0 top-0 w-96 opacity-5 text-teal-400 pointer-events-none" viewBox="0 0 200 200" fill="none">
+        <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+      </svg>
+      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4">
         {/* Header */}

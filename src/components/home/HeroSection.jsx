@@ -20,8 +20,18 @@ export default function HeroSection() {
         <div className="absolute inset-0 grid-bg opacity-30" />
       </div>
 
-      {/* Orange accent line */}
+      {/* Accent lines */}
       <div className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-orange-500 to-transparent" />
+      <div className="absolute right-0 top-1/3 bottom-1/3 w-px bg-gradient-to-b from-transparent via-teal-500/40 to-transparent" />
+
+      {/* ClearSky hex decoration */}
+      <svg className="absolute right-8 top-32 w-64 opacity-10 text-teal-400 pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none">
+        <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+        <polygon points="100,30 148,57.5 148,112.5 100,140 52,112.5 52,57.5" stroke="currentColor" strokeWidth="0.75" fill="none"/>
+      </svg>
+      <svg className="absolute right-48 top-16 w-40 opacity-5 text-teal-400 pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none">
+        <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+      </svg>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20 md:pt-40">
@@ -102,6 +112,10 @@ export default function HeroSection() {
                 <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
+            <div className="ml-auto hidden md:flex items-center gap-2 border border-teal-500/30 bg-teal-500/5 px-4 py-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+              <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">ClearSky™ Connected Fleet</span>
+            </div>
           </motion.div>
         </div>
       </div>

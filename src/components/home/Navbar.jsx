@@ -52,7 +52,7 @@ export default function Navbar() {
       </div>
 
       {/* Main nav */}
-      <nav className={`transition-all duration-300 ${scrolled ? 'bg-black/95 backdrop-blur-md shadow-lg shadow-black/50' : 'bg-black/80 backdrop-blur-sm'} border-b border-white/5`}>
+      <nav className={`transition-all duration-300 ${scrolled ? 'bg-[#111111]/98 backdrop-blur-md shadow-lg shadow-black/80 border-b border-teal-500/10' : 'bg-[#111111]/80 backdrop-blur-sm border-b border-white/5'}`}>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
           {/* Logo */}
           <a href="/" className="flex items-center group">

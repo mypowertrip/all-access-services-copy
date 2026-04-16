@@ -8,7 +8,7 @@ module.exports = {
         inter: ['var(--font-inter)'],
         barlow: ['var(--font-barlow)'],
       },
-      fontFamily: { inter: ['Inter', 'system-ui', 'sans-serif'] },
+      fontFamily: { 'dm-sans': ['DM Sans', 'system-ui', 'sans-serif'], barlow: ['Barlow Condensed', 'sans-serif'] },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

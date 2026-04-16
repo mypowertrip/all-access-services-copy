@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Gauge, Ruler, Weight } from 'lucide-react';
 
-const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b576b6a80_generated_91f959ee.png";
-const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png";
-const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/01c29d10b_generated_459b7c93.png";
-const LOWLEVEL_IMG = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&fit=crop";
+const JLG_BASE = "https://www.jlg.com/_next/image?url=%2Fdfsmedia%2Fe4042b10c9ce4595b4cc059f1299f079%2F";
+
+const BOOM_IMG = JLG_BASE + "142273-source%2F450aj-extended-rear-lf-gallery-1600x1200&w=640&q=75";
+const SCISSOR_IMG = JLG_BASE + "149399-source%2Fae-davinci-series-plp-series-103024&w=640&q=75";
+const TELEHANDLER_IMG = JLG_BASE + "146631-source%2Fe313-350x350&w=640&q=75";
+const LOWLEVEL_IMG = JLG_BASE + "148143-source%2Fnon-powered-ecolifts-plp-series-103024&w=640&q=75";
+const FORKLIFT_IMG = "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&fit=crop";
 
 const equipment = [
   {
@@ -30,6 +33,12 @@ const equipment = [
     subtitle: 'Ground Level',
     img: LOWLEVEL_IMG,
     specs: { height: '6-20 ft', capacity: '250-800 lbs', types: '6+ models' },
+  },
+  {
+    name: 'Forklifts',
+    subtitle: 'Load & Carry',
+    img: FORKLIFT_IMG,
+    specs: { height: 'Up to 20 ft', capacity: '3000-15000 lbs', types: '10+ models' },
   },
 ];
 
@@ -68,7 +77,7 @@ export default function EquipmentTypesSection() {
         </div>
 
         {/* Equipment grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {equipment.map((eq, i) => (
             <motion.div
               key={eq.name}

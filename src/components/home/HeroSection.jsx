@@ -107,6 +107,7 @@ export default function HeroSection() {
               { val: '3000+', label: 'Units in Fleet' },
               { val: '25+', label: 'Years Experience' },
               { val: '24/7', label: 'Support Available' },
+              { val: '150+', label: 'Team Members' },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="font-barlow text-3xl font-black text-orange-500">{stat.val}</div>

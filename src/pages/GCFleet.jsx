@@ -79,16 +79,17 @@ export default function GCFleet() {
 
         {/* Table */}
         <div className="rounded-lg border border-border bg-card overflow-hidden">
-          <table className="w-full">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[640px]">
             <thead>
               <tr className="bg-muted/40">
                 <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Unit</th>
                 <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Model</th>
                 <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Status</th>
-                <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Site</th>
-                <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Fuel / Battery</th>
-                <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Total Hrs</th>
-                <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Next Service</th>
+                <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground hidden sm:table-cell">Site</th>
+                <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Fuel</th>
+                <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground hidden md:table-cell">Total Hrs</th>
+                <th className="text-left px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-muted-foreground hidden md:table-cell">Next Service</th>
                 <th className="px-4 py-3"></th>
               </tr>
             </thead>
@@ -96,6 +97,7 @@ export default function GCFleet() {
               {filtered.map(u => <FleetUnitRow key={u.id} unit={u} />)}
             </tbody>
           </table>
+          </div>
           {filtered.length === 0 && (
             <div className="py-16 text-center text-sm text-muted-foreground">No units match your filter.</div>
           )}

@@ -33,7 +33,7 @@ export default function GCDashboard() {
     <div className="min-h-screen">
       <Topbar title="Dashboard" breadcrumb="Overview" />
 
-      <div className="p-6 space-y-6">
+      <div className="p-3 md:p-6 space-y-4 md:space-y-6">
         {/* KPI Row */}
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-3">
           <KpiCard label="Active Units" value="14" sub="of 16 total" trend="2 from yesterday" trendDir="up" color="green" />
@@ -44,7 +44,7 @@ export default function GCDashboard() {
         </div>
 
         {/* Map + Alerts */}
-        <div className="grid lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
           {/* Map */}
           <div className="lg:col-span-3 rounded-lg border border-border bg-card overflow-hidden">
             <div className="flex items-center justify-between px-4 py-3 border-b border-border">
@@ -79,7 +79,7 @@ export default function GCDashboard() {
         </div>
 
         {/* Hours Chart + Recent Rentals */}
-        <div className="grid lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
           {/* Chart */}
           <div className="lg:col-span-2 rounded-lg border border-border bg-card p-4">
             <div className="mb-4">
@@ -116,7 +116,8 @@ export default function GCDashboard() {
               </div>
               <button className="text-[10px] font-bold text-primary hover:underline">View All</button>
             </div>
-            <table className="w-full">
+            <div className="overflow-x-auto">
+            <table className="w-full min-w-[480px]">
               <thead>
                 <tr className="border-b border-border bg-muted/30">
                   <th className="text-left px-4 py-2.5 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">ID</th>
@@ -143,6 +144,7 @@ export default function GCDashboard() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </div>

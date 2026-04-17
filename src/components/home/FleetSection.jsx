@@ -3,9 +3,11 @@ import { MapPin, Smartphone, Globe, Zap, Shield, BarChart3, Wifi, Wrench, Lock, 
 
 // ClearSky hexagon SVG — matches JLG site exactly
 const HexOutline = ({ className }) => (
-  <svg className={className} viewBox="0 0 120 138" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="60,4 116,34 116,104 60,134 4,104 4,34" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-  </svg>
+  <span className={className} style={{ display: 'inline-flex' }}>
+    <svg viewBox="0 0 120 138" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <polygon points="60,4 116,34 116,104 60,134 4,104 4,34" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+    </svg>
+  </span>
 );
 
 const mobileFeatures = [

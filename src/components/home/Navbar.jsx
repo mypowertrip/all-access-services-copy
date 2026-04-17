@@ -97,6 +97,9 @@ export default function Navbar() {
             <a href="tel:8887775990" className="hidden md:flex items-center gap-2 text-orange-500 text-sm font-semibold">
               <Phone className="w-4 h-4" />
             </a>
+            <a href="/dashboard" className="hidden md:inline-flex items-center gap-2 border border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-black font-bold text-xs uppercase tracking-widest px-4 py-2 transition-all">
+              Customer Portal
+            </a>
             <button className="lg:hidden text-gray-300 p-2" onClick={() => setMobileOpen(!mobileOpen)}>
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>

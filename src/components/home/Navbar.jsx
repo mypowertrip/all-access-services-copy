@@ -57,9 +57,9 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center group">
             <img
-              src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/77e6b1f2e_Gemini_Generated_Image_pixvcspixvcspixv1.png"
-              alt="All Access Rentals"
-              className="h-12 w-auto object-contain"
+              src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/3f208d8e6_Gemini_Generated_Image_s7mhb8s7mhb8s7mh1.png"
+              alt="All Access Services"
+              className="h-16 w-auto object-contain"
             />
           </a>
 

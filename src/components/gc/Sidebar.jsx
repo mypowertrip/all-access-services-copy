@@ -49,14 +49,12 @@ export default function Sidebar() {
   return (
     <aside className="w-60 h-screen bg-card border-r border-border flex flex-col fixed left-0 top-0 z-40">
       {/* Brand */}
-      <div className="h-16 flex items-center px-3 border-b border-border">
-        <Link to="/">
-          <img
-            src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/43e14deaf_Gemini_Generated_Image_s7mhb8s7mhb8s7mh1.png"
-            alt="All Access Services"
-            className="h-12 w-auto object-contain"
-          />
-        </Link>
+      <div className="h-14 flex items-center gap-3 px-4 border-b border-border">
+        <GCLogo size={28} />
+        <div>
+          <div className="text-xs font-black tracking-widest uppercase text-foreground leading-none">Ground Control</div>
+          <div className="text-[9px] font-bold tracking-widest text-muted-foreground uppercase mt-0.5">Fleet Intelligence</div>
+        </div>
       </div>
 
       {/* Account */}

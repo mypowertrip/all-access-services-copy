@@ -21,7 +21,7 @@ const pillars = [
   },
   {
     icon: HardHat,
-    title: 'Your Team's Safety Matters',
+    title: "Your Team's Safety Matters",
     body: 'We take the safety of you and your entire crew seriously. Every machine that leaves our yard has been rigorously inspected and cleared for safe operation.',
   },
 ];

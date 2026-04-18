@@ -55,7 +55,7 @@ export default function HeroSection() {
             
             
             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
-            <span className="text-sky-400 text-xs font-semibold uppercase tracking-widest">JLG'S ONLY FACTORY AUTHORIZED DEALER AND SERVICE CENTER IN THE USA</span>
+            <span className="text-sky-400 text-xs font-semibold uppercase tracking-widest">SAFETY IS OUR TOP PRIORITY - CLICK TO LEARN MORE</span>
           </motion.div>
 
           {/* Headline */}

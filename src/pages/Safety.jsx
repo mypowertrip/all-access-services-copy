@@ -12,7 +12,7 @@ const pillars = [
   {
     icon: Award,
     title: 'Factory Authorized Technicians',
-    body: 'Every one of our techs is factory authorized by JLG, the industry leader in aerial work platforms. That means your equipment meets the highest standards — every time.',
+    body: "JLG, the industry leader in aerial work platforms, certifies every one of our technicians prior to them beginning our intensive apprenticeship program. All safety sensitive repairs are checked and signed off by two qualified technicians before they go into service. That means your equipment meets the highest standards every time.",
   },
   {
     icon: Wrench,

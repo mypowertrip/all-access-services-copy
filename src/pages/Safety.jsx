@@ -7,7 +7,7 @@ const pillars = [
   {
     icon: ShieldCheck,
     title: 'Safety First, Always',
-    body: 'Safety is not a checkbox — it's the foundation of everything we do. When working at heights, lives are on the line, and we never forget that.',
+    body: "Safety is not a checkbox — it's the foundation of everything we do. When working at heights, lives are on the line, and we never forget that.",
   },
   {
     icon: Award,

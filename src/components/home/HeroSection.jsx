@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-const cycleWords = ['SMARTER.', 'SAFER.', 'SAFER.', 'STRONGER.'];
+const cycleWords = ['SMARTER.', 'SAFER.', 'STRONGER.'];
 
 function CyclingWord() {
   const [index, setIndex] = useState(0);
@@ -10,7 +10,7 @@ function CyclingWord() {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex(i => (i + 1) % cycleWords.length);
-    }, 1800);
+    }, 2800);
     return () => clearInterval(timer);
   }, []);
 
@@ -21,7 +21,7 @@ function CyclingWord() {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -8 }}
-        transition={{ duration: 0.25 }}
+        transition={{ duration: 0.15 }}
         style={{ WebkitTextStroke: '2px white', color: 'transparent', display: 'inline-block' }}
       >
         {cycleWords[index]}

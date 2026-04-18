@@ -2,60 +2,31 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-const cycleWords = ['SMARTER.', 'SAFER.', 'STRONGER.'];
+const cycleWords = ['SMARTER.', 'SAFER.', 'SAFER.', 'STRONGER.'];
 
 function CyclingWord() {
   const [index, setIndex] = useState(0);
-  const [flickering, setFlickering] = useState(false);
 
   useEffect(() => {
-    let wordTimer;
-    let loopTimer;
-    let iteration = 0;
-
-    const runCycle = () => {
-      setFlickering(true);
-      setTimeout(() => {
-        setFlickering(false);
-        iteration++;
-        if (iteration < cycleWords.length) {
-          setIndex(iteration);
-          wordTimer = setTimeout(runCycle, 2000);
-        } else {
-          // loop
-          iteration = 0;
-          setIndex(0);
-          loopTimer = setTimeout(runCycle, 2000);
-        }
-      }, 400);
-    };
-
-    wordTimer = setTimeout(runCycle, 2000);
-    return () => { clearTimeout(wordTimer); clearTimeout(loopTimer); };
+    const timer = setInterval(() => {
+      setIndex(i => (i + 1) % cycleWords.length);
+    }, 1800);
+    return () => clearInterval(timer);
   }, []);
 
   return (
-    <motion.span
-      animate={flickering ? {
-        opacity: [1, 0.1, 0.8, 0, 1, 0.3, 1],
-        filter: [
-          'drop-shadow(0 0 6px rgba(255,255,255,0.9)) drop-shadow(0 0 14px rgba(255,255,255,0.4))',
-          'drop-shadow(0 0 1px rgba(255,255,255,0.2))',
-          'drop-shadow(0 0 10px rgba(255,255,255,0.8)) drop-shadow(0 0 24px rgba(255,255,255,0.3))',
-          'drop-shadow(0 0 0px rgba(255,255,255,0))',
-          'drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 20px rgba(255,255,255,0.4))',
-          'drop-shadow(0 0 2px rgba(255,255,255,0.3))',
-          'drop-shadow(0 0 7px rgba(255,255,255,0.8)) drop-shadow(0 0 18px rgba(255,255,255,0.35))',
-        ],
-      } : {
-        opacity: 1,
-        filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.6)) drop-shadow(0 0 16px rgba(255,255,255,0.2))',
-      }}
-      transition={{ duration: 0.4 }}
-      style={{ WebkitTextStroke: '2px white', color: 'transparent', display: 'inline-block' }}
-    >
-      {cycleWords[index]}
-    </motion.span>
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={index}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.25 }}
+        style={{ WebkitTextStroke: '2px white', color: 'transparent', display: 'inline-block' }}
+      >
+        {cycleWords[index]}
+      </motion.span>
+    </AnimatePresence>
   );
 }
 

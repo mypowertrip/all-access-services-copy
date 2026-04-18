@@ -21,8 +21,8 @@ const pillars = [
   },
   {
     icon: HardHat,
-    title: "Your Team's Safety Matters",
-    body: 'We take the safety of you and your entire crew seriously. Every machine that leaves our yard has been rigorously inspected and cleared for safe operation.',
+    title: "OSHA-Approved & Beyond",
+    body: "While our training programs are OSHA-approved, our curriculum goes much further and we take this responsibility very seriously. Our training is built on decades of real-world experience, giving operators practical insight into how the equipment works — including the underlying physics of aerial work platforms. We ensure trainees learn what can go wrong on a job site, what to watch for, and how to properly inspect equipment before use.",
   },
 ];
 

@@ -22,7 +22,7 @@ const pillars = [
   {
     icon: HardHat,
     title: "OSHA-Approved & Beyond",
-    body: "While our training programs are OSHA-approved, our curriculum goes much further and we take this responsibility very seriously. Our training is built on decades of real-world experience, giving operators practical insight into how the equipment works — including the underlying physics of aerial work platforms. We ensure trainees learn what can go wrong on a job site, what to watch for, and how to properly inspect equipment before use. This deeper understanding helps operators grasp critical factors like counterweights and ground conditions. As a result, they not only feel more confident working at height, but are also better prepared to identify potential hazards before they become problems.",
+    body: "Our OSHA-approved training is the baseline—not the limit. We take it further by grounding every course in decades of real-world experience and a clear understanding of how aerial work platforms actually function, including the physics behind them. Operators aren't just shown how to use the equipment—they learn why it works, what can fail, and how to recognize risks before they escalate. We emphasize proper pre-use inspections, job site awareness, and critical factors like counterweights and ground conditions. The result is an operator who is not only compliant, but capable—more confident at height and better equipped to identify and prevent potential hazards.",
   },
 ];
 

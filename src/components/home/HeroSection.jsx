@@ -40,8 +40,8 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 mb-6">
+            transition={{ duration: 0.6 }} className="bg-transparent text-[hsl(var(--accent))] mb-6 px-4 py-1.5 inline-flex items-center gap-2 border border-orange-500/40">
+            
             
             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
             <span className="text-sky-400 text-xs font-semibold uppercase tracking-widest">JLG'S ONLY FACTORY AUTHORIZED DEALER AND SERVICE CENTER IN THE USA</span>

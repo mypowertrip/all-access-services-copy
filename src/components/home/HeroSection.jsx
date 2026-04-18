@@ -2,31 +2,60 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
-const cycleWords = ['SMARTER.', 'SAFER.', 'SAFER.', 'STRONGER.'];
+const cycleWords = ['SMARTER.', 'SAFER.', 'STRONGER.'];
 
 function CyclingWord() {
   const [index, setIndex] = useState(0);
+  const [flickering, setFlickering] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex(i => (i + 1) % cycleWords.length);
-    }, 1800);
-    return () => clearInterval(timer);
+    let wordTimer;
+    let loopTimer;
+    let iteration = 0;
+
+    const runCycle = () => {
+      setFlickering(true);
+      setTimeout(() => {
+        setFlickering(false);
+        iteration++;
+        if (iteration < cycleWords.length) {
+          setIndex(iteration);
+          wordTimer = setTimeout(runCycle, 2000);
+        } else {
+          // loop
+          iteration = 0;
+          setIndex(0);
+          loopTimer = setTimeout(runCycle, 2000);
+        }
+      }, 400);
+    };
+
+    wordTimer = setTimeout(runCycle, 2000);
+    return () => { clearTimeout(wordTimer); clearTimeout(loopTimer); };
   }, []);
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.span
-        key={index}
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -8 }}
-        transition={{ duration: 0.25 }}
-        style={{ WebkitTextStroke: '2px white', color: 'transparent', display: 'inline-block' }}
-      >
-        {cycleWords[index]}
-      </motion.span>
-    </AnimatePresence>
+    <motion.span
+      animate={flickering ? {
+        opacity: [1, 0.1, 0.8, 0, 1, 0.3, 1],
+        textShadow: [
+          '0 0 8px #fff, 0 0 20px #fff',
+          '0 0 2px #fff',
+          '0 0 15px #fff, 0 0 40px rgba(255,255,255,0.5)',
+          'none',
+          '0 0 10px #fff, 0 0 30px #fff',
+          '0 0 3px #fff',
+          '0 0 12px #fff, 0 0 35px rgba(255,255,255,0.6)',
+        ],
+      } : {
+        opacity: 1,
+        textShadow: '0 0 12px rgba(255,255,255,0.7), 0 0 30px rgba(255,255,255,0.3)',
+      }}
+      transition={{ duration: 0.4 }}
+      style={{ WebkitTextStroke: '2px white', color: 'transparent', display: 'inline-block' }}
+    >
+      {cycleWords[index]}
+    </motion.span>
   );
 }
 

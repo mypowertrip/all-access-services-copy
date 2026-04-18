@@ -110,7 +110,7 @@ export default function HeroSection() {
               className="group inline-flex items-center gap-3 border border-white/30 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-sm uppercase tracking-widest px-8 py-4 transition-all"
             >
               <Play className="w-4 h-4" />
-              View Inventory
+              View Rentals
             </a>
           </motion.div>
 

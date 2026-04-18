@@ -45,9 +45,7 @@ export default function Navbar() {
 
 
           
-          <a href="#contact" className="bg-orange-500 hover:bg-orange-400 text-black text-xs font-bold px-4 py-1.5 transition-colors uppercase tracking-wider">
-            Contact Us
-          </a>
+          <div />
         </div>
       </div>
 

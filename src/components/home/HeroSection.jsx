@@ -31,9 +31,6 @@ function CyclingWord() {
 }
 
 const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
-const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/d691b3fe6_boom-lift.png";
-const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/45bbda75b_scissor-lift.png";
-const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8f9a3cf95_telehandler.png";
 
 export default function HeroSection() {
   return (
@@ -45,8 +42,8 @@ export default function HeroSection() {
           alt="Boom lift at construction site"
           className="w-full h-full object-cover"
         />
-        {/* Dark overlays — left side stays dark, right side lighter */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/30" />
+        {/* Dark overlays */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
         {/* Grid overlay */}
         <div className="absolute inset-0 grid-bg opacity-30" />
@@ -64,51 +61,6 @@ export default function HeroSection() {
       <svg className="absolute right-48 top-16 w-40 opacity-5 text-teal-400 pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none">
         <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
       </svg>
-
-      {/* Equipment images — right side, visible on large screens */}
-      <div className="absolute right-0 inset-y-0 hidden xl:flex flex-col items-end justify-center gap-4 pr-8 pointer-events-none" style={{ width: '38%' }}>
-        {/* Boom lift — tallest, top */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="relative w-52"
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded" />
-          <img src={BOOM_IMG} alt="Boom Lift" className="w-full object-contain drop-shadow-2xl" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.7))' }} />
-          <div className="absolute bottom-1 left-0 right-0 text-center">
-            <span className="text-[9px] font-black uppercase tracking-widest text-teal-400/80">Boom Lift</span>
-          </div>
-        </motion.div>
-
-        {/* Telehandler — middle */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="relative w-44 self-end mr-16"
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded" />
-          <img src={TELEHANDLER_IMG} alt="Telehandler" className="w-full object-contain drop-shadow-2xl" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.7))' }} />
-          <div className="absolute bottom-1 left-0 right-0 text-center">
-            <span className="text-[9px] font-black uppercase tracking-widest text-orange-400/80">Telehandler</span>
-          </div>
-        </motion.div>
-
-        {/* Scissor lift — bottom */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="relative w-36"
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded" />
-          <img src={SCISSOR_IMG} alt="Scissor Lift" className="w-full object-contain drop-shadow-2xl" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.7))' }} />
-          <div className="absolute bottom-1 left-0 right-0 text-center">
-            <span className="text-[9px] font-black uppercase tracking-widest text-teal-400/80">Scissor Lift</span>
-          </div>
-        </motion.div>
-      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20 md:pt-40">

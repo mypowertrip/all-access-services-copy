@@ -30,7 +30,7 @@ function CyclingWord() {
   );
 }
 
-const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
+const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/bc25fc58a_generated_image.png";
 
 export default function HeroSection() {
   return (
@@ -43,8 +43,8 @@ export default function HeroSection() {
           className="w-full h-full object-cover"
         />
         {/* Dark overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/65 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
         {/* Grid overlay */}
         <div className="absolute inset-0 grid-bg opacity-30" />
       </div>

@@ -1,5 +1,34 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+const cycleWords = ['SMARTER.', 'SAFER.', 'SAFER.', 'STRONGER.'];
+
+function CyclingWord() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex(i => (i + 1) % cycleWords.length);
+    }, 1800);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={index}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.25 }}
+        style={{ WebkitTextStroke: '2px white', color: 'transparent', display: 'inline-block' }}
+      >
+        {cycleWords[index]}
+      </motion.span>
+    </AnimatePresence>
+  );
+}
 
 const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
 
@@ -59,7 +88,7 @@ export default function HeroSection() {
             <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>HIGHER.</span>
             <br />
             <span className="text-white">WORK </span>
-            <span style={{ WebkitTextStroke: '2px white', color: 'transparent' }}>SMARTER.</span>
+            <CyclingWord />
           </motion.h1>
 
           {/* CTA buttons */}

@@ -57,7 +57,8 @@ export default function Navbar() {
             <img
               src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/7e6af21eb_Gemini_Generated_Image_k4mqi7k4mqi7k4mq.png"
               alt="All Access Services"
-              className="h-12 w-auto object-contain"
+              className="h-14 w-auto object-contain"
+              style={{ mixBlendMode: 'screen', maxWidth: '200px' }}
             />
           </a>
 

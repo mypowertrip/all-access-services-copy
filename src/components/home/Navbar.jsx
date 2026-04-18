@@ -2,17 +2,21 @@ import { useState, useEffect } from 'react';
 import { Phone, MapPin, Menu, X, ChevronDown, Search, LogIn } from 'lucide-react';
 
 const navLinks = [
-{
-  label: 'Rentals',
-  children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments']
-},
-{
-  label: 'Equipment for Sale',
-  children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory']
-},
-{ label: 'Parts Store' },
-{ label: 'Service & Repair' },
-{ label: 'Resources' }];
+  {
+    label: 'Rentals',
+    children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments']
+  },
+  {
+    label: 'Sales',
+    children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory']
+  },
+  { label: 'Parts' },
+  { label: 'Service' },
+  {
+    label: 'More',
+    children: ['About Us', 'Contact', 'Locations', 'Manuals', 'Resources']
+  }
+];
 
 
 const locations = ['San Diego', 'Orange County', 'Riverside', 'Los Angeles'];

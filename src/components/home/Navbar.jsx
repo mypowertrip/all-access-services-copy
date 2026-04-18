@@ -59,7 +59,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-3">
             {mainNavLinks.map((link) => (
               <div
                 key={link.label}
@@ -86,7 +86,17 @@ export default function Navbar() {
 
           {/* Right actions */}
           <div className="flex items-center gap-2">
-            <button className="text-gray-400 hover:text-orange-400 transition-colors p-2">
+            {/* Search field */}
+            <div className="relative hidden md:block">
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-500 pointer-events-none" />
+              <input
+                type="text"
+                placeholder="Search..."
+                className="pl-8 pr-3 h-8 w-40 bg-white/5 border border-white/10 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500/60 transition-colors placeholder-gray-600"
+              />
+            </div>
+            {/* Mobile search icon */}
+            <button className="md:hidden text-gray-400 hover:text-orange-400 transition-colors p-2">
               <Search className="w-4 h-4" />
             </button>
 

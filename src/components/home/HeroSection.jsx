@@ -1,34 +1,5 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
-import { useState, useEffect } from 'react';
-
-const cycleWords = ['SMARTER.', 'SAFER.', 'STRONGER.'];
-
-function CyclingWord() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex(i => (i + 1) % cycleWords.length);
-    }, 2800);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <AnimatePresence mode="wait">
-      <motion.span
-        key={index}
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -8 }}
-        transition={{ duration: 0.15 }}
-        style={{ WebkitTextStroke: '2px white', color: 'transparent', display: 'inline-block' }}
-      >
-        {cycleWords[index]}
-      </motion.span>
-    </AnimatePresence>
-  );
-}
 
 const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
 
@@ -54,7 +25,7 @@ export default function HeroSection() {
       <div className="absolute right-0 top-1/3 bottom-1/3 w-px bg-gradient-to-b from-transparent via-teal-500/40 to-transparent" />
 
       {/* ClearSky hex decoration */}
-      <svg className="absolute right-8 top-32 w-64 opacity-10 text-teal-400 pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+      <svg className="absolute right-8 top-32 w-64 opacity-10 text-teal-400 pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none">
         <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
         <polygon points="100,30 148,57.5 148,112.5 100,140 52,112.5 52,57.5" stroke="currentColor" strokeWidth="0.75" fill="none"/>
       </svg>
@@ -73,7 +44,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 mb-6"
           >
             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
-            <span className="text-orange-400 text-xs font-semibold tracking-widest uppercase">JLG's Only Factory Authorized Dealer in the USA</span>
+            <span className="text-orange-400 text-xs font-semibold tracking-widest uppercase">JLG's Only Factory Authorized Dealer and Service Center in the USA</span>
           </motion.div>
 
           {/* Headline */}
@@ -88,8 +59,18 @@ export default function HeroSection() {
             <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>HIGHER.</span>
             <br />
             <span className="text-white">WORK </span>
-            <CyclingWord />
+            <span style={{ WebkitTextStroke: '2px white', color: 'transparent' }}>SMARTER.</span>
           </motion.h1>
+
+          {/* Sub */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-semibold drop-shadow-lg"
+          >
+            When safety matters most, trust the lift specialists with the newest fleet and the only factory-authorized JLG service center in the U.S.
+          </motion.p>
 
           {/* CTA buttons */}
           <motion.div
@@ -106,11 +87,11 @@ export default function HeroSection() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#rentals"
+              href="#inventory"
               className="group inline-flex items-center gap-3 border border-white/30 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-sm uppercase tracking-widest px-8 py-4 transition-all"
             >
               <Play className="w-4 h-4" />
-              View Rentals
+              View Inventory
             </a>
           </motion.div>
 

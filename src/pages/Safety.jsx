@@ -7,7 +7,7 @@ const pillars = [
   {
     icon: ShieldCheck,
     title: 'Safety First, Always',
-    body: "Safety is not a checkbox or regulation. It's the foundation of everything we do. When working at heights, we know lives are on the line, and we take that very seriously. So we all may return safely to our families.",
+    body: "Safety is not a checkbox or regulation. It's the foundation of everything we do. When working at heights, we know lives are on the line, and we take that very seriously. The only statistic that matters is that our customers always return safely to our families.",
   },
   {
     icon: Award,

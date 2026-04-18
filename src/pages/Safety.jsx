@@ -17,7 +17,7 @@ const pillars = [
   {
     icon: Wrench,
     title: 'Decades of Experience',
-    body: 'Our team brings decades of hands-on experience inspecting, maintaining, and repairing aerial work platforms. We've seen it all, and we know what to look for.',
+    body: "Our team brings decades of hands-on experience inspecting, maintaining, and repairing aerial work platforms. We've seen it all, and we know what to look for.",
   },
   {
     icon: HardHat,

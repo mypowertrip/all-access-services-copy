@@ -55,7 +55,7 @@ export default function HeroSection() {
             
             
             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
-            <span className="text-sky-400 text-xs font-semibold uppercase tracking-widest">SAFETY IS OUR TOP PRIORITY - CLICK TO LEARN MORE</span>
+            <a href="/safety" className="text-sky-400 text-xs font-semibold uppercase tracking-widest hover:text-orange-400 transition-colors">SAFETY IS OUR TOP PRIORITY - CLICK TO LEARN MORE</a>
           </motion.div>
 
           {/* Headline */}

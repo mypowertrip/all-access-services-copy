@@ -7,6 +7,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
 import Home from './pages/Home';
+import Safety from './pages/Safety';
 import Equipment from './pages/Equipment';
 import Reserve from './pages/Reserve';
 import GCDashboard from './pages/GCDashboard';
@@ -34,6 +35,7 @@ const AuthenticatedApp = () => {
       {/* Public site */}
       <Route path="/" element={<Home />} />
       <Route path="/equipment" element={<Equipment />} />
+      <Route path="/safety" element={<Safety />} />
       <Route path="/reserve" element={<Reserve />} />
 
       {/* Ground Control dashboard (member portal) */}

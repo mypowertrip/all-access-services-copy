@@ -1,22 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Phone, MapPin, Menu, X, ChevronDown, Search, LogIn } from 'lucide-react';
+import { Phone, MapPin, Menu, X, ChevronDown, Search } from 'lucide-react';
 
 const navLinks = [
-  {
-    label: 'Rentals',
-    children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments']
-  },
-  {
-    label: 'Sales',
-    children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory']
-  },
-  { label: 'Parts' },
-  { label: 'Service' },
-  {
-    label: 'More',
-    children: ['About Us', 'Contact', 'Locations', 'Manuals', 'Resources']
-  }
-];
+{
+  label: 'Rentals',
+  children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments']
+},
+{
+  label: 'Equipment for Sale',
+  children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory']
+},
+{ label: 'Parts Store' },
+{ label: 'Service & Repair' },
+{ label: 'Resources' }];
 
 
 const locations = ['San Diego', 'Orange County', 'Riverside', 'Los Angeles'];
@@ -41,7 +37,7 @@ export default function Navbar() {
             <Phone className="w-3.5 h-3.5" />
             888-777-5990
           </a>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2 text-orange-500 font-semibold text-sm hover:text-orange-400 transition-colors hidden">
             {locations.map((loc) =>
             <a key={loc} href="#locations" className="flex items-center gap-1 text-xs text-gray-400 hover:text-orange-400 transition-colors">
                 <MapPin className="w-3 h-3" />
@@ -61,10 +57,10 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center group">
             <img
-              src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/79ae0f89e_Gemini_Generated_Image_k4mqi7k4mqi7k4mq.png"
+              src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/3f208d8e6_Gemini_Generated_Image_s7mhb8s7mhb8s7mh1.png"
               alt="All Access Services"
-              className="h-16 w-auto object-contain"
-            />
+              className="h-16 w-auto object-contain" />
+            
           </a>
 
           {/* Desktop Nav */}
@@ -103,9 +99,6 @@ export default function Navbar() {
             </a>
             <a href="/dashboard" className="hidden md:inline-flex items-center gap-2 border border-orange-500 text-orange-400 hover:bg-orange-500 hover:text-black font-bold text-xs uppercase tracking-widest px-4 py-2 transition-all">
               Customer Portal
-            </a>
-            <a href="/dashboard" className="lg:hidden p-2 text-orange-400 hover:text-orange-300 transition-colors">
-              <LogIn className="w-5 h-5" />
             </a>
             <button className="lg:hidden text-gray-300 p-2" onClick={() => setMobileOpen(!mobileOpen)}>
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

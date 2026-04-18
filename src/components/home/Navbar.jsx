@@ -37,14 +37,14 @@ export default function Navbar() {
             <Phone className="w-3.5 h-3.5" />
             888-777-5990
           </a>
-          <div className="flex items-center gap-2 text-orange-500 font-semibold text-sm hover:text-orange-400 transition-colors hidden">
-            {locations.map((loc) =>
-            <a key={loc} href="#locations" className="flex items-center gap-1 text-xs text-gray-400 hover:text-orange-400 transition-colors">
-                <MapPin className="w-3 h-3" />
-                {loc}
-              </a>
-            )}
-          </div>
+          
+
+
+
+
+
+
+          
           <a href="#contact" className="bg-orange-500 hover:bg-orange-400 text-black text-xs font-bold px-4 py-1.5 transition-colors uppercase tracking-wider">
             Contact Us
           </a>

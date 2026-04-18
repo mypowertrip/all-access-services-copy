@@ -52,7 +52,7 @@ function CyclingWord() {
         textShadow: '0 0 12px rgba(255,255,255,0.7), 0 0 30px rgba(255,255,255,0.3)',
       }}
       transition={{ duration: 0.4 }}
-      style={{ WebkitTextStroke: '2px white', color: 'transparent', display: 'inline-block' }}
+      style={{ WebkitTextStroke: '2px white', color: 'transparent', display: 'inline-block', background: 'transparent' }}
     >
       {cycleWords[index]}
     </motion.span>

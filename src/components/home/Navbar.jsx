@@ -46,16 +46,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Top bar */}
-      <div className="bg-black/90 border-b border-orange-500/20 px-4 py-2 hidden md:block">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <a href="tel:8887775990" className="flex items-center gap-2 text-orange-500 font-semibold text-sm hover:text-orange-400 transition-colors">
-            <Phone className="w-3.5 h-3.5" />
-            888-777-5990
-          </a>
-          <div />
-        </div>
-      </div>
+
 
       {/* Main nav */}
       <nav className={`transition-all duration-300 ${scrolled ? 'bg-[#111111]/98 backdrop-blur-md shadow-lg shadow-black/80 border-b border-teal-500/10' : 'bg-[#111111]/80 backdrop-blur-sm border-b border-white/5'}`}>

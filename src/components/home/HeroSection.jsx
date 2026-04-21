@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
+import SafetyTicker from './SafetyTicker';
 
 const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
 const CYCLING_WORDS = ['SMARTER.', 'STRONGER.', 'SAFER.'];
@@ -16,6 +17,8 @@ export default function HeroSection() {
   }, []);
 
   return (
+    <>
+    <SafetyTicker />
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
@@ -45,22 +48,8 @@ export default function HeroSection() {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-32 pb-20 md:pt-40">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-40 pb-20 md:pt-52">
         <div className="max-w-3xl">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }} className="bg-transparent text-[hsl(var(--accent))] mb-6 px-4 py-1.5 inline-flex items-center gap-2 border border-orange-500/40">
-            
-            
-            <div className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" />
-            <a href="/safety" className="font-barlow font-black uppercase tracking-widest hover:text-orange-400 transition-colors flex items-baseline gap-3">
-              <span className="text-white text-2xl">SAFETY IS OUR TOP PRIORITY</span>
-              <span className="text-sky-400 text-sm">— LEARN MORE</span>
-            </a>
-          </motion.div>
-
           {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -149,6 +138,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
+
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
@@ -157,6 +147,7 @@ export default function HeroSection() {
         <span className="text-xs uppercase tracking-widest">Scroll</span>
         <ChevronDown className="w-4 h-4" />
       </motion.div>
-    </section>);
+    </section>
+    </>);
 
 }

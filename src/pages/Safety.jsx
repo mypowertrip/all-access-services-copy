@@ -92,7 +92,7 @@ export default function Safety() {
                   <div className="w-12 h-12 border border-orange-500/40 flex items-center justify-center group-hover:border-orange-500 transition-colors">
                     <p.icon className="w-5 h-5 text-orange-400" />
                   </div>
-                  <h3 className="font-barlow font-black text-xl text-white uppercase tracking-wide">{p.title}</h3>
+                  <h3 className="font-barlow font-bold text-xl text-white uppercase tracking-normal">{p.title}</h3>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">{p.body}</p>
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />

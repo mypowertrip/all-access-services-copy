@@ -48,10 +48,10 @@ export default function Navbar() {
             <motion.img 
               src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/c480996d7_ChatGPT_Image_Apr_22__2026__12_15_08_AM.png"
               alt="All Access Services" 
-              className="h-72 w-auto object-contain"
-              style={{ mixBlendMode: 'screen', maxWidth: '280px' }}
+              className="h-64 w-auto object-contain"
+              style={{ mixBlendMode: 'screen', maxWidth: '252px' }}
               animate={{ 
-                filter: ['drop-shadow(0 0 10px rgba(249, 115, 22, 0.4))', 'drop-shadow(0 0 25px rgba(249, 115, 22, 0.8))', 'drop-shadow(0 0 10px rgba(249, 115, 22, 0.4))'],
+                filter: ['drop-shadow(0 0 8px rgba(249, 115, 22, 0.2))', 'drop-shadow(0 0 18px rgba(249, 115, 22, 0.4))', 'drop-shadow(0 0 8px rgba(249, 115, 22, 0.2))'],
               }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             />

@@ -22,7 +22,7 @@ export default function SafetyTicker() {
     <a
       href="/safety"
       className="block group"
-      style={{ position: 'fixed', top: 96, right: 0, zIndex: 40, width: '50%', background: 'linear-gradient(to right, #f97316, #f97316 85%, transparent 100%)' }}
+      style={{ position: 'fixed', top: 96, right: 0, zIndex: 40, width: '50%', background: 'linear-gradient(to right, transparent 0%, #f97316 15%, #f97316 100%)' }}
     >
       <div className="flex items-center gap-4 px-6 py-2.5 w-full" style={{ paddingRight: '10%' }}>
           {/* Shield icon */}

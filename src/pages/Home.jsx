@@ -9,6 +9,7 @@ import TestimonialsSection from '../components/home/TestimonialsSection';
 import CTASection from '../components/home/CTASection';
 import Footer from '../components/home/Footer';
 import FloatingCTA from '../components/home/FloatingCTA';
+import AppCTABadge from '../components/home/AppCTABadge';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <CTASection />
       <Footer />
       <FloatingCTA />
+      <AppCTABadge />
     </div>
   );
 }

@@ -19,7 +19,7 @@ const mainNavLinks = [
   { label: 'Aerospace' },
   {
     label: 'Locations',
-    children: ['San Diego', 'Orange County', 'Riverside', 'Los Angeles']
+    children: ['San Diego', 'Orange County', 'Inland Empire', 'Los Angeles']
   },
   { label: 'About' },
   { label: 'Contact' }

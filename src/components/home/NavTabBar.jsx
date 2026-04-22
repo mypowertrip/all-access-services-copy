@@ -23,7 +23,7 @@ export default function NavTabBar() {
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
 
   return (
-    <div className="fixed top-24 left-0 right-0 z-45 bg-gradient-to-b from-[#0a0a0a] to-[#000000] border-b border-orange-500/10">
+    <div className="fixed top-24 left-0 right-0 z-40 bg-gradient-to-b from-[#0a0a0a] to-[#000000] border-b border-orange-500/10">
       <div className="max-w-7xl mx-auto px-4 flex items-center gap-1 h-14">
         {mainNavLinks.map((link) => (
           <div

@@ -26,6 +26,7 @@ export default function HeroSection() {
           src={HERO_IMG}
           alt="Boom lift at construction site"
           className="w-full h-full object-cover" />
+        
         {/* Dark overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
@@ -83,7 +84,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-semibold drop-shadow-lg">
             
-            We operate with transparency and honesty and integrity. What we quote is what you pay, no hidden fees. We've become the leaders by doing things the right way.
+            When safety matters most, trust the lift specialists with the newest fleet and the only factory-authorized JLG service center in the U.S.
           </motion.p>
 
           {/* CTA buttons */}
@@ -97,7 +98,7 @@ export default function HeroSection() {
               href="#rentals"
               className="group inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 transition-all glow-orange">
               
-              Rentals
+              Get a Quote
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
@@ -105,7 +106,7 @@ export default function HeroSection() {
               className="group inline-flex items-center gap-3 border border-white/30 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-sm uppercase tracking-widest px-8 py-4 transition-all">
               
               <Play className="w-4 h-4" />
-              New & Used Inventory For Sale
+              View Inventory
             </a>
           </motion.div>
 

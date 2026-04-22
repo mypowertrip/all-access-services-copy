@@ -55,7 +55,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-barlow font-black text-3xl sm:text-4xl md:text-6xl lg:text-8xl leading-none tracking-wide mb-4 md:mb-6">
+            className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6">
             
             <span className="text-white">REACH</span>
             <br />
@@ -82,7 +82,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-xl mb-6 md:mb-10 leading-relaxed font-semibold drop-shadow-lg">
+            className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-semibold drop-shadow-lg">
             
             Committed to Safety, Quality & Integrity
           </motion.p>
@@ -92,20 +92,20 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+            className="flex flex-col sm:flex-row gap-4">
             
             <a
               href="#rentals"
-              className="group inline-flex items-center justify-center sm:justify-start gap-2 sm:gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-xs sm:text-sm uppercase tracking-widest px-6 sm:px-8 py-3 sm:py-4 transition-all glow-orange">
+              className="group inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 transition-all glow-orange">
               
               Rentals
-              <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#inventory"
-              className="group inline-flex items-center justify-center sm:justify-start gap-2 sm:gap-3 border border-white/30 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-xs sm:text-sm uppercase tracking-widest px-6 sm:px-8 py-3 sm:py-4 transition-all">
+              className="group inline-flex items-center gap-3 border border-white/30 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-sm uppercase tracking-widest px-8 py-4 transition-all">
               
-              <Play className="w-3 sm:w-4 h-3 sm:h-4" />
+              <Play className="w-4 h-4" />
               Equipment For Sale
             </a>
           </motion.div>
@@ -115,7 +115,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-wrap gap-4 sm:gap-8 mt-8 sm:mt-16 pt-6 sm:pt-8 border-t border-white/10">
+            className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-white/10">
             
             {[
             { val: '4', label: 'SoCal Locations' },
@@ -125,7 +125,7 @@ export default function HeroSection() {
             { val: '150+', label: 'Team Members' }].
             map((stat) =>
             <div key={stat.label}>
-                <div className="font-barlow text-2xl sm:text-3xl font-black text-orange-500">{stat.val}</div>
+                <div className="font-barlow text-3xl font-black text-orange-500">{stat.val}</div>
                 <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
               </div>
             )}

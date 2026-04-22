@@ -49,7 +49,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-40 pb-20 md:pt-52">
-        <div className="ml-16 max-w-3xl">
+        <div className="max-w-3xl">
           {/* Headline */}
           <motion.h1
               initial={{ opacity: 0, y: 30 }}

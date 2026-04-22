@@ -140,15 +140,30 @@ export default function Navbar() {
 
               <div className="flex-1 px-5 py-6 space-y-8">
 
-                {/* Mobile-only main nav links */}
-                <div className="lg:hidden">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Navigate</p>
+                {/* Mobile navigation menu */}
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Main Menu</p>
                   <div className="space-y-1">
-                    {mainNavLinks.map((link) =>
-                  <a key={link.label} href="#" className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
-                        {link.label}
-                      </a>
-                  )}
+                    {mainNavLinks.map((link) => (
+                      <div key={link.label}>
+                        <a href="#" className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                          {link.label}
+                        </a>
+                        {link.children && (
+                          <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
+                            {link.children.map((child) => (
+                              <a
+                                key={child}
+                                href="#"
+                                className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors"
+                              >
+                                {child}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 </div>
 

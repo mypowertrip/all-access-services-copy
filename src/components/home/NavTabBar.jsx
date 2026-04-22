@@ -30,7 +30,7 @@ export default function NavTabBar() {
   const [dropdownTimeout, setDropdownTimeout] = useState(null);
 
   return (
-    <div className="fixed top-24 left-0 right-0 z-40 bg-gradient-to-b from-[#d97706] via-[#ea580c] to-[#ca4504] border-b-2 border-[#8b3a02] shadow-lg shadow-orange-950/50" style={{
+    <div className="hidden md:block fixed top-24 left-0 right-0 z-40 bg-gradient-to-b from-[#d97706] via-[#ea580c] to-[#ca4504] border-b-2 border-[#8b3a02] shadow-lg shadow-orange-950/50" style={{
       backgroundImage: 'linear-gradient(180deg, #d97706 0%, #ea580c 50%, #ca4504 100%), repeating-linear-gradient(90deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px)'
     }}>
       <div className="max-w-7xl mx-auto flex items-center gap-0 h-10">

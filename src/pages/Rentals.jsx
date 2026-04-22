@@ -5,6 +5,7 @@ import Footer from '../components/home/Footer';
 import RentalFilters from '../components/rentals/RentalFilters';
 import ModelCard from '../components/rentals/ModelCard';
 import QuoteCart from '../components/rentals/QuoteCart';
+import ComparisonDrawer from '../components/rentals/ComparisonDrawer';
 import { motion } from 'framer-motion';
 import { ArrowRight, Search } from 'lucide-react';
 import { rentalModels, rentalCategories, heightRanges, widthRanges } from '../lib/rentalInventory';
@@ -15,6 +16,8 @@ export default function Rentals() {
   const [searchTerm, setSearchTerm] = useState('');
   const [quoteItems, setQuoteItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [comparisonItems, setComparisonItems] = useState([]);
+  const [isComparisonOpen, setIsComparisonOpen] = useState(false);
   const [filters, setFilters] = useState({
     heightRange: null,
     power: null,
@@ -78,6 +81,25 @@ export default function Rentals() {
 
   const handleCheckout = () => {
     navigate('/reserve', { state: { quoteItems } });
+  };
+
+  const handleAddToComparison = (model) => {
+    setComparisonItems(prev => {
+      const updated = prev.find(item => item.id === model.id)
+        ? prev.filter(item => item.id !== model.id)
+        : [...prev, model];
+      if (updated.length > 0) setIsComparisonOpen(true);
+      return updated;
+    });
+  };
+
+  const handleRemoveFromComparison = (modelId) => {
+    setComparisonItems(prev => prev.filter(item => item.id !== modelId));
+  };
+
+  const handleClearComparison = () => {
+    setComparisonItems([]);
+    setIsComparisonOpen(false);
   };
 
   const isQuoteCategory = category && category !== 'all';
@@ -217,6 +239,8 @@ export default function Rentals() {
                         model={model}
                         onAddToQuote={handleAddToQuote}
                         inQuote={quoteItems.some(item => item.id === model.id)}
+                        onCompare={handleAddToComparison}
+                        inComparison={comparisonItems.some(item => item.id === model.id)}
                       />
                     ))}
                   </div>
@@ -233,6 +257,15 @@ export default function Rentals() {
         isOpen={isCartOpen}
         onRemove={handleRemoveFromQuote}
         onCheckout={handleCheckout}
+      />
+
+      {/* Comparison Drawer */}
+      <ComparisonDrawer
+        models={comparisonItems}
+        isOpen={isComparisonOpen}
+        onClose={() => setIsComparisonOpen(false)}
+        onRemoveModel={handleRemoveFromComparison}
+        onClear={handleClearComparison}
       />
 
       <Footer />

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { Download, Plus, Zap, Gauge } from 'lucide-react';
+import { Download, Plus, Zap, Gauge, BarChart3 } from 'lucide-react';
 
-export default function ModelCard({ model, onAddToQuote, inQuote }) {
+export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inComparison }) {
   const isPowerElectric = model.power === 'Electric';
 
   return (
@@ -96,15 +96,28 @@ export default function ModelCard({ model, onAddToQuote, inQuote }) {
           <Plus className="w-4 h-4" />
           {inQuote ? 'In Quote' : 'Request Quote'}
         </button>
-        <a
-          href={model.specSheet}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full flex items-center justify-center gap-2 py-2.5 px-4 border border-zinc-700 text-gray-300 hover:text-white hover:border-orange-500/50 font-semibold text-sm uppercase tracking-wider rounded-lg transition-all"
-        >
-          <Download className="w-4 h-4" />
-          Spec Sheet
-        </a>
+        <div className="flex gap-2">
+          <button
+            onClick={() => onCompare(model)}
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 border rounded-lg font-semibold text-sm uppercase tracking-wider transition-all ${
+              inComparison
+                ? 'bg-teal-500/20 text-teal-400 border-teal-500/40 hover:bg-teal-500/30'
+                : 'border-zinc-700 text-gray-300 hover:text-white hover:border-teal-500/50'
+            }`}
+          >
+            <BarChart3 className="w-4 h-4" />
+            Compare
+          </button>
+          <a
+            href={model.specSheet}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 border border-zinc-700 text-gray-300 hover:text-white hover:border-orange-500/50 font-semibold text-sm uppercase tracking-wider rounded-lg transition-all"
+          >
+            <Download className="w-4 h-4" />
+            Spec Sheet
+          </a>
+        </div>
       </div>
     </motion.div>
   );

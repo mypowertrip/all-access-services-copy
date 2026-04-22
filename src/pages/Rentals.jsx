@@ -131,7 +131,7 @@ export default function Rentals() {
                   <div className="relative z-10 h-full p-6 flex flex-col justify-end">
                     <h3 className="font-barlow text-2xl font-bold text-white mb-1">{cat.name}</h3>
                     <p className="text-gray-300 text-xs mb-3">
-                      {rentalModels.filter(m => m.category === cat.slug).length} models available
+                      <span className="font-bold text-white">{rentalModels.filter(m => m.category === cat.slug).length}</span> models available
                     </p>
                     <div className="inline-flex items-center gap-2 text-orange-400 text-sm font-bold uppercase tracking-wider group-hover:text-orange-300 transition-colors w-fit">
                       Browse <ArrowRight className="w-4 h-4" />

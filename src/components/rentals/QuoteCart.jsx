@@ -54,13 +54,13 @@ export default function QuoteCart({ items, onRemove, onCheckout }) {
                 <p className="text-2xl font-black text-orange-400">${subtotal}</p>
                 <p className="text-xs text-gray-500 mt-1">Monthly: ${estimatedMonthly}</p>
               </div>
-              <button
-                onClick={onCheckout}
+              <a
+                href={`tel:8887775990`}
                 className="flex items-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest rounded-lg transition-all shadow-lg shadow-orange-500/20"
               >
-                Build Quote
+                Call to Quote
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </div>
 

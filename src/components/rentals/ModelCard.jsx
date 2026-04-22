@@ -82,17 +82,19 @@ export default function ModelCard({ model, onAddToQuote, inQuote }) {
 
       {/* Pricing */}
       <div className="p-4 space-y-2 border-b border-zinc-800">
-        <div className="flex justify-between items-start">
-          <span className="text-xs text-gray-500 uppercase tracking-wider">Daily Rate</span>
-          <span className="text-lg font-black text-orange-400">${model.dailyRate}</span>
+        <div className="flex justify-between items-center">
+          <span className="text-xs text-gray-500 uppercase tracking-wider">Pricing</span>
+          <a
+            href="tel:8887775990"
+            className="text-lg font-black text-orange-400 hover:text-orange-300 transition-colors"
+          >
+            Call for Quote
+          </a>
         </div>
-        <div className="flex justify-between items-center text-xs">
-          <span className="text-gray-500">Weekly</span>
-          <span className="text-gray-300">${model.weeklyRate}</span>
-        </div>
-        <div className="flex justify-between items-center text-xs">
-          <span className="text-gray-500">Monthly</span>
-          <span className="text-gray-300">${model.monthlyRate}</span>
+        <div className="text-xs text-gray-500">
+          <a href="tel:8887775990" className="hover:text-orange-400 transition-colors">
+            📞 888-777-5990
+          </a>
         </div>
       </div>
 
@@ -107,7 +109,7 @@ export default function ModelCard({ model, onAddToQuote, inQuote }) {
           }`}
         >
           <Plus className="w-4 h-4" />
-          {inQuote ? 'In Quote' : 'Add to Quote'}
+          {inQuote ? 'In Quote' : 'Request Quote'}
         </button>
         <a
           href={model.specSheet}

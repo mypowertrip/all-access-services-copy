@@ -14,23 +14,23 @@ export default function ModelCard({ model, onAddToQuote, inQuote }) {
       className="bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/40 overflow-hidden transition-all duration-300 group"
     >
       {/* Image Container */}
-      <div className="relative w-full aspect-video bg-gray-300 overflow-hidden">
-        {!imageFailed ? (
-          <motion.img
-            src={model.imageUrl}
-            alt={model.name}
-            onLoad={() => setImageLoaded(true)}
-            onError={() => setImageFailed(true)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: imageLoaded ? 1 : 0 }}
-            transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-          />
-        ) : null}
-        {imageFailed && (
+      <div className="relative w-full aspect-video bg-gradient-to-br from-zinc-800 to-zinc-900 overflow-hidden flex items-center justify-center">
+        <motion.img
+          src={model.imageUrl}
+          alt={model.name}
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageFailed(true)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: imageLoaded && !imageFailed ? 1 : 0 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 p-4"
+        />
+        {(!imageLoaded || imageFailed) && (
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-zinc-700 to-zinc-800">
-            <ImageIcon className="w-8 h-8 text-gray-500 mb-2" />
-            <span className="text-xs text-gray-400 font-semibold">Image Coming Soon</span>
+            <div className="w-16 h-16 rounded-lg bg-zinc-600/50 flex items-center justify-center mb-3">
+              <ImageIcon className="w-8 h-8 text-gray-400" />
+            </div>
+            <span className="text-xs text-gray-400 font-semibold text-center px-4">{model.name}</span>
           </div>
         )}
       </div>

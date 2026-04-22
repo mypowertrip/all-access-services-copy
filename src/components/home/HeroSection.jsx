@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import SafetyTicker from './SafetyTicker';
 
-const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/74ff11ba9_ChatGPTImageApr22202601_04_14AM.png";
+const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/6edff4a78_ChatGPTImageApr22202601_03_21AM.png";
 const CYCLING_WORDS = ['SMARTER.', 'STRONGER.', 'SAFER.'];
 
 export default function HeroSection() {
@@ -25,7 +25,7 @@ export default function HeroSection() {
         <img
           src={HERO_IMG}
           alt="Boom lift at construction site"
-          className="w-full h-full object-cover object-center scale-75 origin-center" style={{ transform: 'scale(0.75)', transformOrigin: 'center center' }} />
+          className="w-full h-full object-cover object-right" />
         
         {/* Dark overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />

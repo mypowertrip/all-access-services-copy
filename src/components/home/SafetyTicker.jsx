@@ -21,11 +21,10 @@ export default function SafetyTicker() {
   return (
     <a
       href="/safety"
-      className="block w-full group"
-      style={{ position: 'fixed', top: 96, left: 0, right: 0, zIndex: 40, background: '#f97316' }}
+      className="block group"
+      style={{ position: 'fixed', top: 96, right: 0, zIndex: 40, width: '50%', background: 'linear-gradient(to right, #f97316, #f97316 85%, transparent 100%)' }}
     >
-      <div className="flex justify-end">
-        <div className="flex items-center gap-4 px-6 py-2.5 w-1/2">
+      <div className="flex items-center gap-4 px-6 py-2.5 w-full" style={{ paddingRight: '10%' }}>
           {/* Shield icon */}
           <ShieldCheck className="w-5 h-5 shrink-0" style={{ color: '#c2410c' }} />
 
@@ -53,7 +52,6 @@ export default function SafetyTicker() {
             <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" style={{ color: '#c2410c' }} />
           </div>
         </div>
-      </div>
     </a>
   );
 }

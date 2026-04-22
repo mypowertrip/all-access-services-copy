@@ -55,11 +55,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6">
+            className="font-barlow font-black text-6xl md:text-8xl lg:text-9xl leading-none tracking-tighter mb-6">
             
             <span className="text-white">REACH</span>
             <br />
-            <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>HIGHER.</span>
+            <span style={{ WebkitTextStroke: '2.5px #f97316', color: 'transparent' }} className="drop-shadow-lg">HIGHER.</span>
             <br />
             <span className="text-white">WORK </span>
             <AnimatePresence mode="wait">
@@ -69,8 +69,8 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
-                style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
-                className="inline-block"
+                style={{ WebkitTextStroke: '2.5px white', color: 'transparent' }}
+                className="inline-block drop-shadow-lg"
               >
                 {CYCLING_WORDS[wordIndex]}
               </motion.span>

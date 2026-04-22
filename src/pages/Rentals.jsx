@@ -109,13 +109,13 @@ export default function Rentals() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {rentalCategories.map((cat, i) => (
-                <motion.a
+                <motion.button
                   key={cat.slug}
-                  href={`/rentals/${cat.slug}`}
+                  onClick={() => navigate(`/rentals/${cat.slug}`)}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl h-64 cursor-pointer"
+                  className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl h-64 cursor-pointer text-left"
                 >
                   {/* Background Image */}
                   <img
@@ -129,7 +129,6 @@ export default function Rentals() {
                   
                   {/* Content */}
                   <div className="relative z-10 h-full p-6 flex flex-col justify-end">
-                    <div className="text-4xl mb-3">{cat.icon}</div>
                     <h3 className="font-barlow text-2xl font-bold text-white mb-1">{cat.name}</h3>
                     <p className="text-gray-300 text-xs mb-3">
                       {rentalModels.filter(m => m.category === cat.slug).length} models available
@@ -138,7 +137,7 @@ export default function Rentals() {
                       Browse <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           </div>

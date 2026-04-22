@@ -17,7 +17,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/EA61B1AE-22D4-427C-B176-1C41E2C921E6.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-2030es',
@@ -33,7 +33,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/524552C5-9E3D-49EB-8DA4-52F81977F1B1.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-2632es',
@@ -49,7 +49,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/1A8F5A0E-141D-4931-BCCD-B21CF74B473B.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-3246es',
@@ -65,7 +65,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/EA61B1AE-22D4-427C-B176-1C41E2C921E6.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-4045r',
@@ -81,7 +81,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/524552C5-9E3D-49EB-8DA4-52F81977F1B1.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-es1930m',
@@ -97,7 +97,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/1A8F5A0E-141D-4931-BCCD-B21CF74B473B.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-es1330m',
@@ -113,7 +113,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/EA61B1AE-22D4-427C-B176-1C41E2C921E6.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
 
   // BOOM LIFTS
@@ -131,7 +131,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/E7100011-D376-4860-BAC1-BF25137CE29C.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-450aj',
@@ -147,7 +147,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/ECD65F20-8C9E-463C-BE59-7E16AAF761DB.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-600s',
@@ -163,7 +163,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/E7100011-D376-4860-BAC1-BF25137CE29C.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-800aj',
@@ -179,7 +179,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/ECD65F20-8C9E-463C-BE59-7E16AAF761DB.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-1200sjp',
@@ -195,7 +195,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/E7100011-D376-4860-BAC1-BF25137CE29C.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-1350sjp',
@@ -211,7 +211,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/ECD65F20-8C9E-463C-BE59-7E16AAF761DB.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-e300ajp',
@@ -227,7 +227,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/E7100011-D376-4860-BAC1-BF25137CE29C.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
 
   // TELEHANDLERS
@@ -245,7 +245,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/1C563CD2-DCC8-4C87-9A8A-8B2C3C3F35C5.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-g12-55a',
@@ -261,7 +261,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/1C563CD2-DCC8-4C87-9A8A-8B2C3C3F35C5.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'skytrak-10054',
@@ -277,7 +277,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/1C563CD2-DCC8-4C87-9A8A-8B2C3C3F35C5.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'jlg-519',
@@ -293,7 +293,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/1C563CD2-DCC8-4C87-9A8A-8B2C3C3F35C5.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
 
   // FORK LIFTS
@@ -311,7 +311,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/EA61B1AE-22D4-427C-B176-1C41E2C921E6.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
   {
     id: 'hyster-81010',
@@ -327,7 +327,7 @@ export const rentalModels = [
     weeklyRate: null,
     monthlyRate: null,
     imageUrl: `${DEALERSPIKE_CDN}/524552C5-9E3D-49EB-8DA4-52F81977F1B1.jpg`,
-    specSheet: 'https://www.allaccessservices.com/resources/spec-sheets',
+    specSheet: 'https://www.allaccessservices.com/resources/',
   },
 ];
 
@@ -335,25 +335,25 @@ export const rentalCategories = [
   {
     slug: 'scissor-lifts',
     name: 'Scissor Lifts',
-    icon: '📐',
+    image: `${DEALERSPIKE_CDN}/524552C5-9E3D-49EB-8DA4-52F81977F1B1.jpg`,
     description: 'Electric & diesel for indoor & rough terrain'
   },
   {
     slug: 'boom-lifts',
     name: 'Boom Lifts',
-    icon: '🚀',
+    image: `${DEALERSPIKE_CDN}/E7100011-D376-4860-BAC1-BF25137CE29C.jpg`,
     description: 'Articulating & telescopic reach up to 185 ft'
   },
   {
     slug: 'telehandlers',
     name: 'Telehandlers',
-    icon: '🏗️',
+    image: `${DEALERSPIKE_CDN}/1C563CD2-DCC8-4C87-9A8A-8B2C3C3F35C5.jpg`,
     description: 'Versatile material handling up to 12,000 lb'
   },
   {
     slug: 'fork-lifts',
     name: 'Fork Lifts',
-    icon: '⬆️',
+    image: `${DEALERSPIKE_CDN}/1A8F5A0E-141D-4931-BCCD-B21CF74B473B.jpg`,
     description: 'Warehouse & rough terrain lift trucks'
   },
 ];

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import SafetyTicker from './SafetyTicker';
 
-const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
+const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/74ff11ba9_ChatGPTImageApr22202601_04_14AM.png";
 const CYCLING_WORDS = ['SMARTER.', 'STRONGER.', 'SAFER.'];
 
 export default function HeroSection() {

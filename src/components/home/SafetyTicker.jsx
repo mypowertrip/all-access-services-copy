@@ -1,12 +1,9 @@
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 
 const ITEMS = [
-  "SAFETY IS AT THE TOP OF OUR WEBSITE BECAUSE IT IS OUR TOP PRIORITY",
-  "SAFETY ISN'T JUST A BOX WE CHECK — WE LIVE IT",
-  'COMMITTED TO THE SAFEST AERIAL EQUIPMENT POSSIBLE',
-  'MOST METICULOUSLY MAINTAINED FLEET IN THE INDUSTRY',
-  'JLG FACTORY AUTHORIZED TECHNICIANS',
-  'SEE WHY OUR EQUIPMENT IS THE SAFEST IN THE INDUSTRY',
+  "Safety isn't a checkbox — it's our top priority. That's why it's at the top of our website.",
+  "The only JLG Factory Service Centers in the USA",
+  "Find out why our lifts are the safest in the industry.",
 ];
 
 export default function SafetyTicker() {

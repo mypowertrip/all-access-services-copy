@@ -894,25 +894,22 @@ export const rentalCategories = [
     slug: 'knuckle-booms',
     name: 'Knuckle Booms',
     image: null,
-    gradientFrom: '#a855f7',
-    gradientTo: '#7c3aed',
-    description: 'Compact articulating lifts up to 80 ft'
+    gradient: 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
+    description: 'Articulating boom lifts from 34-80ft. Maximum reach and maneuverability around obstacles.'
   },
   {
     slug: 'telehandlers',
     name: 'Telehandlers',
     image: null,
-    gradientFrom: '#eab308',
-    gradientTo: '#ca8a04',
-    description: 'Versatile material handling up to 26,600 lb'
+    gradient: 'linear-gradient(135deg, #eab308 0%, #ca8a04 100%)',
+    description: 'Telescopic handlers from 5,000-12,000lb capacity. Lift materials to 55ft reach.'
   },
   {
     slug: 'forklifts',
     name: 'Forklifts',
     image: null,
-    gradientFrom: '#22c55e',
-    gradientTo: '#16a34a',
-    description: 'Warehouse & rough terrain lift trucks'
+    gradient: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
+    description: 'Propane-powered forklifts from 5,000-12,000lb capacity for warehouse and yard use.'
   },
 ];
 

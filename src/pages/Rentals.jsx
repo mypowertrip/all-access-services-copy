@@ -8,7 +8,7 @@ import QuoteCart from '../components/rentals/QuoteCart';
 import ComparisonDrawer from '../components/rentals/ComparisonDrawer';
 import QuoteRequestForm from '../components/rentals/QuoteRequestForm';
 import { motion } from 'framer-motion';
-import { ArrowRight, Search } from 'lucide-react';
+import { ArrowRight, Search, Phone } from 'lucide-react';
 import { rentalModels, rentalCategories, heightRanges, widthRanges } from '../lib/rentalInventory';
 
 export default function Rentals() {
@@ -119,20 +119,28 @@ export default function Rentals() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-40 pb-16 bg-gradient-to-b from-black to-zinc-900/30">
+      <section className="pt-40 pb-20 bg-gradient-to-b from-black to-zinc-900/30">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            className="text-center"
           >
             <div className="inline-flex items-center gap-4 mb-4">
               <div className="w-12 h-0.5 bg-orange-500" />
               <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">Equipment Rentals</span>
             </div>
-            <h1 className="font-barlow text-5xl md:text-7xl font-black text-white tracking-tight mb-4">
-              Smart <span className="text-orange-500">Catalog</span>
+            <h1 className="font-barlow text-5xl md:text-7xl font-black text-white tracking-tight mb-6">
+              Find The Right Equipment
             </h1>
-            <p className="text-gray-400 text-lg max-w-2xl">Find the perfect equipment for your project. Filter by specs, bundle equipment into a single quote, and download spec sheets.</p>
+            <p className="text-gray-400 text-lg mb-8">JLG Authorized Dealer | Southern California</p>
+            <a
+              href="tel:8887775990"
+              className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 rounded-lg transition-all mb-8"
+            >
+              <Phone className="w-4 h-4" />
+              Call 888-777-5990
+            </a>
           </motion.div>
         </div>
       </section>
@@ -142,42 +150,39 @@ export default function Rentals() {
         // Category selection view
         <section className="pb-20">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {rentalCategories.map((cat, i) => (
-                <motion.div
+                <motion.button
                   key={cat.slug}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="group relative border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl h-64 cursor-pointer text-left"
                   onClick={() => navigate(`/rentals/${cat.slug}`)}
-                  style={{
-                    background: `${cat.gradientFrom}80`,
-                    boxShadow: `inset 0 0 50px ${cat.gradientFrom}20`
-                  }}
+                  className="group relative border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl min-h-80 cursor-pointer text-left"
                 >
                   {/* Gradient Background */}
                   <div 
-                    className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500"
-                    style={{
-                      background: `linear-gradient(135deg, ${cat.gradientFrom} 0%, ${cat.gradientTo} 100%)`
-                    }}
+                    className="absolute inset-0 opacity-50 group-hover:opacity-70 transition-opacity duration-500"
+                    style={{ background: cat.gradient }}
                   />
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                   
                   {/* Content */}
                   <div className="relative z-10 h-full p-6 flex flex-col justify-end">
-                    <h3 className="font-barlow text-2xl font-bold text-white mb-1">{cat.name}</h3>
-                    <p className="text-gray-300 text-xs mb-3">
-                      <span className="font-bold text-white">{rentalModels.filter(m => m.category === cat.slug).length}</span> models available
-                    </p>
-                    <div className="inline-flex items-center gap-2 text-orange-400 text-sm font-bold uppercase tracking-wider group-hover:text-orange-300 transition-colors w-fit">
-                      Browse <ArrowRight className="w-4 h-4" />
+                    <h3 className="font-barlow text-3xl font-bold text-white mb-3">{cat.name}</h3>
+                    <p className="text-gray-300 text-sm mb-4 leading-relaxed">{cat.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-gray-300">
+                        <span className="text-white text-sm">{rentalModels.filter(m => m.category === cat.slug).length}</span> models
+                      </span>
+                      <div className="inline-flex items-center gap-2 text-orange-400 font-bold uppercase tracking-wider group-hover:text-orange-300 transition-colors">
+                        Browse <ArrowRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </div>
-                </motion.div>
+                </motion.button>
               ))}
             </div>
           </div>

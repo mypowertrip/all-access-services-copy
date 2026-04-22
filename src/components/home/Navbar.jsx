@@ -3,20 +3,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Menu, X, ChevronDown, Search, User } from 'lucide-react';
 
 const mainNavLinks = [
-  {
-    label: 'Rentals',
-    children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments']
-  },
-  {
-    label: 'Sales',
-    children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory']
-  },
-  { label: 'Parts' },
-  {
-    label: 'Service',
-    children: ['Repair & Maintenance', 'Factory Authorized Service', 'Schedule Service']
-  },
-];
+{
+  label: 'Rentals',
+  children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments']
+},
+{
+  label: 'Sales',
+  children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory']
+},
+{ label: 'Parts' },
+{
+  label: 'Service',
+  children: ['Repair & Maintenance', 'Factory Authorized Service', 'Schedule Service']
+}];
+
 
 const industries = ['Space / Aerospace', 'Military', 'Construction', 'Events', 'Warehouse', 'Government'];
 const moreLinks = ['About', 'Resources', 'Contact'];
@@ -54,38 +54,38 @@ export default function Navbar() {
 
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0">
-            <img
-              src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/7e6af21eb_Gemini_Generated_Image_k4mqi7k4mqi7k4mq.png"
-              alt="All Access Services"
-              className="h-14 w-auto object-contain"
-              style={{ mixBlendMode: 'screen', maxWidth: '200px' }}
-            />
+            <img src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/f35c2cb5e_Gemini_Generated_Image_vsv0oxvsv0oxvsv0.png"
+
+            alt="All Access Services" className="h-14 w-auto object-contain"
+
+            style={{ mixBlendMode: 'screen', maxWidth: '200px' }} />
+            
           </a>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-3">
-            {mainNavLinks.map((link) => (
-              <div
-                key={link.label}
-                className="relative group"
-                onMouseEnter={() => setActiveDropdown(link.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
+            {mainNavLinks.map((link) =>
+            <div
+              key={link.label}
+              className="relative group"
+              onMouseEnter={() => setActiveDropdown(link.label)}
+              onMouseLeave={() => setActiveDropdown(null)}>
+              
                 <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-300 hover:text-orange-400 transition-colors">
                   {link.label}
                   {link.children && <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />}
                 </button>
-                {link.children && activeDropdown === link.label && (
-                  <div className="absolute top-full left-0 mt-1 w-52 bg-black/95 border border-orange-500/20 backdrop-blur-md shadow-xl shadow-black/50 overflow-hidden">
-                    {link.children.map((child) => (
-                      <a key={child} href="#" className="block px-4 py-2.5 text-sm text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition-all border-b border-white/5 last:border-0">
+                {link.children && activeDropdown === link.label &&
+              <div className="absolute top-full left-0 mt-1 w-52 bg-black/95 border border-orange-500/20 backdrop-blur-md shadow-xl shadow-black/50 overflow-hidden">
+                    {link.children.map((child) =>
+                <a key={child} href="#" className="block px-4 py-2.5 text-sm text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition-all border-b border-white/5 last:border-0">
                         {child}
                       </a>
-                    ))}
-                  </div>
                 )}
+                  </div>
+              }
               </div>
-            ))}
+            )}
           </div>
 
           {/* Right actions */}
@@ -96,8 +96,8 @@ export default function Navbar() {
               <input
                 type="text"
                 placeholder="Search..."
-                className="pl-8 pr-3 h-8 w-40 bg-white/5 border border-white/10 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500/60 transition-colors placeholder-gray-600"
-              />
+                className="pl-8 pr-3 h-8 w-40 bg-white/5 border border-white/10 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500/60 transition-colors placeholder-gray-600" />
+              
             </div>
             {/* Mobile search icon */}
             <button className="md:hidden text-gray-400 hover:text-orange-400 transition-colors p-2">
@@ -108,8 +108,8 @@ export default function Navbar() {
             <a
               href="/dashboard"
               title="Customer Portal"
-              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-500/60 text-orange-400 hover:bg-orange-500 hover:text-black transition-all"
-            >
+              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-500/60 text-orange-400 hover:bg-orange-500 hover:text-black transition-all">
+              
               <User className="w-4 h-4" />
             </a>
 
@@ -117,9 +117,9 @@ export default function Navbar() {
             <button
               id="hamburger-btn"
               className="text-gray-300 p-2 hover:text-orange-400 transition-colors"
-              onClick={() => setDrawerOpen(o => !o)}
-              aria-label="Menu"
-            >
+              onClick={() => setDrawerOpen((o) => !o)}
+              aria-label="Menu">
+              
               {drawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
@@ -128,28 +128,28 @@ export default function Navbar() {
 
       {/* Right-side drawer */}
       <AnimatePresence>
-        {drawerOpen && (
-          <>
+        {drawerOpen &&
+        <>
             {/* Backdrop */}
             <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
-              onClick={() => setDrawerOpen(false)}
-            />
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+            onClick={() => setDrawerOpen(false)} />
+          
 
             {/* Drawer panel */}
             <motion.div
-              id="side-drawer"
-              key="drawer"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.28 }}
-              className="fixed top-0 right-0 h-full w-72 bg-[#0d0d0d] border-l border-white/10 z-50 flex flex-col overflow-y-auto"
-            >
+            id="side-drawer"
+            key="drawer"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.28 }}
+            className="fixed top-0 right-0 h-full w-72 bg-[#0d0d0d] border-l border-white/10 z-50 flex flex-col overflow-y-auto">
+            
               {/* Drawer header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
                 <span className="text-white font-bold text-sm uppercase tracking-widest">Menu</span>
@@ -164,11 +164,11 @@ export default function Navbar() {
                 <div className="lg:hidden">
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Navigate</p>
                   <div className="space-y-1">
-                    {mainNavLinks.map((link) => (
-                      <a key={link.label} href="#" className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                    {mainNavLinks.map((link) =>
+                  <a key={link.label} href="#" className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                         {link.label}
                       </a>
-                    ))}
+                  )}
                   </div>
                 </div>
 
@@ -176,11 +176,11 @@ export default function Navbar() {
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Industries</p>
                   <div className="space-y-1">
-                    {industries.map((ind) => (
-                      <a key={ind} href="#" className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                    {industries.map((ind) =>
+                  <a key={ind} href="#" className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                         {ind}
                       </a>
-                    ))}
+                  )}
                   </div>
                 </div>
 
@@ -188,19 +188,19 @@ export default function Navbar() {
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">More</p>
                   <div className="space-y-1">
-                    {moreLinks.map((label) => (
-                      <a key={label} href="#" className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                    {moreLinks.map((label) =>
+                  <a key={label} href="#" className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                         {label}
                       </a>
-                    ))}
+                  )}
                   </div>
                 </div>
 
                 {/* Customer portal */}
                 <a
-                  href="/dashboard"
-                  className="flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors"
-                >
+                href="/dashboard"
+                className="flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors">
+                
                   <User className="w-4 h-4" />
                   Customer Portal
                 </a>
@@ -215,8 +215,8 @@ export default function Navbar() {
               </div>
             </motion.div>
           </>
-        )}
+        }
       </AnimatePresence>
-    </header>
-  );
+    </header>);
+
 }

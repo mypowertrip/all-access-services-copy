@@ -104,6 +104,14 @@ export default function Navbar() {
               <Search className="w-4 h-4" />
             </button>
 
+            {/* App CTA */}
+            <a
+              href="#"
+              className="hidden md:flex items-center gap-2 bg-teal-500 hover:bg-teal-400 text-black font-bold text-xs uppercase tracking-widest px-4 py-2 transition-all whitespace-nowrap">
+              <span>📱</span>
+              Download Our App
+            </a>
+
             {/* Customer portal — avatar icon */}
             <a
               href="/dashboard"

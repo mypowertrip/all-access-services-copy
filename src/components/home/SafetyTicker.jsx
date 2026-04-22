@@ -22,7 +22,7 @@ export default function SafetyTicker() {
   const msg = MESSAGES[index];
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ height: '80px' }}>
+    <div className="fixed bottom-0 left-0 right-0 w-full overflow-hidden z-40" style={{ height: '80px' }}>
       {/* Caution tape background - scrolling */}
       <motion.div
         animate={{ x: [0, -80] }}
@@ -42,7 +42,7 @@ export default function SafetyTicker() {
       {/* Content overlay */}
       <a
         href="/safety"
-        className="relative h-full group flex items-center gap-4 px-8 bg-black/30 backdrop-blur-sm"
+        className="absolute inset-0 h-full group flex items-center gap-4 px-8 bg-black/30 backdrop-blur-sm"
       >
         {/* Shield icon */}
         <ShieldCheck className="w-8 h-8 shrink-0 text-orange-400" />

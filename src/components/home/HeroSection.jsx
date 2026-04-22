@@ -129,10 +129,10 @@ export default function HeroSection() {
                 <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
               </div>
               )}
-            <div className="ml-auto hidden md:flex items-center gap-2 border border-teal-500/30 bg-teal-500/5 px-4 py-2 hidden hidden hidden hidden hidden hidden hidden hidden">
-              <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-              <span className="text-teal-400 text-xs font-bold uppercase tracking-widest hidden">ClearSky™ Connected Fleet</span>
-            </div>
+            
+
+
+              
           </motion.div>
         </div>
       </div>

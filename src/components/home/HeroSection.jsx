@@ -6,14 +6,33 @@ import SafetyTicker from './SafetyTicker';
 const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
 const CYCLING_WORDS = ['SMARTER.', 'STRONGER.', 'SAFER.'];
 
+const EQUIPMENT_IMGS = [
+  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/cf4197cc2_boom-lift.png",
+  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b50102990_scissor-lift.png",
+  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/e9be9b9ec_telehandler.png",
+];
+
 export default function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0);
+  const [equipIndex, setEquipIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex(i => (i + 1) % CYCLING_WORDS.length);
     }, 2200);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const cycle = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setEquipIndex(i => (i + 1) % EQUIPMENT_IMGS.length);
+        setVisible(true);
+      }, 800);
+    }, 4000);
+    return () => clearInterval(cycle);
   }, []);
 
   return (
@@ -37,6 +56,23 @@ export default function HeroSection() {
       {/* Accent lines */}
       <div className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-orange-500 to-transparent" />
       <div className="absolute right-0 top-1/3 bottom-1/3 w-px bg-gradient-to-b from-transparent via-teal-500/40 to-transparent" />
+
+      {/* Rotating equipment image */}
+      <div className="absolute bottom-0 right-0 w-[480px] h-[420px] pointer-events-none hidden lg:block overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={equipIndex}
+            src={EQUIPMENT_IMGS[equipIndex]}
+            alt="Equipment"
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: visible ? 0.85 : 0, y: visible ? 0 : 60 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute bottom-0 right-0 w-full h-full object-contain object-bottom"
+            style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.8))' }}
+          />
+        </AnimatePresence>
+      </div>
 
       {/* ClearSky hex decoration */}
       <svg className="absolute right-8 top-32 w-64 opacity-10 text-teal-400 pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none">

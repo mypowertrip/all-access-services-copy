@@ -41,13 +41,29 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
+        {/* Static scene photo */}
         <img
           src={HERO_IMG}
           alt="Boom lift at construction site"
           className="w-full h-full object-cover" />
-        
+
+        {/* Rotating equipment — sits inside background, right side, blended */}
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={equipIndex}
+            src={EQUIPMENT_IMGS[equipIndex]}
+            alt="Equipment"
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 0.55, y: 0 }}
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute bottom-0 right-8 w-[520px] object-contain object-bottom pointer-events-none hidden lg:block"
+            style={{ mixBlendMode: 'luminosity', filter: 'drop-shadow(0 0 60px rgba(0,0,0,1))' }}
+          />
+        </AnimatePresence>
+
         {/* Dark overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
         {/* Grid overlay */}
         <div className="absolute inset-0 grid-bg opacity-30" />
@@ -56,23 +72,6 @@ export default function HeroSection() {
       {/* Accent lines */}
       <div className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-orange-500 to-transparent" />
       <div className="absolute right-0 top-1/3 bottom-1/3 w-px bg-gradient-to-b from-transparent via-teal-500/40 to-transparent" />
-
-      {/* Rotating equipment image */}
-      <div className="absolute bottom-0 right-0 w-[480px] h-[420px] pointer-events-none hidden lg:block overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={equipIndex}
-            src={EQUIPMENT_IMGS[equipIndex]}
-            alt="Equipment"
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: visible ? 0.85 : 0, y: visible ? 0 : 60 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-0 right-0 w-full h-full object-contain object-bottom"
-            style={{ filter: 'drop-shadow(0 0 40px rgba(0,0,0,0.8))' }}
-          />
-        </AnimatePresence>
-      </div>
 
       {/* ClearSky hex decoration */}
       <svg className="absolute right-8 top-32 w-64 opacity-10 text-teal-400 pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none">

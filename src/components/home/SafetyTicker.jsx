@@ -18,52 +18,42 @@ export default function SafetyTicker() {
       className="block w-full overflow-hidden group"
       style={{ position: 'fixed', top: 96, left: 0, right: 0, zIndex: 40 }}
     >
-      {/* Caution tape stripes top border */}
-      <div style={{
-        height: 8,
-        background: 'repeating-linear-gradient(135deg, #000 0px, #000 10px, #f97316 10px, #f97316 20px)',
-      }} />
+      {/* Caution tape top stripe */}
+      <div style={{ height: 6, background: 'repeating-linear-gradient(135deg, #000 0px, #000 8px, #f97316 8px, #f97316 16px)' }} />
 
       {/* Main ticker row */}
-      <div className="flex items-center" style={{ background: '#f97316' }}>
-        {/* Left label */}
-        <div className="shrink-0 flex items-center gap-2 px-4 py-2 border-r-2 border-black/30" style={{
-          background: 'repeating-linear-gradient(135deg, #000 0px, #000 8px, #f97316 8px, #f97316 16px)',
-          minWidth: 90,
-        }}>
-          <ShieldCheck className="w-4 h-4 text-white drop-shadow" />
-          <span className="text-white font-barlow font-black text-sm uppercase tracking-widest whitespace-nowrap drop-shadow">Safety</span>
+      <div className="flex items-stretch" style={{ background: '#f97316' }}>
+
+        {/* Left label — solid black bg for max contrast */}
+        <div className="shrink-0 flex items-center gap-2 px-5 bg-black">
+          <ShieldCheck className="w-3.5 h-3.5 text-orange-400" />
+          <span className="text-orange-400 font-barlow font-black text-xs uppercase tracking-widest whitespace-nowrap">Safety</span>
         </div>
 
         {/* Scrolling ticker */}
         <div className="overflow-hidden flex-1">
           <div
-            className="flex gap-0 whitespace-nowrap"
+            className="flex whitespace-nowrap"
             style={{ animation: 'ticker 30s linear infinite' }}
           >
             {repeated.map((item, i) => (
-              <span key={i} className="font-barlow font-black text-sm uppercase tracking-widest text-black px-8 py-2 inline-flex items-center gap-4">
+              <span key={i} className="font-barlow font-black text-xs uppercase tracking-widest text-black py-1.5 px-8 inline-flex items-center gap-4">
                 {item}
-                <span className="text-black/40 text-base">◆</span>
+                <span className="text-black/30">◆</span>
               </span>
             ))}
           </div>
         </div>
 
-        {/* Right CTA */}
-        <div className="shrink-0 flex items-center gap-1.5 px-4 py-2 border-l-2 border-black/30 text-black font-black text-xs uppercase tracking-widest whitespace-nowrap group-hover:bg-black/10 transition-colors" style={{
-          background: 'repeating-linear-gradient(135deg, #000 0px, #000 8px, #f97316 8px, #f97316 16px)',
-        }}>
-          <span className="text-white drop-shadow">Learn More</span>
-          <ArrowRight className="w-3.5 h-3.5 text-white group-hover:translate-x-0.5 transition-transform drop-shadow" />
+        {/* Right CTA — solid black bg for max contrast */}
+        <div className="shrink-0 flex items-center gap-1.5 px-5 bg-black group-hover:bg-zinc-900 transition-colors whitespace-nowrap">
+          <span className="text-orange-400 font-black text-xs uppercase tracking-widest">Learn More</span>
+          <ArrowRight className="w-3 h-3 text-orange-400 group-hover:translate-x-0.5 transition-transform" />
         </div>
       </div>
 
-      {/* Caution tape stripes bottom border */}
-      <div style={{
-        height: 8,
-        background: 'repeating-linear-gradient(135deg, #000 0px, #000 10px, #f97316 10px, #f97316 20px)',
-      }} />
+      {/* Caution tape bottom stripe */}
+      <div style={{ height: 6, background: 'repeating-linear-gradient(135deg, #000 0px, #000 8px, #f97316 8px, #f97316 16px)' }} />
 
       <style>{`
         @keyframes ticker {

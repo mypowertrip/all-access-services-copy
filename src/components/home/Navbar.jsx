@@ -45,7 +45,7 @@ export default function Navbar() {
   }, [drawerOpen]);
 
   return (
-    <header className="fixed left-0 right-0 z-50" style={{ top: 32 }}>
+    <header className="fixed top-0 left-0 right-0 z-50">
 
 
       {/* Main nav */}

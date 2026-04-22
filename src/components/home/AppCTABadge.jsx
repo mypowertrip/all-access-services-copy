@@ -28,7 +28,7 @@ export default function AppCTABadge() {
   return (
     <motion.a
       href="/dashboard"
-      className="group fixed right-6 z-40 flex flex-col items-center justify-center"
+      className="group fixed right-6 z-40 hidden md:flex flex-col items-center justify-center"
       style={{ top: 140, width: size, height: size }}
       title="Ground Control App"
       animate={{ opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? 'auto' : 'none' }}

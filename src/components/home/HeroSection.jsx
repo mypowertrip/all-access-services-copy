@@ -49,7 +49,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-40 pb-20 md:pt-52">
-        <div className="max-w-3xl -ml-4">
+        <div className="ml-16 max-w-3xl">
           {/* Headline */}
           <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -114,8 +114,8 @@ export default function HeroSection() {
           <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-white/10">
+              transition={{ duration: 0.6, delay: 0.6 }} className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-white/10 hidden">
+              
             
             {[
               { val: '4', label: 'SoCal Locations' },

@@ -50,15 +50,15 @@ export default function Navbar() {
 
       {/* Main nav */}
       <nav className={`transition-all duration-300 ${scrolled ? 'bg-[#111111]/98 backdrop-blur-md shadow-lg shadow-black/80 border-b border-teal-500/10' : 'bg-[#111111]/80 backdrop-blur-sm border-b border-white/5'}`}>
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
           {/* Logo */}
-          <a href="/" className="flex items-center flex-shrink-0">
+          <a href="/" className="flex items-center flex-shrink-0 mt-6">
             <img src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/c480996d7_ChatGPT_Image_Apr_22__2026__12_15_08_AM.png"
 
-            alt="All Access Services" className="h-64 w-auto object-contain"
+            alt="All Access Services" className="h-72 w-auto object-contain"
 
-            style={{ mixBlendMode: 'screen', maxWidth: '200px' }} />
+            style={{ mixBlendMode: 'screen', maxWidth: '280px' }} />
             
           </a>
 

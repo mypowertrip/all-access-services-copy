@@ -80,7 +80,7 @@ export default function Navbar() {
                   {link.children && <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />}
                 </button>
                 {link.children && activeDropdown === link.label &&
-              <div className="absolute top-full left-0 mt-1 w-52 bg-black/95 border border-orange-500/20 backdrop-blur-md shadow-xl shadow-black/50 overflow-hidden">
+              <div className="absolute top-full left-0 w-52 bg-black border border-orange-500/20 shadow-xl shadow-black/50 overflow-hidden">
                     {link.children.map((child) =>
                 <a key={child} href="#" className="block px-4 py-2.5 text-sm text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition-all border-b border-white/5 last:border-0">
                         {child}

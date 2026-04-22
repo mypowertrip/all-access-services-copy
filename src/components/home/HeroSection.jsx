@@ -98,7 +98,7 @@ export default function HeroSection() {
               href="#rentals"
               className="group inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 transition-all glow-orange">
               
-              Get a Quote
+              Rentals
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a

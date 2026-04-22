@@ -19,7 +19,7 @@ export default function HeroSection() {
   return (
     <>
     <SafetyTicker />
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-14">
       {/* Background image */}
       <div className="absolute inset-0">
         <img

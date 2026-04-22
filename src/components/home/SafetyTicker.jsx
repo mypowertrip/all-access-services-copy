@@ -16,7 +16,7 @@ export default function SafetyTicker() {
     <a
       href="/safety"
       className="block w-full overflow-hidden group"
-      style={{ position: 'fixed', top: 96, left: 0, right: 0, zIndex: 40 }}
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 60 }}
     >
       {/* Caution tape stripes top border */}
       <div style={{

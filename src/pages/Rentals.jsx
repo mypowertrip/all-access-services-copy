@@ -140,13 +140,18 @@ export default function Rentals() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl h-64 cursor-pointer text-left"
+                  className="group relative border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl h-64 cursor-pointer text-left"
+                  style={{
+                    background: `${cat.gradientFrom}80`,
+                    boxShadow: `inset 0 0 50px ${cat.gradientFrom}20`
+                  }}
                 >
-                  {/* Background Image */}
-                  <img
-                    src={cat.image}
-                    alt={cat.name}
-                    className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500"
+                  {/* Gradient Background */}
+                  <div 
+                    className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500"
+                    style={{
+                      background: `linear-gradient(135deg, ${cat.gradientFrom} 0%, ${cat.gradientTo} 100%)`
+                    }}
                   />
                   
                   {/* Overlay */}

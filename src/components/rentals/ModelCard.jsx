@@ -11,13 +11,32 @@ export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inC
       className="bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/40 overflow-hidden transition-all duration-300 group"
     >
       {/* Image Container */}
-      <div className="relative w-full aspect-video bg-zinc-800 overflow-hidden flex items-center justify-center">
-        <img
-          src={model.imageUrl}
-          alt={model.name}
-          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 p-4"
-          onError={(e) => { e.target.style.display = 'none'; }}
-        />
+      <div 
+        className="relative w-full aspect-video overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-500"
+        style={!model.imageUrl ? {
+          background: (() => {
+            const gradients = {
+              'scissor-lifts': 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+              'boom-lifts': 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+              'articulating-booms': 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
+              'telehandlers': 'linear-gradient(135deg, #eab308 0%, #ca8a04 100%)',
+              'forklifts': 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
+            };
+            return gradients[model.category] || 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)';
+          })()
+        } : { backgroundColor: '#27272a' }}
+      >
+        {model.imageUrl && (
+          <img
+            src={model.imageUrl}
+            alt={model.name}
+            className="w-full h-full object-contain p-4"
+            onError={(e) => { e.target.style.display = 'none'; }}
+          />
+        )}
+        {!model.imageUrl && (
+          <p className="text-center text-white font-bold text-lg px-4">{model.name}</p>
+        )}
       </div>
 
       {/* Header with specs badge */}

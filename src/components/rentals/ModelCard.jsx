@@ -14,7 +14,7 @@ export default function ModelCard({ model, onAddToQuote, inQuote }) {
       className="bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/40 overflow-hidden transition-all duration-300 group"
     >
       {/* Image Container */}
-      <div className="relative w-full aspect-video bg-zinc-800 overflow-hidden">
+      <div className="relative w-full aspect-video bg-gray-300 overflow-hidden">
         {!imageFailed ? (
           <motion.img
             src={model.imageUrl}
@@ -24,7 +24,7 @@ export default function ModelCard({ model, onAddToQuote, inQuote }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: imageLoaded ? 1 : 0 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
           />
         ) : null}
         {imageFailed && (

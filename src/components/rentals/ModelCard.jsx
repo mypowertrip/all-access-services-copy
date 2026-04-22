@@ -68,7 +68,7 @@ export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inC
           </div>
           <div>
             <span className="text-xs text-gray-500 uppercase tracking-wider">Width</span>
-            <p className="text-sm font-bold text-white mt-0.5">{model.width} ft</p>
+            <p className="text-sm font-bold text-white mt-0.5">{model.width} in</p>
           </div>
           <div>
             <span className="text-xs text-gray-500 uppercase tracking-wider">Weight</span>

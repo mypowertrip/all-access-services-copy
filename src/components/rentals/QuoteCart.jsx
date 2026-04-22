@@ -50,9 +50,9 @@ export default function QuoteCart({ items, onRemove, onCheckout, onOpenQuoteForm
             {/* Pricing & Actions */}
             <div className="flex items-center gap-6">
               <div className="text-right">
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-0.5">Est. Daily Rate</p>
-                <p className="text-2xl font-black text-orange-400">${subtotal}</p>
-                <p className="text-xs text-gray-500 mt-1">Monthly: ${estimatedMonthly}</p>
+                <p className="text-xs text-gray-500 uppercase tracking-wider mb-0.5">Pricing</p>
+                <p className="text-lg font-bold text-orange-400">Call for Quote</p>
+                <p className="text-xs text-gray-400 mt-1">📞 888-777-5990</p>
               </div>
               <button
                 onClick={onOpenQuoteForm}

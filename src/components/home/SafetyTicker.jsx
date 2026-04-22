@@ -22,23 +22,32 @@ export default function SafetyTicker() {
   const msg = MESSAGES[index];
 
   return (
-    <a
-      href="/safety"
-      className="block group"
-      style={{
-        position: 'fixed',
-        top: 112,
-        right: 0,
-        zIndex: 40,
-        width: '37%',
-        background: 'linear-gradient(to right, transparent 0%, #f5a623 12%, #f5a623 100%)',
-      }}
-    >
-      <div className="flex items-center gap-3 px-5 py-2" style={{ paddingLeft: '10%' }}>
-        {/* Shield icon */}
-        <ShieldCheck className="w-6 h-6 shrink-0" style={{ color: '#c2410c' }} />
+    <div className="relative w-full overflow-hidden" style={{ height: '80px' }}>
+      {/* Caution tape background - scrolling */}
+      <motion.div
+        animate={{ x: [0, -80] }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        className="absolute inset-0 flex"
+        style={{
+          backgroundImage: `repeating-linear-gradient(
+            45deg,
+            #f5a623 0px,
+            #f5a623 20px,
+            #000 20px,
+            #000 40px
+          )`,
+        }}
+      />
 
-        {/* Animated text */}
+      {/* Content overlay */}
+      <a
+        href="/safety"
+        className="relative h-full group flex items-center gap-4 px-8 bg-black/30 backdrop-blur-sm"
+      >
+        {/* Shield icon */}
+        <ShieldCheck className="w-8 h-8 shrink-0 text-orange-400" />
+
+        {/* Animated messages */}
         <div className="flex-1 overflow-hidden" style={{ height: '2.4em' }}>
           <AnimatePresence mode="wait">
             <motion.div
@@ -48,20 +57,20 @@ export default function SafetyTicker() {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.35 }}
             >
-              <p className="text-black font-bold text-xs leading-tight">{msg.line1}</p>
-              <p className="text-black font-normal text-xs leading-tight">{msg.line2}</p>
+              <p className="text-white font-bold text-sm leading-tight">{msg.line1}</p>
+              <p className="text-white font-normal text-sm leading-tight">{msg.line2}</p>
             </motion.div>
           </AnimatePresence>
         </div>
 
         {/* Learn More */}
-        <div className="shrink-0 flex items-center gap-1 ml-2">
-          <span className="font-semibold text-xs group-hover:underline whitespace-nowrap" style={{ color: '#c2410c' }}>
+        <div className="shrink-0 flex items-center gap-1">
+          <span className="font-semibold text-sm group-hover:underline whitespace-nowrap text-orange-400">
             Learn More
           </span>
-          <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" style={{ color: '#c2410c' }} />
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform text-orange-400" />
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   );
 }

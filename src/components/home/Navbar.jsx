@@ -49,7 +49,7 @@ export default function Navbar() {
 
 
       {/* Main nav */}
-      <nav className={`transition-all duration-300 ${scrolled ? 'bg-[#111111]/98 backdrop-blur-md shadow-lg shadow-black/80 border-b border-teal-500/10' : 'bg-[#111111]/80 backdrop-blur-sm border-b border-white/5'}`}>
+      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-[#111111]/98 backdrop-blur-md shadow-lg shadow-black/80 border-b border-teal-500/10' : 'bg-[#111111]/80 backdrop-blur-sm border-b border-white/5'}`}>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
           {/* Logo */}
@@ -124,6 +124,9 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+        
+        {/* Accent line at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
       </nav>
 
       {/* Right-side drawer */}

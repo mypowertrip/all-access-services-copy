@@ -14,6 +14,7 @@ export default function Rentals() {
   const { category } = useParams();
   const [searchTerm, setSearchTerm] = useState('');
   const [quoteItems, setQuoteItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [filters, setFilters] = useState({
     heightRange: null,
     power: null,
@@ -62,11 +63,13 @@ export default function Rentals() {
   }, [category, searchTerm, filters]);
 
   const handleAddToQuote = (model) => {
-    setQuoteItems(prev =>
-      prev.find(item => item.id === model.id)
+    setQuoteItems(prev => {
+      const updated = prev.find(item => item.id === model.id)
         ? prev.filter(item => item.id !== model.id)
-        : [...prev, model]
-    );
+        : [...prev, model];
+      if (updated.length > 0) setIsCartOpen(true);
+      return updated;
+    });
   };
 
   const handleRemoveFromQuote = (modelId) => {
@@ -227,6 +230,7 @@ export default function Rentals() {
       {/* Quote Cart */}
       <QuoteCart
         items={quoteItems}
+        isOpen={isCartOpen}
         onRemove={handleRemoveFromQuote}
         onCheckout={handleCheckout}
       />

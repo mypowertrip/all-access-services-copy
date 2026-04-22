@@ -335,25 +335,25 @@ export const rentalCategories = [
   {
     slug: 'scissor-lifts',
     name: 'Scissor Lifts',
-    image: `${DEALERSPIKE_CDN}/524552C5-9E3D-49EB-8DA4-52F81977F1B1.jpg`,
+    image: 'https://media.bigrentz.com/equipment-images/scissor-lift-jlg-1930es.jpg',
     description: 'Electric & diesel for indoor & rough terrain'
   },
   {
     slug: 'boom-lifts',
     name: 'Boom Lifts',
-    image: `${DEALERSPIKE_CDN}/E7100011-D376-4860-BAC1-BF25137CE29C.jpg`,
+    image: 'https://media.bigrentz.com/equipment-images/boom-lift-jlg-400s.jpg',
     description: 'Articulating & telescopic reach up to 185 ft'
   },
   {
     slug: 'telehandlers',
     name: 'Telehandlers',
-    image: `${DEALERSPIKE_CDN}/1C563CD2-DCC8-4C87-9A8A-8B2C3C3F35C5.jpg`,
+    image: 'https://media.bigrentz.com/equipment-images/telehandler-jlg-g9-43a.jpg',
     description: 'Versatile material handling up to 12,000 lb'
   },
   {
     slug: 'fork-lifts',
     name: 'Fork Lifts',
-    image: `${DEALERSPIKE_CDN}/1A8F5A0E-141D-4931-BCCD-B21CF74B473B.jpg`,
+    image: 'https://media.bigrentz.com/equipment-images/forklift-hyster-s50a.jpg',
     description: 'Warehouse & rough terrain lift trucks'
   },
 ];

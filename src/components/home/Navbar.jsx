@@ -50,7 +50,7 @@ export default function Navbar() {
 
       {/* Main nav */}
       <nav className={`transition-all duration-300 ${scrolled ? 'bg-[#111111]/98 backdrop-blur-md shadow-lg shadow-black/80 border-b border-teal-500/10' : 'bg-[#111111]/80 backdrop-blur-sm border-b border-white/5'}`}>
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24 py-3">
 
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0">

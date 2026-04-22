@@ -15,7 +15,7 @@ export default function SafetyTicker() {
     <a
       href="/safety"
       className="block w-full bg-orange-500 hover:bg-orange-400 transition-colors overflow-hidden group"
-      style={{ position: 'fixed', top: 64, left: 0, right: 0, zIndex: 40 }}
+      style={{ position: 'fixed', top: 96, left: 0, right: 0, zIndex: 40 }}
     >
       <div className="flex items-center">
         {/* Left label */}

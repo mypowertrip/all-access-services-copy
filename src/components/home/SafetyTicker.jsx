@@ -37,9 +37,9 @@ export default function SafetyTicker() {
             style={{ animation: 'ticker 30s linear infinite' }}
           >
             {repeated.map((item, i) => (
-              <span key={i} className="font-barlow font-black text-xs uppercase tracking-widest text-black py-1.5 px-8 inline-flex items-center gap-4">
+              <span key={i} className="font-barlow font-black text-sm uppercase tracking-widest text-white py-1.5 px-8 inline-flex items-center gap-4">
                 {item}
-                <span className="text-black/30">◆</span>
+                <span className="text-white/30">◆</span>
               </span>
             ))}
           </div>

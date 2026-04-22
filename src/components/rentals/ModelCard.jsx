@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Download, Plus, Zap, Gauge, BarChart3 } from 'lucide-react';
 
-export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inComparison }) {
+export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inComparison, onRequestQuote }) {
   const isPowerElectric = model.power === 'Electric';
 
   return (
@@ -105,15 +105,11 @@ export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inC
       {/* Actions */}
       <div className="p-4 space-y-2">
         <button
-          onClick={() => onAddToQuote(model)}
-          className={`w-full flex items-center justify-center gap-2 py-2.5 font-bold text-sm uppercase tracking-wider rounded-lg transition-all ${
-            inQuote
-              ? 'bg-green-600/20 text-green-400 border border-green-500/40 hover:bg-green-600/30'
-              : 'bg-orange-500 text-black hover:bg-orange-400'
-          }`}
+          onClick={() => onRequestQuote(model)}
+          className="w-full flex items-center justify-center gap-2 py-2.5 font-bold text-sm uppercase tracking-wider rounded-lg transition-all bg-orange-500 text-black hover:bg-orange-400"
         >
           <Plus className="w-4 h-4" />
-          {inQuote ? 'In Quote' : 'Request Quote'}
+          Request Quote
         </button>
         <div className="flex gap-2">
           <button

@@ -104,6 +104,14 @@ export default function Rentals() {
     setIsComparisonOpen(false);
   };
 
+  const handleOpenQuoteForm = (model) => {
+    // Add model to quote items if not already there
+    if (!quoteItems.find(item => item.id === model.id)) {
+      setQuoteItems(prev => [...prev, model]);
+    }
+    setIsQuoteFormOpen(true);
+  };
+
   const isQuoteCategory = category && category !== 'all';
 
   return (
@@ -134,15 +142,15 @@ export default function Rentals() {
         // Category selection view
         <section className="pb-20">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {rentalCategories.map((cat, i) => (
-                <motion.button
+                <motion.div
                   key={cat.slug}
-                  onClick={() => navigate(`/rentals/${cat.slug}`)}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                   className="group relative border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl h-64 cursor-pointer text-left"
+                  onClick={() => navigate(`/rentals/${cat.slug}`)}
                   style={{
                     background: `${cat.gradientFrom}80`,
                     boxShadow: `inset 0 0 50px ${cat.gradientFrom}20`
@@ -169,7 +177,7 @@ export default function Rentals() {
                       Browse <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
-                </motion.button>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -248,6 +256,7 @@ export default function Rentals() {
                         inQuote={quoteItems.some(item => item.id === model.id)}
                         onCompare={handleAddToComparison}
                         inComparison={comparisonItems.some(item => item.id === model.id)}
+                        onRequestQuote={handleOpenQuoteForm}
                       />
                     ))}
                   </div>

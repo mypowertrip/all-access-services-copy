@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, X, ArrowRight, Trash2 } from 'lucide-react';
 
-export default function QuoteCart({ items, onRemove, onCheckout }) {
+export default function QuoteCart({ items, onRemove, onCheckout, onOpenQuoteForm }) {
   if (items.length === 0) return null;
 
   const subtotal = items.reduce((sum, item) => sum + item.dailyRate, 0);
@@ -54,13 +54,13 @@ export default function QuoteCart({ items, onRemove, onCheckout }) {
                 <p className="text-2xl font-black text-orange-400">${subtotal}</p>
                 <p className="text-xs text-gray-500 mt-1">Monthly: ${estimatedMonthly}</p>
               </div>
-              <a
-                href={`tel:8887775990`}
+              <button
+                onClick={onOpenQuoteForm}
                 className="flex items-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest rounded-lg transition-all shadow-lg shadow-orange-500/20"
               >
-                Call to Quote
+                Request Quote
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </button>
             </div>
           </div>
 

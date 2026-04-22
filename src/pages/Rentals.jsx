@@ -6,6 +6,7 @@ import RentalFilters from '../components/rentals/RentalFilters';
 import ModelCard from '../components/rentals/ModelCard';
 import QuoteCart from '../components/rentals/QuoteCart';
 import ComparisonDrawer from '../components/rentals/ComparisonDrawer';
+import QuoteRequestForm from '../components/rentals/QuoteRequestForm';
 import { motion } from 'framer-motion';
 import { ArrowRight, Search } from 'lucide-react';
 import { rentalModels, rentalCategories, heightRanges, widthRanges } from '../lib/rentalInventory';
@@ -18,6 +19,7 @@ export default function Rentals() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [comparisonItems, setComparisonItems] = useState([]);
   const [isComparisonOpen, setIsComparisonOpen] = useState(false);
+  const [isQuoteFormOpen, setIsQuoteFormOpen] = useState(false);
   const [filters, setFilters] = useState({
     heightRange: null,
     power: null,
@@ -262,6 +264,7 @@ export default function Rentals() {
         isOpen={isCartOpen}
         onRemove={handleRemoveFromQuote}
         onCheckout={handleCheckout}
+        onOpenQuoteForm={() => setIsQuoteFormOpen(true)}
       />
 
       {/* Comparison Drawer */}
@@ -271,6 +274,13 @@ export default function Rentals() {
         onClose={() => setIsComparisonOpen(false)}
         onRemoveModel={handleRemoveFromComparison}
         onClear={handleClearComparison}
+      />
+
+      {/* Quote Request Form */}
+      <QuoteRequestForm
+        models={quoteItems}
+        isOpen={isQuoteFormOpen}
+        onClose={() => setIsQuoteFormOpen(false)}
       />
 
       <Footer />

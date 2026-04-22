@@ -11,7 +11,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setWordIndex((i) => (i + 1) % CYCLING_WORDS.length);
+      setWordIndex(i => (i + 1) % CYCLING_WORDS.length);
     }, 2200);
     return () => clearInterval(interval);
   }, []);
@@ -19,13 +19,13 @@ export default function HeroSection() {
   return (
     <>
     <SafetyTicker />
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-14">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-            src={HERO_IMG}
-            alt="Boom lift at construction site"
-            className="w-full h-full object-cover" />
+          src={HERO_IMG}
+          alt="Boom lift at construction site"
+          className="w-full h-full object-cover" />
         
         {/* Dark overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
@@ -48,14 +48,14 @@ export default function HeroSection() {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-40 pb-20 md:pt-52">
-        <div className="ml-16 max-w-3xl">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-32 md:pt-40 lg:pt-52 pb-20">
+        <div className="max-w-3xl">
           {/* Headline */}
           <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6">
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-barlow font-black text-3xl sm:text-4xl md:text-6xl lg:text-8xl leading-none tracking-wide mb-4 md:mb-6">
             
             <span className="text-white">REACH</span>
             <br />
@@ -64,14 +64,14 @@ export default function HeroSection() {
             <span className="text-white">WORK </span>
             <AnimatePresence mode="wait">
               <motion.span
-                  key={wordIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                  style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
-                  className="inline-block">
-                  
+                key={wordIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
+                className="inline-block"
+              >
                 {CYCLING_WORDS[wordIndex]}
               </motion.span>
             </AnimatePresence>
@@ -79,70 +79,70 @@ export default function HeroSection() {
 
           {/* Sub */}
           <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-semibold drop-shadow-lg">
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-white text-base sm:text-lg md:text-xl lg:text-2xl max-w-xl mb-6 md:mb-10 leading-relaxed font-semibold drop-shadow-lg">
             
-            When safety matters most, trust the lift specialists with the newest fleet and the only factory-authorized JLG service center in the U.S.
+            Committed to Safety, Quality & Integrity
           </motion.p>
 
           {/* CTA buttons */}
           <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4">
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col gap-3 sm:flex-row sm:gap-4">
             
             <a
-                href="#rentals"
-                className="group inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 transition-all glow-orange">
+              href="#rentals"
+              className="group inline-flex items-center justify-center sm:justify-start gap-2 sm:gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-xs sm:text-sm uppercase tracking-widest px-6 sm:px-8 py-3 sm:py-4 transition-all glow-orange">
               
-              Get a Quote
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Rentals
+              <ArrowRight className="w-3 sm:w-4 h-3 sm:h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-                href="#inventory"
-                className="group inline-flex items-center gap-3 border border-white/30 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-sm uppercase tracking-widest px-8 py-4 transition-all">
+              href="#inventory"
+              className="group inline-flex items-center justify-center sm:justify-start gap-2 sm:gap-3 border border-white/30 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-xs sm:text-sm uppercase tracking-widest px-6 sm:px-8 py-3 sm:py-4 transition-all">
               
-              <Play className="w-4 h-4" />
-              View Inventory
+              <Play className="w-3 sm:w-4 h-3 sm:h-4" />
+              Equipment For Sale
             </a>
           </motion.div>
 
           {/* Stats bar */}
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-wrap gap-4 sm:gap-8 mt-8 sm:mt-16 pt-6 sm:pt-8 border-t border-white/10">
             
+            {[
+            { val: '4', label: 'SoCal Locations' },
+            { val: '3000+', label: 'Units in Fleet' },
+            { val: '25+', label: 'Years Experience' },
+            { val: '24/7', label: 'Support Available' },
+            { val: '150+', label: 'Team Members' }].
+            map((stat) =>
+            <div key={stat.label}>
+                <div className="font-barlow text-2xl sm:text-3xl font-black text-orange-500">{stat.val}</div>
+                <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
+              </div>
+            )}
+            <div className="ml-auto hidden md:flex items-center gap-2 border border-teal-500/30 bg-teal-500/5 px-4 py-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+              <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">ClearSky™ Connected Fleet</span>
+            </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Scroll indicator */}
 
       <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500">
+        animate={{ y: [0, 8, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500">
         
         <span className="text-xs uppercase tracking-widest">Scroll</span>
         <ChevronDown className="w-4 h-4" />

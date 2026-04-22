@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, MessageSquare, MessageCircle } from 'lucide-react';
+import { Phone } from 'lucide-react';
 
-const options = [
-  { icon: Phone,         label: 'Call',  href: 'tel:8887775990' },
-  { icon: Mail,          label: 'Email', href: 'mailto:info@allaccessservices.com' },
-  { icon: MessageSquare, label: 'Text',  href: 'sms:8887775990' },
-  { icon: MessageCircle, label: 'Chat',  href: '#chat' },
+const hexPieces = [
+  { label: 'CALL NOW', color: 'orange' },
+  { label: '24/7', color: 'teal' },
+  { label: 'SUPPORT', color: 'orange' },
+  { label: 'ALWAYS', color: 'teal' },
+  { label: 'READY', color: 'orange' },
+  { label: 'TO HELP', color: 'teal' },
 ];
 
 // SVG flat-top hexagon points for a given width/height
@@ -50,62 +52,91 @@ function HexContainer({ width, height, bg, stroke, strokeWidth = 2, glow, childr
 }
 
 export default function FloatingCTA() {
-  const [open, setOpen] = useState(false);
+  const [isRattling, setIsRattling] = useState(false);
+  const [exploded, setExploded] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsRattling(true);
+      setTimeout(() => setIsRattling(false), 600);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleClick = () => {
+    setExploded(!exploded);
+  };
 
   return (
     <div className="fixed bottom-8 right-8 z-50 flex flex-col items-center gap-3">
+      <a href="tel:8887775990" className="block">
+        <motion.button
+          onClick={handleClick}
+          className="relative focus:outline-none"
+          aria-label="Call now"
+        >
+          {/* Exploding hexagon pieces */}
+          <AnimatePresence>
+            {exploded && hexPieces.map((piece, i) => {
+              const angle = (i / hexPieces.length) * Math.PI * 2;
+              const distance = 120;
+              const x = Math.cos(angle) * distance;
+              const y = Math.sin(angle) * distance;
 
-      {/* Option bubbles */}
-      <AnimatePresence>
-        {open && options.map((opt, i) => (
-          <motion.a
-            key={opt.label}
-            href={opt.href}
-            initial={{ opacity: 0, y: 16, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 16, scale: 0.8 }}
-            transition={{ duration: 0.18, delay: (options.length - 1 - i) * 0.06 }}
-            className="flex flex-col items-center gap-1 group"
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 1, x: 0, y: 0 }}
+                  animate={{ opacity: 0, x, y, rotate: 360 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1, ease: 'easeOut' }}
+                  className="absolute"
+                  style={{ width: 60, height: 60, left: '50%', top: '50%', marginLeft: -30, marginTop: -30 }}
+                >
+                  <HexContainer
+                    width={60}
+                    height={60}
+                    bg={piece.color === 'orange' ? 'rgba(249, 115, 22, 0.1)' : 'rgba(45, 212, 191, 0.1)'}
+                    stroke={piece.color === 'orange' ? '#f97316' : '#2dd4bf'}
+                    strokeWidth={1.5}
+                  >
+                    <span className={`text-[7px] font-black uppercase tracking-widest text-center leading-tight ${
+                      piece.color === 'orange' ? 'text-orange-400' : 'text-teal-400'
+                    }`}>
+                      {piece.label}
+                    </span>
+                  </HexContainer>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
+
+          {/* Main phone button */}
+          <motion.div
+            animate={isRattling ? { x: [-3, 3, -3, 3, 0] } : { x: 0 }}
+            transition={isRattling ? { duration: 0.6, ease: 'easeInOut' } : {}}
           >
             <HexContainer
-              width={58}
-              height={66}
-              bg="rgba(5,15,12,0.93)"
-              stroke="rgba(45,212,191,0.65)"
-              strokeWidth={1.5}
-              className="hover:opacity-80 transition-opacity cursor-pointer"
+              width={80}
+              height={90}
+              bg={exploded ? 'rgba(45,212,191,0.18)' : 'rgba(5,15,12,0.96)'}
+              stroke={exploded ? '#2dd4bf' : '#f97316'}
+              strokeWidth={2.5}
+              glow
             >
-              <opt.icon className="w-5 h-5 text-teal-400" />
+              <motion.div
+                animate={isRattling ? { rotate: [-5, 5, -5, 5, 0] } : { rotate: 0 }}
+                transition={isRattling ? { duration: 0.6, ease: 'easeInOut' } : {}}
+              >
+                <Phone className="w-8 h-8 text-orange-400" />
+              </motion.div>
+              <span className="text-[8px] font-black uppercase tracking-widest text-orange-400 leading-none">
+                {exploded ? 'Call' : 'Call'}
+              </span>
             </HexContainer>
-            <span className="text-[9px] font-black uppercase tracking-widest text-teal-400">{opt.label}</span>
-          </motion.a>
-        ))}
-      </AnimatePresence>
-
-      {/* Main hex trigger */}
-      <button
-        onClick={() => setOpen(o => !o)}
-        className="relative focus:outline-none"
-        aria-label="Toggle contact options"
-      >
-        <motion.div animate={{ scale: open ? 0.95 : 1 }} transition={{ duration: 0.2 }}>
-          <HexContainer
-            width={80}
-            height={90}
-            bg={open ? 'rgba(45,212,191,0.18)' : 'rgba(5,15,12,0.96)'}
-            stroke="#2dd4bf"
-            strokeWidth={2.5}
-            glow
-          >
-            <motion.div animate={{ rotate: open ? 45 : 0 }} transition={{ duration: 0.25 }}>
-              <MessageCircle className="w-7 h-7 text-teal-400" />
-            </motion.div>
-            <span className="text-[8px] font-black uppercase tracking-widest text-teal-400 leading-none">
-              {open ? 'Close' : 'Contact'}
-            </span>
-          </HexContainer>
-        </motion.div>
-      </button>
+          </motion.div>
+        </motion.button>
+      </a>
     </div>
   );
 }

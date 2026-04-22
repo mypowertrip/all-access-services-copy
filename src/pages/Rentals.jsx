@@ -1,68 +1,90 @@
-import { useParams } from 'react-router-dom';
+import { useState, useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../components/home/Navbar';
 import Footer from '../components/home/Footer';
+import RentalFilters from '../components/rentals/RentalFilters';
+import ModelCard from '../components/rentals/ModelCard';
+import QuoteCart from '../components/rentals/QuoteCart';
 import { motion } from 'framer-motion';
-import { ArrowRight, Gauge, Ruler, Weight } from 'lucide-react';
-
-const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/d691b3fe6_boom-lift.png";
-const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/45bbda75b_scissor-lift.png";
-const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8f9a3cf95_telehandler.png";
-const LOWLEVEL_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/ae9c0d38b_low-level-access.png";
-const FORKLIFT_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/75f563281_generated_image.png";
-
-const equipment = [
-  {
-    name: 'Boom Lifts',
-    slug: 'boom-lifts',
-    subtitle: 'Extended Reach',
-    img: BOOM_IMG,
-    specs: { height: '40-185 ft', capacity: '500-1000 lbs', models: '15+ models' },
-    description: 'Our boom lifts deliver extended horizontal and vertical reach for high-access work.',
-  },
-  {
-    name: 'Scissor Lifts',
-    slug: 'scissor-lifts',
-    subtitle: 'Vertical Access',
-    img: SCISSOR_IMG,
-    specs: { height: '20-60 ft', capacity: '500-1500 lbs', models: '10+ models' },
-    description: 'Reliable vertical access platforms for indoor and outdoor applications.',
-  },
-  {
-    name: 'Telehandlers',
-    slug: 'telehandlers',
-    subtitle: 'Material Handling',
-    img: TELEHANDLER_IMG,
-    specs: { height: '20-55 ft', capacity: '5000-12000 lbs', models: '8+ models' },
-    description: 'Powerful material handlers for construction and warehouse operations.',
-  },
-  {
-    name: 'Low Level Access',
-    slug: 'low-level-access',
-    subtitle: 'Ground Level',
-    img: LOWLEVEL_IMG,
-    specs: { height: '6-20 ft', capacity: '250-800 lbs', models: '6+ models' },
-    description: 'Compact platforms for tight spaces and interior work.',
-  },
-  {
-    name: 'Forklifts',
-    slug: 'forklifts',
-    subtitle: 'Load & Carry',
-    img: FORKLIFT_IMG,
-    specs: { height: 'Up to 20 ft', capacity: '3000-15000 lbs', models: '10+ models' },
-    description: 'Heavy-duty forklifts for material transport and stacking.',
-  },
-];
+import { ArrowRight, Search } from 'lucide-react';
+import { rentalModels, heightRanges, widthRanges } from '../lib/rentalInventory';
 
 export default function Rentals() {
+  const navigate = useNavigate();
   const { category } = useParams();
-  const selectedEquipment = category ? equipment.find(e => e.slug === category) : null;
+  const [searchTerm, setSearchTerm] = useState('');
+  const [quoteItems, setQuoteItems] = useState([]);
+  const [filters, setFilters] = useState({
+    heightRange: null,
+    power: null,
+    widthRange: null,
+  });
+
+  // Filter models based on category, search, and filters
+  const filteredModels = useMemo(() => {
+    let results = rentalModels;
+
+    // Filter by category
+    if (category) {
+      results = results.filter(m => m.category === category);
+    }
+
+    // Filter by search
+    if (searchTerm) {
+      results = results.filter(m =>
+        m.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        m.id.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // Filter by height range
+    if (filters.heightRange) {
+      const range = heightRanges.find(r => r.label === filters.heightRange);
+      if (range) {
+        results = results.filter(m => m.height >= range.min && m.height <= range.max);
+      }
+    }
+
+    // Filter by power source
+    if (filters.power) {
+      results = results.filter(m => m.power === filters.power);
+    }
+
+    // Filter by width
+    if (filters.widthRange) {
+      const range = widthRanges.find(r => r.label === filters.widthRange);
+      if (range) {
+        results = results.filter(m => m.width >= range.min && m.width <= range.max);
+      }
+    }
+
+    return results;
+  }, [category, searchTerm, filters]);
+
+  const handleAddToQuote = (model) => {
+    setQuoteItems(prev =>
+      prev.find(item => item.id === model.id)
+        ? prev.filter(item => item.id !== model.id)
+        : [...prev, model]
+    );
+  };
+
+  const handleRemoveFromQuote = (modelId) => {
+    setQuoteItems(prev => prev.filter(item => item.id !== modelId));
+  };
+
+  const handleCheckout = () => {
+    navigate('/reserve', { state: { quoteItems } });
+  };
+
+  const isQuoteCategory = category && category !== 'all';
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen pb-32">
       <Navbar />
-      
+
       {/* Hero */}
-      <section className="pt-40 pb-20 bg-black">
+      <section className="pt-40 pb-16 bg-gradient-to-b from-black to-zinc-900/30">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -72,114 +94,136 @@ export default function Rentals() {
               <div className="w-12 h-0.5 bg-orange-500" />
               <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">Equipment Rentals</span>
             </div>
-            <h1 className="font-barlow text-5xl md:text-7xl font-black text-white tracking-tight mb-6">
-              Rent <span className="text-orange-500">Equipment Today</span>
+            <h1 className="font-barlow text-5xl md:text-7xl font-black text-white tracking-tight mb-4">
+              Smart <span className="text-orange-500">Catalog</span>
             </h1>
-            <p className="text-gray-400 text-lg max-w-2xl">Daily, weekly, and monthly rental options on the industry's most reliable aerial work platforms.</p>
+            <p className="text-gray-400 text-lg max-w-2xl">Find the perfect equipment for your project. Filter by specs, bundle equipment into a single quote, and download spec sheets.</p>
           </motion.div>
         </div>
       </section>
 
-      {/* Equipment Grid */}
-      {!selectedEquipment && (
+      {/* Main Content */}
+      {!isQuoteCategory ? (
+        // Category selection view
         <section className="pb-20">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {equipment.map((eq, i) => (
+              {[
+                { slug: 'boom-lifts', name: 'Boom Lifts', icon: '🚀' },
+                { slug: 'scissor-lifts', name: 'Scissor Lifts', icon: '📐' },
+                { slug: 'telehandlers', name: 'Telehandlers', icon: '🏗️' },
+                { slug: 'low-level-access', name: 'Low Level Access', icon: '⬆️' },
+              ].map((cat, i) => (
                 <motion.a
-                  key={eq.name}
-                  href={`/rentals/${eq.slug}`}
+                  key={cat.slug}
+                  href={`/rentals/${cat.slug}`}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 cursor-pointer"
+                  className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl p-6 cursor-pointer"
                 >
-                  <div className="aspect-[4/3] relative overflow-hidden bg-zinc-800">
-                    <img src={eq.img} alt={eq.name} className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4 w-10 h-10 border border-orange-500/50 flex items-center justify-center font-barlow text-orange-500 font-bold">
-                      0{i + 1}
-                    </div>
+                  <div className="text-5xl mb-4">{cat.icon}</div>
+                  <h3 className="font-barlow text-2xl font-bold text-white mb-2">{cat.name}</h3>
+                  <p className="text-gray-400 text-sm mb-4">
+                    {rentalModels.filter(m => m.category === cat.slug).length} models
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-orange-400 text-sm font-bold uppercase tracking-wider group-hover:text-orange-300 transition-colors">
+                    Browse <ArrowRight className="w-4 h-4" />
                   </div>
-
-                  <div className="p-5">
-                    <div className="text-teal-400 text-xs font-semibold uppercase tracking-wider mb-1">{eq.subtitle}</div>
-                    <h3 className="font-barlow text-xl font-bold text-white mb-4">{eq.name}</h3>
-
-                    <div className="space-y-2 mb-5">
-                      <div className="flex items-center gap-2 text-xs text-gray-400">
-                        <Ruler className="w-3.5 h-3.5 text-orange-500" />
-                        <span>Height: {eq.specs.height}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-xs text-gray-400">
-                        <Weight className="w-3.5 h-3.5 text-orange-500" />
-                        <span>Capacity: {eq.specs.capacity}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-xs text-gray-400">
-                        <Gauge className="w-3.5 h-3.5 text-orange-500" />
-                        <span>{eq.specs.models}</span>
-                      </div>
-                    </div>
-
-                    <div className="inline-flex items-center gap-2 text-orange-400 text-sm font-bold uppercase tracking-wider hover:text-orange-300 transition-colors">
-                      View Details
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
-                  </div>
-
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.a>
               ))}
             </div>
           </div>
         </section>
-      )}
-
-      {/* Category Detail */}
-      {selectedEquipment && (
+      ) : (
+        // Catalog with filters
         <section className="pb-20">
           <div className="max-w-7xl mx-auto px-4">
-            <button onClick={() => window.history.back()} className="text-orange-400 hover:text-orange-300 mb-8 text-sm font-bold uppercase">← Back</button>
-            
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-              >
-                <img src={selectedEquipment.img} alt={selectedEquipment.name} className="w-full h-auto object-contain" />
-              </motion.div>
+            {/* Back button */}
+            <button
+              onClick={() => navigate('/rentals')}
+              className="text-orange-400 hover:text-orange-300 mb-6 text-sm font-bold uppercase"
+            >
+              ← Back to Categories
+            </button>
 
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-              >
-                <h1 className="font-barlow text-5xl font-black text-white mb-4">{selectedEquipment.name}</h1>
-                <p className="text-gray-400 text-lg mb-8">{selectedEquipment.description}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+              {/* Sidebar Filters */}
+              <div className="lg:col-span-1">
+                <RentalFilters onFiltersChange={setFilters} />
+              </div>
 
-                <div className="space-y-4 mb-8 bg-zinc-900/50 p-6 border border-zinc-800">
-                  <div>
-                    <span className="text-gray-500 text-sm">Maximum Height</span>
-                    <p className="text-2xl font-bold text-white">{selectedEquipment.specs.height}</p>
-                  </div>
-                  <div>
-                    <span className="text-gray-500 text-sm">Capacity</span>
-                    <p className="text-2xl font-bold text-white">{selectedEquipment.specs.capacity}</p>
-                  </div>
-                  <div>
-                    <span className="text-gray-500 text-sm">Available Models</span>
-                    <p className="text-2xl font-bold text-white">{selectedEquipment.specs.models}</p>
+              {/* Products Grid */}
+              <div className="lg:col-span-3">
+                {/* Search Bar */}
+                <div className="mb-6">
+                  <div className="relative">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
+                    <input
+                      type="text"
+                      placeholder="Search by model name or ID..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-full pl-12 pr-4 py-3 bg-zinc-900/50 border border-zinc-800 text-white rounded-lg focus:outline-none focus:border-orange-500/50 transition-colors placeholder-gray-600"
+                    />
                   </div>
                 </div>
 
-                <a href="/reserve" className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 transition-all">
-                  Get a Quote
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </motion.div>
+                {/* Results Info */}
+                <div className="mb-6 flex items-center justify-between">
+                  <p className="text-sm text-gray-400">
+                    Showing <span className="font-bold text-white">{filteredModels.length}</span> model{filteredModels.length !== 1 ? 's' : ''}
+                  </p>
+                  {quoteItems.length > 0 && (
+                    <span className="text-sm text-orange-400 font-semibold">
+                      {quoteItems.length} in quote
+                    </span>
+                  )}
+                </div>
+
+                {/* Models Grid */}
+                {filteredModels.length === 0 ? (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="py-12 text-center"
+                  >
+                    <p className="text-gray-400 text-lg mb-2">No models match your filters.</p>
+                    <button
+                      onClick={() => {
+                        setSearchTerm('');
+                        setFilters({ heightRange: null, power: null, widthRange: null });
+                      }}
+                      className="text-orange-400 hover:text-orange-300 text-sm font-semibold"
+                    >
+                      Clear filters
+                    </button>
+                  </motion.div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {filteredModels.map((model) => (
+                      <ModelCard
+                        key={model.id}
+                        model={model}
+                        onAddToQuote={handleAddToQuote}
+                        inQuote={quoteItems.some(item => item.id === model.id)}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
       )}
+
+      {/* Quote Cart */}
+      <QuoteCart
+        items={quoteItems}
+        onRemove={handleRemoveFromQuote}
+        onCheckout={handleCheckout}
+      />
 
       <Footer />
     </div>

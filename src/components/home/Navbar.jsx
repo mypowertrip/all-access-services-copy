@@ -159,15 +159,18 @@ export default function Navbar() {
                         </a>
                         {link.children && (
                           <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
-                            {link.children.map((child) => (
-                              <a
-                                key={child}
-                                href="#"
-                                className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors"
-                              >
-                                {child}
-                              </a>
-                            ))}
+                            {link.children.map((child) => {
+                              const childHref = child.toLowerCase().replace(/\s+/g, '-');
+                              return (
+                                <a
+                                  key={child}
+                                  href={`${link.href}/${childHref}`}
+                                  className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors"
+                                >
+                                  {child}
+                                </a>
+                              );
+                            })}
                           </div>
                         )}
                       </div>
@@ -179,11 +182,14 @@ export default function Navbar() {
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Industries</p>
                   <div className="space-y-1">
-                    {industries.map((ind) =>
-                  <a key={ind} href="#" className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
-                        {ind}
-                      </a>
-                  )}
+                    {industries.map((ind) => {
+                      const indHref = ind.toLowerCase().replace(/\s+/g, '-');
+                      return (
+                        <a key={ind} href={`/rentals?industry=${indHref}`} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                          {ind}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -191,11 +197,14 @@ export default function Navbar() {
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">More</p>
                   <div className="space-y-1">
-                    {moreLinks.map((label) =>
-                  <a key={label} href="#" className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
-                        {label}
-                      </a>
-                  )}
+                    {moreLinks.map((label) => {
+                      const href = label === 'About' ? '/#about' : label === 'Contact' ? 'tel:8887775990' : '#';
+                      return (
+                        <a key={label} href={href} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                          {label}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
 

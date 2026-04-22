@@ -39,15 +39,15 @@ export default function Footer() {
             {/* Social */}
             <div className="flex items-center gap-4 mt-8">
               {[
-              { Icon: Facebook, label: 'Facebook' },
-              { Icon: Instagram, label: 'Instagram' },
-              { Icon: Linkedin, label: 'LinkedIn' },
-              { Icon: Youtube, label: 'YouTube' },
-            ].map(({ Icon, label }) => (
-                <a key={label} href="#" className="w-9 h-9 bg-zinc-900 hover:bg-orange-500 flex items-center justify-center text-gray-400 hover:text-black transition-all">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+                 { Icon: Facebook, label: 'Facebook', url: 'https://facebook.com' },
+                 { Icon: Instagram, label: 'Instagram', url: 'https://instagram.com' },
+                 { Icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com' },
+                 { Icon: Youtube, label: 'YouTube', url: 'https://youtube.com' },
+               ].map(({ Icon, label, url }) => (
+                   <a key={label} href={url} target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-zinc-900 hover:bg-orange-500 flex items-center justify-center text-gray-400 hover:text-black transition-all">
+                     <Icon className="w-4 h-4" />
+                   </a>
+                 ))}
             </div>
           </div>
 
@@ -56,13 +56,22 @@ export default function Footer() {
             <div key={title}>
               <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4">{title}</h3>
               <ul className="space-y-2.5">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-gray-400 text-sm hover:text-orange-400 transition-colors">
-                      {link}
-                    </a>
-                  </li>
-                ))}
+                {links.map((link) => {
+                  let href = '#';
+                  if (title === 'Services' && link === 'Equipment Rentals') href = '/rentals';
+                  else if (title === 'Services' && link === 'Equipment Sales') href = '/sales';
+                  else if (title === 'Services' && link === 'Service & Repair') href = '/service';
+                  else if (title === 'Company' && link === 'Our Locations') href = '/locations';
+                  else if (title === 'Company' && link === 'Contact Us') href = 'tel:8887775990';
+
+                  return (
+                    <li key={link}>
+                      <a href={href} className="text-gray-400 text-sm hover:text-orange-400 transition-colors">
+                        {link}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
@@ -97,9 +106,9 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
             <p>© {new Date().getFullYear()} All Access Services. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-orange-400 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-orange-400 transition-colors">Accessibility</a>
+              <a href="/#privacy" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
+               <a href="/#terms" className="hover:text-orange-400 transition-colors">Terms of Service</a>
+               <a href="/#accessibility" className="hover:text-orange-400 transition-colors">Accessibility</a>
             </div>
           </div>
         </div>

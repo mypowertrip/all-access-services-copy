@@ -265,6 +265,37 @@ export const rentalModels = [
   },
 ];
 
+export const rentalCategories = [
+  {
+    slug: 'boom-lifts',
+    name: 'Boom Lifts',
+    icon: '🚀',
+    image: 'https://www.allaccessservices.com/site-assets/equipment/jlg-1200sjp-hero.jpg',
+    description: 'Articulating & telescopic reach up to 185 ft'
+  },
+  {
+    slug: 'scissor-lifts',
+    name: 'Scissor Lifts',
+    icon: '📐',
+    image: 'https://www.allaccessservices.com/site-assets/equipment/jlg-es1932.jpg',
+    description: 'Electric & diesel for indoor & rough terrain'
+  },
+  {
+    slug: 'telehandlers',
+    name: 'Telehandlers',
+    icon: '🏗️',
+    image: 'https://www.allaccessservices.com/site-assets/equipment/skytrak-10054.jpg',
+    description: 'Versatile material handling up to 10,000 lb'
+  },
+  {
+    slug: 'low-level-access',
+    name: 'Low Level Access',
+    icon: '⬆️',
+    image: 'https://www.allaccessservices.com/site-assets/equipment/jlg-es1932.jpg',
+    description: 'Personal lifts 10–20 ft for tight spaces'
+  }
+];
+
 export const powerSources = ['Electric', 'Diesel'];
 export const heightRanges = [
   { label: 'Under 20 ft', min: 0, max: 20 },

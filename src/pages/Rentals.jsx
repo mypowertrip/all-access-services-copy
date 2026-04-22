@@ -7,7 +7,7 @@ import ModelCard from '../components/rentals/ModelCard';
 import QuoteCart from '../components/rentals/QuoteCart';
 import { motion } from 'framer-motion';
 import { ArrowRight, Search } from 'lucide-react';
-import { rentalModels, heightRanges, widthRanges } from '../lib/rentalInventory';
+import { rentalModels, rentalCategories, heightRanges, widthRanges } from '../lib/rentalInventory';
 
 export default function Rentals() {
   const navigate = useNavigate();
@@ -107,30 +107,37 @@ export default function Rentals() {
         // Category selection view
         <section className="pb-20">
           <div className="max-w-7xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {[
-                { slug: 'boom-lifts', name: 'Boom Lifts', icon: '🚀' },
-                { slug: 'scissor-lifts', name: 'Scissor Lifts', icon: '📐' },
-                { slug: 'telehandlers', name: 'Telehandlers', icon: '🏗️' },
-                { slug: 'low-level-access', name: 'Low Level Access', icon: '⬆️' },
-              ].map((cat, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {rentalCategories.map((cat, i) => (
                 <motion.a
                   key={cat.slug}
                   href={`/rentals/${cat.slug}`}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl p-6 cursor-pointer"
+                  className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 rounded-xl h-64 cursor-pointer"
                 >
-                  <div className="text-5xl mb-4">{cat.icon}</div>
-                  <h3 className="font-barlow text-2xl font-bold text-white mb-2">{cat.name}</h3>
-                  <p className="text-gray-400 text-sm mb-4">
-                    {rentalModels.filter(m => m.category === cat.slug).length} models
-                  </p>
-                  <div className="inline-flex items-center gap-2 text-orange-400 text-sm font-bold uppercase tracking-wider group-hover:text-orange-300 transition-colors">
-                    Browse <ArrowRight className="w-4 h-4" />
+                  {/* Background Image */}
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-500"
+                  />
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  
+                  {/* Content */}
+                  <div className="relative z-10 h-full p-6 flex flex-col justify-end">
+                    <div className="text-4xl mb-3">{cat.icon}</div>
+                    <h3 className="font-barlow text-2xl font-bold text-white mb-1">{cat.name}</h3>
+                    <p className="text-gray-300 text-xs mb-3">
+                      {rentalModels.filter(m => m.category === cat.slug).length} models available
+                    </p>
+                    <div className="inline-flex items-center gap-2 text-orange-400 text-sm font-bold uppercase tracking-wider group-hover:text-orange-300 transition-colors w-fit">
+                      Browse <ArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </motion.a>
               ))}
             </div>

@@ -3,17 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import SafetyTicker from './SafetyTicker';
 
-const HERO_SLIDES = [
-  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/74ff11ba9_ChatGPTImageApr22202601_04_14AM.png",
-  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/e9be9b9ec_telehandler.png",
-  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b50102990_scissor-lift.png",
-  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/cf4197cc2_boom-lift.png",
-];
+const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
 const CYCLING_WORDS = ['SMARTER.', 'STRONGER.', 'SAFER.'];
 
 export default function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0);
-  const [slideIndex, setSlideIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,32 +16,17 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSlideIndex(i => (i + 1) % HERO_SLIDES.length);
-    }, 4500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <>
     <SafetyTicker />
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image — rotating equipment */}
-      <div className="absolute inset-0 overflow-hidden">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={slideIndex}
-            src={HERO_SLIDES[slideIndex]}
-            alt="Equipment"
-            className="absolute inset-0 w-full h-full object-cover"
-            initial={{ opacity: 0, y: 40, scale: 1.04 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.98 }}
-            transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          />
-        </AnimatePresence>
-
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src={HERO_IMG}
+          alt="Boom lift at construction site"
+          className="w-full h-full object-cover" />
+        
         {/* Dark overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />

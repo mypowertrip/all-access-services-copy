@@ -31,7 +31,7 @@ export default function SafetyTicker() {
         <div className="overflow-hidden flex-1">
           <div
             className="flex whitespace-nowrap"
-            style={{ animation: 'ticker 30s linear infinite' }}
+            style={{ animation: 'ticker 18s linear infinite' }}
           >
             {repeated.map((item, i) => (
               <span key={i} className="font-barlow font-black text-sm uppercase tracking-widest text-white py-1.5 px-8 inline-flex items-center gap-4" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>

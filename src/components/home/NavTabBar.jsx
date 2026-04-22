@@ -82,7 +82,7 @@ export default function NavTabBar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full left-0 mt-0 w-48 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] border border-orange-600/40 border-t-0 shadow-2xl shadow-black/80 overflow-hidden"
+                  className="absolute top-full left-0 mt-0 w-48 z-50 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] border border-orange-600/40 border-t-0 shadow-2xl shadow-black/80 overflow-hidden"
                   style={{
                     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.8)'
                   }}

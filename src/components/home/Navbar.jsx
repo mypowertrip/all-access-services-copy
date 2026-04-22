@@ -1,22 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Menu, X, ChevronDown, Search, User } from 'lucide-react';
+import { Phone, Menu, X, Search, User } from 'lucide-react';
+import NavTabBar from './NavTabBar';
 
 const mainNavLinks = [
-{
-  label: 'Rentals',
-  children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments']
-},
-{
-  label: 'Sales',
-  children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory']
-},
-{ label: 'Parts' },
-{
-  label: 'Service',
-  children: ['Repair & Maintenance', 'Factory Authorized Service', 'Schedule Service']
-}];
-
+  { label: 'Rentals' },
+  { label: 'Sales' },
+  { label: 'Parts' },
+  { label: 'Service' }
+];
 
 const industries = ['Space / Aerospace', 'Military', 'Construction', 'Events', 'Warehouse', 'Government'];
 const moreLinks = ['About', 'Resources', 'Contact'];
@@ -24,8 +16,6 @@ const moreLinks = ['About', 'Resources', 'Contact'];
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [dropdownTimeout, setDropdownTimeout] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -67,37 +57,7 @@ export default function Navbar() {
             />
           </a>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-3">
-            {mainNavLinks.map((link) =>
-            <div
-              key={link.label}
-              className="relative group"
-              onMouseEnter={() => {
-                clearTimeout(dropdownTimeout);
-                setActiveDropdown(link.label);
-              }}
-              onMouseLeave={() => {
-                const timeout = setTimeout(() => setActiveDropdown(null), 150);
-                setDropdownTimeout(timeout);
-              }}>
-              
-                <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-300 hover:text-orange-400 transition-colors">
-                  {link.label}
-                  {link.children && <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />}
-                </button>
-                {link.children && activeDropdown === link.label &&
-              <div className="absolute top-full left-0 w-52 bg-black border border-orange-500/20 shadow-xl shadow-black/50 overflow-hidden">
-                    {link.children.map((child) =>
-                <a key={child} href="#" className="block px-4 py-2.5 text-sm text-gray-400 hover:text-orange-400 hover:bg-orange-500/10 transition-all border-b border-white/5 last:border-0">
-                        {child}
-                      </a>
-                )}
-                  </div>
-              }
-              </div>
-            )}
-          </div>
+
 
           {/* Right actions */}
           <div className="flex items-center gap-2">

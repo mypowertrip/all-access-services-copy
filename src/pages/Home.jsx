@@ -1,4 +1,5 @@
 import Navbar from '../components/home/Navbar';
+import NavTabBar from '../components/home/NavTabBar';
 import HeroSection from '../components/home/HeroSection';
 import ServicesSection from '../components/home/ServicesSection';
 import EquipmentTypesSection from '../components/home/EquipmentTypesSection';
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <div className="bg-black min-h-screen">
       <Navbar />
+      <NavTabBar />
       <HeroSection />
       <ServicesSection />
       <EquipmentTypesSection />

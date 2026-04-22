@@ -126,7 +126,7 @@ export default function Navbar() {
         </div>
         
         {/* Accent line at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/40 to-transparent animate-pulse" />
       </nav>
 
       {/* Right-side drawer */}

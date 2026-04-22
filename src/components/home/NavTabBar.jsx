@@ -16,7 +16,7 @@ const mainNavLinks = [
     label: 'Service',
     children: ['Repair & Maintenance', 'Factory Authorized Service', 'Schedule Service']
   },
-  { label: 'Military & Aerospace' },
+  { label: 'Aerospace' },
   {
     label: 'Locations',
     children: ['San Diego', 'Orange County', 'Riverside', 'Los Angeles']

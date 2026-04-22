@@ -126,7 +126,17 @@ export default function Navbar() {
         </div>
         
         {/* Accent line at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/70 to-transparent animate-pulse" />
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent"
+          animate={{
+            boxShadow: [
+              '0 0 0px rgba(249, 115, 22, 0)',
+              '0 0 20px rgba(249, 115, 22, 0.8)',
+              '0 0 0px rgba(249, 115, 22, 0)'
+            ]
+          }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
       </nav>
 
       {/* Right-side drawer */}

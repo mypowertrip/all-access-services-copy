@@ -10,6 +10,10 @@ import Home from './pages/Home';
 import Safety from './pages/Safety';
 import Equipment from './pages/Equipment';
 import Reserve from './pages/Reserve';
+import Rentals from './pages/Rentals';
+import Sales from './pages/Sales';
+import Service from './pages/Service';
+import Locations from './pages/Locations';
 import GCDashboard from './pages/GCDashboard';
 import GCFleet from './pages/GCFleet';
 import GCLayout from './components/gc/GCLayout';
@@ -34,6 +38,11 @@ const AuthenticatedApp = () => {
     <Routes>
       {/* Public site */}
       <Route path="/" element={<Home />} />
+      <Route path="/rentals" element={<Rentals />} />
+      <Route path="/rentals/:category" element={<Rentals />} />
+      <Route path="/sales" element={<Sales />} />
+      <Route path="/service" element={<Service />} />
+      <Route path="/locations" element={<Locations />} />
       <Route path="/equipment" element={<Equipment />} />
       <Route path="/safety" element={<Safety />} />
       <Route path="/reserve" element={<Reserve />} />

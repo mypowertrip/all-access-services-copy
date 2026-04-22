@@ -4,10 +4,18 @@ import { Phone, Menu, X, Search, User } from 'lucide-react';
 import NavTabBar from './NavTabBar';
 
 const mainNavLinks = [
-  { label: 'Rentals' },
-  { label: 'Sales' },
-  { label: 'Parts' },
-  { label: 'Service' }
+  { 
+    label: 'Rentals',
+    href: '/rentals',
+    children: ['Scissor Lifts', 'Boom Lifts', 'Telehandlers', 'Forklifts', 'Low Level Access']
+  },
+  { 
+    label: 'Sales',
+    href: '/sales',
+    children: ['New Equipment', 'Pre-Owned', 'Financing']
+  },
+  { label: 'Service', href: '/service' },
+  { label: 'Locations', href: '/locations' }
 ];
 
 const industries = ['Space / Aerospace', 'Military', 'Construction', 'Events', 'Warehouse', 'Government'];
@@ -146,7 +154,7 @@ export default function Navbar() {
                   <div className="space-y-1">
                     {mainNavLinks.map((link) => (
                       <div key={link.label}>
-                        <a href="#" className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                        <a href={link.href || '#'} className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {link.label}
                         </a>
                         {link.children && (

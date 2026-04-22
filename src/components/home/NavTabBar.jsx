@@ -5,20 +5,18 @@ import { ChevronDown } from 'lucide-react';
 const mainNavLinks = [
   {
     label: 'Rentals',
+    href: '/rentals',
     children: ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments']
   },
   {
     label: 'Sales',
+    href: '/sales',
     children: ['New Equipment', 'Pre-Owned Equipment', 'Featured Inventory']
   },
-  { label: 'Parts' },
-  {
-    label: 'Service',
-    children: ['Repair & Maintenance', 'Factory Authorized Service', 'Schedule Service']
-  },
-  { label: 'Aerospace' },
+  { label: 'Service', href: '/service' },
   {
     label: 'Locations',
+    href: '/locations',
     children: ['San Diego', 'Orange County', 'Inland Empire', 'Los Angeles']
   },
   { label: 'About' },
@@ -48,7 +46,8 @@ export default function NavTabBar() {
             }}
           >
             {/* 3D Tab Button */}
-            <motion.button
+            <motion.a
+              href={link.href || '#'}
               className={`relative w-full h-full flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-widest transition-all ${
                 activeDropdown === link.label
                   ? 'text-white'
@@ -72,7 +71,7 @@ export default function NavTabBar() {
                   <ChevronDown className="w-3 h-3" />
                 </motion.div>
               )}
-            </motion.button>
+            </motion.a>
 
             {/* Dropdown Menu */}
             <AnimatePresence>

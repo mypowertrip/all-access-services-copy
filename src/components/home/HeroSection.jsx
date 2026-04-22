@@ -48,8 +48,8 @@ export default function HeroSection() {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-0 px-4 pt-40 pb-20 md:pt-52">
-        <div className="max-w-3xl ml-0">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-40 pb-20 md:pt-52">
+        <div className="ml-16 max-w-3xl">
           {/* Headline */}
           <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -129,10 +129,10 @@ export default function HeroSection() {
                 <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
               </div>
               )}
-            <div className="ml-auto hidden md:flex items-center gap-2 border border-teal-500/30 bg-teal-500/5 px-4 py-2 hidden hidden hidden hidden hidden hidden hidden hidden">
-              <div className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
-              <span className="text-teal-400 text-xs font-bold uppercase tracking-widest hidden">ClearSky™ Connected Fleet</span>
-            </div>
+            
+
+
+              
           </motion.div>
         </div>
       </div>

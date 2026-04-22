@@ -54,7 +54,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0">
-            <img src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/f35c2cb5e_Gemini_Generated_Image_vsv0oxvsv0oxvsv0.png"
+            <img src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/3acd3aa38_ChatGPT_Image_Apr_22__2026__12_09_54_AM.png"
 
             alt="All Access Services" className="h-14 w-auto object-contain"
 

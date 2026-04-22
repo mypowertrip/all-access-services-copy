@@ -6,16 +6,8 @@ import SafetyTicker from './SafetyTicker';
 const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
 const CYCLING_WORDS = ['SMARTER.', 'STRONGER.', 'SAFER.'];
 
-const EQUIPMENT_IMGS = [
-  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/cf4197cc2_boom-lift.png",
-  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b50102990_scissor-lift.png",
-  "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/e9be9b9ec_telehandler.png",
-];
-
 export default function HeroSection() {
   const [wordIndex, setWordIndex] = useState(0);
-  const [equipIndex, setEquipIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,46 +16,18 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const cycle = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setEquipIndex(i => (i + 1) % EQUIPMENT_IMGS.length);
-        setVisible(true);
-      }, 800);
-    }, 4000);
-    return () => clearInterval(cycle);
-  }, []);
-
   return (
     <>
     <SafetyTicker />
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
-        {/* Static scene photo */}
         <img
           src={HERO_IMG}
           alt="Boom lift at construction site"
           className="w-full h-full object-cover" />
-
-        {/* Rotating equipment — sits inside background, right side, blended */}
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={equipIndex}
-            src={EQUIPMENT_IMGS[equipIndex]}
-            alt="Equipment"
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 0.55, y: 0 }}
-            exit={{ opacity: 0, y: -40 }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-0 right-8 w-[520px] object-contain object-bottom pointer-events-none hidden lg:block"
-            style={{ mixBlendMode: 'luminosity', filter: 'drop-shadow(0 0 60px rgba(0,0,0,1))' }}
-          />
-        </AnimatePresence>
-
         {/* Dark overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
         {/* Grid overlay */}
         <div className="absolute inset-0 grid-bg opacity-30" />

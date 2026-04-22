@@ -84,7 +84,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-semibold drop-shadow-lg">
             
-            When safety matters most, trust the lift specialists with the newest fleet and the only factory-authorized JLG service center in the U.S.
+            Committed to Safety, Quality & Integrity
           </motion.p>
 
           {/* CTA buttons */}

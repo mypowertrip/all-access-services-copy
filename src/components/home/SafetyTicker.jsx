@@ -15,7 +15,7 @@ export default function SafetyTicker() {
         top: 112,
         right: 0,
         zIndex: 40,
-        width: '55%',
+        width: '37%',
         background: 'linear-gradient(to right, transparent 0%, #f5a623 12%, #f5a623 100%)',
       }}
     >

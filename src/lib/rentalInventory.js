@@ -14,7 +14,8 @@ export const rentalModels = [
     dailyRate: 450,
     weeklyRate: 1200,
     monthlyRate: 3200,
-    specSheet: '/specs/jlg-340ax.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b576b6a80_generated_91f959ee.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-340AX-Technical-Manual.pdf',
   },
   {
     id: 'jlg-400s',
@@ -29,7 +30,8 @@ export const rentalModels = [
     dailyRate: 495,
     weeklyRate: 1350,
     monthlyRate: 3600,
-    specSheet: '/specs/jlg-400s.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b576b6a80_generated_91f959ee.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-400S-Technical-Manual.pdf',
   },
   {
     id: 'jlg-600s',
@@ -44,7 +46,8 @@ export const rentalModels = [
     dailyRate: 595,
     weeklyRate: 1650,
     monthlyRate: 4400,
-    specSheet: '/specs/jlg-600s.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b576b6a80_generated_91f959ee.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-600S-Technical-Manual.pdf',
   },
   {
     id: 'jlg-800a',
@@ -59,7 +62,8 @@ export const rentalModels = [
     dailyRate: 695,
     weeklyRate: 1950,
     monthlyRate: 5200,
-    specSheet: '/specs/jlg-800a.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b576b6a80_generated_91f959ee.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-800A-Technical-Manual.pdf',
   },
   {
     id: 'jlg-1200sjp',
@@ -74,7 +78,8 @@ export const rentalModels = [
     dailyRate: 895,
     weeklyRate: 2550,
     monthlyRate: 6800,
-    specSheet: '/specs/jlg-1200sjp.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b576b6a80_generated_91f959ee.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-1200SJP-Technical-Manual.pdf',
   },
 
   // Scissor Lifts
@@ -91,7 +96,8 @@ export const rentalModels = [
     dailyRate: 125,
     weeklyRate: 350,
     monthlyRate: 900,
-    specSheet: '/specs/jlg-1930m.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-1930M-Technical-Manual.pdf',
   },
   {
     id: 'jlg-2030es',
@@ -106,7 +112,8 @@ export const rentalModels = [
     dailyRate: 145,
     weeklyRate: 400,
     monthlyRate: 1050,
-    specSheet: '/specs/jlg-2030es.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-2030ES-Technical-Manual.pdf',
   },
   {
     id: 'jlg-3369le',
@@ -121,7 +128,8 @@ export const rentalModels = [
     dailyRate: 185,
     weeklyRate: 525,
     monthlyRate: 1400,
-    specSheet: '/specs/jlg-3369le.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-3369LE-Technical-Manual.pdf',
   },
   {
     id: 'jlg-4069le',
@@ -136,7 +144,8 @@ export const rentalModels = [
     dailyRate: 225,
     weeklyRate: 625,
     monthlyRate: 1650,
-    specSheet: '/specs/jlg-4069le.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-4069LE-Technical-Manual.pdf',
   },
   {
     id: 'jlg-6069rt',
@@ -151,7 +160,8 @@ export const rentalModels = [
     dailyRate: 325,
     weeklyRate: 900,
     monthlyRate: 2400,
-    specSheet: '/specs/jlg-6069rt.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-6069RT-Technical-Manual.pdf',
   },
 
   // Telehandlers
@@ -168,7 +178,8 @@ export const rentalModels = [
     dailyRate: 495,
     weeklyRate: 1350,
     monthlyRate: 3600,
-    specSheet: '/specs/jlg-g6-54.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/01c29d10b_generated_459b7c93.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-G6-54-Technical-Manual.pdf',
   },
   {
     id: 'jlg-8000',
@@ -183,7 +194,8 @@ export const rentalModels = [
     dailyRate: 595,
     weeklyRate: 1650,
     monthlyRate: 4400,
-    specSheet: '/specs/jlg-g8-55a.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/01c29d10b_generated_459b7c93.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-G8-55A-Technical-Manual.pdf',
   },
   {
     id: 'jlg-10000',
@@ -198,7 +210,8 @@ export const rentalModels = [
     dailyRate: 695,
     weeklyRate: 1950,
     monthlyRate: 5200,
-    specSheet: '/specs/jlg-g10-55a.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/01c29d10b_generated_459b7c93.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-G10-55A-Technical-Manual.pdf',
   },
 
   // Low Level Access
@@ -215,7 +228,8 @@ export const rentalModels = [
     dailyRate: 75,
     weeklyRate: 200,
     monthlyRate: 500,
-    specSheet: '/specs/jlg-personallift-10s.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-PersonalLift-10S-Technical-Manual.pdf',
   },
   {
     id: 'jlg-15ft',
@@ -230,7 +244,8 @@ export const rentalModels = [
     dailyRate: 95,
     weeklyRate: 260,
     monthlyRate: 650,
-    specSheet: '/specs/jlg-personallift-15s.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-PersonalLift-15S-Technical-Manual.pdf',
   },
   {
     id: 'jlg-20ft',
@@ -245,7 +260,8 @@ export const rentalModels = [
     dailyRate: 115,
     weeklyRate: 320,
     monthlyRate: 800,
-    specSheet: '/specs/jlg-personallift-20s.pdf',
+    imageUrl: 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png',
+    specSheet: 'https://resources.allaccessservices.com/specs/JLG-PersonalLift-20S-Technical-Manual.pdf',
   },
 ];
 

@@ -190,14 +190,26 @@ export default function Rentals() {
       ) : (
         // Catalog with filters
         <section className="pb-20">
-          <div className="max-w-7xl mx-auto px-4">
-            {/* Back button */}
-            <button
-              onClick={() => navigate('/rentals')}
-              className="text-orange-400 hover:text-orange-300 mb-6 text-sm font-bold uppercase"
-            >
-              ← Back to Categories
-            </button>
+          {/* Category Header Banner */}
+          <div
+            style={{ background: rentalCategories.find(c => c.slug === category)?.gradient }}
+            className="py-12 mb-12"
+          >
+            <div className="max-w-7xl mx-auto px-4">
+              <button
+                onClick={() => navigate('/rentals')}
+                className="text-white/80 hover:text-white mb-4 text-sm font-bold uppercase flex items-center gap-2 transition-colors"
+              >
+                ← Back to Categories
+              </button>
+              <h2 className="font-barlow text-4xl md:text-5xl font-black text-white">
+                {rentalCategories.find(c => c.slug === category)?.name}
+              </h2>
+              <p className="text-white/80 text-lg mt-2 max-w-2xl">
+                {rentalCategories.find(c => c.slug === category)?.description}
+              </p>
+            </div>
+          </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
               {/* Sidebar Filters */}
@@ -268,6 +280,7 @@ export default function Rentals() {
                 )}
               </div>
             </div>
+          </div>
           </div>
         </section>
       )}

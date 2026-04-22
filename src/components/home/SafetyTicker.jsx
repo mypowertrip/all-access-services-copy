@@ -1,11 +1,26 @@
+import { useState, useEffect } from 'react';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
-const LINES = [
-  { text: "Safety isn't a checkbox — it's our top priority.", bold: true },
-  { text: "The only JLG Factory Service Centers in the USA.", bold: false },
+const MESSAGES = [
+  { line1: "Safety isn't a checkbox —", line2: "it's our top priority." },
+  { line1: "The only JLG Factory Service", line2: "Centers in the USA." },
+  { line1: "Factory-trained technicians,", line2: "ready around the clock." },
+  { line1: "3,000+ machines. All ClearSky™", line2: "connected and monitored." },
 ];
 
 export default function SafetyTicker() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex(i => (i + 1) % MESSAGES.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const msg = MESSAGES[index];
+
   return (
     <a
       href="/safety"
@@ -23,16 +38,20 @@ export default function SafetyTicker() {
         {/* Shield icon */}
         <ShieldCheck className="w-6 h-6 shrink-0" style={{ color: '#c2410c' }} />
 
-        {/* Lines */}
-        <div className="flex-1">
-          {LINES.map((line, i) => (
-            <p
-              key={i}
-              className={`text-black leading-tight ${line.bold ? 'font-bold text-xs' : 'font-normal text-xs'}`}
+        {/* Animated text */}
+        <div className="flex-1 overflow-hidden" style={{ height: '2.4em' }}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.35 }}
             >
-              {line.text}
-            </p>
-          ))}
+              <p className="text-black font-bold text-xs leading-tight">{msg.line1}</p>
+              <p className="text-black font-normal text-xs leading-tight">{msg.line2}</p>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Learn More */}

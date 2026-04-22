@@ -49,7 +49,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-40 pb-20 md:pt-52">
-        <div className="ml-16 max-w-3xl">
+        <div className="max-w-3xl">
           {/* Headline */}
           <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -111,29 +111,29 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Stats bar */}
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-white/10">
             
+            {[
+              { val: '4', label: 'SoCal Locations' },
+              { val: '3000+', label: 'Units in Fleet' },
+              { val: '25+', label: 'Years Experience' },
+              { val: '24/7', label: 'Support Available' },
+              { val: '150+', label: 'Team Members' }].
+              map((stat) =>
+              <div key={stat.label}>
+                <div className="font-barlow text-3xl font-black text-orange-500">{stat.val}</div>
+                <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
+              </div>
+              )}
+            
+
+
+              
+          </motion.div>
         </div>
       </div>
 

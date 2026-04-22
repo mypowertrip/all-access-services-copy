@@ -25,6 +25,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -72,8 +73,14 @@ export default function Navbar() {
             <div
               key={link.label}
               className="relative group"
-              onMouseEnter={() => setActiveDropdown(link.label)}
-              onMouseLeave={() => setActiveDropdown(null)}>
+              onMouseEnter={() => {
+                clearTimeout(dropdownTimeout);
+                setActiveDropdown(link.label);
+              }}
+              onMouseLeave={() => {
+                const timeout = setTimeout(() => setActiveDropdown(null), 150);
+                setDropdownTimeout(timeout);
+              }}>
               
                 <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-300 hover:text-orange-400 transition-colors">
                   {link.label}

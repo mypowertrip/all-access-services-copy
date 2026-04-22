@@ -1,7 +1,19 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Smartphone } from 'lucide-react';
 
 export default function AppCTABadge() {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      setIsVisible(scrolled < window.innerHeight * 0.8);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const size = 120;
   const cx = size / 2;
   const cy = size / 2;
@@ -14,11 +26,13 @@ export default function AppCTABadge() {
   }).join(' ');
 
   return (
-    <a
+    <motion.a
       href="/dashboard"
       className="group fixed right-6 z-40 flex flex-col items-center justify-center"
       style={{ top: 140, width: size, height: size }}
       title="Ground Control App"
+      animate={{ opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? 'auto' : 'none' }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
     >
       {/* Spinning outer ring */}
       <motion.svg
@@ -61,6 +75,6 @@ export default function AppCTABadge() {
         <p className="text-[8px] font-black uppercase tracking-widest text-teal-400 leading-none">New App</p>
         <p className="text-[9px] font-black text-white uppercase leading-none">Ground<br/>Control™</p>
       </div>
-    </a>
+    </motion.a>
   );
 }

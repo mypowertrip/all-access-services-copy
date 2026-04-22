@@ -1,31 +1,65 @@
-import { Smartphone, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Smartphone } from 'lucide-react';
 
 export default function AppCTABadge() {
+  const size = 120;
+  const cx = size / 2;
+  const cy = size / 2;
+  const r = size / 2 - 4;
+
+  // Flat-top hexagon points
+  const points = Array.from({ length: 6 }, (_, i) => {
+    const angle = (Math.PI / 180) * (60 * i - 30);
+    return `${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`;
+  }).join(' ');
+
   return (
     <a
       href="/dashboard"
-      className="group fixed right-4 z-40 flex items-center gap-3 bg-[#111] border border-teal-500/40 hover:border-orange-500/60 px-4 py-3 transition-all duration-300 hover:bg-[#181818]"
-      style={{ top: 132 }}
+      className="group fixed right-6 z-40 flex flex-col items-center justify-center"
+      style={{ top: 140, width: size, height: size }}
+      title="Ground Control App"
     >
-      {/* Hexagon phone icon */}
-      <div className="relative flex-shrink-0 w-10 h-10 flex items-center justify-center">
-        {/* Teal hex border SVG */}
-        <svg viewBox="0 0 44 44" className="absolute inset-0 w-full h-full text-teal-500/60 group-hover:text-orange-500/60 transition-colors" fill="none">
-          <polygon points="22,2 40,12 40,32 22,42 4,32 4,12" stroke="currentColor" strokeWidth="1.5" fill="none" />
-        </svg>
-        <Smartphone className="w-4 h-4 text-orange-400 relative z-10" />
-      </div>
+      {/* Spinning outer ring */}
+      <motion.svg
+        viewBox={`0 0 ${size} ${size}`}
+        className="absolute inset-0 w-full h-full"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+      >
+        <polygon
+          points={points}
+          fill="none"
+          stroke="rgba(20,184,166,0.5)"
+          strokeWidth="1"
+          strokeDasharray="6 4"
+        />
+      </motion.svg>
 
-      {/* Text */}
-      <div>
-        <p className="text-[10px] font-black uppercase tracking-widest text-teal-400 leading-none mb-0.5">New App</p>
-        <p className="text-xs font-bold text-white uppercase tracking-wide leading-none">Ground Control™</p>
-        <p className="text-[10px] text-gray-500 mt-0.5 leading-none">Manage your fleet</p>
-      </div>
+      {/* Static inner hex */}
+      <svg viewBox={`0 0 ${size} ${size}`} className="absolute inset-0 w-full h-full">
+        <polygon
+          points={Array.from({ length: 6 }, (_, i) => {
+            const angle = (Math.PI / 180) * (60 * i - 30);
+            const ri = r - 10;
+            return `${cx + ri * Math.cos(angle)},${cy + ri * Math.sin(angle)}`;
+          }).join(' ')}
+          fill="rgba(17,17,17,0.95)"
+          stroke="rgba(249,115,22,0.6)"
+          strokeWidth="1.5"
+        />
+      </svg>
 
-      {/* Arrow */}
-      <div className="flex items-center justify-center w-6 h-6 border border-orange-500/50 group-hover:bg-orange-500 group-hover:border-orange-500 transition-all ml-1">
-        <ArrowRight className="w-3 h-3 text-orange-400 group-hover:text-black transition-colors" />
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-center gap-1">
+        <motion.div
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <Smartphone className="w-5 h-5 text-orange-400" />
+        </motion.div>
+        <p className="text-[8px] font-black uppercase tracking-widest text-teal-400 leading-none">New App</p>
+        <p className="text-[9px] font-black text-white uppercase leading-none">Ground<br/>Control™</p>
       </div>
     </a>
   );

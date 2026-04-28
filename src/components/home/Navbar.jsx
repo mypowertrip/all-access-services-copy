@@ -145,28 +145,28 @@ export default function Navbar() {
 
       {/* Right-side drawer */}
       <AnimatePresence>
-        {drawerOpen &&
-        <>
+        {drawerOpen && (
+          <>
             {/* Backdrop */}
             <motion.div
-            key="backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
-            onClick={() => setDrawerOpen(false)} />
-          
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+              onClick={() => setDrawerOpen(false)}
+            />
 
             {/* Drawer panel */}
             <motion.div
-            id="side-drawer"
-            key="drawer"
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.28 }}
-            className="fixed top-0 right-0 h-full w-72 bg-[#0d0d0d] border-l border-white/10 z-50 flex flex-col overflow-y-auto">
-            
+              id="side-drawer"
+              key="drawer"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'tween', duration: 0.28 }}
+              className="fixed top-0 right-0 h-full w-72 bg-[#0d0d0d] border-l border-white/10 z-50 flex flex-col overflow-y-auto"
+            >
               {/* Drawer header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
                 <span className="text-white font-bold text-sm uppercase tracking-widest">Menu</span>
@@ -176,34 +176,33 @@ export default function Navbar() {
               </div>
 
               <div className="flex-1 px-5 py-6 space-y-8">
-
                 {/* Mobile navigation menu */}
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Main Menu</p>
                   <div className="space-y-1">
-                    {mainNavLinks.map((link) =>
-                  <div key={link.label}>
+                    {mainNavLinks.map((link) => (
+                      <div key={link.label}>
                         <a href={link.href || '#'} className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {link.label}
                         </a>
-                        {link.children &&
-                    <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
+                        {link.children && (
+                          <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
                             {link.children.map((child) => {
-                        const childHref = child.toLowerCase().replace(/\s+/g, '-');
-                        return (
-                          <a
-                            key={child}
-                            href={`${link.href}/${childHref}`}
-                            className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors">
-                            
+                              const childHref = child.toLowerCase().replace(/\s+/g, '-');
+                              return (
+                                <a
+                                  key={child}
+                                  href={`${link.href}/${childHref}`}
+                                  className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors"
+                                >
                                   {child}
-                                </a>);
-
-                      })}
+                                </a>
+                              );
+                            })}
                           </div>
-                    }
+                        )}
                       </div>
-                  )}
+                    ))}
                   </div>
                 </div>
 
@@ -212,13 +211,13 @@ export default function Navbar() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Industries</p>
                   <div className="space-y-1">
                     {industries.map((ind) => {
-                    const indHref = ind.toLowerCase().replace(/\s+/g, '-');
-                    return (
-                      <a key={ind} href={`/rentals?industry=${indHref}`} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                      const indHref = ind.toLowerCase().replace(/\s+/g, '-');
+                      return (
+                        <a key={ind} href={`/rentals?industry=${indHref}`} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {ind}
-                        </a>);
-
-                  })}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -227,21 +226,21 @@ export default function Navbar() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">More</p>
                   <div className="space-y-1">
                     {moreLinks.map((label) => {
-                    const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : label === 'Resources' ? '/safety' : '/safety';
-                    return (
-                      <a key={label} href={href} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                      const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : label === 'Resources' ? '/safety' : '/safety';
+                      return (
+                        <a key={label} href={href} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {label}
-                        </a>);
-
-                  })}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
 
                 {/* Customer portal */}
                 <a
-                href="/dashboard"
-                className="flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors">
-                
+                  href="/dashboard"
+                  className="flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors"
+                >
                   <User className="w-4 h-4" />
                   Customer Portal
                 </a>
@@ -256,8 +255,8 @@ export default function Navbar() {
               </div>
             </motion.div>
           </>
-        }
+        )}
       </AnimatePresence>
-    </header>);
-
-}
+      </header>
+      );
+      }

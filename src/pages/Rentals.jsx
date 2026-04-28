@@ -153,7 +153,7 @@ export default function Rentals() {
           className="py-12 mb-8">
 
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="font-barlow text-4xl md:text-5xl font-black text-white">
+            <h2 className="font-barlow text-4xl md:text-5xl font-black text-white uppercase">
               Rentals
               <br />
               <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>

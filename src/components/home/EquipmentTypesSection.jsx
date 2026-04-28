@@ -76,9 +76,9 @@ export default function EquipmentTypesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-barlow text-4xl md:text-5xl font-black text-white tracking-tight"
+            className="font-barlow text-4xl md:text-5xl font-bold text-white tracking-tight"
           >
-            FIND YOUR PERFECT <span className="text-orange-500">MACHINE</span>
+            FIND YOUR PERFECT <span className="text-orange-500" style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>MACHINE</span>
           </motion.h2>
         </div>
 

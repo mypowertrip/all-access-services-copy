@@ -10,7 +10,7 @@ const mainNavLinks = [
 {
   label: 'Rentals',
   href: '/rentals',
-  children: ['Scissor Lifts', 'Boom Lifts', 'Telehandlers', 'Forklifts', 'Low Level Access']
+  children: ['Scissor Lifts', 'Boom Lifts', 'Telehandlers', 'Forklifts', 'Low Level Access', 'Articulating Booms']
 },
 {
   label: 'Sales',
@@ -191,10 +191,11 @@ export default function Navbar() {
                     <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
                             {link.children.map((child) => {
                         const childHref = child.toLowerCase().replace(/\s+/g, '-');
+                        const href = child === 'Articulating Booms' ? `${link.href}/articulating-boom-lifts` : `${link.href}/${childHref}`;
                         return (
                           <a
                             key={child}
-                            href={`${link.href}/${childHref}`}
+                            href={href}
                             className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors">
                             
                                   {child}

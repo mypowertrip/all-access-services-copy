@@ -75,7 +75,7 @@ export default function Navbar() {
         className="transition-all duration-300 relative shadow-lg shadow-black/50 border-b border-gray-700"
         style={{
           backgroundImage: 'url(https://media.base44.com/images/public/69f03230e61a9516ac171fbd/2416dde55_metal.png)',
-          backgroundSize: '600px',
+          backgroundSize: '750px',
           backgroundPosition: 'center'
         }}>
         <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>

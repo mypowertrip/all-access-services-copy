@@ -44,8 +44,8 @@ export default function Sales() {
               <div className="w-12 h-0.5 bg-orange-500" />
               <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">New & Pre-Owned</span>
             </div>
-            <h1 className="font-barlow text-5xl md:text-7xl font-black text-white tracking-tight mb-6">
-              Equipment <span className="text-orange-500">Showroom</span>
+            <h1 className="font-barlow text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
+              Equipment <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>Showroom</span>
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl">Browse detailed condition reports, 360° photo galleries, and calculate instant financing for high-ticket equipment.</p>
           </motion.div>

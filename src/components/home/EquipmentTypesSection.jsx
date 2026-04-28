@@ -6,7 +6,7 @@ const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e7
 const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/45bbda75b_scissor-lift.png";
 const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8f9a3cf95_telehandler.png";
 const LOWLEVEL_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/ae9c0d38b_low-level-access.png";
-const FORKLIFT_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/e1234567a_forklift-transparent.png";
+const FORKLIFT_IMG = "https://media.base44.com/images/public/69f03230e61a9516ac171fbd/d755986ac_Untitled-2.png";
 
 const equipment = [
   {

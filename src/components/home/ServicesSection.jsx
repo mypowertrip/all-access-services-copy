@@ -68,6 +68,7 @@ const services = [
     description: 'JLG-authorized factory-trained technicians keeping your fleet running at peak performance.',
     cta: 'Schedule Service',
     href: '/service',
+    image: 'https://media.base44.com/images/public/69f03230e61a9516ac171fbd/176695ecd_Screenshot2026-04-27at111017PM.png',
     Icon: WrenchIcon,
     accent: 'orange',
     bg: 'from-orange-950/80 to-zinc-950',

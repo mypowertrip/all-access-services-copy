@@ -9,6 +9,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
 import { lazy, Suspense } from 'react';
 import Navbar from './components/home/Navbar';
+import NavTabBar from './components/home/NavTabBar';
 import Footer from './components/home/Footer';
 import GCLayout from './components/gc/GCLayout';
 import { QuoteCartProvider } from './components/rentals/QuoteCartContext';
@@ -46,6 +47,7 @@ const AuthenticatedApp = () => {
     <QuoteCartProvider>
     <div className="min-h-screen bg-black flex flex-col">
       <Navbar />
+      <NavTabBar />
       <main className="flex-1">
     <Suspense fallback={
       <div className="fixed inset-0 flex items-center justify-center bg-black">

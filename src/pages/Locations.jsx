@@ -41,12 +41,14 @@ export default function Locations() {
                 transition={{ delay: i * 0.1 }}
                 className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500"
               >
+                {/* Location Label */}
+                <div className="px-6 pt-4 pb-2">
+                  <h3 className="font-barlow text-2xl font-bold text-white">{loc.name}</h3>
+                </div>
+
                 {/* Map */}
                 <div className="aspect-video relative overflow-hidden bg-zinc-800">
                   <LocationMap location={loc} />
-                  <div className="absolute bottom-4 left-4 z-10">
-                    <h3 className="font-barlow text-3xl font-black text-white">{loc.name}</h3>
-                  </div>
                 </div>
 
                 {/* Content */}

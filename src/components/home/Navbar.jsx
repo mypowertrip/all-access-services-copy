@@ -102,7 +102,7 @@ export default function Navbar() {
 
 
           {/* Right actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-6">
             {/* Search field */}
             <div className="relative hidden md:block">
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-500 pointer-events-none" />
@@ -112,7 +112,7 @@ export default function Navbar() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
-                className="pl-8 pr-3 h-10 w-56 bg-white/30 border-2 border-white/60 text-black text-lg font-bold rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-900" />
+                className="pl-8 pr-3 h-10 w-56 bg-white/50 border-2 border-white/60 text-black text-lg font-bold rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-900" />
               
             </div>
             {/* Mobile search icon */}

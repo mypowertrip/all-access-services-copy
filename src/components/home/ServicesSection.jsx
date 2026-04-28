@@ -56,7 +56,7 @@ const services = [
   {
     title: 'Equipment Sales',
     description: 'New and certified pre-owned JLG equipment with competitive financing options available.',
-    cta: 'View Inventory',
+    cta: 'Equipment for Sale',
     href: '/sales',
     image: 'https://media.base44.com/images/public/69f03230e61a9516ac171fbd/b29279f8e_Screenshot2026-04-27at105944PM.png',
     Icon: BoomLiftIcon,

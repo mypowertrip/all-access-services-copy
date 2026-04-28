@@ -79,8 +79,8 @@ export default function Navbar() {
             <img
               src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/7330a415e_allaccessrentals-logo.png"
               alt="All Access Rentals"
-              className="h-14 w-auto object-contain"
-            />
+              className="h-14 w-auto object-contain" />
+            
 
 
 
@@ -116,10 +116,10 @@ export default function Navbar() {
             {/* Customer portal — avatar icon */}
             <a
               href="/dashboard"
-              title="Customer Portal"
-              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-500/60 text-orange-400 hover:bg-orange-500 hover:text-black transition-all">
-              
-              <User className="w-4 h-4" />
+              title="Customer Portal" className="bg-[hsl(var(--primary))] text-slate-50 rounded-full hidden md:flex items-center justify-center w-8 h-8 border border-orange-500/60 hover:bg-orange-500 hover:text-black transition-all">
+
+
+
             </a>
 
             {/* Hamburger */}

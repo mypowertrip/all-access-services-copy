@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster"
 import ErrorBoundary from './components/ErrorBoundary';
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
@@ -53,8 +53,8 @@ const AuthenticatedApp = () => {
       <Route path="/rentals/model/:modelId" element={<ProductDetail />} />
       {/* Legacy route redirects */}
       <Route path="/rentals/category/boom-lifts" element={<Rentals />} />
-      <Route path="/rentals/category/knuckle-booms" element={<Rentals />} />
-      <Route path="/rentals/category/articulating-booms" element={<Rentals />} />
+      <Route path="/rentals/category/knuckle-booms" element={<Navigate to="/rentals/category/boom-lifts" replace />} />
+      <Route path="/rentals/category/articulating-booms" element={<Navigate to="/rentals/category/boom-lifts" replace />} />
       <Route path="/sales" element={<Sales />} />
       <Route path="/service" element={<Service />} />
       <Route path="/locations" element={<Locations />} />

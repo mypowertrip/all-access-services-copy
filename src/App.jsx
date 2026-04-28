@@ -7,22 +7,24 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
+import { lazy, Suspense } from 'react';
 import Navbar from './components/home/Navbar';
 import Footer from './components/home/Footer';
-import Home from './pages/Home';
-import Safety from './pages/Safety';
-import Equipment from './pages/Equipment';
-import Reserve from './pages/Reserve';
-import Rentals from './pages/Rentals';
-import Sales from './pages/Sales';
-import Service from './pages/Service';
-import Locations from './pages/Locations';
-import GCDashboard from './pages/GCDashboard';
-import ProductDetail from './pages/ProductDetail';
-import GCFleet from './pages/GCFleet';
 import GCLayout from './components/gc/GCLayout';
-import About from './pages/About';
 import { QuoteCartProvider } from './components/rentals/QuoteCartContext';
+
+const Home = lazy(() => import('./pages/Home'));
+const Safety = lazy(() => import('./pages/Safety'));
+const Equipment = lazy(() => import('./pages/Equipment'));
+const Reserve = lazy(() => import('./pages/Reserve'));
+const Rentals = lazy(() => import('./pages/Rentals'));
+const Sales = lazy(() => import('./pages/Sales'));
+const Service = lazy(() => import('./pages/Service'));
+const Locations = lazy(() => import('./pages/Locations'));
+const GCDashboard = lazy(() => import('./pages/GCDashboard'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail'));
+const GCFleet = lazy(() => import('./pages/GCFleet'));
+const About = lazy(() => import('./pages/About'));
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -45,6 +47,11 @@ const AuthenticatedApp = () => {
     <div className="min-h-screen bg-black flex flex-col">
       <Navbar />
       <main className="flex-1">
+    <Suspense fallback={
+      <div className="fixed inset-0 flex items-center justify-center bg-black">
+        <div className="w-7 h-7 rounded-full animate-spin" style={{ borderWidth: 3, borderStyle: 'solid', borderColor: 'hsl(0 0% 15%)', borderTopColor: 'hsl(24 100% 50%)' }} />
+      </div>
+    }>
     <Routes>
       {/* Public site */}
       <Route path="/" element={<Home />} />
@@ -77,6 +84,7 @@ const AuthenticatedApp = () => {
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
+    </Suspense>
     </main>
       <Footer />
     </div>

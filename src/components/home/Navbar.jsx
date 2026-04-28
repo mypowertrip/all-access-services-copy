@@ -75,15 +75,15 @@ export default function Navbar() {
 
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0 mt-6" aria-label="Home">
-            <motion.img src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/c480996d7_ChatGPT_Image_Apr_22__2026__12_15_08_AM.png"
+            
 
-            alt="All Access Services" className="h-28 md:h-96 w-auto object-contain hidden"
 
-            style={{ mixBlendMode: 'screen', maxWidth: '168px' }}
-            animate={{
-              filter: ['drop-shadow(0 0 10px rgba(249, 115, 22, 0.4))', 'drop-shadow(0 0 25px rgba(249, 115, 22, 0.8))', 'drop-shadow(0 0 10px rgba(249, 115, 22, 0.4))']
-            }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} />
+
+
+
+
+
+            
             
           </a>
 

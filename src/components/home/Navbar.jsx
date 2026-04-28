@@ -9,8 +9,8 @@ import { SITE_CONFIG } from '../../lib/siteConfig';
 const mainNavLinks = [
 {
   label: 'Rentals',
-  href: null,
-  children: ['Scissor Lifts', 'Straight Boom Lifts', 'Articulating Booms', 'Telehandlers', 'Forklifts', 'Low Level Access']
+  href: '/rentals',
+  children: ['Scissor Lifts', 'Boom Lifts', 'Telehandlers', 'Forklifts', 'Low Level Access']
 },
 {
   label: 'Sales',
@@ -71,21 +71,14 @@ export default function Navbar() {
 
 
       {/* Main nav */}
-      <nav 
-        className="transition-all duration-300 relative shadow-lg shadow-black/50 border-b border-gray-600"
-        style={{
-          backgroundImage: 'url(https://media.base44.com/images/public/69f03230e61a9516ac171fbd/137bf4ffb_metalmesh.png)',
-          backgroundSize: '600px',
-          backgroundPosition: 'center'
-        }}>
-        <div className="absolute inset-0 bg-black/50 pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24 relative z-10">
+      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-[#111111]/98 backdrop-blur-md shadow-lg shadow-black/80 border-b border-teal-500/10' : 'bg-[#111111]/80 backdrop-blur-sm border-b border-white/5'}`}>
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Home">
             <img
-              src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/6c5fafd51_CleanLogo.png"
-              alt="All Access Services"
+              src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/7330a415e_allaccessrentals-logo.png"
+              alt="All Access Rentals"
               className="h-14 w-auto object-contain"
             />
 
@@ -105,14 +98,14 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             {/* Search field */}
             <div className="relative hidden md:block">
-              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-500 pointer-events-none" />
               <input
                 type="text"
                 placeholder="Search model..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
-                className="pl-8 pr-3 h-8 w-40 bg-white/25 border border-white/60 text-white text-xs rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-white/70" />
+                className="pl-8 pr-3 h-8 w-40 bg-white/5 border border-white/10 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500/60 transition-colors placeholder-gray-600" />
               
             </div>
             {/* Mobile search icon */}
@@ -132,7 +125,7 @@ export default function Navbar() {
             {/* Hamburger */}
             <button
               id="hamburger-btn"
-              className="text-gray-400 p-3 hover:text-orange-400 transition-colors md:p-2"
+              className="text-gray-300 p-3 hover:text-orange-400 transition-colors md:p-2"
               onClick={() => setDrawerOpen((o) => !o)}
               aria-label="Menu">
               
@@ -140,7 +133,14 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-
+        
+        {/* Accent line at bottom */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent"
+          animate={{
+            opacity: [0.4, 1, 0.4]
+          }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} />
         
       </nav>
 
@@ -191,11 +191,10 @@ export default function Navbar() {
                     <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
                             {link.children.map((child) => {
                         const childHref = child.toLowerCase().replace(/\s+/g, '-');
-                        const href = child === 'Articulating Booms' ? `${link.href}/articulating-boom-lifts` : `${link.href}/${childHref}`;
                         return (
                           <a
                             key={child}
-                            href={href}
+                            href={`${link.href}/${childHref}`}
                             className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors">
                             
                                   {child}

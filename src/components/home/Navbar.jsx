@@ -84,8 +84,8 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Home">
             <img
-              src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/7330a415e_allaccessrentals-logo.png"
-              alt="All Access Rentals"
+              src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/17488701a_CleanLogo.png"
+              alt="All Access Services"
               className="h-14 w-auto object-contain" />
             
 
@@ -134,7 +134,7 @@ export default function Navbar() {
               onClick={() => setDrawerOpen((o) => !o)}
               aria-label="Menu">
               
-              {drawerOpen ? <X className="w-6 h-6 md:w-5 md:h-5" /> : <Menu className="w-6 h-6 md:w-5 md:h-5" />}
+              {drawerOpen ? <X className="w-7 h-7 md:w-6 md:h-6 font-bold" /> : <Menu className="w-7 h-7 md:w-6 md:h-6 font-bold" />}
             </button>
           </div>
         </div>

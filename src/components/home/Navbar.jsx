@@ -77,8 +77,8 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Home">
             <img
-              src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/7330a415e_allaccessrentals-logo.png"
-              alt="All Access Rentals"
+              src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/6c5fafd51_CleanLogo.png"
+              alt="All Access Services"
               className="h-14 w-auto object-contain"
             />
 

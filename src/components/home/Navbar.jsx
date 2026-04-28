@@ -71,7 +71,7 @@ export default function Navbar() {
 
 
       {/* Main nav */}
-      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-gradient-to-b from-[#e8e8e8] to-[#d0d0d0] shadow-lg shadow-black/20 border-b border-gray-400' : 'bg-gradient-to-b from-[#f0f0f0] to-[#e0e0e0] border-b border-gray-300'}`}>
+      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-gradient-to-b from-[#2a2a2a] to-[#1f1f1f] shadow-lg shadow-black/50 border-b border-gray-600' : 'bg-gradient-to-b from-[#3a3a3a] to-[#2a2a2a] border-b border-gray-500'}`}>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
           {/* Logo */}
@@ -98,18 +98,18 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             {/* Search field */}
             <div className="relative hidden md:block">
-              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-600 pointer-events-none" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
               <input
                 type="text"
                 placeholder="Search model..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
-                className="pl-8 pr-3 h-8 w-40 bg-white/40 border border-gray-400 text-gray-900 text-xs rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-600" />
+                className="pl-8 pr-3 h-8 w-40 bg-white/10 border border-gray-500 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-500" />
               
             </div>
             {/* Mobile search icon */}
-            <button className="md:hidden text-gray-700 hover:text-orange-500 transition-colors p-2">
+            <button className="md:hidden text-gray-400 hover:text-orange-400 transition-colors p-2">
               <Search className="w-4 h-4" />
             </button>
 
@@ -117,7 +117,7 @@ export default function Navbar() {
             <a
               href="/dashboard"
               title="Customer Portal"
-              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white transition-all">
+              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-500/60 text-orange-400 hover:bg-orange-500 hover:text-black transition-all">
               
               <User className="w-4 h-4" />
             </a>
@@ -125,7 +125,7 @@ export default function Navbar() {
             {/* Hamburger */}
             <button
               id="hamburger-btn"
-              className="text-gray-700 p-3 hover:text-orange-500 transition-colors md:p-2"
+              className="text-gray-400 p-3 hover:text-orange-400 transition-colors md:p-2"
               onClick={() => setDrawerOpen((o) => !o)}
               aria-label="Menu">
               

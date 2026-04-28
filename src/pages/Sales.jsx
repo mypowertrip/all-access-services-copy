@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import ImageGallery from '../components/sales/ImageGallery';
 import FinancingCalculator from '../components/sales/FinancingCalculator';
 import ConditionReport from '../components/sales/ConditionReport';
@@ -9,6 +9,7 @@ import { SITE_CONFIG } from '../lib/siteConfig';
 
 export default function Sales() {
   const [selectedItem, setSelectedItem] = useState(null);
+  const [conditionFilter, setConditionFilter] = useState('All');
 
   const getBadgeStyles = (badge) => {
     if (!badge) return '';
@@ -24,11 +25,16 @@ export default function Sales() {
     }
   };
 
+  const filteredInventory = useMemo(() => {
+    if (conditionFilter === 'All') return salesInventory;
+    return salesInventory.filter(item => item.condition === conditionFilter);
+  }, [conditionFilter]);
+
   return (
     <div className="bg-black min-h-screen">
 
       {/* Hero */}
-      <section className="pt-40 pb-20 bg-gradient-to-b from-black to-zinc-900/30">
+      <section className="pt-40 pb-12 bg-gradient-to-b from-black to-zinc-900/30">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -46,6 +52,32 @@ export default function Sales() {
         </div>
       </section>
 
+      {/* Condition Filter */}
+      {!selectedItem && (
+        <section className="bg-black border-b border-zinc-800 sticky top-24 z-30">
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            <div className="flex items-center gap-4">
+              <span className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Filter:</span>
+              <div className="flex items-center gap-3">
+                {['All', 'New', 'Pre-Owned'].map(condition => (
+                  <button
+                    key={condition}
+                    onClick={() => setConditionFilter(condition)}
+                    className={`px-4 py-2 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all ${
+                      conditionFilter === condition
+                        ? 'bg-orange-500 text-black'
+                        : 'bg-zinc-900 text-gray-300 hover:bg-zinc-800'
+                    }`}
+                  >
+                    {condition}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <AnimatePresence mode="wait">
         {!selectedItem ? (
           // Grid View
@@ -57,7 +89,7 @@ export default function Sales() {
               className="max-w-7xl mx-auto px-4"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {salesInventory.map((item, i) => (
+                {filteredInventory.map((item, i) => (
                   <motion.button
                     key={item.id}
                     initial={{ opacity: 0, y: 30 }}

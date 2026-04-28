@@ -48,7 +48,7 @@ export default function HeroSection() {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 w-full pt-40 pb-20 md:pt-52 px-4">
+      <div className="mt-32 pt-40 pb-20 px-4 relative z-10 w-full md:pt-52">
         <div className="ml-16 max-w-3xl">
           {/* Headline — sequenced animation */}
           <h1 className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6 overflow-hidden">
@@ -56,11 +56,11 @@ export default function HeroSection() {
             {/* Line 1: REACH slides in from left */}
             <div className="overflow-hidden">
               <motion.span
-                className="block text-white"
-                initial={{ x: -120, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-              >
+                  className="block text-white"
+                  initial={{ x: -120, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}>
+                  
                 REACH
               </motion.span>
             </div>
@@ -68,12 +68,12 @@ export default function HeroSection() {
             {/* Line 2: HIGHER rises up (literal) */}
             <div className="overflow-hidden">
               <motion.span
-                className="block"
-                style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}
-                initial={{ y: 60, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
-              >
+                  className="block"
+                  style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}
+                  initial={{ y: 60, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}>
+                  
                 HIGHER.
               </motion.span>
             </div>
@@ -81,22 +81,22 @@ export default function HeroSection() {
             {/* Line 3: STANDARDS fades + scales in from slight right */}
             <div className="overflow-hidden">
               <motion.span
-                className="block text-white"
-                initial={{ x: 60, opacity: 0, scale: 0.9 }}
-                animate={{ x: 0, opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: 'easeOut', delay: 1.05 }}
-              >
+                  className="block text-white"
+                  initial={{ x: 60, opacity: 0, scale: 0.9 }}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: 1.05 }}>
+                  
                 WORK{' '}
                 <AnimatePresence mode="wait">
                   <motion.span
-                    key={wordIndex}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
-                    style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
-                    className="inline-block"
-                  >
+                      key={wordIndex}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.4 }}
+                      style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
+                      className="inline-block">
+                      
                     {CYCLING_WORDS[wordIndex]}
                   </motion.span>
                 </AnimatePresence>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, ArrowRight } from 'lucide-react';
 import { SITE_CONFIG } from '../lib/siteConfig';
+import LocationMap from '../components/LocationMap';
 
 const locations = SITE_CONFIG.locations;
 
@@ -40,11 +41,10 @@ export default function Locations() {
                 transition={{ delay: i * 0.1 }}
                 className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500"
               >
-                {/* Image */}
-                <div className="aspect-video relative overflow-hidden">
-                  <img src={loc.image} alt={loc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
+                {/* Map */}
+                <div className="aspect-video relative overflow-hidden bg-zinc-800">
+                  <LocationMap location={loc} />
+                  <div className="absolute bottom-4 left-4 z-10">
                     <h3 className="font-barlow text-3xl font-black text-white">{loc.name}</h3>
                   </div>
                 </div>

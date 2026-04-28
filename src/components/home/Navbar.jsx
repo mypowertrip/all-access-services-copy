@@ -108,11 +108,11 @@ export default function Navbar() {
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-500 pointer-events-none" />
               <input
                 type="text"
-                placeholder="Search model..."
+                placeholder="Search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
-                className="pl-8 pr-3 h-10 w-56 bg-white/30 border-2 border-white/60 text-white text-sm rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-300" />
+                className="pl-8 pr-3 h-10 w-56 bg-white/30 border-2 border-white/60 text-black text-sm rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-900" />
               
             </div>
             {/* Mobile search icon */}

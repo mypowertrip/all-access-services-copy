@@ -1,7 +1,5 @@
 import { useState, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Navbar from '../components/home/Navbar';
-import Footer from '../components/home/Footer';
 import RentalFilters from '../components/rentals/RentalFilters';
 import ModelCard from '../components/rentals/ModelCard';
 import QuoteCart from '../components/rentals/QuoteCart';
@@ -118,7 +116,6 @@ export default function Rentals() {
   return (
     <div className="bg-black min-h-screen p-0 m-0">
       <QuoteCartSidebar />
-      <Navbar className="pb-32 relative min-h-96 flex items-center justify-center overflow-hidden" />
 
       {/* Hero */}
       <section className="relative min-h-96 w-screen flex items-center justify-center overflow-hidden">
@@ -326,7 +323,6 @@ export default function Rentals() {
         onClose={() => setIsQuoteFormOpen(false)} />
       
 
-      <Footer />
     </div>);
 
 }

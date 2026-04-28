@@ -1,4 +1,3 @@
-import Navbar from '../components/home/Navbar';
 import { motion } from 'framer-motion';
 import { ArrowRight, Wrench, Clock, CheckCircle2 } from 'lucide-react';
 

@@ -109,9 +109,9 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-semibold drop-shadow-lg">
+              className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-black uppercase tracking-widest drop-shadow-lg font-barlow">
             
-            Safety, Quality, and Integrity
+            SAFETY, QUALITY, INTEGRITY
           </motion.p>
 
           {/* CTA buttons */}

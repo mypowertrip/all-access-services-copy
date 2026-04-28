@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
+// Real All Access Services photos (matching the three hero CTAs on allaccessservices.com)
+
 // SVG icons for each service
 const ScissorLiftIcon = () => (
   <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">

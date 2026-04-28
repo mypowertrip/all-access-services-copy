@@ -112,7 +112,7 @@ export default function Navbar() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
-                className="pl-8 pr-3 h-8 w-40 bg-white/5 border border-white/10 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500/60 transition-colors placeholder-gray-600" />
+                className="pl-8 pr-3 h-9 w-48 bg-white/15 border border-white/30 text-white text-sm rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-400" />
               
             </div>
             {/* Mobile search icon */}
@@ -123,10 +123,8 @@ export default function Navbar() {
             {/* Customer portal — avatar icon */}
             <a
               href="/dashboard"
-              title="Customer Portal" className="bg-[hsl(var(--primary))] text-slate-50 rounded-full hidden md:flex items-center justify-center w-8 h-8 border border-orange-500/60 hover:bg-orange-500 hover:text-black transition-all">
-
-
-
+              title="Customer Portal" className="bg-orange-500 text-white rounded-full hidden md:flex items-center justify-center w-9 h-9 hover:bg-orange-600 transition-all">
+              <User className="w-5 h-5" />
             </a>
 
             {/* Hamburger */}

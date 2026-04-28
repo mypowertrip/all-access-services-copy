@@ -68,47 +68,48 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Dark band with logo */}
-      <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] border-b border-gray-700 h-24">
-        {/* Hexagonal texture overlay */}
-        <div 
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%), 
-                              radial-gradient(circle at 80% 50%, rgba(0,0,0,0.2) 0%, transparent 50%)`,
-            backgroundSize: '200px 200px'
-          }}
-        />
-        <div className="relative h-full flex items-center px-4 max-w-7xl mx-auto">
+
+
+      {/* Main nav */}
+      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-gradient-to-b from-[#2a2a2a] to-[#1f1f1f] shadow-lg shadow-black/50 border-b border-gray-600' : 'bg-gradient-to-b from-[#3a3a3a] to-[#2a2a2a] border-b border-gray-500'}`}>
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
+
+          {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Home">
             <img
               src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/6c5fafd51_CleanLogo.png"
               alt="All Access Services"
               className="h-14 w-auto object-contain"
             />
-          </a>
-        </div>
-      </div>
 
-      {/* Main nav - Stainless Steel */}
-      <nav className="relative h-10 bg-gradient-to-b from-[#e8e8e8] to-[#c0c0c0] border-b border-gray-400 shadow-md" style={{backgroundImage: 'linear-gradient(90deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(255,255,255,0.4) 100%), linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 100%), linear-gradient(to bottom, #e8e8e8, #c0c0c0)', backgroundSize: '100% 100%, 100% 100%, 100% 100%'}}>
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-10">
+
+
+
+
+
+
+            
+            
+          </a>
+
+
+
           {/* Right actions */}
           <div className="flex items-center gap-2">
             {/* Search field */}
             <div className="relative hidden md:block">
-              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-600 pointer-events-none" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
               <input
                 type="text"
                 placeholder="Search model..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
-                className="pl-8 pr-3 h-6 w-40 bg-white/40 border border-gray-400 text-gray-800 text-xs rounded focus:outline-none focus:border-orange-600 transition-colors placeholder-gray-600" />
+                className="pl-8 pr-3 h-8 w-40 bg-white/10 border border-gray-500 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-500" />
               
             </div>
             {/* Mobile search icon */}
-            <button className="md:hidden text-gray-600 hover:text-orange-600 transition-colors p-2">
+            <button className="md:hidden text-gray-400 hover:text-orange-400 transition-colors p-2">
               <Search className="w-4 h-4" />
             </button>
 
@@ -116,7 +117,7 @@ export default function Navbar() {
             <a
               href="/dashboard"
               title="Customer Portal"
-              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-600 text-orange-700 hover:bg-orange-600 hover:text-white transition-all">
+              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-500/60 text-orange-400 hover:bg-orange-500 hover:text-black transition-all">
               
               <User className="w-4 h-4" />
             </a>
@@ -124,11 +125,11 @@ export default function Navbar() {
             {/* Hamburger */}
             <button
               id="hamburger-btn"
-              className="text-gray-600 p-2 hover:text-orange-600 transition-colors"
+              className="text-gray-400 p-3 hover:text-orange-400 transition-colors md:p-2"
               onClick={() => setDrawerOpen((o) => !o)}
               aria-label="Menu">
               
-              {drawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {drawerOpen ? <X className="w-6 h-6 md:w-5 md:h-5" /> : <Menu className="w-6 h-6 md:w-5 md:h-5" />}
             </button>
           </div>
         </div>
@@ -145,28 +146,28 @@ export default function Navbar() {
 
       {/* Right-side drawer */}
       <AnimatePresence>
-        {drawerOpen && (
-          <>
+        {drawerOpen &&
+        <>
             {/* Backdrop */}
             <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
-              onClick={() => setDrawerOpen(false)}
-            />
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+            onClick={() => setDrawerOpen(false)} />
+          
 
             {/* Drawer panel */}
             <motion.div
-              id="side-drawer"
-              key="drawer"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.28 }}
-              className="fixed top-0 right-0 h-full w-72 bg-[#0d0d0d] border-l border-white/10 z-50 flex flex-col overflow-y-auto"
-            >
+            id="side-drawer"
+            key="drawer"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.28 }}
+            className="fixed top-0 right-0 h-full w-72 bg-[#0d0d0d] border-l border-white/10 z-50 flex flex-col overflow-y-auto">
+            
               {/* Drawer header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
                 <span className="text-white font-bold text-sm uppercase tracking-widest">Menu</span>
@@ -176,33 +177,34 @@ export default function Navbar() {
               </div>
 
               <div className="flex-1 px-5 py-6 space-y-8">
+
                 {/* Mobile navigation menu */}
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Main Menu</p>
                   <div className="space-y-1">
-                    {mainNavLinks.map((link) => (
-                      <div key={link.label}>
+                    {mainNavLinks.map((link) =>
+                  <div key={link.label}>
                         <a href={link.href || '#'} className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {link.label}
                         </a>
-                        {link.children && (
-                          <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
+                        {link.children &&
+                    <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
                             {link.children.map((child) => {
-                              const childHref = child.toLowerCase().replace(/\s+/g, '-');
-                              return (
-                                <a
-                                  key={child}
-                                  href={`${link.href}/${childHref}`}
-                                  className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors"
-                                >
+                        const childHref = child.toLowerCase().replace(/\s+/g, '-');
+                        return (
+                          <a
+                            key={child}
+                            href={`${link.href}/${childHref}`}
+                            className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors">
+                            
                                   {child}
-                                </a>
-                              );
-                            })}
+                                </a>);
+
+                      })}
                           </div>
-                        )}
+                    }
                       </div>
-                    ))}
+                  )}
                   </div>
                 </div>
 
@@ -211,13 +213,13 @@ export default function Navbar() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Industries</p>
                   <div className="space-y-1">
                     {industries.map((ind) => {
-                      const indHref = ind.toLowerCase().replace(/\s+/g, '-');
-                      return (
-                        <a key={ind} href={`/rentals?industry=${indHref}`} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                    const indHref = ind.toLowerCase().replace(/\s+/g, '-');
+                    return (
+                      <a key={ind} href={`/rentals?industry=${indHref}`} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {ind}
-                        </a>
-                      );
-                    })}
+                        </a>);
+
+                  })}
                   </div>
                 </div>
 
@@ -226,21 +228,21 @@ export default function Navbar() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">More</p>
                   <div className="space-y-1">
                     {moreLinks.map((label) => {
-                      const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : label === 'Resources' ? '/safety' : '/safety';
-                      return (
-                        <a key={label} href={href} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                    const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : label === 'Resources' ? '/safety' : '/safety';
+                    return (
+                      <a key={label} href={href} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {label}
-                        </a>
-                      );
-                    })}
+                        </a>);
+
+                  })}
                   </div>
                 </div>
 
                 {/* Customer portal */}
                 <a
-                  href="/dashboard"
-                  className="flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors"
-                >
+                href="/dashboard"
+                className="flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors">
+                
                   <User className="w-4 h-4" />
                   Customer Portal
                 </a>
@@ -255,8 +257,8 @@ export default function Navbar() {
               </div>
             </motion.div>
           </>
-        )}
+        }
       </AnimatePresence>
-      </header>
-      );
-      }
+    </header>);
+
+}

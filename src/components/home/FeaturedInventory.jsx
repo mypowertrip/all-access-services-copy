@@ -1,83 +1,19 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowLeft, Tag, Clock, Check, ChevronLeft, ChevronRight } from 'lucide-react';
-
-const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png";
-const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b576b6a80_generated_91f959ee.png";
-const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/01c29d10b_generated_459b7c93.png";
-
-const inventory = [
-  {
-    id: 1,
-    make: 'JLG',
-    model: '1200SJP',
-    year: 2024,
-    price: 285000,
-    condition: 'New',
-    type: 'Boom Lift',
-    img: BOOM_IMG,
-    featured: true,
-  },
-  {
-    id: 2,
-    make: 'JLG',
-    model: 'G12-55A',
-    year: 2022,
-    price: 89500,
-    condition: 'Pre-Owned',
-    type: 'Telehandler',
-    img: TELEHANDLER_IMG,
-    certified: true,
-  },
-  {
-    id: 3,
-    make: 'JLG',
-    model: 'ES1930M',
-    year: 2024,
-    price: 14545,
-    condition: 'New',
-    type: 'Scissor Lift',
-    img: SCISSOR_IMG,
-  },
-  {
-    id: 4,
-    make: 'JLG',
-    model: '460SJ',
-    year: 2021,
-    price: 32500,
-    originalPrice: 38000,
-    condition: 'Pre-Owned',
-    type: 'Boom Lift',
-    img: BOOM_IMG,
-    reduced: true,
-  },
-  {
-    id: 5,
-    make: 'SkyTrak',
-    model: '10054',
-    year: 2024,
-    price: 165000,
-    condition: 'New',
-    type: 'Telehandler',
-    img: TELEHANDLER_IMG,
-  },
-  {
-    id: 6,
-    make: 'JLG',
-    model: 'ES1330M',
-    year: 2024,
-    price: 12995,
-    condition: 'New',
-    type: 'Scissor Lift',
-    img: SCISSOR_IMG,
-  },
-];
+import { ArrowRight, Check } from 'lucide-react';
+import { salesInventory } from '../../lib/salesInventory';
 
 export default function FeaturedInventory() {
   const [filter, setFilter] = useState('all');
 
-  const filtered = filter === 'all' ? inventory : inventory.filter((i) => i.condition.toLowerCase().includes(filter));
+  // Get random 6 items from sales inventory, reshuffle on mount
+  const featured = useMemo(() => {
+    const shuffled = [...salesInventory].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 6);
+  }, []);
+
+  const filtered = filter === 'all' ? featured : featured.filter((i) => i.condition.toLowerCase().includes(filter));
 
   return (
     <section id="inventory" className="bg-black py-24 relative">
@@ -136,22 +72,20 @@ export default function FeaturedInventory() {
             >
               {/* Image */}
               <div className="relative aspect-video overflow-hidden">
-                <img src={item.img} alt={item.model} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <img src={item.gallery[0]} alt={item.model} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 via-transparent to-transparent" />
 
                 {/* Badges */}
                 <div className="absolute top-3 left-3 flex flex-wrap gap-2">
-                  {item.featured && (
-                    <span className="bg-teal-500 text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Featured</span>
-                  )}
-                  {item.certified && (
-                    <span className="bg-orange-500 text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider flex items-center gap-1">
-                      <Check className="w-3 h-3" />
-                      Certified
+                  {item.badge && (
+                    <span className={`text-[10px] font-bold px-2 py-1 uppercase tracking-wider ${
+                      item.badge.type === 'new-arrival' ? 'bg-teal-500 text-black' :
+                      item.badge.type === 'certified' ? 'bg-orange-500 text-black' :
+                      'bg-red-500 text-white'
+                    }`}>
+                      {item.badge.type === 'certified' && <Check className="w-3 h-3 inline mr-1" />}
+                      {item.badge.label}
                     </span>
-                  )}
-                  {item.reduced && (
-                    <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider">Reduced</span>
                   )}
                 </div>
 

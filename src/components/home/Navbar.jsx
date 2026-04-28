@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Menu, X, Search, User } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { rentalModels } from '../../lib/rentalInventory';
 import NavTabBar from './NavTabBar';
 
 const mainNavLinks = [
@@ -24,12 +26,32 @@ const moreLinks = ['About', 'Resources', 'Contact'];
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const handleSearch = (e) => {
+    if (e.key !== 'Enter') return;
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return;
+    // Check for model ID / name match first
+    const matches = rentalModels.filter(m =>
+      m.id.toLowerCase().includes(q) || m.name.toLowerCase().includes(q)
+    );
+    if (matches.length === 1) {
+      navigate(`/product/${matches[0].id}`);
+      setSearchQuery('');
+      return;
+    }
+    // Multiple or no exact model match — navigate to rentals with search intent
+    navigate(`/rentals?q=${encodeURIComponent(searchQuery.trim())}`);
+    setSearchQuery('');
+  };
 
   // Close drawer on outside click
   useEffect(() => {
@@ -52,7 +74,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
           {/* Logo */}
-          <a href="/" className="flex items-center flex-shrink-0 mt-6">
+          <a href="/" className="flex items-center flex-shrink-0 mt-6" aria-label="Home">
             <motion.img 
               src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/c480996d7_ChatGPT_Image_Apr_22__2026__12_15_08_AM.png"
               alt="All Access Services" 
@@ -74,7 +96,10 @@ export default function Navbar() {
               <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-500 pointer-events-none" />
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Search model..."
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                onKeyDown={handleSearch}
                 className="pl-8 pr-3 h-8 w-40 bg-white/5 border border-white/10 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500/60 transition-colors placeholder-gray-600" />
               
             </div>
@@ -198,7 +223,7 @@ export default function Navbar() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">More</p>
                   <div className="space-y-1">
                     {moreLinks.map((label) => {
-                      const href = label === 'About' ? '/#about' : label === 'Contact' ? 'tel:8887775990' : '#';
+                      const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : label === 'Resources' ? '/safety' : '/safety';
                       return (
                         <a key={label} href={href} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {label}

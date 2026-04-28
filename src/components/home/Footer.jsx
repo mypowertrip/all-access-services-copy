@@ -1,10 +1,30 @@
+import { Link } from 'react-router-dom';
 import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react';
 
 const footerLinks = {
-  'Equipment': ['Scissor Lifts', 'Boom Lifts', 'Knuckle Booms', 'Telehandlers', 'Forklifts', 'Attachments'],
-  'Services': ['Equipment Rentals', 'Equipment Sales', 'Service & Repair', 'Parts Store', 'Training'],
-  'Company': ['About Us', 'Our Locations', 'Careers', 'Contact Us', 'Blog'],
-  'Support': ['Request a Quote', 'Schedule Service', 'Resources', 'FAQ', 'Safety Information'],
+  'Equipment': [
+    { label: 'Scissor Lifts', href: '/rentals/category/scissor-lifts' },
+    { label: 'Boom Lifts', href: '/rentals/category/boom-lifts' },
+    { label: 'Knuckle Booms', href: '/rentals/category/knuckle-booms' },
+    { label: 'Telehandlers', href: '/rentals/category/telehandlers' },
+    { label: 'Forklifts', href: '/rentals/category/forklifts' },
+    { label: 'Articulating Booms', href: '/rentals/category/articulating-booms' },
+  ],
+  'Services': [
+    { label: 'Equipment Rentals', href: '/rentals' },
+    { label: 'Equipment Sales', href: '/sales' },
+    { label: 'New Equipment', href: '/sales?filter=new' },
+    { label: 'Pre-Owned', href: '/sales?filter=pre-owned' },
+    { label: 'Service & Repair', href: '/service' },
+    { label: 'Safety Training', href: '/safety' },
+  ],
+  'Company': [
+    { label: 'About Us', href: '/about' },
+    { label: 'Our Locations', href: '/locations' },
+    { label: 'Contact Us', href: '/reserve' },
+    { label: 'Ground Control', href: '/dashboard' },
+    { label: 'Request a Quote', href: '/reserve' },
+  ],
 };
 
 export default function Footer() {
@@ -15,13 +35,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
-            <a href="/" className="flex items-center mb-6">
+            <Link to="/" className="flex items-center mb-6">
               <img
                 src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/77e6b1f2e_Gemini_Generated_Image_pixvcspixvcspixv1.png"
                 alt="All Access Rentals"
                 className="h-28 w-auto object-contain"
               />
-            </a>
+            </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
               Southern California's premier aerial work platform rental, sales, and service provider. JLG Authorized Dealer.
             </p>
@@ -39,15 +59,15 @@ export default function Footer() {
             {/* Social */}
             <div className="flex items-center gap-4 mt-8">
               {[
-                 { Icon: Facebook, label: 'Facebook', url: 'https://facebook.com' },
-                 { Icon: Instagram, label: 'Instagram', url: 'https://instagram.com' },
-                 { Icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com' },
-                 { Icon: Youtube, label: 'YouTube', url: 'https://youtube.com' },
-               ].map(({ Icon, label, url }) => (
-                   <a key={label} href={url} target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-zinc-900 hover:bg-orange-500 flex items-center justify-center text-gray-400 hover:text-black transition-all">
-                     <Icon className="w-4 h-4" />
-                   </a>
-                 ))}
+                { Icon: Facebook, label: 'Facebook', url: 'https://facebook.com' },
+                { Icon: Instagram, label: 'Instagram', url: 'https://instagram.com' },
+                { Icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com' },
+                { Icon: Youtube, label: 'YouTube', url: 'https://youtube.com' },
+              ].map(({ Icon, label, url }) => (
+                <a key={label} href={url} target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-zinc-900 hover:bg-orange-500 flex items-center justify-center text-gray-400 hover:text-black transition-all">
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -56,22 +76,13 @@ export default function Footer() {
             <div key={title}>
               <h3 className="font-bold text-white text-sm uppercase tracking-wider mb-4">{title}</h3>
               <ul className="space-y-2.5">
-                {links.map((link) => {
-                  let href = '#';
-                  if (title === 'Services' && link === 'Equipment Rentals') href = '/rentals';
-                  else if (title === 'Services' && link === 'Equipment Sales') href = '/sales';
-                  else if (title === 'Services' && link === 'Service & Repair') href = '/service';
-                  else if (title === 'Company' && link === 'Our Locations') href = '/locations';
-                  else if (title === 'Company' && link === 'Contact Us') href = 'tel:8887775990';
-
-                  return (
-                    <li key={link}>
-                      <a href={href} className="text-gray-400 text-sm hover:text-orange-400 transition-colors">
-                        {link}
-                      </a>
-                    </li>
-                  );
-                })}
+                {links.map((link) => (
+                  <li key={link.label}>
+                    <Link to={link.href} className="text-gray-400 text-sm hover:text-orange-400 transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           ))}
@@ -106,9 +117,9 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
             <p>© {new Date().getFullYear()} All Access Services. All rights reserved.</p>
             <div className="flex items-center gap-6">
-              <a href="/#privacy" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
-               <a href="/#terms" className="hover:text-orange-400 transition-colors">Terms of Service</a>
-               <a href="/#accessibility" className="hover:text-orange-400 transition-colors">Accessibility</a>
+              <span className="hover:text-orange-400 cursor-default transition-colors">Privacy Policy</span>
+              <span className="hover:text-orange-400 cursor-default transition-colors">Terms of Service</span>
+              <span className="hover:text-orange-400 cursor-default transition-colors">Accessibility</span>
             </div>
           </div>
         </div>

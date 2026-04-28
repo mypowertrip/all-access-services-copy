@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ShieldCheck, HardHat, Wrench, Award, ArrowRight } from 'lucide-react';
-import Navbar from '../components/home/Navbar';
-import Footer from '../components/home/Footer';
+
 
 const pillars = [
   {
@@ -29,7 +28,6 @@ const pillars = [
 export default function Safety() {
   return (
     <div className="bg-black min-h-screen">
-      <Navbar />
 
       {/* Hero */}
       <section className="relative pt-40 pb-24 overflow-hidden">
@@ -160,7 +158,6 @@ export default function Safety() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

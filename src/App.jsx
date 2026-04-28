@@ -1,4 +1,5 @@
 import { Toaster } from "@/components/ui/toaster"
+import ErrorBoundary from './components/ErrorBoundary';
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClientInstance } from '@/lib/query-client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -6,6 +7,8 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
+import Navbar from './components/home/Navbar';
+import Footer from './components/home/Footer';
 import Home from './pages/Home';
 import Safety from './pages/Safety';
 import Equipment from './pages/Equipment';
@@ -15,8 +18,11 @@ import Sales from './pages/Sales';
 import Service from './pages/Service';
 import Locations from './pages/Locations';
 import GCDashboard from './pages/GCDashboard';
+import ProductDetail from './pages/ProductDetail';
 import GCFleet from './pages/GCFleet';
 import GCLayout from './components/gc/GCLayout';
+import About from './pages/About';
+import { QuoteCartProvider } from './components/rentals/QuoteCartContext';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -35,16 +41,26 @@ const AuthenticatedApp = () => {
   }
 
   return (
+    <QuoteCartProvider>
+    <div className="min-h-screen bg-black flex flex-col">
+      <Navbar />
+      <main className="flex-1">
     <Routes>
       {/* Public site */}
       <Route path="/" element={<Home />} />
       <Route path="/rentals" element={<Rentals />} />
-      <Route path="/rentals/:category" element={<Rentals />} />
+      <Route path="/rentals/category/:category" element={<Rentals />} />
+      <Route path="/rentals/model/:modelId" element={<ProductDetail />} />
+      {/* Legacy route redirects */}
+      <Route path="/rentals/category/boom-lifts" element={<Rentals />} />
+      <Route path="/rentals/category/knuckle-booms" element={<Rentals />} />
+      <Route path="/rentals/category/articulating-booms" element={<Rentals />} />
       <Route path="/sales" element={<Sales />} />
       <Route path="/service" element={<Service />} />
       <Route path="/locations" element={<Locations />} />
       <Route path="/equipment" element={<Equipment />} />
       <Route path="/safety" element={<Safety />} />
+      <Route path="/about" element={<About />} />
       <Route path="/reserve" element={<Reserve />} />
 
       {/* Ground Control dashboard (member portal) */}
@@ -61,19 +77,25 @@ const AuthenticatedApp = () => {
 
       <Route path="*" element={<PageNotFound />} />
     </Routes>
+    </main>
+      <Footer />
+    </div>
+    </QuoteCartProvider>
   );
 };
 
 function App() {
   return (
-    <AuthProvider>
-      <QueryClientProvider client={queryClientInstance}>
-        <Router>
-          <AuthenticatedApp />
-        </Router>
-        <Toaster />
-      </QueryClientProvider>
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <QueryClientProvider client={queryClientInstance}>
+          <Router>
+            <AuthenticatedApp />
+          </Router>
+          <Toaster />
+        </QueryClientProvider>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }
 

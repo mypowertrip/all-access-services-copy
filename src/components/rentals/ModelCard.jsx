@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
-import { Download, Plus, Zap, Gauge, BarChart3 } from 'lucide-react';
+import { Download, Plus, Zap, Gauge, BarChart3, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useQuoteCart } from './QuoteCartContext';
 
 export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inComparison, onRequestQuote }) {
+  const { isInCart, addToCart, removeFromCart } = useQuoteCart();
+  const inCart = isInCart(model.id);
   const isPowerElectric = model.power === 'Electric';
 
   return (
@@ -10,33 +14,21 @@ export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inC
       animate={{ opacity: 1, y: 0 }}
       className="bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/40 overflow-hidden transition-all duration-300 group"
     >
+      {/* Clickable image + header area */}
+      <Link to={`/rentals/model/${model.id}`} className="block">
       {/* Image Container */}
-      <div 
-        className="relative w-full aspect-[4/3] overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-500"
-        style={!model.imageUrl ? {
-          background: (() => {
-            const gradients = {
-              'scissor-lifts': 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
-              'boom-lifts': 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
-              'articulating-booms': 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
-              'knuckle-booms': 'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
-              'telehandlers': 'linear-gradient(135deg, #eab308 0%, #ca8a04 100%)',
-              'forklifts': 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)',
-            };
-            return gradients[model.category] || 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)';
-          })()
-        } : { backgroundColor: '#27272a' }}
-      >
-        {model.imageUrl && (
-          <img
-            src={model.imageUrl}
-            alt={model.name}
-            className="w-full h-full object-contain p-4"
-            onError={(e) => { e.target.style.display = 'none'; }}
-          />
-        )}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-          <p className="text-center text-white font-bold text-xl px-4">{model.name}</p>
+      <div className="relative w-full h-56 bg-white overflow-hidden">
+        <img
+          src={model.imageUrl}
+          alt={model.name}
+          className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+            e.currentTarget.parentElement.innerHTML += '<div class="w-full h-full flex items-center justify-center text-gray-300 text-xs font-bold uppercase tracking-wider">No Image</div>';
+          }}
+        />
+        <div className="absolute top-2 left-2 text-[10px] font-bold uppercase tracking-widest text-orange-500 bg-black/80 px-2 py-1 rounded">
+          {model.category.replace(/-/g, ' ')}
         </div>
       </div>
 
@@ -55,6 +47,8 @@ export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inC
           </div>
         </div>
       </div>
+
+      </Link>
 
       {/* Specs Grid */}
       <div className="p-4 space-y-3 border-b border-zinc-800">
@@ -105,6 +99,17 @@ export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inC
 
       {/* Actions */}
       <div className="p-4 space-y-2">
+        <button
+          onClick={(e) => { e.stopPropagation(); inCart ? removeFromCart(model.id) : addToCart({ id: model.id, name: model.name, category: model.category }); }}
+          className={`w-full flex items-center justify-center gap-2 py-2.5 font-bold text-sm uppercase tracking-wider rounded-lg transition-all ${
+            inCart
+              ? 'bg-teal-500 text-black hover:bg-teal-400'
+              : 'border border-orange-500/60 text-orange-400 bg-transparent hover:bg-orange-500/10'
+          }`}
+        >
+          {inCart ? <Check className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+          {inCart ? '✓ Added' : '+ Add to Quote'}
+        </button>
         <button
           onClick={() => onRequestQuote(model)}
           className="w-full flex items-center justify-center gap-2 py-2.5 font-bold text-sm uppercase tracking-wider rounded-lg transition-all bg-orange-500 text-black hover:bg-orange-400"

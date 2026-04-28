@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import SafetyTicker from './SafetyTicker';
 
-const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8039c259f_generated_b19fabea.png";
+const HERO_IMG = "https://www.allaccessservices.com/images/slideshow/Main-SlideShow/allaccessrentals-home-slideshow2.jpg";
 const CYCLING_WORDS = ['SMARTER.', 'STRONGER.', 'SAFER.'];
 
 export default function HeroSection() {
@@ -48,34 +48,61 @@ export default function HeroSection() {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pt-40 pb-20 md:pt-52">
+      <div className="relative z-10 w-full pt-40 pb-20 md:pt-52 px-4">
         <div className="ml-16 max-w-3xl">
-          {/* Headline */}
-          <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6">
-            
-            <span className="text-white">REACH</span>
-            <br />
-            <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>HIGHER.</span>
-            <br />
-            <span className="text-white">WORK </span>
-            <AnimatePresence mode="wait">
+          {/* Headline — sequenced animation */}
+          <h1 className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6 overflow-hidden">
+
+            {/* Line 1: REACH slides in from left */}
+            <div className="overflow-hidden">
               <motion.span
-                  key={wordIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                  style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
-                  className="inline-block">
-                  
-                {CYCLING_WORDS[wordIndex]}
+                className="block text-white"
+                initial={{ x: -120, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
+              >
+                REACH
               </motion.span>
-            </AnimatePresence>
-          </motion.h1>
+            </div>
+
+            {/* Line 2: HIGHER rises up (literal) */}
+            <div className="overflow-hidden">
+              <motion.span
+                className="block"
+                style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}
+                initial={{ y: 60, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
+              >
+                HIGHER.
+              </motion.span>
+            </div>
+
+            {/* Line 3: STANDARDS fades + scales in from slight right */}
+            <div className="overflow-hidden">
+              <motion.span
+                className="block text-white"
+                initial={{ x: 60, opacity: 0, scale: 0.9 }}
+                animate={{ x: 0, opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, ease: 'easeOut', delay: 1.05 }}
+              >
+                WORK{' '}
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={wordIndex}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                    style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
+                    className="inline-block"
+                  >
+                    {CYCLING_WORDS[wordIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </motion.span>
+            </div>
+          </h1>
 
           {/* Sub */}
           <motion.p
@@ -84,7 +111,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-semibold drop-shadow-lg">
             
-            When safety matters most, trust the lift specialists with the newest fleet and the only factory-authorized JLG service center in the U.S.
+            Safety, Quality, and Integrity
           </motion.p>
 
           {/* CTA buttons */}
@@ -98,7 +125,7 @@ export default function HeroSection() {
                 href="/rentals"
                 className="group inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 transition-all glow-orange">
               
-              Get a Quote
+              Rental Equipment
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a

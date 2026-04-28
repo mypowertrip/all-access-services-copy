@@ -1,5 +1,4 @@
 import Navbar from '../components/home/Navbar';
-import Footer from '../components/home/Footer';
 import { motion } from 'framer-motion';
 import { ArrowRight, Wrench, Clock, CheckCircle2 } from 'lucide-react';
 
@@ -24,7 +23,6 @@ const services = [
 export default function Service() {
   return (
     <div className="bg-black min-h-screen">
-      <Navbar />
       
       {/* Hero */}
       <section className="pt-40 pb-20">
@@ -119,7 +117,6 @@ export default function Service() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

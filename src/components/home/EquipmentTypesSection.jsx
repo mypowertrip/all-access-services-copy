@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Gauge, Ruler, Weight } from 'lucide-react';
 
 const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/d691b3fe6_boom-lift.png";
@@ -11,30 +12,35 @@ const equipment = [
   {
     name: 'Boom Lifts',
     subtitle: 'Extended Reach',
+    slug: 'boom-lifts',
     img: BOOM_IMG,
     specs: { height: '40-185 ft', capacity: '500-1000 lbs', types: '15+ models' },
   },
   {
     name: 'Scissor Lifts',
     subtitle: 'Vertical Access',
+    slug: 'scissor-lifts',
     img: SCISSOR_IMG,
     specs: { height: '20-60 ft', capacity: '500-1500 lbs', types: '10+ models' },
   },
   {
     name: 'Telehandlers',
     subtitle: 'Material Handling',
+    slug: 'telehandlers',
     img: TELEHANDLER_IMG,
     specs: { height: '20-55 ft', capacity: '5000-12000 lbs', types: '8+ models' },
   },
   {
     name: 'Low Level Access',
     subtitle: 'Ground Level',
+    slug: 'articulating-booms',
     img: LOWLEVEL_IMG,
     specs: { height: '6-20 ft', capacity: '250-800 lbs', types: '6+ models' },
   },
   {
     name: 'Forklifts',
     subtitle: 'Load & Carry',
+    slug: 'forklifts',
     img: FORKLIFT_IMG,
     specs: { height: 'Up to 20 ft', capacity: '3000-15000 lbs', types: '10+ models' },
   },
@@ -79,13 +85,10 @@ export default function EquipmentTypesSection() {
         {/* Equipment grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           {equipment.map((eq, i) => (
-            <motion.div
+            <Link
               key={eq.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500"
+              to={`/rentals/category/${eq.slug}`}
+              className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 cursor-pointer block"
             >
               {/* Image */}
               <div className="aspect-[4/3] relative overflow-hidden bg-zinc-800">
@@ -119,15 +122,15 @@ export default function EquipmentTypesSection() {
                   </div>
                 </div>
 
-                <a href="#" className="inline-flex items-center gap-2 text-orange-400 text-sm font-bold uppercase tracking-wider hover:text-orange-300 transition-colors group/link">
+                <span className="inline-flex items-center gap-2 text-orange-400 text-sm font-bold uppercase tracking-wider group-hover:text-orange-300 transition-colors">
                   View All
-                  <ArrowRight className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" />
-                </a>
+                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                </span>
               </div>
 
               {/* Bottom line */}
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </motion.div>
+            </Link>
           ))}
         </div>
 
@@ -138,10 +141,10 @@ export default function EquipmentTypesSection() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <a href="#" className="inline-flex items-center gap-3 border border-zinc-700 hover:border-orange-500 text-gray-300 hover:text-orange-400 font-semibold text-sm uppercase tracking-wider px-8 py-4 transition-all">
+          <Link to="/rentals" className="inline-flex items-center gap-3 border border-zinc-700 hover:border-orange-500 text-gray-300 hover:text-orange-400 font-semibold text-sm uppercase tracking-wider px-8 py-4 transition-all">
             View All Equipment Types
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

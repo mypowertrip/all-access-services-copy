@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import Navbar from '../components/home/Navbar';
-import Footer from '../components/home/Footer';
 import ImageGallery from '../components/sales/ImageGallery';
 import FinancingCalculator from '../components/sales/FinancingCalculator';
 import ConditionReport from '../components/sales/ConditionReport';
@@ -27,7 +25,6 @@ export default function Sales() {
 
   return (
     <div className="bg-black min-h-screen">
-      <Navbar />
 
       {/* Hero */}
       <section className="pt-40 pb-20 bg-gradient-to-b from-black to-zinc-900/30">
@@ -285,7 +282,6 @@ export default function Sales() {
         </section>
       )}
 
-      <Footer />
     </div>
   );
 }

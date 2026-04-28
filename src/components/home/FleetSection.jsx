@@ -88,7 +88,7 @@ export default function FleetSection() {
               className="flex items-center gap-3 mb-6"
             >
               <div className="w-8 h-0.5 bg-teal-400" />
-              <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Smart Fleet Technology</span>
+              <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Powered by Ground Control™</span>
             </motion.div>
 
             {/* Outlined headline — matches JLG "SMART CAPABILITIES" style */}
@@ -122,7 +122,7 @@ export default function FleetSection() {
               transition={{ delay: 0.2 }}
               className="text-gray-400 text-base leading-relaxed mb-10 max-w-lg"
             >
-              Our entire fleet is equipped with JLG's ClearSky Smart Fleet™ — a robust, constantly evolving platform delivering new functionalities, new insights, and new ways to run efficient, more cost-effective operations.
+              Our entire fleet is equipped with Ground Control™ — a robust, constantly evolving platform delivering new functionalities, new insights, and new ways to run efficient, more cost-effective operations.
             </motion.p>
 
             <motion.div
@@ -148,7 +148,7 @@ export default function FleetSection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-zinc-700 hover:border-teal-400 text-gray-400 hover:text-teal-400 font-bold text-xs uppercase tracking-widest px-6 py-3 transition-all"
               >
-                Explore ClearSky™
+                Explore Ground Control™
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </motion.div>
@@ -168,7 +168,7 @@ export default function FleetSection() {
             <div className="relative w-full border border-teal-500/20 bg-black/70">
               <div className="flex items-center gap-2 px-5 py-3 border-b border-teal-500/20 bg-teal-500/5">
                 <HexOutline className="w-5 h-5 text-teal-400" />
-                <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">ClearSky™ Fleet Dashboard</span>
+                <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Ground Control™ Fleet Dashboard</span>
                 <div className="ml-auto flex items-center gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
                   <span className="text-teal-400 text-[10px] font-bold uppercase tracking-widest">Live</span>
@@ -211,7 +211,7 @@ export default function FleetSection() {
               <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>THUMB'S REACH</span>
             </h3>
             <p className="text-gray-400 max-w-2xl text-sm leading-relaxed">
-              Developed from the ground up for an authentic mobile experience, the ClearSky Smart Fleet app keeps you in control — even when cellular data and Wi-Fi are unavailable.*
+              Developed from the ground up for an authentic mobile experience, the Ground Control™ app keeps you in control — even when cellular data and Wi-Fi are unavailable.*
             </p>
           </motion.div>
 
@@ -304,7 +304,7 @@ export default function FleetSection() {
                 <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>YOUR SYSTEMS</span>
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                ClearSky's API data feed integrates into your existing telematics solution. Our multi-layered feed provides more than 35 unique data points — giving you a vivid picture of equipment activity and status, with machine hours down to fractional level.
+                Ground Control™'s API data feed integrates into your existing telematics solution. Our multi-layered feed provides more than 35 unique data points — giving you a vivid picture of equipment activity and status, with machine hours down to fractional level.
               </p>
               <p className="text-gray-400 text-sm leading-relaxed mb-8">
                 Integrate into your ERP, view it in a custom portal, or share it with any software provider — the choice is yours.

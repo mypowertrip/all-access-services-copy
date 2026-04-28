@@ -68,7 +68,7 @@ export default function FloatingCTA() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 flex flex-col items-center gap-3">
+    <div className="fixed bottom-20 md:bottom-8 right-8 z-30 flex flex-col items-center gap-3">
       <a href="tel:8887775990" className="block">
         <motion.button
           onClick={handleClick}

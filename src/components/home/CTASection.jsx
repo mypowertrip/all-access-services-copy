@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Mail, MessageSquare } from 'lucide-react';
 
 export default function CTASection() {
@@ -52,13 +53,13 @@ export default function CTASection() {
           transition={{ delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
-            href="#"
+          <Link
+            to="/reserve"
             className="group inline-flex items-center gap-3 bg-black hover:bg-zinc-900 text-white font-bold text-sm uppercase tracking-widest px-10 py-5 transition-all"
           >
             Get a Free Quote
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
           <a
             href="tel:8887775990"
             className="inline-flex items-center gap-3 bg-white/20 hover:bg-white/30 text-black font-bold text-sm uppercase tracking-widest px-10 py-5 transition-all"
@@ -76,15 +77,15 @@ export default function CTASection() {
           transition={{ delay: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-8 mt-16 pt-8 border-t border-black/20"
         >
-          <a href="#" className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
+          <a href="mailto:info@allaccessservices.com" className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
             <Mail className="w-4 h-4" />
             Email Us
           </a>
-          <a href="#" className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
+          <span className="flex items-center gap-2 text-black/70 text-sm font-semibold">
             <MessageSquare className="w-4 h-4" />
             Live Chat
-          </a>
-          <a href="#" className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
+          </span>
+          <a href="tel:8887775990" className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
             <Phone className="w-4 h-4" />
             Request Callback
           </a>

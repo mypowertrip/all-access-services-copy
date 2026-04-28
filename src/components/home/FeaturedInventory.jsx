@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ArrowLeft, Tag, Clock, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -195,10 +196,10 @@ export default function FeaturedInventory() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <a href="#" className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 transition-all">
+          <Link to="/sales" className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 transition-all">
             View Full Inventory
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

@@ -27,7 +27,7 @@ export default function AppCTABadge() {
 
   return (
     <motion.a
-      href="/dashboard"
+      href="/gc"
       className="group hidden md:flex fixed right-6 z-40 flex-col items-center justify-center"
       style={{ top: 140, width: size, height: size }}
       title="Ground Control App"
@@ -72,8 +72,8 @@ export default function AppCTABadge() {
         >
           <Smartphone className="w-5 h-5 text-orange-400" />
         </motion.div>
-        <p className="text-[8px] font-black uppercase tracking-widest text-teal-400 leading-none">New App</p>
-        <p className="text-[9px] font-black text-white uppercase leading-none">Ground<br/>Control™</p>
+        <p className="text-[9px] font-black uppercase tracking-widest text-orange-400 leading-none">Launch</p>
+        <p className="text-[8px] font-black text-white uppercase leading-none">Ground<br/>Control</p>
       </div>
     </motion.a>
   );

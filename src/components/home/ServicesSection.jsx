@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png";
@@ -10,6 +11,7 @@ const services = [
     title: 'Equipment Rentals',
     description: 'Daily, weekly, and monthly rental options on the industry\'s most reliable aerial work platforms.',
     cta: 'Browse Rentals',
+    href: '/rentals',
     img: SCISSOR_IMG,
     accent: 'orange',
   },
@@ -17,6 +19,7 @@ const services = [
     title: 'Equipment Sales',
     description: 'New and certified pre-owned JLG equipment with competitive financing options available.',
     cta: 'View Inventory',
+    href: '/sales',
     img: BOOM_IMG,
     accent: 'teal',
   },
@@ -24,6 +27,7 @@ const services = [
     title: 'Service & Repair',
     description: 'JLG-authorized factory-trained technicians keeping your fleet running at peak performance.',
     cta: 'Schedule Service',
+    href: '/service',
     img: SERVICE_IMG,
     accent: 'orange',
   },
@@ -41,13 +45,17 @@ export default function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
           {services.map((s, i) => (
-            <motion.div
+            <Link
               key={s.title}
+              to={s.href}
+              className="group relative overflow-hidden aspect-[4/5] cursor-pointer block"
+            >
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="group relative overflow-hidden aspect-[4/5] cursor-pointer"
+              className="absolute inset-0"
             >
               {/* Image */}
               <img src={s.img} alt={s.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -68,15 +76,13 @@ export default function ServicesSection() {
                 <p className="text-gray-300 text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   {s.description}
                 </p>
-                <a
-                  href="#"
-                  className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'} opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500`}
-                >
+                <span className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'} opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500`}>
                   {s.cta}
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </span>
               </div>
             </motion.div>
+            </Link>
           ))}
         </div>
       </div>

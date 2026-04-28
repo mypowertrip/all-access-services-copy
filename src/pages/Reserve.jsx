@@ -1,37 +1,103 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useQuoteCart } from '../components/rentals/QuoteCartContext';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ArrowLeft, Trash2, Calendar, MapPin, User, Building, Phone, Mail, ChevronRight, Shield } from 'lucide-react';
+import { CheckCircle2, ArrowLeft, Trash2, Calendar, MapPin, User, Building, Phone, Mail, ChevronRight, Shield, AlertCircle, Loader2 } from 'lucide-react';
 import SiteNav from '../components/layout/SiteNav';
 import SiteFooter from '../components/layout/SiteFooter';
 import { fuelBadge } from '../lib/equipmentData';
+import { validateQuoteForm } from '../lib/validation';
+import { SITE_CONFIG } from '../lib/siteConfig';
 
 const STEPS = ['Your Quote', 'Delivery Details', 'Confirm'];
 
 export default function Reserve() {
   const location = useLocation();
-  const [cart, setCart] = useState(location.state?.cart || []);
+  const { cartItems, startDate: cartStartDate, endDate: cartEndDate, submitQuote } = useQuoteCart();
+  const [cart, setCart] = useState(location.state?.quoteItems || location.state?.cart || []);
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [submittedQuoteId, setSubmittedQuoteId] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [formErrors, setFormErrors] = useState({});
+  const [notes, setNotes] = useState('');
   const [rental, setRental] = useState({
-    startDate: '', endDate: '', deliveryAddress: '', siteContact: '',
-    firstName: '', lastName: '', company: '', email: '', phone: '', notes: ''
+    startDate: cartStartDate || '', endDate: cartEndDate || '', deliveryAddress: '', siteContact: '',
+    firstName: '', lastName: '', company: '', email: '', phone: ''
   });
+
+  // Pre-fill notes from QuoteCart context when cartItems exist
+  useEffect(() => {
+    const items = cartItems.length > 0 ? cartItems : cart;
+    if (items.length === 0) return;
+    const sd = cartStartDate || rental.startDate || 'TBD';
+    const ed = cartEndDate || rental.endDate || 'TBD';
+    const itemLines = items.map(i => `- ${i.name}`).join('\n');
+    setNotes(`Quote Request\nStart Date: ${sd}\nEnd Date: ${ed}\n\nEquipment Requested:\n${itemLines}`);
+  }, [cartItems, cartStartDate, cartEndDate]);
 
   const rentalDays = rental.startDate && rental.endDate
     ? Math.max(1, Math.ceil((new Date(rental.endDate) - new Date(rental.startDate)) / 86400000))
     : 1;
 
-  const subtotal = cart.reduce((sum, item) => sum + item.dailyRate * rentalDays, 0);
-  const deliveryFee = 250;
-  const total = subtotal + deliveryFee;
+  // Only calculate pricing if ALL items in cart have a real dailyRate
+  const hasPricing = cart.length > 0 && cart.every(item => item.dailyRate != null);
+  const subtotal    = hasPricing ? cart.reduce((sum, item) => sum + item.dailyRate * rentalDays, 0) : null;
+  const deliveryFee = SITE_CONFIG.deliveryFee;
+  const total       = hasPricing ? subtotal + deliveryFee : null;
 
   const remove = (id) => setCart(prev => prev.filter(c => c.id !== id));
 
   const canNext = () => {
     if (step === 0) return cart.length > 0 && rental.startDate && rental.endDate;
-    if (step === 1) return rental.deliveryAddress && rental.firstName && rental.email && rental.phone;
+    if (step === 1) {
+      const { isValid } = validateQuoteForm({
+        firstName: rental.firstName,
+        email: rental.email,
+        phone: rental.phone,
+        deliveryAddress: rental.deliveryAddress,
+      });
+      return isValid;
+    }
     return true;
+  };
+
+  const handleStep1Next = () => {
+    const { isValid, errors } = validateQuoteForm({
+      firstName: rental.firstName,
+      email: rental.email,
+      phone: rental.phone,
+      deliveryAddress: rental.deliveryAddress,
+    });
+    if (!isValid) { setFormErrors(errors); return; }
+    setFormErrors({});
+    setStep(s => s + 1);
+  };
+
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    setSubmitError('');
+    try {
+      const result = await submitQuote({
+        firstName: rental.firstName,
+        lastName: rental.lastName,
+        email: rental.email,
+        phone: rental.phone,
+        company: rental.company,
+        deliveryAddress: rental.deliveryAddress,
+        siteContact: rental.siteContact,
+        startDate: rental.startDate,
+        endDate: rental.endDate,
+        notes,
+      });
+      setSubmittedQuoteId(result?.quoteId || '');
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(err?.message || 'Failed to submit quote. Please try again or call us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -45,24 +111,28 @@ export default function Reserve() {
             </div>
             <h2 className="text-2xl font-black text-slate-900">Quote Submitted!</h2>
             <p className="mt-3 text-slate-500 text-sm leading-relaxed">
-              We received your rental request for {cart.length} item{cart.length > 1 ? 's' : ''}. Our team will contact you at <strong className="text-slate-700">{rental.email}</strong> within 2 business hours to confirm pricing and availability.
+              We received your rental request. Our team will contact you at <strong className="text-slate-700">{rental.email}</strong> within 2 business hours to confirm pricing and availability.
             </p>
             <div className="mt-6 p-5 rounded-xl bg-white border border-slate-100 text-left space-y-3">
               <div className="flex justify-between text-sm">
                 <span className="text-slate-500">Rental period</span>
                 <span className="font-semibold text-slate-900">{rental.startDate} → {rental.endDate}</span>
               </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-slate-500">Estimated total</span>
-                <span className="font-black text-slate-900">${total.toLocaleString()}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-slate-500">Reference</span>
-                <span className="font-mono font-bold text-orange">#{Math.random().toString(36).substr(2,8).toUpperCase()}</span>
-              </div>
+              {total != null && (
+                <div className="flex justify-between text-sm">
+                  <span className="text-slate-500">Estimated total</span>
+                  <span className="font-black text-slate-900">${total.toLocaleString()}</span>
+                </div>
+              )}
+              {submittedQuoteId && (
+                <div className="flex justify-between text-sm">
+                  <span className="text-slate-500">Reference</span>
+                  <span className="font-mono font-bold text-orange">{submittedQuoteId}</span>
+                </div>
+              )}
             </div>
             <div className="mt-8 flex flex-col gap-3">
-              <Link to="/equipment" className="w-full py-3 bg-orange text-white font-bold rounded-xl text-sm text-center">
+              <Link to="/rentals" className="w-full py-3 bg-orange text-white font-bold rounded-xl text-sm text-center">
                 Browse More Equipment
               </Link>
               <Link to="/" className="w-full py-3 bg-slate-100 text-slate-700 font-semibold rounded-xl text-sm text-center">
@@ -185,7 +255,8 @@ export default function Reserve() {
                   <input type="text" placeholder="123 Jobsite Blvd, City, State, ZIP"
                     value={rental.deliveryAddress}
                     onChange={e => setRental(r => ({ ...r, deliveryAddress: e.target.value }))}
-                    className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange/30" />
+                    className={`w-full px-3 py-2.5 text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange/30 ${formErrors.deliveryAddress ? 'border-red-400' : 'border-slate-200'}`} />
+                  {formErrors.deliveryAddress && <p className="text-xs text-red-500 mt-1">{formErrors.deliveryAddress}</p>}
                   <input type="text" placeholder="On-site contact name & phone"
                     value={rental.siteContact}
                     onChange={e => setRental(r => ({ ...r, siteContact: e.target.value }))}
@@ -198,9 +269,10 @@ export default function Reserve() {
                   </h3>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1.5">First Name</label>
+                      <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1.5">First Name *</label>
                       <input type="text" value={rental.firstName} onChange={e => setRental(r => ({ ...r, firstName: e.target.value }))}
-                        className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange/30" required />
+                        className={`w-full px-3 py-2.5 text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange/30 ${formErrors.firstName ? 'border-red-400' : 'border-slate-200'}`} required />
+                      {formErrors.firstName && <p className="text-xs text-red-500 mt-1">{formErrors.firstName}</p>}
                     </div>
                     <div>
                       <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1.5">Last Name</label>
@@ -217,18 +289,20 @@ export default function Reserve() {
                     <div>
                       <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1.5">Email *</label>
                       <input type="email" value={rental.email} onChange={e => setRental(r => ({ ...r, email: e.target.value }))}
-                        className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange/30" required />
+                        className={`w-full px-3 py-2.5 text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange/30 ${formErrors.email ? 'border-red-400' : 'border-slate-200'}`} required />
+                      {formErrors.email && <p className="text-xs text-red-500 mt-1">{formErrors.email}</p>}
                     </div>
                     <div>
                       <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1.5">Phone *</label>
                       <input type="tel" value={rental.phone} onChange={e => setRental(r => ({ ...r, phone: e.target.value }))}
-                        className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange/30" required />
+                        className={`w-full px-3 py-2.5 text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange/30 ${formErrors.phone ? 'border-red-400' : 'border-slate-200'}`} required />
+                      {formErrors.phone && <p className="text-xs text-red-500 mt-1">{formErrors.phone}</p>}
                     </div>
                   </div>
                   <div>
                     <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block mb-1.5">Special Requirements</label>
-                    <textarea value={rental.notes} onChange={e => setRental(r => ({ ...r, notes: e.target.value }))}
-                      rows={3} placeholder="Any special site conditions, certifications, or instructions..."
+                    <textarea value={notes} onChange={e => setNotes(e.target.value)}
+                      rows={5} placeholder="Any special site conditions, certifications, or instructions..."
                       className="w-full px-3 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange/30 resize-none" />
                   </div>
                 </div>
@@ -265,24 +339,33 @@ export default function Reserve() {
             )}
 
             {/* Navigation */}
+            {submitError && (
+              <div className="flex items-start gap-2 p-3 rounded-xl bg-red-50 border border-red-100 text-red-600 text-sm">
+                <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                <span>{submitError}</span>
+              </div>
+            )}
             <div className="flex gap-3">
               {step > 0 && (
-                <button onClick={() => setStep(s => s - 1)}
+                <button onClick={() => { setStep(s => s - 1); setSubmitError(''); }}
                   className="flex items-center gap-2 px-5 py-3 border border-slate-200 text-slate-600 font-semibold text-sm rounded-xl hover:bg-slate-50 transition-colors">
                   <ArrowLeft className="w-4 h-4" /> Back
                 </button>
               )}
               {step < 2 ? (
-                <button onClick={() => setStep(s => s + 1)} disabled={!canNext()}
+                <button
+                  onClick={step === 1 ? handleStep1Next : () => setStep(s => s + 1)}
+                  disabled={!canNext()}
                   className={`flex-1 flex items-center justify-center gap-2 py-3 text-white font-bold text-sm rounded-xl transition-all ${
                     canNext() ? 'bg-orange hover:bg-orange/90 shadow-md shadow-orange/20' : 'bg-slate-200 text-slate-400 cursor-not-allowed'
                   }`}>
                   Continue <ChevronRight className="w-4 h-4" />
                 </button>
               ) : (
-                <button onClick={() => setSubmitted(true)}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 bg-orange hover:bg-orange/90 text-white font-bold text-sm rounded-xl shadow-md shadow-orange/20 transition-all">
-                  <CheckCircle2 className="w-4 h-4" /> Submit Quote Request
+                <button onClick={handleSubmit} disabled={isSubmitting}
+                  className="flex-1 flex items-center justify-center gap-2 py-3 bg-orange hover:bg-orange/90 text-white font-bold text-sm rounded-xl shadow-md shadow-orange/20 transition-all disabled:opacity-60 disabled:cursor-not-allowed">
+                  {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : <CheckCircle2 className="w-4 h-4" />}
+                  {isSubmitting ? 'Submitting...' : 'Submit Quote Request'}
                 </button>
               )}
             </div>
@@ -295,31 +378,41 @@ export default function Reserve() {
                 <h3 className="text-sm font-bold text-slate-900">Quote Summary</h3>
               </div>
               <div className="p-5 space-y-3">
-                {cart.map(item => (
-                  <div key={item.id} className="flex justify-between text-sm">
-                    <span className="text-slate-600 truncate pr-4">{item.model}</span>
-                    <span className="font-semibold text-slate-900 shrink-0">${(item.dailyRate * rentalDays).toLocaleString()}</span>
-                  </div>
-                ))}
+                 {cart.map(item => (
+                   <div key={item.id} className="flex justify-between text-sm">
+                     <span className="text-slate-600 truncate pr-4">{item.model || item.name}</span>
+                     <span className="font-semibold text-slate-900 shrink-0">
+                       {item.dailyRate != null ? `$${(item.dailyRate * rentalDays).toLocaleString()}` : '—'}
+                     </span>
+                   </div>
+                 ))}
 
-                <div className="pt-3 border-t border-slate-100 space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-slate-500">Subtotal ({rentalDays}d)</span>
-                    <span className="text-slate-700">${subtotal.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-slate-500">Delivery & Setup</span>
-                    <span className="text-slate-700">${deliveryFee}</span>
-                  </div>
-                  <div className="flex justify-between text-sm font-bold pt-2 border-t border-slate-100">
-                    <span className="text-slate-900">Estimated Total</span>
-                    <span className="text-orange text-base">${total.toLocaleString()}</span>
-                  </div>
-                </div>
-                <p className="text-[10px] text-slate-400 leading-relaxed pt-1">
-                  Final pricing confirmed after delivery inspection. No credit card required to submit.
-                </p>
-              </div>
+                 <div className="pt-3 border-t border-slate-100 space-y-2">
+                   {hasPricing ? (
+                     <>
+                       <div className="flex justify-between text-sm">
+                         <span className="text-slate-500">Subtotal ({rentalDays}d)</span>
+                         <span className="text-slate-700">${subtotal.toLocaleString()}</span>
+                       </div>
+                       <div className="flex justify-between text-sm">
+                         <span className="text-slate-500">Delivery & Setup</span>
+                         <span className="text-slate-700">${deliveryFee}</span>
+                       </div>
+                       <div className="flex justify-between text-sm font-bold pt-2 border-t border-slate-100">
+                         <span className="text-slate-900">Estimated Total</span>
+                         <span className="text-orange text-base">${total.toLocaleString()}</span>
+                       </div>
+                     </>
+                   ) : (
+                     <div className="text-sm text-slate-500 italic">
+                       Pricing will be confirmed after your quote is reviewed.
+                     </div>
+                   )}
+                 </div>
+                 <p className="text-[10px] text-slate-400 leading-relaxed pt-1">
+                   Final pricing confirmed after delivery inspection. No credit card required to submit.
+                 </p>
+               </div>
 
               <div className="px-5 pb-5 space-y-2">
                 <div className="flex items-center gap-2 text-xs text-slate-500">

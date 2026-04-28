@@ -1,0 +1,86 @@
+{
+  "name": "Quote",
+  "type": "object",
+  "properties": {
+    "quote_id": {
+      "type": "string",
+      "description": "Sequential quote reference ID (e.g. Q-20260424-0001)"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "Customer first name"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Customer last name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Customer email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Customer phone number"
+    },
+    "company": {
+      "type": "string",
+      "description": "Customer company name"
+    },
+    "delivery_address": {
+      "type": "string",
+      "description": "Equipment delivery address"
+    },
+    "site_contact": {
+      "type": "string",
+      "description": "On-site contact name and phone"
+    },
+    "start_date": {
+      "type": "string",
+      "description": "Rental start date (YYYY-MM-DD)"
+    },
+    "end_date": {
+      "type": "string",
+      "description": "Rental end date (YYYY-MM-DD)"
+    },
+    "equipment_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of equipment model IDs in this quote"
+    },
+    "equipment_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of equipment names for display"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Special requirements or project description"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "quoted",
+        "confirmed",
+        "cancelled"
+      ],
+      "default": "new",
+      "description": "Quote status"
+    },
+    "source": {
+      "type": "string",
+      "description": "Which form submitted this quote (rentals, reserve, product-detail)"
+    }
+  },
+  "required": [
+    "email",
+    "phone",
+    "first_name",
+    "delivery_address"
+  ]
+}

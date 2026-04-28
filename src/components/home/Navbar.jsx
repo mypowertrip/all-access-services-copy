@@ -78,7 +78,7 @@ export default function Navbar() {
           backgroundSize: '600px',
           backgroundPosition: 'center'
         }}>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-black/50 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24 relative z-10">
 
           {/* Logo */}

@@ -6,19 +6,19 @@ import { rentalModels } from '../../lib/rentalInventory';
 import NavTabBar from './NavTabBar';
 
 const mainNavLinks = [
-  { 
-    label: 'Rentals',
-    href: '/rentals',
-    children: ['Scissor Lifts', 'Boom Lifts', 'Telehandlers', 'Forklifts', 'Low Level Access']
-  },
-  { 
-    label: 'Sales',
-    href: '/sales',
-    children: ['New Equipment', 'Pre-Owned', 'Financing']
-  },
-  { label: 'Service', href: '/service' },
-  { label: 'Locations', href: '/locations' }
-];
+{
+  label: 'Rentals',
+  href: '/rentals',
+  children: ['Scissor Lifts', 'Boom Lifts', 'Telehandlers', 'Forklifts', 'Low Level Access']
+},
+{
+  label: 'Sales',
+  href: '/sales',
+  children: ['New Equipment', 'Pre-Owned', 'Financing']
+},
+{ label: 'Service', href: '/service' },
+{ label: 'Locations', href: '/locations' }];
+
 
 const industries = ['Space / Aerospace', 'Military', 'Construction', 'Events', 'Warehouse', 'Government'];
 const moreLinks = ['About', 'Resources', 'Contact'];
@@ -40,8 +40,8 @@ export default function Navbar() {
     const q = searchQuery.trim().toLowerCase();
     if (!q) return;
     // Check for model ID / name match first
-    const matches = rentalModels.filter(m =>
-      m.id.toLowerCase().includes(q) || m.name.toLowerCase().includes(q)
+    const matches = rentalModels.filter((m) =>
+    m.id.toLowerCase().includes(q) || m.name.toLowerCase().includes(q)
     );
     if (matches.length === 1) {
       navigate(`/product/${matches[0].id}`);
@@ -75,16 +75,16 @@ export default function Navbar() {
 
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0 mt-6" aria-label="Home">
-            <motion.img 
-              src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/c480996d7_ChatGPT_Image_Apr_22__2026__12_15_08_AM.png"
-              alt="All Access Services" 
-              className="h-28 md:h-96 w-auto object-contain"
-              style={{ mixBlendMode: 'screen', maxWidth: '168px' }}
-              animate={{ 
-                filter: ['drop-shadow(0 0 10px rgba(249, 115, 22, 0.4))', 'drop-shadow(0 0 25px rgba(249, 115, 22, 0.8))', 'drop-shadow(0 0 10px rgba(249, 115, 22, 0.4))'],
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            />
+            <motion.img src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/c480996d7_ChatGPT_Image_Apr_22__2026__12_15_08_AM.png"
+
+            alt="All Access Services" className="h-28 md:h-96 w-auto object-contain"
+
+            style={{ mixBlendMode: 'screen', maxWidth: '168px' }}
+            animate={{
+              filter: ['drop-shadow(0 0 10px rgba(249, 115, 22, 0.4))', 'drop-shadow(0 0 25px rgba(249, 115, 22, 0.8))', 'drop-shadow(0 0 10px rgba(249, 115, 22, 0.4))']
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} />
+            
           </a>
 
 
@@ -98,7 +98,7 @@ export default function Navbar() {
                 type="text"
                 placeholder="Search model..."
                 value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
                 className="pl-8 pr-3 h-8 w-40 bg-white/5 border border-white/10 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500/60 transition-colors placeholder-gray-600" />
               
@@ -135,8 +135,8 @@ export default function Navbar() {
           animate={{
             opacity: [0.4, 1, 0.4]
           }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-        />
+          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} />
+        
       </nav>
 
       {/* Right-side drawer */}
@@ -177,29 +177,29 @@ export default function Navbar() {
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Main Menu</p>
                   <div className="space-y-1">
-                    {mainNavLinks.map((link) => (
-                      <div key={link.label}>
+                    {mainNavLinks.map((link) =>
+                  <div key={link.label}>
                         <a href={link.href || '#'} className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {link.label}
                         </a>
-                        {link.children && (
-                          <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
+                        {link.children &&
+                    <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
                             {link.children.map((child) => {
-                              const childHref = child.toLowerCase().replace(/\s+/g, '-');
-                              return (
-                                <a
-                                  key={child}
-                                  href={`${link.href}/${childHref}`}
-                                  className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors"
-                                >
+                        const childHref = child.toLowerCase().replace(/\s+/g, '-');
+                        return (
+                          <a
+                            key={child}
+                            href={`${link.href}/${childHref}`}
+                            className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors">
+                            
                                   {child}
-                                </a>
-                              );
-                            })}
+                                </a>);
+
+                      })}
                           </div>
-                        )}
+                    }
                       </div>
-                    ))}
+                  )}
                   </div>
                 </div>
 
@@ -208,13 +208,13 @@ export default function Navbar() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Industries</p>
                   <div className="space-y-1">
                     {industries.map((ind) => {
-                      const indHref = ind.toLowerCase().replace(/\s+/g, '-');
-                      return (
-                        <a key={ind} href={`/rentals?industry=${indHref}`} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                    const indHref = ind.toLowerCase().replace(/\s+/g, '-');
+                    return (
+                      <a key={ind} href={`/rentals?industry=${indHref}`} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {ind}
-                        </a>
-                      );
-                    })}
+                        </a>);
+
+                  })}
                   </div>
                 </div>
 
@@ -223,13 +223,13 @@ export default function Navbar() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">More</p>
                   <div className="space-y-1">
                     {moreLinks.map((label) => {
-                      const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : label === 'Resources' ? '/safety' : '/safety';
-                      return (
-                        <a key={label} href={href} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                    const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : label === 'Resources' ? '/safety' : '/safety';
+                    return (
+                      <a key={label} href={href} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {label}
-                        </a>
-                      );
-                    })}
+                        </a>);
+
+                  })}
                   </div>
                 </div>
 

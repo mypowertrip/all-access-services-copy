@@ -54,7 +54,7 @@ export default function NavTabBar() {
   };
 
   return (
-    <div className="hidden md:block fixed top-24 left-0 right-0 z-40 bg-gradient-to-b from-[#d97706] via-[#ea580c] to-[#ca4504] border-b-2 border-[#8b3a02] shadow-lg shadow-orange-950/50">
+    <div className="hidden md:block fixed top-24 left-0 right-0 z-40 bg-orange-600 border-b border-orange-700">
       <div className="max-w-7xl mx-auto flex items-center gap-0 h-10">
         {mainNavLinks.map((link) =>
         <div

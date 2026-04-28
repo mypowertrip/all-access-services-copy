@@ -112,7 +112,7 @@ export default function Navbar() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
-                className="pl-8 pr-3 h-9 w-48 bg-white/15 border border-white/30 text-white text-sm rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-400" />
+                className="pl-8 pr-3 h-10 w-56 bg-white/30 border-2 border-white/60 text-white text-sm rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-300" />
               
             </div>
             {/* Mobile search icon */}

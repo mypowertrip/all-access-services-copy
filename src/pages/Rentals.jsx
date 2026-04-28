@@ -164,17 +164,20 @@ export default function Rentals() {
 
         {/* Category Tabs */}
         <div className="max-w-7xl mx-auto px-4 mb-8">
-          <div className="flex flex-wrap gap-2 border-b border-zinc-800 pb-4">
+          <div className="flex flex-wrap gap-4 border-b border-zinc-800 pb-4">
             {rentalCategories.map((cat) => (
               <button
                 key={cat.slug}
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`px-4 py-2 font-bold text-sm uppercase tracking-widest transition-all ${
+                className={`px-0 py-2 text-xs font-semibold uppercase tracking-widest transition-all ${
                   selectedCategory === cat.slug
-                    ? 'text-orange-400 border-b-2 border-orange-400'
-                    : 'text-gray-400 hover:text-white'
+                    ? 'border-b-2 border-orange-400'
+                    : ''
                 }`}>
-                {cat.name}
+                <span className="text-white">Rentals</span>{' '}
+                <span style={{ WebkitTextStroke: '1px #f97316', color: 'transparent' }}>
+                  {cat.name}
+                </span>
               </button>
             ))}
           </div>

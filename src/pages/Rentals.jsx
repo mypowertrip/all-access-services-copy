@@ -118,11 +118,14 @@ export default function Rentals() {
 
       {/* Hero */}
       <section className="relative min-h-screen w-screen flex items-center justify-center overflow-hidden">
-        <div className="mt-32 absolute inset-0"
+        <div className="absolute inset-0"
 
         style={{
           backgroundImage: 'url(https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8fa136f56_Gemini_Generated_Image_euc52keuc52keuc5.png)',
-          backgroundPosition: 'center top'
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center center',
+          backgroundAttachment: 'scroll'
         }}>
           
           

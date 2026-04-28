@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useQuoteCart } from '../components/rentals/QuoteCartContext';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowLeft, Trash2, Calendar, MapPin, User, Building, Phone, Mail, ChevronRight, Shield, AlertCircle, Loader2 } from 'lucide-react';
@@ -12,9 +12,7 @@ import { SITE_CONFIG } from '../lib/siteConfig';
 const STEPS = ['Your Quote', 'Delivery Details', 'Confirm'];
 
 export default function Reserve() {
-  const location = useLocation();
-  const { cartItems, startDate: cartStartDate, endDate: cartEndDate, submitQuote } = useQuoteCart();
-  const [cart, setCart] = useState(location.state?.quoteItems || location.state?.cart || []);
+  const { cartItems, startDate: cartStartDate, endDate: cartEndDate, removeFromCart, submitQuote } = useQuoteCart();
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [submittedQuoteId, setSubmittedQuoteId] = useState('');
@@ -29,7 +27,7 @@ export default function Reserve() {
 
   // Pre-fill notes from QuoteCart context when cartItems exist
   useEffect(() => {
-    const items = cartItems.length > 0 ? cartItems : cart;
+    const items = cartItems;
     if (items.length === 0) return;
     const sd = cartStartDate || rental.startDate || 'TBD';
     const ed = cartEndDate || rental.endDate || 'TBD';
@@ -42,15 +40,13 @@ export default function Reserve() {
     : 1;
 
   // Only calculate pricing if ALL items in cart have a real dailyRate
-  const hasPricing = cart.length > 0 && cart.every(item => item.dailyRate != null);
-  const subtotal    = hasPricing ? cart.reduce((sum, item) => sum + item.dailyRate * rentalDays, 0) : null;
+  const hasPricing = cartItems.length > 0 && cartItems.every(item => item.dailyRate != null);
+  const subtotal    = hasPricing ? cartItems.reduce((sum, item) => sum + item.dailyRate * rentalDays, 0) : null;
   const deliveryFee = SITE_CONFIG.deliveryFee;
   const total       = hasPricing ? subtotal + deliveryFee : null;
 
-  const remove = (id) => setCart(prev => prev.filter(c => c.id !== id));
-
   const canNext = () => {
-    if (step === 0) return cart.length > 0 && rental.startDate && rental.endDate;
+    if (step === 0) return cartItems.length > 0 && rental.startDate && rental.endDate;
     if (step === 1) {
       const { isValid } = validateQuoteForm({
         firstName: rental.firstName,
@@ -147,7 +143,7 @@ export default function Reserve() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-inter">
-      <SiteNav cartCount={cart.length} />
+      <SiteNav cartCount={cartItems.length} />
 
       <div className="max-w-6xl mx-auto px-6 pt-28 pb-16">
         {/* Back */}
@@ -181,13 +177,13 @@ export default function Reserve() {
               <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="space-y-4">
                 <h2 className="text-xl font-black text-slate-900">Your Quote</h2>
 
-                {cart.length === 0 ? (
+                {cartItems.length === 0 ? (
                   <div className="py-16 text-center rounded-2xl bg-white border border-slate-100">
                     <p className="text-slate-500 text-sm mb-4">Your quote is empty.</p>
                     <Link to="/equipment" className="text-sm font-bold text-orange hover:underline">Browse Equipment →</Link>
                   </div>
                 ) : (
-                  cart.map(item => (
+                  cartItems.map(item => (
                     <div key={item.id} className="flex gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">
                       <div className="w-20 h-16 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 overflow-hidden">
                         <img src={item.img} alt={item.model} className="h-14 object-contain" onError={() => {}} />
@@ -198,7 +194,7 @@ export default function Reserve() {
                             <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">{item.model}</div>
                             <div className="text-sm font-bold text-slate-900">{item.name}</div>
                           </div>
-                          <button onClick={() => remove(item.id)} className="p-1 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors shrink-0">
+                          <button onClick={() => removeFromCart(item.id)} className="p-1 rounded-lg hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors shrink-0">
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
@@ -316,7 +312,7 @@ export default function Reserve() {
 
                 <div className="bg-white rounded-2xl border border-slate-100 p-6 space-y-4">
                   {[
-                    ['Equipment', cart.map(c => c.model).join(', ')],
+                    ['Equipment', cartItems.map(c => c.model).join(', ')],
                     ['Rental Period', `${rental.startDate} → ${rental.endDate} (${rentalDays} day${rentalDays > 1 ? 's' : ''})`],
                     ['Delivery To', rental.deliveryAddress],
                     ['Contact', `${rental.firstName} ${rental.lastName} · ${rental.email} · ${rental.phone}`],
@@ -378,7 +374,7 @@ export default function Reserve() {
                 <h3 className="text-sm font-bold text-slate-900">Quote Summary</h3>
               </div>
               <div className="p-5 space-y-3">
-                 {cart.map(item => (
+                 {cartItems.map(item => (
                    <div key={item.id} className="flex justify-between text-sm">
                      <span className="text-slate-600 truncate pr-4">{item.model || item.name}</span>
                      <span className="font-semibold text-slate-900 shrink-0">

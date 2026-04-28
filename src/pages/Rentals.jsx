@@ -9,12 +9,13 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Search, Phone } from 'lucide-react';
 import { rentalModels, rentalCategories, heightRanges, widthRanges } from '../lib/rentalInventory';
 import QuoteCartSidebar from '../components/rentals/QuoteCartSidebar';
+import { useQuoteCart } from '../components/rentals/QuoteCartContext';
 
 export default function Rentals() {
   const navigate = useNavigate();
   const { category } = useParams();
+  const { cartItems, addToCart, removeFromCart, isInCart } = useQuoteCart();
   const [searchTerm, setSearchTerm] = useState('');
-  const [quoteItems, setQuoteItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [comparisonItems, setComparisonItems] = useState([]);
   const [isComparisonOpen, setIsComparisonOpen] = useState(false);
@@ -67,21 +68,20 @@ export default function Rentals() {
   }, [category, searchTerm, filters]);
 
   const handleAddToQuote = (model) => {
-    setQuoteItems((prev) => {
-      const updated = prev.find((item) => item.id === model.id) ?
-      prev.filter((item) => item.id !== model.id) :
-      [...prev, model];
-      if (updated.length > 0) setIsCartOpen(true);
-      return updated;
-    });
+    if (isInCart(model.id)) {
+      removeFromCart(model.id);
+    } else {
+      addToCart(model);
+      setIsCartOpen(true);
+    }
   };
 
   const handleRemoveFromQuote = (modelId) => {
-    setQuoteItems((prev) => prev.filter((item) => item.id !== modelId));
+    removeFromCart(modelId);
   };
 
   const handleCheckout = () => {
-    navigate('/reserve', { state: { quoteItems } });
+    navigate('/reserve');
   };
 
   const handleAddToComparison = (model) => {
@@ -104,9 +104,8 @@ export default function Rentals() {
   };
 
   const handleOpenQuoteForm = (model) => {
-    // Add model to quote items if not already there
-    if (!quoteItems.find((item) => item.id === model.id)) {
-      setQuoteItems((prev) => [...prev, model]);
+    if (!isInCart(model.id)) {
+      addToCart(model);
     }
     setIsQuoteFormOpen(true);
   };
@@ -253,9 +252,9 @@ export default function Rentals() {
                   <p className="text-sm text-gray-400">
                     Showing <span className="font-bold text-white">{filteredModels.length}</span> model{filteredModels.length !== 1 ? 's' : ''}
                   </p>
-                  {quoteItems.length > 0 &&
+                  {cartItems.length > 0 &&
               <span className="text-sm text-orange-400 font-semibold">
-                      {quoteItems.length} in quote
+                      {cartItems.length} in quote
                     </span>
               }
                 </div>
@@ -285,7 +284,7 @@ export default function Rentals() {
                 key={model.id}
                 model={model}
                 onAddToQuote={handleAddToQuote}
-                inQuote={quoteItems.some((item) => item.id === model.id)}
+                inQuote={isInCart(model.id)}
                 onCompare={handleAddToComparison}
                 inComparison={comparisonItems.some((item) => item.id === model.id)}
                 onRequestQuote={handleOpenQuoteForm} />
@@ -300,7 +299,7 @@ export default function Rentals() {
 
       {/* Quote Cart */}
       <QuoteCart
-        items={quoteItems}
+        items={cartItems}
         isOpen={isCartOpen}
         onRemove={handleRemoveFromQuote}
         onCheckout={handleCheckout}
@@ -318,7 +317,7 @@ export default function Rentals() {
 
       {/* Quote Request Form */}
       <QuoteRequestForm
-        models={quoteItems}
+        models={cartItems}
         isOpen={isQuoteFormOpen}
         onClose={() => setIsQuoteFormOpen(false)} />
       

@@ -109,7 +109,7 @@ export default function QuoteCartSidebar() {
             </button>
           )}
           <button
-            onClick={() => { setIsOpen(false); navigate('/reserve', { state: { quoteItems: cartItems } }); }}
+            onClick={() => { setIsOpen(false); navigate('/reserve'); }}
             disabled={cartItems.length === 0}
             className={`w-full flex items-center justify-center gap-2 py-3 font-bold text-sm uppercase tracking-wider rounded-lg transition-all ${
               cartItems.length > 0

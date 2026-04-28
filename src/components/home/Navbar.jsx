@@ -68,48 +68,47 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-
-
-      {/* Main nav */}
-      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-gradient-to-br from-[#404040] via-[#2d2d2d] to-[#1a1a1a] shadow-lg shadow-black/50 border-b border-gray-600' : 'bg-gradient-to-br from-[#4a4a4a] via-[#3a3a3a] to-[#2a2a2a] border-b border-gray-500'}`} style={{backgroundImage: scrolled ? 'linear-gradient(135deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(45deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom right, #404040, #2d2d2d, #1a1a1a)' : 'linear-gradient(135deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(45deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom right, #4a4a4a, #3a3a3a, #2a2a2a)', backgroundSize: scrolled ? '4px 4px, 4px 4px, 100% 100%' : '6px 6px, 6px 6px, 100% 100%'}}>
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
-
-          {/* Logo */}
+      {/* Dark band with logo */}
+      <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] border-b border-gray-700 h-24">
+        {/* Hexagonal texture overlay */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%), 
+                              radial-gradient(circle at 80% 50%, rgba(0,0,0,0.2) 0%, transparent 50%)`,
+            backgroundSize: '200px 200px'
+          }}
+        />
+        <div className="relative h-full flex items-center px-4 max-w-7xl mx-auto">
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Home">
             <img
               src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/6c5fafd51_CleanLogo.png"
               alt="All Access Services"
               className="h-14 w-auto object-contain"
             />
-
-
-
-
-
-
-
-            
-            
           </a>
+        </div>
+      </div>
 
-
-
+      {/* Main nav - Stainless Steel */}
+      <nav className="relative h-10 bg-gradient-to-b from-[#e8e8e8] to-[#c0c0c0] border-b border-gray-400 shadow-md" style={{backgroundImage: 'linear-gradient(90deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(255,255,255,0.4) 100%), linear-gradient(0deg, rgba(0,0,0,0.1) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 100%), linear-gradient(to bottom, #e8e8e8, #c0c0c0)', backgroundSize: '100% 100%, 100% 100%, 100% 100%'}}>
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-10">
           {/* Right actions */}
           <div className="flex items-center gap-2">
             {/* Search field */}
             <div className="relative hidden md:block">
-              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-600 pointer-events-none" />
               <input
                 type="text"
                 placeholder="Search model..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
-                className="pl-8 pr-3 h-8 w-40 bg-white/10 border border-gray-500 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-500" />
+                className="pl-8 pr-3 h-6 w-40 bg-white/40 border border-gray-400 text-gray-800 text-xs rounded focus:outline-none focus:border-orange-600 transition-colors placeholder-gray-600" />
               
             </div>
             {/* Mobile search icon */}
-            <button className="md:hidden text-gray-400 hover:text-orange-400 transition-colors p-2">
+            <button className="md:hidden text-gray-600 hover:text-orange-600 transition-colors p-2">
               <Search className="w-4 h-4" />
             </button>
 
@@ -117,7 +116,7 @@ export default function Navbar() {
             <a
               href="/dashboard"
               title="Customer Portal"
-              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-500/60 text-orange-400 hover:bg-orange-500 hover:text-black transition-all">
+              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-600 text-orange-700 hover:bg-orange-600 hover:text-white transition-all">
               
               <User className="w-4 h-4" />
             </a>
@@ -125,11 +124,11 @@ export default function Navbar() {
             {/* Hamburger */}
             <button
               id="hamburger-btn"
-              className="text-gray-400 p-3 hover:text-orange-400 transition-colors md:p-2"
+              className="text-gray-600 p-2 hover:text-orange-600 transition-colors"
               onClick={() => setDrawerOpen((o) => !o)}
               aria-label="Menu">
               
-              {drawerOpen ? <X className="w-6 h-6 md:w-5 md:h-5" /> : <Menu className="w-6 h-6 md:w-5 md:h-5" />}
+              {drawerOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>

@@ -58,6 +58,7 @@ const services = [
     description: 'New and certified pre-owned JLG equipment with competitive financing options available.',
     cta: 'View Inventory',
     href: '/sales',
+    image: 'https://media.base44.com/images/public/69f03230e61a9516ac171fbd/b29279f8e_Screenshot2026-04-27at105944PM.png',
     Icon: BoomLiftIcon,
     accent: 'teal',
     bg: 'from-teal-950/80 to-zinc-950',
@@ -101,7 +102,7 @@ export default function ServicesSection() {
               {s.image ? (
                 <>
                   <img src={s.image} alt={s.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/60" />
                 </>
               ) : (
                 <>
@@ -117,22 +118,19 @@ export default function ServicesSection() {
               {/* Grid pattern overlay (non-photo cards only) */}
               {!s.image && <div className="absolute inset-0 opacity-5" style={{backgroundImage:'linear-gradient(rgba(255,255,255,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.15) 1px,transparent 1px)',backgroundSize:'32px 32px'}} />}
 
-              {/* Bottom accent line */}
-              <div className={`absolute bottom-0 left-0 right-0 h-1 ${s.accent === 'teal' ? 'bg-teal-400' : 'bg-orange-500'} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
+              {/* Top accent line */}
+              <div className={`absolute top-0 left-0 right-0 h-1 ${s.accent === 'teal' ? 'bg-teal-400' : 'bg-orange-500'} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
 
               {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8">
-                <div className={`w-12 h-12 mb-4 ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'}`}>
-                  <s.Icon />
-                </div>
+              <div className="absolute inset-0 flex flex-col justify-start p-8">
                 <div className={`text-xs font-bold uppercase tracking-widest mb-3 ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'}`}>
                   0{i + 1}
                 </div>
                 <h3 className="font-barlow text-3xl font-semibold text-white mb-3 tracking-tight">{s.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transform -translate-y-2 group-hover:translate-y-0 transition-all duration-500">
                   {s.description}
                 </p>
-                <span className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'} opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500`}>
+                <span className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'} opacity-0 group-hover:opacity-100 transform -translate-y-2 group-hover:translate-y-0 transition-all duration-500`}>
                   {s.cta}
                   <ArrowRight className="w-4 h-4" />
                 </span>

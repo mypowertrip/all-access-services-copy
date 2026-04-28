@@ -71,12 +71,7 @@ export default function Navbar() {
 
 
       {/* Main nav */}
-      <div>
-        {/* Dark band top section */}
-        <div className="h-12 bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] border-b border-black/50" style={{backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '8px 8px'}}></div>
-        
-        {/* Stainless steel menu bar */}
-        <nav className="transition-all duration-300 relative bg-gradient-to-br from-[#c0c0c0] via-[#a8a8a8] to-[#909090] shadow-lg shadow-black/40 border-b border-gray-500" style={{backgroundImage: 'linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom right, #c0c0c0, #a8a8a8, #909090)', backgroundSize: '2px 100%, 100% 100%'}}>
+      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-gradient-to-br from-[#404040] via-[#2d2d2d] to-[#1a1a1a] shadow-lg shadow-black/50 border-b border-gray-600' : 'bg-gradient-to-br from-[#4a4a4a] via-[#3a3a3a] to-[#2a2a2a] border-b border-gray-500'}`} style={{backgroundImage: scrolled ? 'linear-gradient(135deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(45deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom right, #404040, #2d2d2d, #1a1a1a)' : 'linear-gradient(135deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(45deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom right, #4a4a4a, #3a3a3a, #2a2a2a)', backgroundSize: scrolled ? '4px 4px, 4px 4px, 100% 100%' : '6px 6px, 6px 6px, 100% 100%'}}>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
           {/* Logo */}
@@ -103,18 +98,18 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             {/* Search field */}
             <div className="relative hidden md:block">
-              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-700 pointer-events-none" />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-gray-400 pointer-events-none" />
               <input
                 type="text"
                 placeholder="Search model..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleSearch}
-                className="pl-8 pr-3 h-8 w-40 bg-white/60 border border-gray-400 text-gray-900 text-xs rounded focus:outline-none focus:border-orange-600 transition-colors placeholder-gray-600" />
+                className="pl-8 pr-3 h-8 w-40 bg-white/10 border border-gray-500 text-gray-300 text-xs rounded focus:outline-none focus:border-orange-500 transition-colors placeholder-gray-500" />
               
             </div>
             {/* Mobile search icon */}
-            <button className="md:hidden text-gray-700 hover:text-orange-600 transition-colors p-2">
+            <button className="md:hidden text-gray-400 hover:text-orange-400 transition-colors p-2">
               <Search className="w-4 h-4" />
             </button>
 
@@ -122,7 +117,7 @@ export default function Navbar() {
             <a
               href="/dashboard"
               title="Customer Portal"
-              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-600 text-orange-700 hover:bg-orange-500 hover:text-white transition-all">
+              className="hidden md:flex items-center justify-center w-8 h-8 rounded-full border border-orange-500/60 text-orange-400 hover:bg-orange-500 hover:text-black transition-all">
               
               <User className="w-4 h-4" />
             </a>
@@ -130,7 +125,7 @@ export default function Navbar() {
             {/* Hamburger */}
             <button
               id="hamburger-btn"
-              className="text-gray-700 p-3 hover:text-orange-600 transition-colors md:p-2"
+              className="text-gray-400 p-3 hover:text-orange-400 transition-colors md:p-2"
               onClick={() => setDrawerOpen((o) => !o)}
               aria-label="Menu">
               
@@ -141,14 +136,13 @@ export default function Navbar() {
         
         {/* Accent line at bottom */}
         <motion.div
-          className="h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent shadow-md"
+          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent shadow-md"
           animate={{
             opacity: [0.6, 1, 0.6]
           }}
           transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} />
         
-        </nav>
-      </div>
+      </nav>
 
       {/* Right-side drawer */}
       <AnimatePresence>

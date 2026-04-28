@@ -74,30 +74,30 @@ export default function NavTabBar() {
           onMouseLeave={() => closeDropdown(link.label)}>
           
             {/* Tab Button */}
-            <a
-            href={link.href || '#'} className="relative w-full h-full flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-widest transition-all text-white hover:text-[#f97316] hidden"
-
-
-
-            style={{
-              background: activeDropdown === link.label ?
-              'linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)' :
-              'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.1) 100%)',
-              boxShadow: activeDropdown === link.label ?
-              'inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.3)' :
-              'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.2)'
-            }}>
             
-              {link.label}
-              {link.children &&
-            <motion.div
-              animate={{ rotate: activeDropdown === link.label ? 180 : 0 }}
-              transition={{ duration: 0.2 }}>
-              
-                  <ChevronDown className="w-3 h-3" />
-                </motion.div>
-            }
-            </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
 
             {/* Dropdown */}
             <AnimatePresence>

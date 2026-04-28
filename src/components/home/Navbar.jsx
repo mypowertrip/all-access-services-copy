@@ -77,7 +77,7 @@ export default function Navbar() {
           <a href="/" className="flex items-center flex-shrink-0 mt-6" aria-label="Home">
             <motion.img src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/c480996d7_ChatGPT_Image_Apr_22__2026__12_15_08_AM.png"
 
-            alt="All Access Services" className="h-28 md:h-96 w-auto object-contain"
+            alt="All Access Services" className="h-28 md:h-96 w-auto object-contain hidden"
 
             style={{ mixBlendMode: 'screen', maxWidth: '168px' }}
             animate={{

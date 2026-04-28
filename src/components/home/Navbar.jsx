@@ -71,15 +71,8 @@ export default function Navbar() {
 
 
       {/* Main nav */}
-      <nav 
-        className={`transition-all duration-300 relative shadow-lg shadow-black/50 border-b border-gray-600`}
-        style={{
-          backgroundImage: 'url(https://media.base44.com/images/public/69f03230e61a9516ac171fbd/57d7c81ee_metalmesh.png)',
-          backgroundSize: '600px',
-          backgroundPosition: 'center'
-        }}>
-        <div className="absolute inset-0 bg-black/50 pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24 relative z-10">
+      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-[#111111]/98 backdrop-blur-md shadow-lg shadow-black/80 border-b border-teal-500/10' : 'bg-[#111111]/80 backdrop-blur-sm border-b border-white/5'}`}>
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Home">

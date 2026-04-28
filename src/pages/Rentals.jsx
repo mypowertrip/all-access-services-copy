@@ -117,7 +117,7 @@ export default function Rentals() {
       <QuoteCartSidebar />
 
       {/* Hero */}
-      <section className="relative min-h-96 w-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen w-screen flex items-center justify-center overflow-hidden">
         <div className="mt-4 absolute inset-0"
 
         style={{

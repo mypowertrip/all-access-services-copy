@@ -10,7 +10,7 @@ const mainNavLinks = [
 {
   label: 'Rentals',
   href: '/rentals',
-  children: ['Scissor Lifts', 'Straight Boom Lifts', 'Telehandlers', 'Forklifts', 'Low Level Access', 'Articulating Booms']
+  children: ['Scissor Lifts', 'Straight Boom Lifts', 'Articulating Booms', 'Telehandlers', 'Forklifts', 'Low Level Access']
 },
 {
   label: 'Sales',

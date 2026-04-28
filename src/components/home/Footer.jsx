@@ -6,9 +6,9 @@ const footerLinks = {
   'Equipment': [
     { label: 'Scissor Lifts', href: '/rentals/category/scissor-lifts' },
     { label: 'Straight Boom Lifts', href: '/rentals/category/straight-boom-lifts' },
+    { label: 'Articulating Booms', href: '/rentals/category/articulating-boom-lifts' },
     { label: 'Telehandlers', href: '/rentals/category/telehandlers' },
     { label: 'Forklifts', href: '/rentals/category/forklifts' },
-    { label: 'Articulating Booms', href: '/rentals/category/articulating-boom-lifts' },
   ],
   'Services': [
     { label: 'Equipment Rentals', href: '/rentals' },

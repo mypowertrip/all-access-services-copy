@@ -57,7 +57,7 @@ const AuthenticatedApp = () => {
     <Routes>
       {/* Public site */}
       <Route path="/" element={<Home />} />
-      <Route path="/rentals" element={<Rentals />} />
+      <Route path="/rentals" element={<Navigate to="/rentals/category/scissor-lifts" replace />} />
       <Route path="/rentals/category/:category" element={<Rentals />} />
       <Route path="/rentals/model/:modelId" element={<ProductDetail />} />
       {/* Legacy route redirects */}

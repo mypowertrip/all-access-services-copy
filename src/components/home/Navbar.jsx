@@ -9,7 +9,7 @@ import { SITE_CONFIG } from '../../lib/siteConfig';
 const mainNavLinks = [
 {
   label: 'Rentals',
-  href: '/rentals',
+  href: '/rentals/category/scissor-lifts',
   children: ['Scissor Lifts', 'Straight Boom Lifts', 'Articulating Booms', 'Telehandlers', 'Forklifts', 'Low Level Access']
 },
 {

@@ -47,7 +47,7 @@ const services = [
     title: 'Equipment Rentals',
     description: 'Daily, weekly, and monthly rental options on the industry\'s most reliable aerial work platforms.',
     cta: 'Browse Rentals',
-    href: '/rentals',
+    href: '/rentals/category/scissor-lifts',
     image: 'https://media.base44.com/images/public/69f03230e61a9516ac171fbd/aaeb30642_Screenshot2026-04-27at110540PM.png',
     Icon: ScissorLiftIcon,
     accent: 'orange',

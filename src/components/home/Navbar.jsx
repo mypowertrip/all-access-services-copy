@@ -141,7 +141,7 @@ export default function Navbar() {
         
         {/* Accent line at bottom */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent"
+          className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-black to-transparent"
           animate={{
             opacity: [0.4, 1, 0.4]
           }}

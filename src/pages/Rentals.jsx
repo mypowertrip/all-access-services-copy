@@ -154,7 +154,11 @@ export default function Rentals() {
 
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="font-barlow text-4xl md:text-5xl font-black text-white">
-              {currentCategoryData?.name}
+              Rentals
+              <br />
+              <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>
+                {currentCategoryData?.name}
+              </span>
             </h2>
             <p className="text-white/80 text-lg mt-2 max-w-2xl">
               {currentCategoryData?.description}
@@ -164,20 +168,17 @@ export default function Rentals() {
 
         {/* Category Tabs */}
         <div className="max-w-7xl mx-auto px-4 mb-8">
-          <div className="flex flex-wrap gap-4 border-b border-zinc-800 pb-4">
+          <div className="flex flex-wrap gap-2 border-b border-zinc-800 pb-4">
             {rentalCategories.map((cat) => (
               <button
                 key={cat.slug}
                 onClick={() => setSelectedCategory(cat.slug)}
-                className={`px-0 py-2 text-xs font-semibold uppercase tracking-widest transition-all ${
+                className={`px-4 py-2 font-bold text-sm uppercase tracking-widest transition-all ${
                   selectedCategory === cat.slug
-                    ? 'border-b-2 border-orange-400'
-                    : ''
+                    ? 'text-orange-400 border-b-2 border-orange-400'
+                    : 'text-gray-400 hover:text-white'
                 }`}>
-                <span className="text-white">Rentals</span>{' '}
-                <span style={{ WebkitTextStroke: '1px #f97316', color: 'transparent' }}>
-                  {cat.name}
-                </span>
+                {cat.name}
               </button>
             ))}
           </div>

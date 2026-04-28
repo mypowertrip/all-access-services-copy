@@ -1,32 +1,8 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, ArrowRight } from 'lucide-react';
+import { SITE_CONFIG } from '../lib/siteConfig';
 
-const locations = [
-  {
-    name: 'San Diego',
-    address: '8711 N Magnolia Ave, Santee, CA 92071',
-    phone: '619-222-9337',
-    image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-san-diego-img.jpg',
-  },
-  {
-    name: 'Orange County',
-    address: '621 N Main St, Orange, CA 92868',
-    phone: '714-647-1552',
-    image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-orange-county-img.jpg',
-  },
-  {
-    name: 'Riverside',
-    address: '3631 W Center Dr., Riverside, CA 92501',
-    phone: '951-672-0916',
-    image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-riverside-img.jpg',
-  },
-  {
-    name: 'Los Angeles',
-    address: '8563 San Fernando Rd, Sun Valley, CA 91352',
-    phone: '323-949-2060',
-    image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-los-angeles-img.jpg',
-  },
-];
+const locations = SITE_CONFIG.locations;
 
 export default function Locations() {
   return (

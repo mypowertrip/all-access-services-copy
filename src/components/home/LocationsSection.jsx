@@ -1,34 +1,8 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock, ArrowRight } from 'lucide-react';
+import { SITE_CONFIG } from '../../lib/siteConfig';
 
-const LOCATION_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/77c06582e_generated_c9135d9e.png";
-
-const locations = [
-  {
-    name: 'San Diego',
-    address: '8711 N Magnolia Ave, Santee, CA 92071',
-    phone: '619-222-9337',
-    hours: 'Mon-Fri: 7am-5pm',
-  },
-  {
-    name: 'Orange County',
-    address: '621 N Main St, Orange, CA 92868',
-    phone: '714-647-1552',
-    hours: 'Mon-Fri: 7am-5pm',
-  },
-  {
-    name: 'Riverside',
-    address: '2865 S La Cadena Dr, Colton, CA 92324',
-    phone: '909-266-8771',
-    hours: 'Mon-Fri: 7am-5pm',
-  },
-  {
-    name: 'Los Angeles',
-    address: '8563 San Fernando Rd, Sun Valley, CA 91352',
-    phone: '818-482-2001',
-    hours: 'Mon-Fri: 7am-5pm',
-  },
-];
+const locations = SITE_CONFIG.locations.map((loc) => ({ ...loc, hours: 'Mon-Fri: 7am-5pm' }));
 
 export default function LocationsSection() {
   return (
@@ -70,7 +44,7 @@ export default function LocationsSection() {
             >
               {/* Image */}
               <div className="aspect-video relative overflow-hidden">
-                <img src={LOCATION_IMG} alt={loc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img src={loc.image} alt={loc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent" />
                 
                 {/* Location name overlay */}

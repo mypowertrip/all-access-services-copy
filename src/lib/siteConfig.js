@@ -6,10 +6,10 @@ export const SITE_CONFIG = {
   companyName: 'All Access Services',
   deliveryFee: 250,
   locations: [
-    { name: 'San Diego',     phone: '619-222-9337', tel: '6192229337' },
-    { name: 'Orange County', phone: '714-647-1552', tel: '7146471552' },
-    { name: 'Riverside',     phone: '951-672-0916', tel: '9516720916' },
-    { name: 'Los Angeles',   phone: '323-949-2060', tel: '3239492060' },
+    { name: 'San Diego',     address: '8711 N Magnolia Ave, Santee, CA 92071',          phone: '619-222-9337', tel: '6192229337', image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-san-diego-img.jpg' },
+    { name: 'Orange County', address: '621 N Main St, Orange, CA 92868',                phone: '714-647-1552', tel: '7146471552', image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-orange-county-img.jpg' },
+    { name: 'Riverside',     address: '3631 W Center Dr., Riverside, CA 92501',         phone: '951-672-0916', tel: '9516720916', image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-riverside-img.jpg' },
+    { name: 'Los Angeles',   address: '8563 San Fernando Rd, Sun Valley, CA 91352',     phone: '323-949-2060', tel: '3239492060', image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-los-angeles-img.jpg' },
   ],
 };
 

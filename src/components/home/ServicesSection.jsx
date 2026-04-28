@@ -48,6 +48,7 @@ const services = [
     description: 'Daily, weekly, and monthly rental options on the industry\'s most reliable aerial work platforms.',
     cta: 'Browse Rentals',
     href: '/rentals',
+    image: 'https://media.base44.com/images/public/69f03230e61a9516ac171fbd/aaeb30642_Screenshot2026-04-27at110540PM.png',
     Icon: ScissorLiftIcon,
     accent: 'orange',
     bg: 'from-orange-950/80 to-zinc-950',
@@ -96,17 +97,25 @@ export default function ServicesSection() {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="absolute inset-0"
             >
-              {/* Background gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-b ${s.bg} transition-all duration-500`} />
-              <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 ${s.accent === 'teal' ? 'bg-teal-400' : 'bg-orange-400'}`} />
+              {/* Background: photo or gradient */}
+              {s.image ? (
+                <>
+                  <img src={s.image} alt={s.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
+                </>
+              ) : (
+                <>
+                  <div className={`absolute inset-0 bg-gradient-to-b ${s.bg} transition-all duration-500`} />
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 ${s.accent === 'teal' ? 'bg-teal-400' : 'bg-orange-400'}`} />
+                  {/* Large decorative SVG icon */}
+                  <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-110 ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'}`}>
+                    <s.Icon />
+                  </div>
+                </>
+              )}
 
-              {/* Large decorative SVG icon */}
-              <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-110 ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'}`}>
-                <s.Icon />
-              </div>
-
-              {/* Grid pattern overlay */}
-              <div className="absolute inset-0 opacity-5" style={{backgroundImage:'linear-gradient(rgba(255,255,255,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.15) 1px,transparent 1px)',backgroundSize:'32px 32px'}} />
+              {/* Grid pattern overlay (non-photo cards only) */}
+              {!s.image && <div className="absolute inset-0 opacity-5" style={{backgroundImage:'linear-gradient(rgba(255,255,255,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.15) 1px,transparent 1px)',backgroundSize:'32px 32px'}} />}
 
               {/* Bottom accent line */}
               <div className={`absolute bottom-0 left-0 right-0 h-1 ${s.accent === 'teal' ? 'bg-teal-400' : 'bg-orange-500'} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />

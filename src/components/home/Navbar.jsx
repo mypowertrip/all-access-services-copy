@@ -74,8 +74,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
           {/* Logo */}
-          <a href="/" className="flex items-center flex-shrink-0 mt-6" aria-label="Home">
-            
+          <a href="/" className="flex items-center flex-shrink-0" aria-label="Home">
+            <img
+              src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/7330a415e_allaccessrentals-logo.png"
+              alt="All Access Rentals"
+              className="h-14 w-auto object-contain"
+            />
 
 
 

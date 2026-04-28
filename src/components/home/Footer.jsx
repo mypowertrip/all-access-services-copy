@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center mb-6">
               <img
-                src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/77e6b1f2e_Gemini_Generated_Image_pixvcspixvcspixv1.png"
+                src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/7330a415e_allaccessrentals-logo.png"
                 alt="All Access Rentals"
                 className="h-28 w-auto object-contain"
               />

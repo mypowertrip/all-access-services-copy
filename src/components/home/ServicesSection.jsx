@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/09404de17_generated_418edddd.png";
-const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/b576b6a80_generated_91f959ee.png";
-const SERVICE_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/c59a9cc2c_generated_56e4e2da.png";
+const SCISSOR_IMG = "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80";
+const BOOM_IMG = "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80";
+const SERVICE_IMG = "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80";
 
 const services = [
   {
@@ -72,7 +72,7 @@ export default function ServicesSection() {
                 <div className={`text-xs font-bold uppercase tracking-widest mb-3 ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'}`}>
                   0{i + 1}
                 </div>
-                <h3 className="font-barlow text-3xl font-black text-white mb-3 tracking-tight">{s.title}</h3>
+                <h3 className="font-barlow text-3xl font-semibold text-white mb-3 tracking-tight">{s.title}</h3>
                 <p className="text-gray-300 text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                   {s.description}
                 </p>

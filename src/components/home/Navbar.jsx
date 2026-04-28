@@ -71,8 +71,15 @@ export default function Navbar() {
 
 
       {/* Main nav */}
-      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-gradient-to-b from-[#2a2a2a] to-[#1f1f1f] shadow-lg shadow-black/50 border-b border-gray-600' : 'bg-gradient-to-b from-[#3a3a3a] to-[#2a2a2a] border-b border-gray-500'}`}>
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
+      <nav 
+        className="transition-all duration-300 relative shadow-lg shadow-black/50 border-b border-gray-600"
+        style={{
+          backgroundImage: 'url(https://media.base44.com/images/public/69f03230e61a9516ac171fbd/137bf4ffb_metalmesh.png)',
+          backgroundSize: 'auto',
+          backgroundPosition: 'center'
+        }}>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24 relative z-10">
 
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Home">

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, ChevronDown } from 'lucide-react';
 import SafetyTicker from './SafetyTicker';
 
-const HERO_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/bc664c981_ChatGPTImageApr22202601_04_14AM.png";
+const HERO_IMG = "https://www.allaccessservices.com/images/slideshow/Main-SlideShow/allaccessrentals-home-slideshow2.jpg";
 const CYCLING_WORDS = ['SMARTER.', 'STRONGER.', 'SAFER.'];
 
 export default function HeroSection() {
@@ -56,11 +56,11 @@ export default function HeroSection() {
             {/* Line 1: REACH slides in from left */}
             <div className="overflow-hidden">
               <motion.span
-                className="block text-white"
-                initial={{ x: -120, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}
-              >
+                  className="block text-white"
+                  initial={{ x: -120, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.7, ease: 'easeOut', delay: 0.1 }}>
+                  
                 REACH
               </motion.span>
             </div>
@@ -68,12 +68,12 @@ export default function HeroSection() {
             {/* Line 2: HIGHER rises up (literal) */}
             <div className="overflow-hidden">
               <motion.span
-                className="block"
-                style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}
-                initial={{ y: 60, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
-              >
+                  className="block"
+                  style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}
+                  initial={{ y: 60, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}>
+                  
                 HIGHER.
               </motion.span>
             </div>
@@ -81,22 +81,22 @@ export default function HeroSection() {
             {/* Line 3: STANDARDS fades + scales in from slight right */}
             <div className="overflow-hidden">
               <motion.span
-                className="block text-white"
-                initial={{ x: 60, opacity: 0, scale: 0.9 }}
-                animate={{ x: 0, opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: 'easeOut', delay: 1.05 }}
-              >
+                  className="block text-white"
+                  initial={{ x: 60, opacity: 0, scale: 0.9 }}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: 1.05 }}>
+                  
                 WORK{' '}
                 <AnimatePresence mode="wait">
                   <motion.span
-                    key={wordIndex}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
-                    style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
-                    className="inline-block"
-                  >
+                      key={wordIndex}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.4 }}
+                      style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
+                      className="inline-block">
+                      
                     {CYCLING_WORDS[wordIndex]}
                   </motion.span>
                 </AnimatePresence>
@@ -108,10 +108,10 @@ export default function HeroSection() {
           <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-white text-xl md:text-2xl max-w-xl mb-10 leading-relaxed font-black uppercase tracking-widest drop-shadow-lg font-barlow">
+              transition={{ duration: 0.6, delay: 0.3 }} className="text-white mb-10 text-xl font-semibold uppercase tracking-widest leading-relaxed md:text-2xl max-w-xl drop-shadow-lg">
+              
             
-            SAFETY, QUALITY, INTEGRITY
+            Safety, Quality, and Integrity
           </motion.p>
 
           {/* CTA buttons */}

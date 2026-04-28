@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, SlidersHorizontal, X, ShoppingCart, ArrowRight } from 'lucide-react';
 import SiteNav from '../components/layout/SiteNav';
@@ -11,10 +11,9 @@ const fuelTypes = ['All', 'Electric', 'Diesel', 'Propane'];
 
 export default function Equipment() {
   const navigate = useNavigate();
-  const params = new URLSearchParams(window.location.search);
-  const initialCat = params.get('cat') || 'all';
+  const [searchParams] = useSearchParams();
 
-  const [cat, setCat] = useState(initialCat);
+  const [cat, setCat] = useState(searchParams.get('cat') || 'all');
   const [fuel, setFuel] = useState('All');
   const [search, setSearch] = useState('');
   const [cart, setCart] = useState([]);

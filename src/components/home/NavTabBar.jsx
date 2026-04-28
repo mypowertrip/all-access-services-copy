@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react';
 const mainNavLinks = [
 {
   label: 'Rentals',
-  href: '/rentals/category/scissor-lifts',
+  href: null,
   children: [
   { label: 'Scissor Lifts', href: '/rentals/category/scissor-lifts' },
   { label: 'Straight Boom Lifts', href: '/rentals/category/straight-boom-lifts' },

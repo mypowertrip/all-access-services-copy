@@ -19,8 +19,8 @@ export default function Locations() {
               <div className="w-12 h-0.5 bg-orange-500" />
               <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">Find Us</span>
             </div>
-            <h1 className="font-barlow text-5xl md:text-7xl font-black text-white tracking-tight mb-6">
-              <span className="text-orange-500">4 Locations</span> Across SoCal
+            <h1 className="font-barlow text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 uppercase">
+              <span style={{ WebkitTextStroke: '2px white', color: 'transparent' }}>4 LOCATIONS</span> ACROSS SOCAL
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl">Visit any of our regional branches for rentals, sales, service, and parts.</p>
           </motion.div>

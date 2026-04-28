@@ -52,9 +52,9 @@ const AuthenticatedApp = () => {
       <Route path="/rentals/category/:category" element={<Rentals />} />
       <Route path="/rentals/model/:modelId" element={<ProductDetail />} />
       {/* Legacy route redirects */}
-      <Route path="/rentals/category/boom-lifts" element={<Rentals />} />
-      <Route path="/rentals/category/knuckle-booms" element={<Navigate to="/rentals/category/boom-lifts" replace />} />
-      <Route path="/rentals/category/articulating-booms" element={<Navigate to="/rentals/category/boom-lifts" replace />} />
+      <Route path="/rentals/category/boom-lifts" element={<Navigate to="/rentals/category/straight-boom-lifts" replace />} />
+      <Route path="/rentals/category/knuckle-booms" element={<Navigate to="/rentals/category/straight-boom-lifts" replace />} />
+      <Route path="/rentals/category/articulating-booms" element={<Navigate to="/rentals/category/articulating-boom-lifts" replace />} />
       <Route path="/sales" element={<Sales />} />
       <Route path="/service" element={<Service />} />
       <Route path="/locations" element={<Locations />} />

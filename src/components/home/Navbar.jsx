@@ -71,7 +71,7 @@ export default function Navbar() {
 
 
       {/* Main nav */}
-      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-gradient-to-b from-[#2a2a2a] to-[#1f1f1f] shadow-lg shadow-black/50 border-b border-gray-600' : 'bg-gradient-to-b from-[#3a3a3a] to-[#2a2a2a] border-b border-gray-500'}`}>
+      <nav className={`transition-all duration-300 relative ${scrolled ? 'bg-gradient-to-br from-[#404040] via-[#2d2d2d] to-[#1a1a1a] shadow-lg shadow-black/50 border-b border-gray-600' : 'bg-gradient-to-br from-[#4a4a4a] via-[#3a3a3a] to-[#2a2a2a] border-b border-gray-500'}`} style={{backgroundImage: scrolled ? 'linear-gradient(135deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(45deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom right, #404040, #2d2d2d, #1a1a1a)' : 'linear-gradient(135deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(45deg, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom right, #4a4a4a, #3a3a3a, #2a2a2a)', backgroundSize: scrolled ? '4px 4px, 4px 4px, 100% 100%' : '6px 6px, 6px 6px, 100% 100%'}}>
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24">
 
           {/* Logo */}

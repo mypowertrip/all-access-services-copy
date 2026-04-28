@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react';
+import { SITE_CONFIG } from '../../lib/siteConfig';
 
 const footerLinks = {
   'Equipment': [
@@ -46,13 +47,13 @@ export default function Footer() {
               Southern California's premier aerial work platform rental, sales, and service provider. JLG Authorized Dealer.
             </p>
             <div className="space-y-3">
-              <a href="tel:8887775990" className="flex items-center gap-3 text-orange-400 font-semibold text-sm hover:text-orange-300 transition-colors">
+              <a href={`tel:${SITE_CONFIG.phoneTel}`} className="flex items-center gap-3 text-orange-400 font-semibold text-sm hover:text-orange-300 transition-colors">
                 <Phone className="w-4 h-4" />
-                888-777-5990
+                {SITE_CONFIG.phone}
               </a>
-              <a href="mailto:info@allaccessservices.com" className="flex items-center gap-3 text-gray-400 text-sm hover:text-orange-400 transition-colors">
+              <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-3 text-gray-400 text-sm hover:text-orange-400 transition-colors">
                 <Mail className="w-4 h-4" />
-                info@allaccessservices.com
+                {SITE_CONFIG.email}
               </a>
             </div>
 

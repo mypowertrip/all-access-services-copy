@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ShieldCheck, HardHat, Wrench, Award, ArrowRight } from 'lucide-react';
+import { SITE_CONFIG } from '../lib/siteConfig';
 
 
 const pillars = [
@@ -149,10 +150,10 @@ export default function Safety() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="tel:8887775990"
+              href={`tel:${SITE_CONFIG.phoneTel}`}
               className="inline-flex items-center gap-3 border border-white/30 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-sm uppercase tracking-widest px-8 py-4 transition-all"
             >
-              Call 888-777-5990
+              Call {SITE_CONFIG.phone}
             </a>
           </motion.div>
         </div>

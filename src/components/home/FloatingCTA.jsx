@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone } from 'lucide-react';
+import { SITE_CONFIG } from '../../lib/siteConfig';
 
 const hexPieces = [
   { label: 'CALL NOW', color: 'orange' },
@@ -69,7 +70,7 @@ export default function FloatingCTA() {
 
   return (
     <div className="fixed bottom-20 md:bottom-8 right-8 z-30 flex flex-col items-center gap-3">
-      <a href="tel:8887775990" className="block">
+      <a href={`tel:${SITE_CONFIG.phoneTel}`} className="block">
         <motion.button
           onClick={handleClick}
           className="relative focus:outline-none"

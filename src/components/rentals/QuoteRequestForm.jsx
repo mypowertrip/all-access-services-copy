@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Phone, Send } from 'lucide-react';
+import { SITE_CONFIG } from '../../lib/siteConfig';
 
 export default function QuoteRequestForm({ models, isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -223,11 +224,11 @@ export default function QuoteRequestForm({ models, isOpen, onClose }) {
         <div className="border-t border-zinc-800 px-6 py-4 shrink-0 bg-zinc-900/50">
           <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">Or call us directly:</p>
           <a
-            href="tel:8887775990"
+            href={`tel:${SITE_CONFIG.phoneTel}`}
             className="flex items-center justify-center gap-2 w-full py-2.5 bg-teal-500/20 hover:bg-teal-500/30 text-teal-400 border border-teal-500/40 font-bold text-sm uppercase tracking-widest rounded-lg transition-all"
           >
             <Phone className="w-4 h-4" />
-            888-777-5990
+            {SITE_CONFIG.phone}
           </a>
         </div>
       </motion.div>

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Wrench, Clock, CheckCircle2 } from 'lucide-react';
+import { SITE_CONFIG } from '../lib/siteConfig';
 
 const services = [
   {
@@ -109,7 +110,7 @@ export default function Service() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="font-barlow text-4xl font-black text-white mb-6">Schedule Service Today</h2>
-          <a href="tel:8887775990" className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-10 py-5 transition-all">
+          <a href={`tel:${SITE_CONFIG.phoneTel}`} className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-10 py-5 transition-all">
             Call Now
             <ArrowRight className="w-4 h-4" />
           </a>

@@ -4,6 +4,7 @@ import { Phone, Menu, X, Search, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { rentalModels } from '../../lib/rentalInventory';
 import NavTabBar from './NavTabBar';
+import { SITE_CONFIG } from '../../lib/siteConfig';
 
 const mainNavLinks = [
 {
@@ -249,9 +250,9 @@ export default function Navbar() {
 
               {/* Drawer footer */}
               <div className="px-5 py-4 border-t border-white/10">
-                <a href="tel:8887775990" className="flex items-center gap-2 text-orange-500 font-semibold text-sm hover:text-orange-400 transition-colors">
+                <a href={`tel:${SITE_CONFIG.phoneTel}`} className="flex items-center gap-2 text-orange-500 font-semibold text-sm hover:text-orange-400 transition-colors">
                   <Phone className="w-4 h-4" />
-                  888-777-5990
+                  {SITE_CONFIG.phone}
                 </a>
               </div>
             </motion.div>

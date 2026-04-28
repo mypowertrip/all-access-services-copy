@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Phone, Mail, MessageSquare } from 'lucide-react';
+import { SITE_CONFIG } from '../../lib/siteConfig';
 
 export default function CTASection() {
   return (
@@ -61,11 +62,11 @@ export default function CTASection() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
           <a
-            href="tel:8887775990"
+            href={`tel:${SITE_CONFIG.phoneTel}`}
             className="inline-flex items-center gap-3 bg-white/20 hover:bg-white/30 text-black font-bold text-sm uppercase tracking-widest px-10 py-5 transition-all"
           >
             <Phone className="w-4 h-4" />
-            888-777-5990
+            {SITE_CONFIG.phone}
           </a>
         </motion.div>
 
@@ -77,7 +78,7 @@ export default function CTASection() {
           transition={{ delay: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-8 mt-16 pt-8 border-t border-black/20"
         >
-          <a href="mailto:info@allaccessservices.com" className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
+          <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
             <Mail className="w-4 h-4" />
             Email Us
           </a>
@@ -85,7 +86,7 @@ export default function CTASection() {
             <MessageSquare className="w-4 h-4" />
             Live Chat
           </span>
-          <a href="tel:8887775990" className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
+          <a href={`tel:${SITE_CONFIG.phoneTel}`} className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
             <Phone className="w-4 h-4" />
             Request Callback
           </a>

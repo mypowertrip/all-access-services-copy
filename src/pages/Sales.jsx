@@ -5,6 +5,7 @@ import ConditionReport from '../components/sales/ConditionReport';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Check, X, Zap } from 'lucide-react';
 import { salesInventory } from '../lib/salesInventory';
+import { SITE_CONFIG } from '../lib/siteConfig';
 
 export default function Sales() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -211,7 +212,7 @@ export default function Sales() {
                     </div>
 
                     <a
-                      href="tel:8887775990"
+                      href={`tel:${SITE_CONFIG.phoneTel}`}
                       className="block w-full py-3 bg-black hover:bg-zinc-900 text-white font-bold text-sm uppercase tracking-widest rounded-lg transition-all text-center"
                     >
                       Contact Sales
@@ -272,7 +273,7 @@ export default function Sales() {
               Our inventory updates weekly. Contact our sales team to find exactly what you need.
             </motion.p>
             <a
-              href="tel:8887775990"
+              href={`tel:${SITE_CONFIG.phoneTel}`}
               className="inline-flex items-center gap-3 bg-orange-500 hover:bg-orange-400 text-black font-bold text-sm uppercase tracking-widest px-10 py-5 rounded-lg transition-all"
             >
               Call Now

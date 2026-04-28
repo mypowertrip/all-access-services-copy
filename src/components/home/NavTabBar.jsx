@@ -26,15 +26,6 @@ const mainNavLinks = [
 },
 { label: 'Service', href: '/service' },
 {
-  label: 'Digital Solutions',
-  href: '/gc',
-  children: [
-  { label: 'API Documentation', href: '/gc' },
-  { label: 'Mobile App', href: '/gc' },
-  { label: 'Web Portal', href: '/dashboard' }]
-
-},
-{
   label: 'Locations',
   href: '/locations',
   children: [
@@ -75,7 +66,7 @@ export default function NavTabBar() {
           
             {/* Tab Button */}
             <a
-            href={link.href || '#'} className="relative w-full h-full flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-widest transition-all text-white hover:text-[#f97316]"
+            href={link.href || '#'} className="relative w-full h-full flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-widest transition-all text-white hover:text-black"
 
 
 

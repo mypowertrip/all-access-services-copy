@@ -2,8 +2,9 @@ import { motion } from 'framer-motion';
 import { Download, Plus, Zap, Gauge, BarChart3, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useQuoteCart } from './QuoteCartContext';
+import { SITE_CONFIG } from '../../lib/siteConfig';
 
-export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inComparison, onRequestQuote }) {
+export default function ModelCard({ model, onCompare, inComparison, onRequestQuote }) {
   const { isInCart, addToCart, removeFromCart } = useQuoteCart();
   const inCart = isInCart(model.id);
   const isPowerElectric = model.power === 'Electric';
@@ -82,19 +83,19 @@ export default function ModelCard({ model, onAddToQuote, inQuote, onCompare, inC
       {/* Pricing */}
       <div className="p-4 space-y-2 border-b border-zinc-800">
         <div className="flex justify-between items-center">
-          <span className="text-xs text-gray-500 uppercase tracking-wider">Pricing</span>
-          <a
-            href="tel:8887775990"
-            className="text-lg font-black text-orange-400 hover:text-orange-300 transition-colors"
-          >
-            Call for Quote
-          </a>
-        </div>
-        <div className="text-xs text-gray-500">
-          <a href="tel:8887775990" className="hover:text-orange-400 transition-colors">
-            📞 888-777-5990
-          </a>
-        </div>
+           <span className="text-xs text-gray-500 uppercase tracking-wider">Pricing</span>
+           <a
+             href={`tel:${SITE_CONFIG.phoneTel}`}
+             className="text-lg font-black text-orange-400 hover:text-orange-300 transition-colors"
+           >
+             Call for Quote
+           </a>
+         </div>
+         <div className="text-xs text-gray-500">
+           <a href={`tel:${SITE_CONFIG.phoneTel}`} className="hover:text-orange-400 transition-colors">
+             📞 {SITE_CONFIG.phone}
+           </a>
+         </div>
       </div>
 
       {/* Actions */}

@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, Facebook, Instagram, Linkedin, Youtube, ArrowRight } from 'lucide-react';
+import { toast } from 'sonner';
 import { SITE_CONFIG } from '../../lib/siteConfig';
 
 const footerLinks = {
@@ -28,6 +30,16 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    if (email.trim()) {
+      toast.success('Thanks — you\'re on the list.');
+      setEmail('');
+    }
+  };
+
   return (
     <footer className="bg-black border-t border-zinc-900">
       {/* Main footer */}
@@ -56,19 +68,7 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Social */}
-            <div className="flex items-center gap-4 mt-8">
-              {[
-                { Icon: Facebook, label: 'Facebook', url: 'https://facebook.com' },
-                { Icon: Instagram, label: 'Instagram', url: 'https://instagram.com' },
-                { Icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com' },
-                { Icon: Youtube, label: 'YouTube', url: 'https://youtube.com' },
-              ].map(({ Icon, label, url }) => (
-                <a key={label} href={url} target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-zinc-900 hover:bg-orange-500 flex items-center justify-center text-gray-400 hover:text-black transition-all">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
+
           </div>
 
           {/* Link columns */}
@@ -97,16 +97,19 @@ export default function Footer() {
               <h4 className="text-white font-bold mb-1">Get Inventory Updates</h4>
               <p className="text-gray-500 text-sm">Be the first to know about new arrivals and special offers.</p>
             </div>
-            <form className="flex w-full md:w-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 md:w-64 bg-zinc-900 border border-zinc-800 text-white text-sm px-4 py-3 focus:outline-none focus:border-orange-500 transition-colors"
-              />
-              <button type="submit" className="bg-orange-500 hover:bg-orange-400 text-black font-bold px-6 py-3 flex items-center gap-2 transition-colors">
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </form>
+            <form onSubmit={handleNewsletterSubmit} className="flex w-full md:w-auto">
+               <input
+                 type="email"
+                 placeholder="Enter your email"
+                 value={email}
+                 onChange={(e) => setEmail(e.target.value)}
+                 required
+                 className="flex-1 md:w-64 bg-zinc-900 border border-zinc-800 text-white text-sm px-4 py-3 focus:outline-none focus:border-orange-500 transition-colors"
+               />
+               <button type="submit" className="bg-orange-500 hover:bg-orange-400 text-black font-bold px-6 py-3 flex items-center gap-2 transition-colors">
+                 <ArrowRight className="w-4 h-4" />
+               </button>
+             </form>
           </div>
         </div>
       </div>
@@ -116,11 +119,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
             <p>© {new Date().getFullYear()} All Access Services. All rights reserved.</p>
-            <div className="flex items-center gap-6">
-              <span className="hover:text-orange-400 cursor-default transition-colors">Privacy Policy</span>
-              <span className="hover:text-orange-400 cursor-default transition-colors">Terms of Service</span>
-              <span className="hover:text-orange-400 cursor-default transition-colors">Accessibility</span>
-            </div>
+
           </div>
         </div>
       </div>

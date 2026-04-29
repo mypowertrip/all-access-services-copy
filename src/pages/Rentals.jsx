@@ -257,8 +257,6 @@ export default function Rentals() {
                   <ModelCard
                     key={model.id}
                     model={model}
-                    onAddToQuote={handleAddToQuote}
-                    inQuote={isInCart(model.id)}
                     onCompare={handleAddToComparison}
                     inComparison={comparisonItems.some((item) => item.id === model.id)}
                     onRequestQuote={handleOpenQuoteForm} />

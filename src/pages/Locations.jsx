@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, ArrowRight } from 'lucide-react';
 import { SITE_CONFIG } from '../lib/siteConfig';
@@ -6,6 +7,16 @@ import LocationMap from '../components/LocationMap';
 const locations = SITE_CONFIG.locations;
 
 export default function Locations() {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const element = document.getElementById(hash);
+      if (element) {
+        setTimeout(() => element.scrollIntoView({ behavior: 'smooth' }), 100);
+      }
+    }
+  }, []);
+
   return (
     <div className="bg-black min-h-screen">
       
@@ -35,6 +46,7 @@ export default function Locations() {
             {locations.map((loc, i) => (
               <motion.div
                 key={loc.name}
+                id={loc.name.toLowerCase().replace(/\s+/g, '-')}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

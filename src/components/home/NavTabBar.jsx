@@ -30,7 +30,7 @@ const mainNavLinks = [
   children: [
   { label: 'San Diego', href: '/locations#san-diego' },
   { label: 'Orange County', href: '/locations#orange-county' },
-  { label: 'Inland Empire', href: '/locations#inland-empire' },
+  { label: 'Riverside', href: '/locations#riverside' },
   { label: 'Los Angeles', href: '/locations#los-angeles' }]
 
 },

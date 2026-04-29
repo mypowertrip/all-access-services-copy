@@ -50,7 +50,7 @@ export default function Sidebar({ open, onClose }) {
     <aside className={`
       w-60 bg-card border-r border-border flex flex-col z-30
       fixed left-0 transition-transform duration-300
-      top-[136px] bottom-0
+      top-[96px] md:top-[120px] lg:top-[136px] bottom-0
       ${open ? 'translate-x-0' : '-translate-x-full'}
       lg:translate-x-0
     `}>

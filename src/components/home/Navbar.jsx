@@ -79,14 +79,14 @@ export default function Navbar() {
           backgroundPosition: 'center'
         }}>
         <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 flex items-center justify-between h-16 sm:h-20 md:h-24 relative z-10">
 
           {/* Logo */}
           <a href="/" className="flex items-center flex-shrink-0" aria-label="Home">
             <img
               src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/17488701a_CleanLogo.png"
               alt="All Access Services"
-              className="h-14 w-auto object-contain" />
+              className="h-9 sm:h-12 md:h-14 w-auto object-contain" />
             
 
 

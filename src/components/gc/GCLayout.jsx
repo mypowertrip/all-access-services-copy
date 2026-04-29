@@ -31,7 +31,7 @@ export default function GCLayout() {
 
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <main className="flex-1 lg:ml-60 min-h-screen w-full pt-[136px]">
+      <main className="flex-1 lg:ml-60 min-h-screen w-full pt-[96px] md:pt-[120px] lg:pt-[136px]">
         <Outlet context={{ onMenuClick: () => setSidebarOpen(true) }} />
       </main>
     </div>

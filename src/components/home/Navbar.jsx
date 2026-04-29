@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Menu, X, Search, User } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { rentalModels } from '../../lib/rentalInventory';
 import NavTabBar from './NavTabBar';
 import { SITE_CONFIG } from '../../lib/siteConfig';
@@ -10,12 +10,22 @@ const mainNavLinks = [
 {
   label: 'Rentals',
   href: '/rentals',
-  children: ['Scissor Lifts', 'Boom Lifts', 'Telehandlers', 'Forklifts', 'Low Level Access']
+  children: [
+    { label: 'Scissor Lifts', href: '/rentals/category/scissor-lifts' },
+    { label: 'Straight Boom Lifts', href: '/rentals/category/straight-boom-lifts' },
+    { label: 'Articulating Booms', href: '/rentals/category/articulating-boom-lifts' },
+    { label: 'Telehandlers', href: '/rentals/category/telehandlers' },
+    { label: 'Forklifts', href: '/rentals/category/forklifts' },
+  ]
 },
 {
   label: 'Sales',
   href: '/sales',
-  children: ['New Equipment', 'Pre-Owned', 'Financing']
+  children: [
+    { label: 'New Equipment', href: '/sales?filter=new' },
+    { label: 'Pre-Owned', href: '/sales?filter=pre-owned' },
+    { label: 'Certified', href: '/sales?filter=certified' },
+  ]
 },
 { label: 'Service', href: '/service' },
 { label: 'Locations', href: '/locations' }];
@@ -189,23 +199,20 @@ export default function Navbar() {
                   <div className="space-y-1">
                     {mainNavLinks.map((link) =>
                   <div key={link.label}>
-                        <a href={link.href || '#'} className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                        <Link to={link.href || '/'} onClick={() => setDrawerOpen(false)} className="block py-2.5 text-sm font-medium text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {link.label}
-                        </a>
+                        </Link>
                         {link.children &&
                     <div className="bg-zinc-900/50 border-l-2 border-orange-600/40 ml-0">
-                            {link.children.map((child) => {
-                        const childHref = child.toLowerCase().replace(/\s+/g, '-');
-                        return (
-                          <a
-                            key={child}
-                            href={`${link.href}/${childHref}`}
+                            {link.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            to={child.href}
+                            onClick={() => setDrawerOpen(false)}
                             className="block px-4 py-2 text-xs text-gray-400 hover:text-orange-400 transition-colors">
-                            
-                                  {child}
-                                </a>);
-
-                      })}
+                            {child.label}
+                          </Link>
+                        ))}
                           </div>
                     }
                       </div>
@@ -220,10 +227,9 @@ export default function Navbar() {
                     {industries.map((ind) => {
                     const indHref = ind.toLowerCase().replace(/\s+/g, '-');
                     return (
-                      <a key={ind} href={`/rentals?industry=${indHref}`} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                      <Link key={ind} to={`/rentals?industry=${indHref}`} onClick={() => setDrawerOpen(false)} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {ind}
-                        </a>);
-
+                        </Link>);
                   })}
                   </div>
                 </div>
@@ -233,29 +239,28 @@ export default function Navbar() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">More</p>
                   <div className="space-y-1">
                     {moreLinks.map((label) => {
-                    const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : label === 'Resources' ? '/safety' : '/safety';
+                    const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : '/safety';
                     return (
-                      <a key={label} href={href} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                      <Link key={label} to={href} onClick={() => setDrawerOpen(false)} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {label}
-                        </a>);
-
+                        </Link>);
                   })}
                   </div>
                 </div>
 
                 {/* Customer portal */}
-                <a
-                href="/dashboard"
+                <Link
+                to="/dashboard"
+                onClick={() => setDrawerOpen(false)}
                 className="flex items-center gap-2 text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors">
-                
                   <User className="w-4 h-4" />
                   Customer Portal
-                </a>
+                </Link>
               </div>
 
               {/* Drawer footer */}
               <div className="px-5 py-4 border-t border-white/10">
-                <a href={`tel:${SITE_CONFIG.phoneTel}`} className="flex items-center gap-2 text-orange-500 font-semibold text-sm hover:text-orange-400 transition-colors">
+                <a href={`tel:${SITE_CONFIG.phoneTel}`} className="flex items-center gap-2 text-orange-500 font-semibold text-sm hover:text-orange-400 transition-colors" onClick={() => setDrawerOpen(false)}>
                   <Phone className="w-4 h-4" />
                   {SITE_CONFIG.phone}
                 </a>

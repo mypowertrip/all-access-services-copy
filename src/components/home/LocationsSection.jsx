@@ -71,10 +71,10 @@ export default function LocationsSection() {
                 </div>
 
                 <div className="pt-4 border-t border-zinc-800 flex gap-3">
-                  <a href="#" className="flex-1 bg-zinc-800 hover:bg-orange-500 text-white hover:text-black text-xs font-bold text-center py-2.5 uppercase tracking-wider transition-all">
+                  <a href={`https://maps.google.com/?q=${encodeURIComponent(loc.address)}`} target="_blank" rel="noopener noreferrer" className="flex-1 bg-zinc-800 hover:bg-orange-500 text-white hover:text-black text-xs font-bold text-center py-2.5 uppercase tracking-wider transition-all">
                     Get Directions
                   </a>
-                  <a href="#" className="flex-1 border border-zinc-700 hover:border-orange-500 text-gray-300 hover:text-orange-400 text-xs font-bold text-center py-2.5 uppercase tracking-wider transition-all">
+                  <a href={`tel:${loc.phone.replace(/-/g, '')}`} className="flex-1 border border-zinc-700 hover:border-orange-500 text-gray-300 hover:text-orange-400 text-xs font-bold text-center py-2.5 uppercase tracking-wider transition-all">
                     Contact
                   </a>
                 </div>

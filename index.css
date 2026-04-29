@@ -116,3 +116,55 @@
 .hex-clip {
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
+
+/* =============================================================================
+   GROUND CONTROL TECH FRAMES
+   ============================================================================= */
+
+/* Inline coordinate label — for use anywhere outside <TechFrame /> if you want
+   the same telemetry style on a one-off element (e.g., next to a heading).
+   Example: <span className="tech-label">[GC-01]</span> */
+.tech-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(251, 146, 60, 0.8);   /* orange-400 / 80 */
+  user-select: none;
+}
+.tech-label--teal { color: rgba(45, 212, 191, 0.8); }   /* status / verified */
+
+/* Optional: a horizontal "telemetry rule" replacement for plain <hr/>.
+   Renders as: short orange line · monospace label · long faint line · short orange line
+   Use:
+     <div className="tech-rule" data-label="[TELEMETRY]" />
+   or wrap manually if you want React control.
+*/
+.tech-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  height: 1px;
+}
+.tech-rule::before,
+.tech-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(249, 115, 22, 0.25) 20%,
+    rgba(249, 115, 22, 0.25) 80%,
+    transparent 100%
+  );
+}
+.tech-rule::after {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(45, 212, 191, 0.25) 20%,
+    rgba(45, 212, 191, 0.25) 80%,
+    transparent 100%
+  );
+}

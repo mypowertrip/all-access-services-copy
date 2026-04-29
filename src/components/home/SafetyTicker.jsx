@@ -22,6 +22,7 @@ export default function SafetyTicker() {
     >
       <div className="flex gap-12 py-2 animate-ticker whitespace-nowrap">
         {repeated.map((text, i) => (
+          
           <span
             key={i}
             className="inline-flex items-center gap-2.5 text-[11px] font-black text-black uppercase tracking-[0.2em] shrink-0"

@@ -47,6 +47,8 @@ export default function HeroSection() {
 
 
 
+
+
       // No-op — useTransform values are still applied but range is small enough
       // that a single pass is fine.
     }}, []);return <section ref={ref} className="relative min-h-[88vh] md:min-h-screen flex items-end overflow-hidden">
@@ -91,12 +93,10 @@ export default function HeroSection() {
         
         <div className="max-w-5xl">
           {/* Eyebrow */}
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="flex items-center gap-3 mb-6">
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1, duration: 0.6 }} className="flex items-center gap-3 mb-6">
             
             <div className="w-10 h-px bg-orange-500" />
-            <span className="text-orange-400 mt-20 font-bold uppercase tracking-[0.35em] sm:text-xs">AERIAL LIFT SPECIALISTS
+            <span className="text-orange-400 mt-10 font-bold uppercase tracking-[0.35em] sm:text-xs">AERIAL LIFT SPECIALISTS
 
           </span>
           </motion.div>

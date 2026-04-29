@@ -25,7 +25,7 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">About Us</span>
-            <h1 className="font-barlow font-black text-6xl md:text-8xl text-white leading-none mt-4 mb-6">
+            <h1 className="font-barlow font-bold text-6xl md:text-8xl text-white leading-none mt-4 mb-6 uppercase">
               About All Access<br />
               <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>Services</span>
             </h1>

@@ -57,11 +57,11 @@ const AuthenticatedApp = () => {
       {/* Public site */}
       <Route path="/" element={<Home />} />
       <Route path="/rentals" element={<Navigate to="/rentals/category/scissor-lifts" replace />} />
-      <Route path="/rentals/category/:category" element={<Rentals />} />
-      <Route path="/rentals/model/:modelId" element={<ProductDetail />} />
-      {/* Legacy route redirects */}
+      {/* Legacy route redirects — must come before dynamic :category route */}
       <Route path="/rentals/category/boom-lifts" element={<Navigate to="/rentals/category/straight-boom-lifts" replace />} />
       <Route path="/rentals/category/knuckle-booms" element={<Navigate to="/rentals/category/articulating-boom-lifts" replace />} />
+      <Route path="/rentals/category/:category" element={<Rentals />} />
+      <Route path="/rentals/model/:modelId" element={<ProductDetail />} />
       <Route path="/sales" element={<Sales />} />
       <Route path="/service" element={<Service />} />
       <Route path="/locations" element={<Locations />} />

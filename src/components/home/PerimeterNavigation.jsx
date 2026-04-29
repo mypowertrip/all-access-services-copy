@@ -51,16 +51,15 @@ export default function PerimeterNavigation() {
         </Link>
 
         {/* Core Links */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-8">
           {CORE_LINKS.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className="group relative text-zinc-500 hover:text-orange-500 transition-colors"
+              className="group relative text-zinc-500 hover:text-orange-500 transition-colors text-[10px] font-bold uppercase tracking-wider"
+              title={link.label}
             >
-              <div className="writing-mode text-[10px] font-bold uppercase tracking-wider whitespace-nowrap -rotate-90 origin-center">
-                {link.label}
-              </div>
+              {link.label}
               {isActive(link.href) && (
                 <motion.div
                   layoutId="activeIndicator"
@@ -75,16 +74,15 @@ export default function PerimeterNavigation() {
 
       {/* Right Navigation */}
       <nav className="fixed right-0 top-0 h-screen z-40 flex flex-col items-center justify-center py-8 pointer-events-auto">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-8">
           {UTILITY_LINKS.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className="group relative text-zinc-500 hover:text-orange-500 transition-colors"
+              className="group relative text-zinc-500 hover:text-orange-500 transition-colors text-[10px] font-bold uppercase tracking-wider"
+              title={link.label}
             >
-              <div className="writing-mode text-[10px] font-bold uppercase tracking-wider whitespace-nowrap -rotate-90 origin-center">
-                {link.label}
-              </div>
+              {link.label}
               {isActive(link.href) && (
                 <motion.div
                   layoutId="activeIndicator"
@@ -99,12 +97,10 @@ export default function PerimeterNavigation() {
         {/* Phone CTA at bottom right */}
         <a
           href={`tel:${SITE_CONFIG.phoneTel}`}
-          className="absolute bottom-8 text-zinc-500 hover:text-orange-500 transition-colors"
+          className="absolute bottom-8 text-zinc-500 hover:text-orange-500 transition-colors text-[8px] font-bold uppercase tracking-wider"
           title="Call us"
         >
-          <div className="text-[8px] font-bold uppercase tracking-wider whitespace-nowrap -rotate-90 origin-center">
-            {SITE_CONFIG.phone}
-          </div>
+          {SITE_CONFIG.phone}
         </a>
       </nav>
 

@@ -39,6 +39,10 @@ export default function HeroSection() {
 
 
 
+
+
+
+
       // No-op — useTransform values are still applied but range is small enough
       // that a single pass is fine.
     }}, []);return <section ref={ref} className="relative min-h-[88vh] md:min-h-screen flex items-end overflow-hidden">
@@ -59,8 +63,7 @@ export default function HeroSection() {
       <div className="absolute right-0 top-1/3 bottom-1/3 w-px bg-gradient-to-b from-transparent via-teal-500/40 to-transparent" />
 
       {/* Hex motif */}
-      <svg className="absolute right-12 top-32 w-72 opacity-[0.08] text-teal-300 pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none"
-      aria-hidden>
+      <svg className="absolute right-12 top-32 w-72 opacity-[0.08] text-teal-300 pointer-events-none hidden lg:block" viewBox="0 0 200 200" fill="none" aria-hidden>
         
         <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" />
         <polygon points="100,30 148,57.5 148,112.5 100,140 52,112.5 52,57.5" stroke="currentColor" strokeWidth="0.75" />
@@ -68,10 +71,7 @@ export default function HeroSection() {
       </svg>
 
       {/* Live status chip — top of content area */}
-      <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.3, duration: 0.5 }} className="absolute top-8 left-6 md:left-16 lg:top-10 z-10 flex items-center gap-2.5 px-3 py-1.5 bg-black/80 border border-orange-500/40 backdrop-blur-sm hidden">
+      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }} className="absolute top-8 left-6 md:left-16 lg:top-10 z-10 flex items-center gap-2.5 px-3 py-1.5 bg-black/80 border border-orange-500/40 backdrop-blur-sm hidden">
 
         
         <div className="w-1.5 h-1.5 bg-orange-500 live-dot" />
@@ -104,7 +104,7 @@ export default function HeroSection() {
           {/* Headline */}
           <h1 className="font-barlow font-black tracking-tight leading-[0.85] mb-8">
             <div className="overflow-hidden">
-              <motion.span className="text-white text-xl block"
+              <motion.span className="text-white pt-2 pb-1 text-xl block"
 
             style={{ fontSize: 'clamp(3rem, 12vw, 11rem)' }}
             initial={{ y: '100%' }}
@@ -115,7 +115,7 @@ export default function HeroSection() {
               </motion.span>
             </div>
             <div className="overflow-hidden">
-              <motion.span className="pb-2 text-xl block"
+              <motion.span className="pt-3 pb-3 text-xl block"
 
             style={{
               fontSize: 'clamp(3rem, 12vw, 11rem)',

@@ -71,12 +71,13 @@ export default function GroundControlCTA() {
                 Contact Ground Control
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <a
-                href="tel:8887775990"
+              <Link
+                to="/dashboard"
                 className="inline-flex items-center gap-3 border border-teal-500/50 hover:border-teal-400 text-teal-400 hover:text-teal-300 font-bold text-sm uppercase tracking-widest px-8 py-4 rounded-lg transition-all"
               >
-                Call Now
-              </a>
+                Learn More
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </motion.div>
 
@@ -116,10 +117,15 @@ export default function GroundControlCTA() {
                 ))}
               </div>
 
-              <div className="mt-6 p-4 bg-teal-500/10 border border-teal-500/20 rounded-lg">
-                <p className="text-teal-300 text-xs leading-relaxed font-medium">
-                  "Always-on oversight, rapid coordination, and zero tolerance for downtime."
-                </p>
+              <div className="mt-6">
+                <Link
+                  to="/dashboard"
+                  className="flex items-center justify-center gap-3 w-full bg-teal-500 hover:bg-teal-400 text-black font-bold text-sm uppercase tracking-widest py-4 rounded-lg transition-all"
+                >
+                  <Zap className="w-4 h-4" />
+                  Preview the App
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </motion.div>

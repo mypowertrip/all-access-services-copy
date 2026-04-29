@@ -21,7 +21,7 @@ export default function Locations() {
     <div className="bg-black min-h-screen">
       
       {/* Hero */}
-      <section className="pt-40 pb-20">
+      <section className="pt-12 md:pt-16 pb-20">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

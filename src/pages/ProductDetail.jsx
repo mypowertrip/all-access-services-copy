@@ -87,7 +87,7 @@ export default function ProductDetail() {
     <div className="bg-black min-h-screen pb-24">
 
       {/* Hero Banner */}
-      <div className="relative bg-gradient-to-br from-zinc-950 via-zinc-900 to-black pt-32 pb-8 md:pt-36 md:pb-12">
+      <div className="relative bg-gradient-to-br from-zinc-950 via-zinc-900 to-black pt-8 pb-8 md:pt-12 md:pb-12">
         <div className="absolute inset-0 grid-bg opacity-10" />
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
           {/* Left: text */}

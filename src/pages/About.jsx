@@ -15,7 +15,7 @@ export default function About() {
     <div className="bg-black min-h-screen">
 
       {/* Hero */}
-      <section className="relative pt-40 pb-24 overflow-hidden">
+      <section className="relative pt-12 md:pt-20 pb-24 overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-10" />
         <div className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-gradient-to-b from-transparent via-orange-500 to-transparent" />
         <div className="max-w-5xl mx-auto px-4 relative z-10">

@@ -125,7 +125,7 @@ export default function Rentals() {
       <QuoteCartSidebar />
 
       {/* Hero */}
-      <section className="relative w-screen h-96 flex items-center justify-center overflow-hidden mt-40">
+      <section className="relative w-screen h-96 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0"
           style={{
             backgroundImage: 'url(https://media.base44.com/images/public/69f03230e61a9516ac171fbd/b5ba9747b_Gemini_Generated_Image_voqgksvoqgksvoqg.png)',

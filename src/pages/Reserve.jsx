@@ -138,7 +138,7 @@ export default function Reserve() {
   }
 
   return (
-    <div className="min-h-screen bg-black font-inter pt-40">
+    <div className="min-h-screen bg-black font-inter">
 
       <div className="max-w-6xl mx-auto px-6 pb-16">
         {/* Back */}

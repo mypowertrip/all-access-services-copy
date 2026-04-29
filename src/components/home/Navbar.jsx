@@ -39,7 +39,7 @@ const industries = [
   { label: 'Warehouse', slug: 'warehouse' },
   { label: 'Government', slug: 'government' },
 ];
-const moreLinks = ['About', 'Resources', 'Contact'];
+const moreLinks = ['About', 'Get a Quote'];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -244,7 +244,7 @@ export default function Navbar() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">More</p>
                   <div className="space-y-1">
                     {moreLinks.map((label) => {
-                    const href = label === 'About' ? '/about' : label === 'Contact' ? '/reserve' : '/safety';
+                    const href = label === 'About' ? '/about' : '/reserve';
                     return (
                       <Link key={label} to={href} onClick={() => setDrawerOpen(false)} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
                           {label}

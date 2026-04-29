@@ -17,10 +17,7 @@ export default function SiteNav({ cartCount = 0 }) {
   useEffect(() => setMobileOpen(false), [location.pathname]);
 
   const navLinks = [
-    { label: 'Equipment', href: '/equipment' },
-    { label: 'How It Works', href: '/#how' },
-    { label: 'Industries', href: '/#industries' },
-    { label: 'Ground Control', href: '/#ground-control', highlight: true },
+    { label: 'Equipment', href: '/rentals' },
   ];
 
   return (
@@ -70,7 +67,7 @@ export default function SiteNav({ cartCount = 0 }) {
               </span>
             </Link>
           )}
-          <Link to="/equipment"
+          <Link to="/rentals"
             className="px-4 py-2 bg-orange hover:bg-orange/90 text-white text-sm font-bold rounded-lg transition-colors shadow-md shadow-orange/20">
             Browse Equipment
           </Link>
@@ -106,7 +103,7 @@ export default function SiteNav({ cartCount = 0 }) {
                 </Link>
               ))}
               <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
-                <Link to="/equipment" className="w-full text-center py-2.5 bg-orange text-white text-sm font-bold rounded-lg">
+                <Link to="/rentals" className="w-full text-center py-2.5 bg-orange text-white text-sm font-bold rounded-lg">
                   Browse Equipment
                 </Link>
                 <Link to="/dashboard" className="w-full text-center py-2.5 bg-slate-100 text-slate-700 text-sm font-semibold rounded-lg">

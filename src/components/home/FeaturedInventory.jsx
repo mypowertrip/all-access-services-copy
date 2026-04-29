@@ -35,9 +35,9 @@ export default function FeaturedInventory() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-barlow text-4xl md:text-5xl font-black text-white tracking-tight"
+              className="font-barlow text-4xl md:text-5xl font-bold text-white tracking-tight"
             >
-              EQUIPMENT <span className="text-orange-500">FOR SALE</span>
+              EQUIPMENT <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>FOR SALE</span>
             </motion.h2>
           </div>
 
@@ -107,7 +107,7 @@ export default function FeaturedInventory() {
                   <span className="text-zinc-500 text-xs">{item.year}</span>
                 </div>
 
-                <h3 className="font-barlow text-xl font-bold text-white mb-3">{item.make} {item.model}</h3>
+                <h3 className="font-barlow text-xl font-semibold text-white mb-3">{item.make} {item.model}</h3>
 
                 <div className="flex items-end justify-between">
                   <div>

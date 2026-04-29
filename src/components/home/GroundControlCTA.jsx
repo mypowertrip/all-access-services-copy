@@ -105,14 +105,14 @@ export default function GroundControlCTA() {
 
               <div className="space-y-4">
                 {[
-                { label: 'Availability', value: '24/7 Always-On' },
-                { label: 'Response', value: 'Immediate Action' },
-                { label: 'Visibility', value: 'Real-Time Equipment Status' },
-                { label: 'Coverage', value: 'All Operations' }].
+                { label: 'Availability', value: '24/7 Always-On', accent: 'orange' },
+                { label: 'Response', value: 'Immediate Action', accent: 'teal' },
+                { label: 'Visibility', value: 'Real-Time Equipment Status', accent: 'orange' },
+                { label: 'Coverage', value: 'All Operations', accent: 'teal' }].
                 map((item) =>
                 <div key={item.label} className="flex items-center justify-between py-3 border-b border-zinc-800 last:border-0">
-                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{item.label}</span>
-                    <span className="text-sm font-semibold text-gray-200">{item.value}</span>
+                    <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">{item.label}</span>
+                    <span className={`text-sm font-medium ${item.accent === 'orange' ? 'text-orange-400' : 'text-teal-400'}`}>{item.value}</span>
                   </div>
                 )}
               </div>

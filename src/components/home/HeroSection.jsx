@@ -95,7 +95,8 @@ export default function HeroSection() {
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.4 }}
                       style={{ WebkitTextStroke: '2px white', color: 'transparent' }}
-                      className="inline-block">
+                      className="inline-block"
+                      style={{ color: 'rgba(255,255,255,0.1)', WebkitTextStroke: '2px white' }}>
                       
                     {CYCLING_WORDS[wordIndex]}
                   </motion.span>

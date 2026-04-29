@@ -7,10 +7,9 @@ import { salesInventory } from '../../lib/salesInventory';
 export default function FeaturedInventory() {
   const [filter, setFilter] = useState('all');
 
-  // Get random 6 items from sales inventory, reshuffle on mount
+  // Get curated featured items
   const featured = useMemo(() => {
-    const shuffled = [...salesInventory].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 6);
+    return salesInventory.filter((item) => item.featured === true);
   }, []);
 
   const filtered = filter === 'all' ? featured : featured.filter((i) => i.condition.toLowerCase().includes(filter));

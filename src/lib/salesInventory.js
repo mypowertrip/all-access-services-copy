@@ -36,6 +36,7 @@ export const salesInventory = [
     condition: 'New',
     type: 'Scissor Lift',
     hours: 0,
+    featured: true,
     conditionReport: {
       overall: 'Factory Fresh - Electric Scissor Lift',
       exterior: 'Pristine factory condition with all labels intact',
@@ -114,6 +115,7 @@ export const salesInventory = [
     condition: 'New',
     type: 'Telehandler',
     hours: 0,
+    featured: true,
     conditionReport: {
       overall: 'Factory New - Premium Equipment',
       exterior: 'Flawless finish with all decals and markings applied by factory',
@@ -218,6 +220,7 @@ export const salesInventory = [
     condition: 'New',
     type: 'Boom Lift',
     hours: 0,
+    featured: true,
     conditionReport: {
       overall: 'Factory New - Telescopic Boom',
       exterior: 'Orange and Black factory finish',
@@ -504,6 +507,7 @@ export const salesInventory = [
     condition: 'New',
     type: 'Scissor Lift',
     hours: 0,
+    featured: true,
     conditionReport: {
       overall: 'Factory New - Premium Electric',
       exterior: 'Perfect white factory paint',
@@ -660,6 +664,7 @@ export const salesInventory = [
     condition: 'Pre-Owned',
     type: 'Telehandler',
     hours: 155,
+    featured: true,
     conditionReport: {
       overall: 'Like New - Minimal Use',
       exterior: 'Clean professional finish',

@@ -47,7 +47,7 @@ const AuthenticatedApp = () => {
     <div className="min-h-screen bg-black flex flex-col">
       <Navbar />
       <NavTabBar />
-      <main className="flex-1">
+      <main className="flex-1" style={{ paddingTop: 'var(--site-nav-height)' }}>
     <Suspense fallback={
       <div className="fixed inset-0 flex items-center justify-center bg-black">
         <div className="w-7 h-7 rounded-full animate-spin" style={{ borderWidth: 3, borderStyle: 'solid', borderColor: 'hsl(0 0% 15%)', borderTopColor: 'hsl(24 100% 50%)' }} />

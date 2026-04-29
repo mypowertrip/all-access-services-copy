@@ -49,6 +49,8 @@ export default function HeroSection() {
 
 
 
+
+
       // No-op — useTransform values are still applied but range is small enough
       // that a single pass is fine.
     }}, []);return <section ref={ref} className="relative min-h-[88vh] md:min-h-screen flex items-end overflow-hidden">
@@ -104,12 +106,10 @@ export default function HeroSection() {
           {/* Headline */}
           <h1 className="font-barlow font-black tracking-tight leading-[0.85] mb-8">
             <div className="overflow-hidden">
-              <motion.span className="text-white pt-2 pb-2 text-lg block"
-
-            style={{ fontSize: 'clamp(3rem, 12vw, 11rem)' }}
-            initial={{ y: '100%' }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}>
+              <motion.span className="text-white pt-2 pb-2 text-lg block" style={{ fontSize: 'clamp(3rem, 12vw, 11rem)' }}
+              initial={{ y: '100%' }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}>
                 
                 REACH
               </motion.span>
@@ -132,16 +132,16 @@ export default function HeroSection() {
           </h1>
 
           {/* Subhead */}
-          <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }} className="text-zinc-300 mb-10 text-lg uppercase leading-relaxed md:text-xl max-w-xl hidden">
           
-            
-            Southern California's premier source for{' '}
-            <span className="text-white font-semibold">scissor lifts, boom lifts, telehandlers</span>{' '}
-            &amp; service. JLG-authorized — any height, any job, any time.
-          </motion.p>
+
+
+
+
+
+
+
+
+        
 
           {/* CTAs */}
           <motion.div

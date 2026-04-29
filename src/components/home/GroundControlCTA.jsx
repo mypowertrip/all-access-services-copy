@@ -46,16 +46,16 @@ export default function GroundControlCTA() {
             </h2>
 
             <p className="text-gray-300 text-lg leading-relaxed max-w-xl mb-6">
-              All Access Services is proud to launch <span className="text-teal-400 font-semibold">Ground Control</span> — our dedicated division serving <span className="text-white font-semibold">military and aerospace clients</span> across Southern California,.
+              <span className="text-teal-400 font-semibold">Ground Control</span> is a dedicated 24/7 service command that ensures continuous oversight and rapid response across all equipment operations. Backed by real-time technology and a centralized app, it provides <span className="text-white font-semibold">full visibility into equipment status</span>, instant service access, and immediate action when issues arise.
             </p>
 
             <p className="text-gray-400 text-base leading-relaxed max-w-xl mb-8">
-              Specialized equipment solutions, security-cleared logistics, and precision-grade service for aerospace facilities, defense contractors, and government installations.
+              More than support, Ground Control is an always-on service layer — actively monitoring performance, coordinating response, and maintaining uptime in environments where delays are not acceptable.
             </p>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-3 mb-10">
-              {['Military Grade', 'Aerospace Ready', 'Security Cleared', 'Government Contracts'].map((tag, i) => (
+              {['24/7 Monitoring', 'Real-Time Visibility', 'Rapid Response', 'Always-On Uptime'].map((tag, i) => (
                 <span key={tag} className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded border ${i % 2 === 0 ? 'text-orange-300 border-orange-500/30 bg-orange-500/5' : 'text-teal-300 border-teal-500/30 bg-teal-500/5'}`}>
                   {tag}
                 </span>
@@ -104,10 +104,10 @@ export default function GroundControlCTA() {
 
               <div className="space-y-4">
                 {[
-                  { label: 'Specialty', value: 'Military & Aerospace' },
-                  { label: 'Location', value: 'Southern California' },
-                  { label: 'Certifications', value: 'Govt. Cleared Operations' },
-                  { label: 'Coverage', value: 'SoCal & Beyond' },
+                  { label: 'Availability', value: '24/7 Always-On' },
+                  { label: 'Response', value: 'Immediate Action' },
+                  { label: 'Visibility', value: 'Real-Time Equipment Status' },
+                  { label: 'Coverage', value: 'All Operations' },
                 ].map(item => (
                   <div key={item.label} className="flex items-center justify-between py-3 border-b border-zinc-800 last:border-0">
                     <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{item.label}</span>
@@ -118,7 +118,7 @@ export default function GroundControlCTA() {
 
               <div className="mt-6 p-4 bg-teal-500/10 border border-teal-500/20 rounded-lg">
                 <p className="text-teal-300 text-xs leading-relaxed font-medium">
-                  "Precision access solutions for the most demanding aerospace and defense environments."
+                  "Always-on oversight, rapid coordination, and zero tolerance for downtime."
                 </p>
               </div>
             </div>

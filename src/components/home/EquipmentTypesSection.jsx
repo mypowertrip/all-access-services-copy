@@ -10,9 +10,9 @@ const FORKLIFT_IMG = "https://media.base44.com/images/public/69f03230e61a9516ac1
 
 const equipment = [
   {
-    name: 'Boom Lifts',
+    name: 'Straight Boom Lifts',
     subtitle: 'Extended Reach',
-    slug: 'boom-lifts',
+    slug: 'straight-boom-lifts',
     img: BOOM_IMG,
     specs: { height: '40-185 ft', capacity: '500-1000 lbs', types: '15+ models' },
   },
@@ -31,11 +31,11 @@ const equipment = [
     specs: { height: '20-55 ft', capacity: '5000-12000 lbs', types: '8+ models' },
   },
   {
-    name: 'Low Level Access',
-    subtitle: 'Ground Level',
-    slug: 'articulating-booms',
+    name: 'Articulating Booms',
+    subtitle: 'Maximum Maneuverability',
+    slug: 'articulating-boom-lifts',
     img: LOWLEVEL_IMG,
-    specs: { height: '6-20 ft', capacity: '250-800 lbs', types: '6+ models' },
+    specs: { height: '30-100 ft', capacity: '500-660 lbs', types: '15+ models' },
   },
   {
     name: 'Forklifts',

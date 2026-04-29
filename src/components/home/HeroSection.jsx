@@ -33,16 +33,17 @@ export default function HeroSection() {
 
 
 
+
+
+
+
       // No-op — useTransform values are still applied but range is small enough
       // that a single pass is fine.
     }}, []);return <section ref={ref} className="relative min-h-[88vh] md:min-h-screen flex items-end overflow-hidden">
       
       {/* Background image with parallax */}
       <motion.div className="absolute inset-0" style={{ y: imgY }}>
-        <img src={HERO_IMG} alt=""
-        aria-hidden
-        className="w-full h-full object-cover"
-        style={{ objectPosition: '70% center' }} />
+        <img src={HERO_IMG} alt="" aria-hidden className="w-full h-full object-cover" style={{ objectPosition: '70% center' }} />
         
         {/* Layered overlays for depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/30" />
@@ -56,11 +57,10 @@ export default function HeroSection() {
       <div className="absolute right-0 top-1/3 bottom-1/3 w-px bg-gradient-to-b from-transparent via-teal-500/40 to-transparent" />
 
       {/* Hex motif */}
-      <svg
-      className="absolute right-12 top-32 w-72 opacity-[0.08] text-teal-300 pointer-events-none hidden lg:block"
-      viewBox="0 0 200 200"
-      fill="none"
-      aria-hidden>
+      <svg className="absolute right-12 top-32 w-72 opacity-[0.08] text-teal-300 pointer-events-none hidden lg:block"
+    viewBox="0 0 200 200"
+    fill="none"
+    aria-hidden>
         
         <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" />
         <polygon points="100,30 148,57.5 148,112.5 100,140 52,112.5 52,57.5" stroke="currentColor" strokeWidth="0.75" />
@@ -104,27 +104,27 @@ export default function HeroSection() {
           {/* Headline */}
           <h1 className="font-barlow font-black tracking-tight leading-[0.85] mb-8">
             <div className="overflow-hidden">
-              <motion.span
-              className="block text-white"
-              style={{ fontSize: 'clamp(3rem, 12vw, 11rem)' }}
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}>
+              <motion.span className="text-white text-xl block"
+
+            style={{ fontSize: 'clamp(3rem, 12vw, 11rem)' }}
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}>
                 
                 REACH
               </motion.span>
             </div>
             <div className="overflow-hidden">
-              <motion.span
-              className="block"
-              style={{
-                fontSize: 'clamp(3rem, 12vw, 11rem)',
-                WebkitTextStroke: '2px #f97316',
-                color: 'rgba(249,115,22,0.04)'
-              }}
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}>
+              <motion.span className="text-xl block"
+
+            style={{
+              fontSize: 'clamp(3rem, 12vw, 11rem)',
+              WebkitTextStroke: '2px #f97316',
+              color: 'rgba(249,115,22,0.04)'
+            }}
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}>
                 
                 HIGHER.
               </motion.span>

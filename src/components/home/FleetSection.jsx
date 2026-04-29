@@ -299,7 +299,7 @@ export default function FleetSection() {
                 <div className="w-6 h-0.5 bg-teal-400" />
                 <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Enhanced API Data Feed</span>
               </div>
-              <h3 className="font-barlow font-black text-4xl md:text-5xl text-white tracking-tight leading-none mb-6">
+              <h3 className="font-barlow font-bold text-4xl md:text-5xl text-white tracking-tight leading-none mb-6">
                 INTEGRATE WITH<br />
                 <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>YOUR SYSTEMS</span>
               </h3>

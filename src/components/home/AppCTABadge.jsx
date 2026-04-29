@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Smartphone } from 'lucide-react';
 
@@ -26,14 +27,17 @@ export default function AppCTABadge() {
   }).join(' ');
 
   return (
-    <motion.a
-      href="/gc"
+    <motion.div
       className="group hidden md:flex fixed right-6 z-40 flex-col items-center justify-center"
       style={{ top: 140, width: size, height: size }}
-      title="Ground Control App"
       animate={{ opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? 'auto' : 'none' }}
       transition={{ duration: 0.6, ease: 'easeInOut' }}
+      asChild
     >
+      <Link
+        to="/dashboard"
+        title="Ground Control App"
+      >
       {/* Spinning outer ring */}
       <motion.svg
         viewBox={`0 0 ${size} ${size}`}
@@ -75,6 +79,7 @@ export default function AppCTABadge() {
         <p className="text-[9px] font-black uppercase tracking-widest text-orange-400 leading-none">Launch</p>
         <p className="text-[8px] font-black text-white uppercase leading-none">Ground<br/>Control</p>
       </div>
-    </motion.a>
+      </Link>
+    </motion.div>
   );
 }

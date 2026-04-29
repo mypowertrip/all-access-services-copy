@@ -16,7 +16,6 @@ import { QuoteCartProvider } from './components/rentals/QuoteCartContext';
 
 const Home = lazy(() => import('./pages/Home'));
 const Safety = lazy(() => import('./pages/Safety'));
-const Equipment = lazy(() => import('./pages/Equipment'));
 const Reserve = lazy(() => import('./pages/Reserve'));
 const Rentals = lazy(() => import('./pages/Rentals'));
 const Sales = lazy(() => import('./pages/Sales'));
@@ -66,7 +65,6 @@ const AuthenticatedApp = () => {
       <Route path="/sales" element={<Sales />} />
       <Route path="/service" element={<Service />} />
       <Route path="/locations" element={<Locations />} />
-      <Route path="/equipment" element={<Equipment />} />
       <Route path="/safety" element={<Safety />} />
       <Route path="/about" element={<About />} />
       <Route path="/reserve" element={<Reserve />} />

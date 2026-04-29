@@ -37,18 +37,20 @@ export default function PerimeterNavigation() {
         <div className="absolute top-0 bottom-0 right-0 w-px bg-gradient-to-b from-transparent via-orange-500/30 to-transparent" />
       </div>
 
+      {/* Top Center Logo */}
+      <Link
+        to="/"
+        className="fixed top-8 left-1/2 -translate-x-1/2 z-40 group"
+      >
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets%2F60f02627600d445bbc0f5a3d24711ca7%2Fe4ae02cacbbe4e60834152e696eccd82?format=webp&width=800&height=1200"
+          alt="All Access Services"
+          className="h-12 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
+        />
+      </Link>
+
       {/* Left Navigation */}
       <nav className="fixed left-0 top-0 h-screen z-40 flex flex-col items-center justify-center py-8 pointer-events-auto">
-        {/* Logo/Brand */}
-        <Link
-          to="/"
-          className="mb-12 flex flex-col items-center gap-2 group"
-        >
-          <div className="w-8 h-8 border-2 border-orange-500 rounded-full flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
-            <span className="text-orange-500 font-black text-xs">AAS</span>
-          </div>
-          <span className="text-[8px] text-zinc-600 uppercase tracking-wider group-hover:text-orange-500 transition-colors">All Access</span>
-        </Link>
 
         {/* Core Links */}
         <div className="flex flex-col gap-16">

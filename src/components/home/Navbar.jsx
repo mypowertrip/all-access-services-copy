@@ -31,7 +31,14 @@ const mainNavLinks = [
 { label: 'Locations', href: '/locations' }];
 
 
-const industries = ['Space / Aerospace', 'Military', 'Construction', 'Events', 'Warehouse', 'Government'];
+const industries = [
+  { label: 'Space / Aerospace', slug: 'space-aerospace' },
+  { label: 'Military', slug: 'military' },
+  { label: 'Construction', slug: 'construction' },
+  { label: 'Events', slug: 'events' },
+  { label: 'Warehouse', slug: 'warehouse' },
+  { label: 'Government', slug: 'government' },
+];
 const moreLinks = ['About', 'Resources', 'Contact'];
 
 export default function Navbar() {
@@ -224,13 +231,11 @@ export default function Navbar() {
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-3">Industries</p>
                   <div className="space-y-1">
-                    {industries.map((ind) => {
-                    const indHref = ind.toLowerCase().replace(/\s+/g, '-');
-                    return (
-                      <Link key={ind} to={`/rentals?industry=${indHref}`} onClick={() => setDrawerOpen(false)} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
-                          {ind}
-                        </Link>);
-                  })}
+                    {industries.map((ind) => (
+                      <Link key={ind.slug} to={`/rentals/category/scissor-lifts?industry=${ind.slug}`} onClick={() => setDrawerOpen(false)} className="block py-2.5 text-sm text-gray-300 hover:text-orange-400 border-b border-white/5 transition-colors">
+                        {ind.label}
+                      </Link>
+                    ))}
                   </div>
                 </div>
 

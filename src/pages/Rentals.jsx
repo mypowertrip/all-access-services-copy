@@ -9,6 +9,7 @@ import { Search, Phone } from 'lucide-react';
 import { rentalModels, rentalCategories, heightRanges, widthRanges } from '../lib/rentalInventory';
 import QuoteCartSidebar from '../components/rentals/QuoteCartSidebar';
 import { useQuoteCart } from '../components/rentals/QuoteCartContext';
+import { useSearchParams } from 'react-router-dom';
 
 export default function Rentals() {
   const { cartItems, addToCart, removeFromCart, isInCart } = useQuoteCart();
@@ -106,6 +107,12 @@ export default function Rentals() {
     setIsQuoteFormOpen(true);
   };
 
+  const [searchParams] = useSearchParams();
+  const industryParam = searchParams.get('industry');
+  const industryLabel = industryParam
+    ? industryParam.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+    : null;
+
   const currentCategoryData = rentalCategories.find((c) => c.slug === selectedCategory);
 
   return (
@@ -154,7 +161,7 @@ export default function Rentals() {
 
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="font-barlow text-4xl md:text-5xl font-black text-white uppercase">
-              Rentals
+              {industryLabel ? `${industryLabel} Rentals` : 'Rentals'}
               <br />
               <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>
                 {currentCategoryData?.name}

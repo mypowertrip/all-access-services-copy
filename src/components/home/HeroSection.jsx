@@ -31,15 +31,15 @@ export default function HeroSection() {
 
 
 
+
+
       // No-op — useTransform values are still applied but range is small enough
       // that a single pass is fine.
     }}, []);return <section ref={ref} className="relative min-h-[88vh] md:min-h-screen flex items-end overflow-hidden">
       
       {/* Background image with parallax */}
       <motion.div className="absolute inset-0" style={{ y: imgY }}>
-        <img
-        src={HERO_IMG}
-        alt=""
+        <img src={HERO_IMG} alt=""
         aria-hidden
         className="w-full h-full object-cover"
         style={{ objectPosition: '70% center' }} />
@@ -96,9 +96,9 @@ export default function HeroSection() {
           className="flex items-center gap-3 mb-6">
             
             <div className="w-10 h-px bg-orange-500" />
-            <span className="text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase text-orange-400">
-              Aerial Lift Specialists
-            </span>
+            <span className="text-orange-400 mt-20 font-bold uppercase tracking-[0.35em] sm:text-xs">AERIAL LIFT SPECIALISTS
+
+          </span>
           </motion.div>
 
           {/* Headline */}

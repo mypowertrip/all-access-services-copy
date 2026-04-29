@@ -19,7 +19,7 @@ export default function HeroSection() {
   return (
     <>
     <SafetyTicker />
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20 md:pt-24">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -48,7 +48,7 @@ export default function HeroSection() {
       </svg>
 
       {/* Content */}
-      <div className="mt-32 pt-32 pb-20 px-6 relative z-10 w-full md:pt-52">
+      <div className="pb-20 px-6 relative z-10 w-full pt-16 sm:pt-20 md:pt-24 lg:pt-28">
         <div className="max-w-3xl md:ml-16">
           {/* Headline — sequenced animation */}
           <h1 className="font-barlow font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6 overflow-hidden">

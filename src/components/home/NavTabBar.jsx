@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 
 const mainNavLinks = [
@@ -54,7 +55,7 @@ export default function NavTabBar() {
   };
 
   return (
-    <div className="hidden md:block fixed top-20 md:top-24 left-0 right-0 z-40 bg-orange-600 border-b border-orange-700">
+    <div className="hidden md:block fixed top-24 sm:top-28 md:top-32 left-0 right-0 z-30 bg-orange-600 border-b border-orange-700">
       <div className="max-w-7xl mx-auto flex items-center gap-0 h-10">
         {mainNavLinks.map((link) =>
         <div
@@ -64,30 +65,53 @@ export default function NavTabBar() {
           onMouseLeave={() => closeDropdown(link.label)}>
           
             {/* Tab Button */}
-            <a
-            href={link.href || '#'} className="relative w-full h-full flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-widest transition-all text-white hover:text-black"
-
-
-
-            style={{
-              background: activeDropdown === link.label ?
-              'linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)' :
-              'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.1) 100%)',
-              boxShadow: activeDropdown === link.label ?
-              'inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.3)' :
-              'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.2)'
-            }}>
-            
-              {link.label}
-              {link.children &&
-            <motion.div
-              animate={{ rotate: activeDropdown === link.label ? 180 : 0 }}
-              transition={{ duration: 0.2 }}>
-              
-                  <ChevronDown className="w-3 h-3" />
-                </motion.div>
-            }
-            </a>
+             {link.href ? (
+               <Link
+                 to={link.href}
+                 className="relative w-full h-full flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-widest transition-all text-white hover:text-black"
+                 style={{
+                   background: activeDropdown === link.label ?
+                   'linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)' :
+                   'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.1) 100%)',
+                   boxShadow: activeDropdown === link.label ?
+                   'inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.3)' :
+                   'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.2)'
+                 }}
+               >
+                 {link.label}
+                 {link.children &&
+                   <motion.div
+                     animate={{ rotate: activeDropdown === link.label ? 180 : 0 }}
+                     transition={{ duration: 0.2 }}
+                   >
+                     <ChevronDown className="w-3 h-3" />
+                   </motion.div>
+                 }
+               </Link>
+             ) : (
+               <button
+                 type="button"
+                 className="relative w-full h-full flex items-center justify-center gap-2 font-bold text-xs uppercase tracking-widest transition-all text-white hover:text-black"
+                 style={{
+                   background: activeDropdown === link.label ?
+                   'linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)' :
+                   'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.1) 100%)',
+                   boxShadow: activeDropdown === link.label ?
+                   'inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(0,0,0,0.3)' :
+                   'inset 0 1px 0 rgba(255,255,255,0.2), inset 0 -1px 0 rgba(0,0,0,0.2)'
+                 }}
+               >
+                 {link.label}
+                 {link.children &&
+                   <motion.div
+                     animate={{ rotate: activeDropdown === link.label ? 180 : 0 }}
+                     transition={{ duration: 0.2 }}
+                   >
+                     <ChevronDown className="w-3 h-3" />
+                   </motion.div>
+                 }
+               </button>
+             )}
 
             {/* Dropdown */}
             <AnimatePresence>

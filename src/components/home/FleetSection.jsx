@@ -182,7 +182,7 @@ export default function FleetSection() {
                 { val: '3000+', label: 'Connected Units', sub: 'Across our SoCal fleet' }].
                 map((stat) =>
                 <div key={stat.label} className="p-6 group hover:bg-teal-500/5 transition-colors">
-                    <div className="font-barlow text-4xl font-black text-teal-400 mb-1">{stat.val}</div>
+                    <div className="text-[hsl(var(--primary))] mb-1 text-4xl font-black">{stat.val}</div>
                     <div className="text-white font-semibold text-sm mb-0.5">{stat.label}</div>
                     <div className="text-gray-500 text-xs">{stat.sub}</div>
                   </div>

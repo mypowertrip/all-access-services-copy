@@ -5,6 +5,12 @@ export const SITE_CONFIG = {
   email: 'info@allaccessservices.com',
   companyName: 'All Access Services',
   deliveryFee: 250,
+  fuelBadge: {
+    Electric: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    Diesel:   'bg-slate-100 text-slate-600 border-slate-200',
+    Propane:  'bg-blue-50 text-blue-700 border-blue-200',
+    Hybrid:   'bg-teal-50 text-teal-700 border-teal-200',
+  },
   locations: [
     { name: 'San Diego',     address: '8711 N Magnolia Ave, Santee, CA 92071',          phone: '619-222-9337', tel: '6192229337', image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-san-diego-img.jpg', hours: 'Mon-Fri: 7am-5pm' },
     { name: 'Orange County', address: '621 N Main St, Orange, CA 92868',                phone: '714-647-1552', tel: '7146471552', image: 'https://www.allaccessservices.com/images/allaccessrentals-home-locations-orange-county-img.jpg', hours: 'Mon-Fri: 7am-5pm' },

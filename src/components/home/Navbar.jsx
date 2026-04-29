@@ -104,10 +104,6 @@ export default function Navbar() {
               src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/17488701a_CleanLogo.png"
               alt="All Access Services"
               className="h-9 sm:h-12 md:h-14 w-auto object-contain" />
-            
-
-
-
 
 
 

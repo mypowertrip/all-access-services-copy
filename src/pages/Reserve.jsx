@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useQuoteCart } from '../components/rentals/QuoteCartContext';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowLeft, Trash2, Calendar, MapPin, User, Building, Phone, Mail, ChevronRight, Shield, AlertCircle, Loader2 } from 'lucide-react';
-import { fuelBadge } from '../lib/equipmentData';
 import { validateQuoteForm } from '../lib/validation';
 import { SITE_CONFIG } from '../lib/siteConfig';
 
@@ -195,7 +194,7 @@ export default function Reserve() {
                           </button>
                         </div>
                         <div className="mt-2 flex items-center justify-between">
-                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${fuelBadge[item.fuel]}`}>{item.fuel}</span>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded border ${SITE_CONFIG.fuelBadge[item.fuel]}`}>{item.fuel}</span>
                           <div className="text-right">
                             <div className="text-sm font-black text-orange-400">${item.dailyRate}/day</div>
                             {rentalDays > 1 && <div className="text-xs text-gray-500">${(item.dailyRate * rentalDays).toLocaleString()} total</div>}

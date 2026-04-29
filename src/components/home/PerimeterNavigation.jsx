@@ -51,7 +51,7 @@ export default function PerimeterNavigation() {
         </Link>
 
         {/* Core Links */}
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-16">
           {CORE_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -75,7 +75,7 @@ export default function PerimeterNavigation() {
 
       {/* Right Navigation */}
       <nav className="fixed right-0 top-0 h-screen z-40 flex flex-col items-center justify-center py-8 pointer-events-auto">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-16">
           {UTILITY_LINKS.map((link) => (
             <Link
               key={link.href}

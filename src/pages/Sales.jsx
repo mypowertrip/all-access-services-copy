@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import ImageGallery from '../components/sales/ImageGallery';
 import FinancingCalculator from '../components/sales/FinancingCalculator';
 import ConditionReport from '../components/sales/ConditionReport';
@@ -7,9 +8,14 @@ import { ArrowRight, Check, X, Zap } from 'lucide-react';
 import { salesInventory } from '../lib/salesInventory';
 import { SITE_CONFIG } from '../lib/siteConfig';
 
+const FILTER_MAP = { 'new': 'New', 'pre-owned': 'Pre-Owned' };
+
 export default function Sales() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedItem, setSelectedItem] = useState(null);
-  const [conditionFilter, setConditionFilter] = useState('All');
+  const [conditionFilter, setConditionFilter] = useState(
+    FILTER_MAP[searchParams.get('filter')] ?? 'All'
+  );
 
   const getBadgeStyles = (badge) => {
     if (!badge) return '';
@@ -62,7 +68,11 @@ export default function Sales() {
                 {['All', 'New', 'Pre-Owned'].map(condition => (
                   <button
                     key={condition}
-                    onClick={() => setConditionFilter(condition)}
+                    onClick={() => {
+                      setConditionFilter(condition);
+                      const key = Object.entries(FILTER_MAP).find(([, v]) => v === condition)?.[0];
+                      key ? setSearchParams({ filter: key }) : setSearchParams({});
+                    }}
                     className={`px-4 py-2 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all ${
                       conditionFilter === condition
                         ? 'bg-orange-500 text-black'

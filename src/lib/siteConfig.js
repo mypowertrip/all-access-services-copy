@@ -21,7 +21,6 @@ export const ROUTES = {
   SALES: '/sales',
   SERVICE: '/service',
   LOCATIONS: '/locations',
-  EQUIPMENT: '/equipment',
   SAFETY: '/safety',
   ABOUT: '/about',
   RESERVE: '/reserve',

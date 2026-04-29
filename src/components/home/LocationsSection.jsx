@@ -4,7 +4,7 @@ import { SITE_CONFIG } from '../../lib/siteConfig';
 
 const slugify = (s) => s.toLowerCase().replace(/\s+/g, '-');
 
-export default function LocationsSection() {
+    export default function LocationsSection() {
   return (
     <section id="locations" className="relative bg-black py-20 md:py-32">
       {/* Atmosphere */}

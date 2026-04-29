@@ -59,7 +59,7 @@ export default function Sidebar({ open, onClose }) {
           <img
             src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/231c7b7f8_GroundControl.png"
             alt="All Access Services"
-            className="h-12 w-auto object-contain" />
+            className="h-36 w-auto object-contain" />
           
         </Link>
         <button onClick={onClose} className="lg:hidden p-1.5 rounded-md hover:bg-accent transition-colors text-muted-foreground">

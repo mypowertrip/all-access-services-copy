@@ -97,7 +97,7 @@ export default function HeroSection() {
           >
             <div className="w-10 h-px bg-orange-500" />
             <span className="text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase text-orange-400">
-              Aerial Lift Specialists
+              Aerial Lift Specialists · Est. SoCal
             </span>
           </motion.div>
 

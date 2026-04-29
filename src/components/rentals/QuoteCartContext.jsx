@@ -51,26 +51,18 @@ export function QuoteCartProvider({ children }) {
 
   // Real quote submission — calls backend function
   const submitQuote = useCallback(async (formData) => {
-    try {
-      const res = await base44.functions.invoke('submitQuoteRequest', {
-        ...formData,
-        equipmentIds:   cartItems.map(i => i.id),
-        equipmentNames: cartItems.map(i => i.name),
-        startDate,
-        endDate,
-        source: 'reserve',
-      });
-      if (res.data?.success) {
-        clearCart();
-      }
-      return res.data;
-    } catch (error) {
-      console.error('Quote submission error:', error);
-      return {
-        success: false,
-        error: error?.message || 'Failed to submit quote. Please try again or contact support.'
-      };
+    const res = await base44.functions.invoke('submitQuoteRequest', {
+      ...formData,
+      equipmentIds:   cartItems.map(i => i.id),
+      equipmentNames: cartItems.map(i => i.name),
+      startDate,
+      endDate,
+      source: 'reserve',
+    });
+    if (res.data?.success) {
+      clearCart();
     }
+    return res.data;
   }, [cartItems, startDate, endDate, clearCart]);
 
   return (

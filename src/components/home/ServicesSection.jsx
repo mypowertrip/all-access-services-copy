@@ -125,9 +125,9 @@ export default function ServicesSection() {
                 What We Offer
               </span>
             </div>
-            <h2 className="font-barlow text-4xl md:text-6xl font-bold text-white tracking-tight uppercase leading-[0.95]">
-              aerial equipment<br />
-              <span style={{ WebkitTextStroke: '2px #f97316', color: 'rgba(249,115,22,0.04)' }}>rentals. sales. service.</span>
+            <h2 className="font-barlow text-4xl md:text-6xl font-black text-white tracking-tight uppercase leading-[0.95]">
+              Full-Service<br />
+              <span style={{ WebkitTextStroke: '2px #f97316', color: 'rgba(249,115,22,0.04)' }}>Aerial Operations.</span>
             </h2>
           </div>
           <div className="hidden md:block font-numeric text-zinc-700 text-sm">

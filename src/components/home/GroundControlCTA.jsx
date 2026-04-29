@@ -17,11 +17,11 @@ export default function GroundControlCTA() {
 
       {/* SVG hex decoration */}
       <svg className="absolute right-8 top-8 w-48 opacity-10 text-teal-400 pointer-events-none" viewBox="0 0 200 200" fill="none">
-        <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-        <polygon points="100,30 148,57.5 148,112.5 100,140 52,112.5 52,57.5" stroke="currentColor" strokeWidth="1" fill="none"/>
+        <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none" />
+        <polygon points="100,30 148,57.5 148,112.5 100,140 52,112.5 52,57.5" stroke="currentColor" strokeWidth="1" fill="none" />
       </svg>
       <svg className="absolute left-8 bottom-8 w-32 opacity-10 text-teal-400 pointer-events-none" viewBox="0 0 200 200" fill="none">
-        <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+        <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none" />
       </svg>
 
       <div className="relative max-w-7xl mx-auto px-4">
@@ -32,8 +32,8 @@ export default function GroundControlCTA() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex-1"
-          >
+            className="flex-1">
+            
             {/* NEW badge */}
             <div className="inline-flex items-center gap-2 bg-orange-500/15 border border-orange-500/40 text-orange-400 text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full mb-6">
               <Zap className="w-3 h-3" />
@@ -55,26 +55,26 @@ export default function GroundControlCTA() {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-3 mb-10">
-              {['24/7 Monitoring', 'Real-Time Visibility', 'Rapid Response', 'Always-On Uptime'].map((tag, i) => (
-                <span key={tag} className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded border ${i % 2 === 0 ? 'text-orange-300 border-orange-500/30 bg-orange-500/5' : 'text-teal-300 border-teal-500/30 bg-teal-500/5'}`}>
+              {['24/7 Monitoring', 'Real-Time Visibility', 'Rapid Response', 'Always-On Uptime'].map((tag, i) =>
+              <span key={tag} className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded border ${i % 2 === 0 ? 'text-orange-300 border-orange-500/30 bg-orange-500/5' : 'text-teal-300 border-teal-500/30 bg-teal-500/5'}`}>
                   {tag}
                 </span>
-              ))}
+              )}
             </div>
 
             <div className="flex flex-wrap gap-4">
               <Link
-                to="/reserve"
-                className="inline-flex items-center gap-3 bg-teal-500 hover:bg-teal-400 text-black font-bold text-sm uppercase tracking-widest px-8 py-4 rounded-lg transition-all"
-              >
-                <Shield className="w-4 h-4" />
-                Contact Ground Control
-                <ArrowRight className="w-4 h-4" />
+                to="/reserve" className="bg-[hsl(var(--ring))] text-black px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg inline-flex items-center gap-3 hover:bg-teal-400 transition-all">CONTACT GROUND CONTROL
+
+
+
+
+
               </Link>
               <Link
                 to="/dashboard"
-                className="inline-flex items-center gap-3 border border-teal-500/50 hover:border-teal-400 text-teal-400 hover:text-teal-300 font-bold text-sm uppercase tracking-widest px-8 py-4 rounded-lg transition-all"
-              >
+                className="inline-flex items-center gap-3 border border-teal-500/50 hover:border-teal-400 text-teal-400 hover:text-teal-300 font-bold text-sm uppercase tracking-widest px-8 py-4 rounded-lg transition-all">
+                
                 Learn More
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -86,8 +86,8 @@ export default function GroundControlCTA() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex-shrink-0 w-full lg:w-96"
-          >
+            className="flex-shrink-0 w-full lg:w-96">
+            
             <div className="relative bg-gradient-to-br from-zinc-900 to-black border border-teal-500/30 rounded-2xl p-8 overflow-hidden">
               {/* Inner glow */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
@@ -98,30 +98,30 @@ export default function GroundControlCTA() {
                 <img
                   src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/8d33e4979_GroundControl.png"
                   alt="Ground Control"
-                  className="h-36 w-auto object-contain drop-shadow-lg"
-                />
+                  className="h-36 w-auto object-contain drop-shadow-lg" />
+                
               </div>
               <p className="text-center text-teal-400 text-xs font-semibold uppercase tracking-widest mb-6">by All Access Services</p>
 
               <div className="space-y-4">
                 {[
-                  { label: 'Availability', value: '24/7 Always-On' },
-                  { label: 'Response', value: 'Immediate Action' },
-                  { label: 'Visibility', value: 'Real-Time Equipment Status' },
-                  { label: 'Coverage', value: 'All Operations' },
-                ].map(item => (
-                  <div key={item.label} className="flex items-center justify-between py-3 border-b border-zinc-800 last:border-0">
+                { label: 'Availability', value: '24/7 Always-On' },
+                { label: 'Response', value: 'Immediate Action' },
+                { label: 'Visibility', value: 'Real-Time Equipment Status' },
+                { label: 'Coverage', value: 'All Operations' }].
+                map((item) =>
+                <div key={item.label} className="flex items-center justify-between py-3 border-b border-zinc-800 last:border-0">
                     <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{item.label}</span>
                     <span className="text-sm font-semibold text-gray-200">{item.value}</span>
                   </div>
-                ))}
+                )}
               </div>
 
               <div className="mt-6">
                 <Link
                   to="/dashboard"
-                  className="flex items-center justify-center gap-3 w-full bg-teal-500 hover:bg-teal-400 text-black font-bold text-sm uppercase tracking-widest py-4 rounded-lg transition-all"
-                >
+                  className="flex items-center justify-center gap-3 w-full bg-teal-500 hover:bg-teal-400 text-black font-bold text-sm uppercase tracking-widest py-4 rounded-lg transition-all">
+                  
                   <Zap className="w-4 h-4" />
                   Preview the App
                   <ArrowRight className="w-4 h-4" />
@@ -132,6 +132,6 @@ export default function GroundControlCTA() {
 
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }

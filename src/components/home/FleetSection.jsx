@@ -195,7 +195,7 @@ export default function FleetSection() {
 
       {/* ── MOBILE APP BLOCK ── */}
       <div className="relative border-b border-zinc-800">
-        <div className="relative max-w-7xl mx-auto px-4 py-20 hidden">
+        <div className="relative max-w-7xl mx-auto px-4 py-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -288,7 +288,7 @@ export default function FleetSection() {
 
       {/* ── API / DATA FEED BLOCK ── */}
       <div className="relative">
-        <div className="relative max-w-7xl mx-auto px-4 py-24 hidden">
+        <div className="relative max-w-7xl mx-auto px-4 py-24">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

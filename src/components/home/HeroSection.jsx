@@ -105,10 +105,6 @@ export default function HeroSection() {
           </h1>
 
           {/* Sub */}
-          
-
-
-
 
 
 
@@ -138,10 +134,6 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Stats bar */}
-          
-
-
-
 
 
 

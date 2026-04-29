@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Clock, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Clock, Navigation } from 'lucide-react';
 import { SITE_CONFIG } from '../../lib/siteConfig';
-
-const locations = SITE_CONFIG.locations.map((loc) => ({ ...loc, hours: 'Mon-Fri: 7am-5pm' }));
 
 export default function LocationsSection() {
   return (
@@ -33,7 +31,7 @@ export default function LocationsSection() {
 
         {/* Locations grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {locations.map((loc, i) => (
+          {SITE_CONFIG.locations.map((loc, i) => (
             <motion.div
               key={loc.name}
               initial={{ opacity: 0, y: 30 }}
@@ -42,9 +40,13 @@ export default function LocationsSection() {
               transition={{ delay: i * 0.1 }}
               className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500"
             >
-              {/* Image */}
-              <div className="aspect-video relative overflow-hidden">
-                <img src={loc.image} alt={loc.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              {/* Google Maps Static Image */}
+              <div className="aspect-video relative overflow-hidden bg-zinc-800">
+                <img 
+                  src={`https://maps.googleapis.com/maps/api/staticmap?center=${encodeURIComponent(loc.address)}&zoom=14&size=600x400&style=element:geometry%7Ccolor:0x212121&style=element:labels%7Cvisibility:off&style=feature:administrative.country%7Celement:geometry.stroke%7Ccolor:0x38414e&style=feature:administrative.land_parcel%7Celement:geometry.stroke%7Ccolor:0x38414e&style=feature:administrative.province%7Celement:geometry.stroke%7Ccolor:0x38414e&style=feature:poi%7Ccolor:0x2c2c2c&style=feature:poi%7Celement:labels.text%7Ccolor:0x757575&style=feature:road%7Celement:geometry%7Ccolor:0x38414e&style=feature:road%7Celement:geometry.stroke%7Ccolor:0x212121&style=feature:road%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0x3c3c3c&style=feature:road.highway%7Celement:geometry.stroke%7Ccolor:0x212121&style=feature:transit%7Celement:geometry%7Ccolor:0x2f3335&style=feature:water%7Celement:geometry%7Ccolor:0x0e1626&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x515c6d&markers=color:0xf97316%7Clabel:${loc.name.charAt(0)}%7C${encodeURIComponent(loc.address)}&key=AIzaSyBvGLEBDKM0FTKNaC3s-ks5LjUZeW2fGCQ`}
+                  alt={loc.name}
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent" />
                 
                 {/* Location name overlay */}
@@ -71,11 +73,13 @@ export default function LocationsSection() {
                 </div>
 
                 <div className="pt-4 border-t border-zinc-800 flex gap-3">
-                  <a href={`https://maps.google.com/?q=${encodeURIComponent(loc.address)}`} target="_blank" rel="noopener noreferrer" className="flex-1 bg-zinc-800 hover:bg-orange-500 text-white hover:text-black text-xs font-bold text-center py-2.5 uppercase tracking-wider transition-all">
-                    Get Directions
+                  <a href={`https://maps.google.com/?q=${encodeURIComponent(loc.address)}`} target="_blank" rel="noopener noreferrer" className="flex-1 bg-zinc-800 hover:bg-orange-500 text-white hover:text-black text-xs font-bold text-center py-2.5 uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                    <Navigation className="w-3 h-3" />
+                    Directions
                   </a>
-                  <a href={`tel:${loc.phone.replace(/-/g, '')}`} className="flex-1 border border-zinc-700 hover:border-orange-500 text-gray-300 hover:text-orange-400 text-xs font-bold text-center py-2.5 uppercase tracking-wider transition-all">
-                    Contact
+                  <a href={`tel:${loc.phone.replace(/-/g, '')}`} className="flex-1 border border-zinc-700 hover:border-orange-500 text-gray-300 hover:text-orange-400 text-xs font-bold text-center py-2.5 uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                    <Phone className="w-3 h-3" />
+                    Call Branch
                   </a>
                 </div>
               </div>

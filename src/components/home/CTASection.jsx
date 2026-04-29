@@ -31,7 +31,7 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-barlow text-4xl md:text-6xl lg:text-7xl font-black text-black tracking-tight leading-none mb-6"
+          className="font-barlow text-4xl md:text-6xl lg:text-7xl font-bold text-black tracking-tight leading-none mb-6"
         >
           LET'S GET YOUR<br />PROJECT ELEVATED
         </motion.h2>

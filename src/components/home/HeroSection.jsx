@@ -163,7 +163,7 @@ export default function HeroSection() {
             >
               Get a Quote
             </Link>
-            
+            <a
               href={`tel:${SITE_CONFIG.phoneTel}`}
               className="hidden sm:inline-flex items-center gap-2 text-zinc-400 hover:text-orange-400 text-sm font-semibold transition-colors ml-2"
             >

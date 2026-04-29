@@ -81,7 +81,7 @@ const slugify = (s) => s.toLowerCase().replace(/\s+/g, '-');
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Phone className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                  
+                  <a
                     href={`tel:${loc.tel}`}
                     className="font-numeric text-orange-400 hover:text-orange-300 text-sm font-semibold transition-colors"
                   >
@@ -95,7 +95,7 @@ const slugify = (s) => s.toLowerCase().replace(/\s+/g, '-');
 
                 {/* Buttons */}
                 <div className="pt-3 mt-auto border-t border-zinc-800 grid grid-cols-2 gap-2">
-                  
+                  <a
                     href={`https://maps.google.com/?q=${encodeURIComponent(loc.address)}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -104,7 +104,7 @@ const slugify = (s) => s.toLowerCase().replace(/\s+/g, '-');
                     <Navigation className="w-3 h-3" />
                     Directions
                   </a>
-                  
+                  <a
                     href={`tel:${loc.tel}`}
                     className="inline-flex items-center justify-center gap-1.5 border border-zinc-700 hover:border-orange-500 text-zinc-300 hover:text-orange-400 text-[10px] font-bold uppercase tracking-[0.2em] py-2.5 transition-colors"
                   >

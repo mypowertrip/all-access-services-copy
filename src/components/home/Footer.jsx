@@ -63,14 +63,14 @@ export default function Footer() {
               service provider. <span className="text-orange-400 font-semibold">JLG Authorized Dealer.</span>
             </p>
             <div className="space-y-2.5">
-              
+              <a
                 href={`tel:${SITE_CONFIG.phoneTel}`}
                 className="inline-flex items-center gap-2.5 text-orange-400 hover:text-orange-300 font-semibold text-sm transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 <span className="font-numeric">{SITE_CONFIG.phone}</span>
               </a>
-              
+              <a
                 href={`mailto:${SITE_CONFIG.email}`}
                 className="flex items-center gap-2.5 text-zinc-500 hover:text-orange-400 text-sm transition-colors"
               >

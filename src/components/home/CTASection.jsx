@@ -81,7 +81,7 @@ export default function CTASection() {
             Get a Free Quote
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
-          
+          <a
             href={`tel:${SITE_CONFIG.phoneTel}`}
             className="inline-flex items-center justify-center gap-3 border border-zinc-700 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-xs sm:text-sm uppercase tracking-[0.25em] px-10 py-5 transition-colors"
           >
@@ -98,7 +98,7 @@ export default function CTASection() {
           transition={{ delay: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-14 pt-8 border-t border-zinc-900"
         >
-          
+          <a
             href={`mailto:${SITE_CONFIG.email}`}
             className="inline-flex items-center gap-2 text-zinc-500 hover:text-orange-400 text-xs font-semibold uppercase tracking-[0.2em] transition-colors"
           >
@@ -113,7 +113,7 @@ export default function CTASection() {
             Visit a Branch
           </Link>
           <span className="text-zinc-800">·</span>
-          
+          <a
             href={`tel:${SITE_CONFIG.phoneTel}`}
             className="inline-flex items-center gap-2 text-zinc-500 hover:text-orange-400 text-xs font-semibold uppercase tracking-[0.2em] transition-colors"
           >

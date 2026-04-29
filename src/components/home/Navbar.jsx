@@ -130,7 +130,7 @@ export default function Navbar() {
             </button>
 
             {/* Phone CTA — visible on tablet+ */}
-            
+            <a
               href={`tel:${SITE_CONFIG.phoneTel}`}
               className="hidden lg:flex items-center gap-2 text-zinc-300 hover:text-orange-400 text-sm font-medium transition-colors"
             >
@@ -279,7 +279,7 @@ export default function Navbar() {
 
               {/* Drawer footer */}
               <div className="px-5 py-4 border-t border-zinc-900 space-y-2.5 bg-black">
-                
+                <a
                   href={`tel:${SITE_CONFIG.phoneTel}`}
                   onClick={() => setDrawerOpen(false)}
                   className="flex items-center gap-2.5 text-orange-400 hover:text-orange-300 font-semibold text-sm transition-colors"
@@ -287,7 +287,7 @@ export default function Navbar() {
                   <Phone className="w-4 h-4" />
                   <span className="font-numeric">{SITE_CONFIG.phone}</span>
                 </a>
-                
+                <a
                   href={`mailto:${SITE_CONFIG.email}`}
                   onClick={() => setDrawerOpen(false)}
                   className="flex items-center gap-2.5 text-zinc-400 hover:text-orange-400 text-sm transition-colors"

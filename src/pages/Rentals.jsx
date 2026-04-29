@@ -9,12 +9,18 @@ import { Search, Phone } from 'lucide-react';
 import { rentalModels, rentalCategories, heightRanges, widthRanges } from '../lib/rentalInventory';
 import QuoteCartSidebar from '../components/rentals/QuoteCartSidebar';
 import { useQuoteCart } from '../components/rentals/QuoteCartContext';
-import { useSearchParams } from 'react-router-dom';
+import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
 
 export default function Rentals() {
   const { cartItems, addToCart, removeFromCart, isInCart } = useQuoteCart();
-  const [selectedCategory, setSelectedCategory] = useState(rentalCategories[0].slug);
-  const [searchTerm, setSearchTerm] = useState('');
+  const { category: categoryParam } = useParams();
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  // Validate the URL category param against known slugs, fall back to first
+  const initialCategory = rentalCategories.find((c) => c.slug === categoryParam)?.slug ?? rentalCategories[0].slug;
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [searchTerm, setSearchTerm] = useState(searchParams.get('q') ?? '');
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [comparisonItems, setComparisonItems] = useState([]);
   const [isComparisonOpen, setIsComparisonOpen] = useState(false);
@@ -107,7 +113,6 @@ export default function Rentals() {
     setIsQuoteFormOpen(true);
   };
 
-  const [searchParams] = useSearchParams();
   const industryParam = searchParams.get('industry');
   const industryLabel = industryParam
     ? industryParam.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
@@ -179,7 +184,10 @@ export default function Rentals() {
             {rentalCategories.map((cat) => (
               <button
                 key={cat.slug}
-                onClick={() => setSelectedCategory(cat.slug)}
+                onClick={() => {
+                  setSelectedCategory(cat.slug);
+                  navigate(`/rentals/category/${cat.slug}`, { replace: true });
+                }}
                 className={`px-4 py-2 font-bold text-sm uppercase tracking-widest transition-all ${
                   selectedCategory === cat.slug
                     ? 'text-orange-400 border-b-2 border-orange-400'

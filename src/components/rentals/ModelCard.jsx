@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Plus, Zap, Gauge, BarChart3, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,7 @@ import { SITE_CONFIG } from '../../lib/siteConfig';
 export default function ModelCard({ model, onCompare, inComparison, onRequestQuote }) {
   const { isInCart, addToCart, removeFromCart } = useQuoteCart();
   const inCart = isInCart(model.id);
+  const [imgFailed, setImgFailed] = useState(false);
   const isPowerElectric = model.power === 'Electric';
 
   return (
@@ -18,16 +20,17 @@ export default function ModelCard({ model, onCompare, inComparison, onRequestQuo
       {/* Clickable image + header area */}
       <Link to={`/rentals/model/${model.id}`} className="block">
       {/* Image Container */}
-      <div className="relative w-full h-56 bg-white overflow-hidden">
-        <img
-          src={model.imageUrl}
-          alt={model.name}
-          className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
-          onError={(e) => {
-            e.currentTarget.style.display = 'none';
-            e.currentTarget.parentElement.innerHTML += '<div class="w-full h-full flex items-center justify-center text-gray-300 text-xs font-bold uppercase tracking-wider">No Image</div>';
-          }}
-        />
+      <div className="relative w-full h-56 bg-white overflow-hidden flex items-center justify-center">
+        {!imgFailed ? (
+          <img
+            src={model.imageUrl}
+            alt={model.name}
+            className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+            onError={() => setImgFailed(true)}
+          />
+        ) : (
+          <div className="text-gray-300 text-xs font-bold uppercase tracking-wider">No Image</div>
+        )}
         <div className="absolute top-2 left-2 text-[10px] font-bold uppercase tracking-widest text-orange-500 bg-black/80 px-2 py-1 rounded">
           {model.category.replace(/-/g, ' ')}
         </div>
@@ -130,15 +133,17 @@ export default function ModelCard({ model, onCompare, inComparison, onRequestQuo
             <BarChart3 className="w-4 h-4" />
             Compare
           </button>
-          <a
-            href={model.specSheet}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 border border-zinc-700 text-gray-300 hover:text-white hover:border-orange-500/50 font-semibold text-sm uppercase tracking-wider rounded-lg transition-all"
-          >
-            <Download className="w-4 h-4" />
-            Spec Sheet
-          </a>
+          {model.specSheet && (
+            <a
+              href={model.specSheet}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 border border-zinc-700 text-gray-300 hover:text-white hover:border-orange-500/50 font-semibold text-sm uppercase tracking-wider rounded-lg transition-all"
+            >
+              <Download className="w-4 h-4" />
+              Spec Sheet
+            </a>
+          )}
         </div>
       </div>
     </motion.div>

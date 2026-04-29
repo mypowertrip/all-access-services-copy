@@ -71,26 +71,22 @@ export default function CTASection() {
         </motion.div>
 
         {/* Contact options */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-8 mt-16 pt-8 border-t border-black/20"
-        >
-          <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
-            <Mail className="w-4 h-4" />
-            Email Us
-          </a>
-          <span className="flex items-center gap-2 text-black/70 text-sm font-semibold">
-            <MessageSquare className="w-4 h-4" />
-            Live Chat
-          </span>
-          <a href={`tel:${SITE_CONFIG.phoneTel}`} className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
-            <Phone className="w-4 h-4" />
-            Request Callback
-          </a>
-        </motion.div>
+         <motion.div
+           initial={{ opacity: 0 }}
+           whileInView={{ opacity: 1 }}
+           viewport={{ once: true }}
+           transition={{ delay: 0.5 }}
+           className="flex flex-wrap items-center justify-center gap-8 mt-16 pt-8 border-t border-black/20"
+         >
+           <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
+             <Mail className="w-4 h-4" />
+             Email Us
+           </a>
+           <a href={`tel:${SITE_CONFIG.phoneTel}`} className="flex items-center gap-2 text-black/70 hover:text-black transition-colors text-sm font-semibold">
+             <Phone className="w-4 h-4" />
+             Request Callback
+           </a>
+         </motion.div>
       </div>
     </section>
   );

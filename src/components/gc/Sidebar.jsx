@@ -1,22 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import {
-  LayoutDashboard, Truck, Map, Wrench, FileText,
-  Package, Bell, Settings, ChevronRight, X } from
-'lucide-react';
+import { LayoutDashboard, Truck, ChevronRight, X } from 'lucide-react';
 
 const nav = [
 { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
-{ icon: Truck, label: 'Fleet', path: '/dashboard/fleet' },
-{ icon: Map, label: 'Live Map', path: '/dashboard/map' },
-{ icon: Wrench, label: 'Maintenance', path: '/dashboard/maintenance' },
-{ icon: Package, label: 'Equipment', path: '/dashboard/equipment' },
-{ icon: FileText, label: 'Rentals', path: '/dashboard/rentals' },
-{ icon: Bell, label: 'Alerts', path: '/dashboard/alerts', badge: 5 }];
-
-
-const bottom = [
-{ icon: Settings, label: 'Settings', path: '/dashboard/settings' }];
+{ icon: Truck, label: 'Fleet', path: '/dashboard/fleet' }];
 
 
 export default function Sidebar({ open, onClose }) {
@@ -92,14 +80,13 @@ export default function Sidebar({ open, onClose }) {
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-3 space-y-0.5 overflow-y-auto pb-4">
-        {nav.map((item) => <Item key={item.path} {...item} />)}
-      </nav>
+       <nav className="flex-1 px-3 space-y-0.5 overflow-y-auto pb-4">
+         {nav.map((item) => <Item key={item.path} {...item} />)}
+       </nav>
 
-      {/* Bottom */}
-      <div className="px-3 pb-3 space-y-0.5 border-t border-border pt-3">
-        {bottom.map((item) => <Item key={item.path} {...item} />)}
-        <div className="flex items-center gap-3 px-3 py-2.5 mt-1">
+       {/* Bottom */}
+       <div className="px-3 pb-3 space-y-0.5 border-t border-border pt-3">
+         <div className="flex items-center gap-3 px-3 py-2.5">
           <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center text-[11px] font-bold text-foreground">
             JD
           </div>

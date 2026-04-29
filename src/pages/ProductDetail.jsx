@@ -34,10 +34,11 @@ const CATEGORY_GRADIENTS = {
 };
 
 export default function ProductDetail() {
-  const { modelId } = useParams();
-  const navigate = useNavigate();
-  const { isInCart, addToCart, removeFromCart } = useQuoteCart();
-  const [activeTab, setActiveTab] = useState('specs');
+   const { modelId } = useParams();
+   const navigate = useNavigate();
+   const { isInCart, addToCart, removeFromCart } = useQuoteCart();
+   const [activeTab, setActiveTab] = useState('specs');
+   const [imgFailed, setImgFailed] = useState(false);
 
   const model = rentalModels.find(m => m.id === modelId);
   const inCart = model ? isInCart(model.id) : false;
@@ -114,26 +115,31 @@ export default function ProductDetail() {
               </span>
               {model.height > 0 && <span className="text-gray-400 text-sm">{model.height} ft platform height</span>}
             </div>
-            <a
-              href={model.specSheet}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-6 border border-zinc-600 hover:border-orange-500/60 text-gray-300 hover:text-orange-400 text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-lg transition-all"
-            >
-              <Download className="w-4 h-4" /> Spec Sheet
-            </a>
+            {model.specSheet && (
+              <a
+                href={model.specSheet}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-6 border border-zinc-600 hover:border-orange-500/60 text-gray-300 hover:text-orange-400 text-xs font-bold uppercase tracking-widest px-5 py-3 rounded-lg transition-all"
+              >
+                <Download className="w-4 h-4" /> Spec Sheet
+              </a>
+            )}
           </div>
           {/* Right: product image on white */}
           <div className="relative rounded-xl overflow-hidden bg-white flex items-center justify-center min-h-[320px]">
-            <img
-              src={model.imageUrl}
-              alt={model.name}
-              className="w-full h-80 object-contain p-6"
-              onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextSibling.style.display = 'flex'; }}
-            />
-            <div className="hidden w-full h-80 items-center justify-center text-gray-400 text-sm font-semibold">
-              No Image Available
-            </div>
+            {!imgFailed ? (
+              <img
+                src={model.imageUrl}
+                alt={model.name}
+                className="w-full h-80 object-contain p-6"
+                onError={() => setImgFailed(true)}
+              />
+            ) : (
+              <div className="w-full h-80 flex items-center justify-center text-gray-400 text-sm font-semibold">
+                No Image Available
+              </div>
+            )}
           </div>
         </div>
       </div>

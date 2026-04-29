@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Menu, X, Search, User } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X, Search, User } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import { rentalModels } from '../../lib/rentalInventory';
 import NavTabBar from './NavTabBar';
@@ -264,11 +264,19 @@ export default function Navbar() {
               </div>
 
               {/* Drawer footer */}
-              <div className="px-5 py-4 border-t border-white/10">
+              <div className="px-5 py-4 border-t border-white/10 space-y-3">
                 <a href={`tel:${SITE_CONFIG.phoneTel}`} className="flex items-center gap-2 text-orange-500 font-semibold text-sm hover:text-orange-400 transition-colors" onClick={() => setDrawerOpen(false)}>
                   <Phone className="w-4 h-4" />
                   {SITE_CONFIG.phone}
                 </a>
+                <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 text-gray-400 hover:text-orange-400 font-semibold text-sm transition-colors" onClick={() => setDrawerOpen(false)}>
+                  <Mail className="w-4 h-4" />
+                  Email
+                </a>
+                <Link to="/locations" className="flex items-center gap-2 text-gray-400 hover:text-orange-400 font-semibold text-sm transition-colors" onClick={() => setDrawerOpen(false)}>
+                  <MapPin className="w-4 h-4" />
+                  Find a Location
+                </Link>
               </div>
             </motion.div>
           </>

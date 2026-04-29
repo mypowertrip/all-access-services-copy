@@ -25,7 +25,7 @@ export default function HeroSection() {
         <img
             src={HERO_IMG}
             alt="Boom lift at construction site"
-            className="w-full h-full object-cover" />
+            className="w-full h-full object-cover object-center md:object-center" style={{ objectPosition: '70% center' }} />
         
         {/* Dark overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />

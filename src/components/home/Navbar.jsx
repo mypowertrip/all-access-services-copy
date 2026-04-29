@@ -62,7 +62,7 @@ export default function Navbar() {
     m.id.toLowerCase().includes(q) || m.name.toLowerCase().includes(q)
     );
     if (matches.length === 1) {
-      navigate(`/product/${matches[0].id}`);
+      navigate(`/rentals/model/${matches[0].id}`);
       setSearchQuery('');
       return;
     }

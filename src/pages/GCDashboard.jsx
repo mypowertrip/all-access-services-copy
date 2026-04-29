@@ -57,7 +57,7 @@ export default function GCDashboard() {
                 ClearSky™ Live
               </div>
             </div>
-            <SiteMap className="h-56 w-full" />
+            <SiteMap className="h-112 w-full" />
           </div>
 
           {/* Alerts panel */}

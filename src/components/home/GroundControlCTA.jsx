@@ -95,7 +95,7 @@ export default function GroundControlCTA() {
               {/* GC Logo */}
               <div className="flex justify-center mb-6">
                 <img
-                  src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/de6c833c2_Bold_GroundControl_logodesign.png"
+                  src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/8d33e4979_GroundControl.png"
                   alt="Ground Control"
                   className="h-36 w-auto object-contain drop-shadow-lg"
                 />

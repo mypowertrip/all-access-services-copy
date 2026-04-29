@@ -65,12 +65,14 @@ export default function FloatingCTA() {
   }, []);
 
   const handleClick = () => {
-    setExploded(!exploded);
+    setExploded(true);
+    setTimeout(() => {
+      window.location.href = `tel:${SITE_CONFIG.phoneTel}`;
+    }, 600);
   };
 
   return (
     <div className="hidden md:flex fixed bottom-8 right-8 z-30 flex-col items-center gap-3">
-      <a href={`tel:${SITE_CONFIG.phoneTel}`} className="block">
         <motion.button
           onClick={handleClick}
           className="relative focus:outline-none"
@@ -136,8 +138,7 @@ export default function FloatingCTA() {
               </span>
             </HexContainer>
           </motion.div>
-        </motion.button>
-      </a>
-    </div>
-  );
+          </motion.button>
+          </div>
+          );
 }

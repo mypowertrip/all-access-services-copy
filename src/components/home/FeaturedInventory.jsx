@@ -62,13 +62,13 @@ export default function FeaturedInventory() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((item, i) => (
+            <Link key={item.id} to="/sales" className="group">
             <motion.div
-              key={item.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group bg-zinc-900/80 border border-zinc-800 hover:border-orange-500/40 overflow-hidden transition-all duration-500 cursor-pointer"
+              className="bg-zinc-900/80 border border-zinc-800 hover:border-orange-500/40 overflow-hidden transition-all duration-500"
             >
               {/* Image */}
               <div className="relative aspect-video overflow-hidden">
@@ -120,6 +120,7 @@ export default function FeaturedInventory() {
                 </div>
               </div>
             </motion.div>
+            </Link>
           ))}
         </div>
 

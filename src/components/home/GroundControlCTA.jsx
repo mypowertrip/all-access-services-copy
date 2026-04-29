@@ -46,7 +46,7 @@ export default function GroundControlCTA() {
             </h2>
 
             <p className="text-gray-300 text-lg leading-relaxed max-w-xl mb-6">
-              All Access Services is proud to launch <span className="text-teal-400 font-semibold">Ground Control</span> — our dedicated division serving <span className="text-white font-semibold">military and aerospace clients</span> across Southern California, headquartered in <span className="text-white font-semibold">Long Beach, CA</span>.
+              All Access Services is proud to launch <span className="text-teal-400 font-semibold">Ground Control</span> — our dedicated division serving <span className="text-white font-semibold">military and aerospace clients</span> across Southern California,.
             </p>
 
             <p className="text-gray-400 text-base leading-relaxed max-w-xl mb-8">
@@ -55,7 +55,7 @@ export default function GroundControlCTA() {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-3 mb-10">
-              {['Military Grade', 'Aerospace Ready', 'Long Beach, CA', 'Security Cleared', 'Government Contracts'].map((tag, i) => (
+              {['Military Grade', 'Aerospace Ready', 'Security Cleared', 'Government Contracts'].map((tag, i) => (
                 <span key={tag} className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded border ${i % 2 === 0 ? 'text-orange-300 border-orange-500/30 bg-orange-500/5' : 'text-teal-300 border-teal-500/30 bg-teal-500/5'}`}>
                   {tag}
                 </span>
@@ -105,7 +105,7 @@ export default function GroundControlCTA() {
               <div className="space-y-4">
                 {[
                   { label: 'Specialty', value: 'Military & Aerospace' },
-                  { label: 'Location', value: 'Long Beach, CA' },
+                  { label: 'Location', value: 'Southern California' },
                   { label: 'Certifications', value: 'Govt. Cleared Operations' },
                   { label: 'Coverage', value: 'SoCal & Beyond' },
                 ].map(item => (

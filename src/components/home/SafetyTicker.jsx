@@ -18,9 +18,9 @@ export default function SafetyTicker() {
     <Link
       to="/safety"
       // top-16 sm:top-20 md:top-24 -> sits flush below the Navbar at every breakpoint
-      className="bg-[hsl(var(--accent))] block w-full hover:bg-orange-400 transition-colors overflow-hidden fixed top-16 sm:top-20 md:top-24 left-0 right-0 z-40 group">
+      className="block w-full bg-orange-500 hover:bg-orange-400 transition-colors overflow-hidden fixed top-16 sm:top-20 md:top-24 left-0 right-0 z-40 group">
       
-      <div className="flex gap-12 py-2 animate-ticker whitespace-nowrap">
+      <div className="bg-cyan-500 py-2 flex gap-12 animate-ticker whitespace-nowrap">
         {repeated.map((text, i) =>
 
         <span

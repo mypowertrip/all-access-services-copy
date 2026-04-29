@@ -195,7 +195,7 @@ export default function FleetSection() {
 
       {/* ── MOBILE APP BLOCK ── */}
       <div className="relative border-b border-zinc-800">
-        <div className="relative max-w-7xl mx-auto px-4 py-20">
+        <div className="relative max-w-7xl mx-auto px-4 py-20 hidden">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

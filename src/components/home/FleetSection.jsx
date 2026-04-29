@@ -206,7 +206,7 @@ export default function FleetSection() {
               <div className="w-6 h-0.5 bg-teal-400" />
               <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Comprehensive Mobile App</span>
             </div>
-            <h3 className="font-barlow font-black text-4xl md:text-5xl text-white tracking-tight leading-none mb-4">
+            <h3 className="font-barlow font-bold text-4xl md:text-5xl text-white tracking-tight leading-none mb-4">
               PRODUCTIVITY AT<br />
               <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>THUMB'S REACH</span>
             </h3>
@@ -254,7 +254,7 @@ export default function FleetSection() {
               <div className="w-6 h-0.5 bg-orange-500" />
               <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">User-Friendly Web Portal</span>
             </div>
-            <h3 className="font-barlow font-black text-4xl md:text-5xl text-white tracking-tight leading-none mb-4">
+            <h3 className="font-barlow font-bold text-4xl md:text-5xl text-white tracking-tight leading-none mb-4">
               TOTAL FLEET<br />
               <span style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>VISIBILITY</span>
             </h3>

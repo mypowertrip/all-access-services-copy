@@ -3,15 +3,19 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Smartphone } from 'lucide-react';
 
+// motion.create() in framer-motion v11 returns a motion-wrapped Link that
+// is also a router-aware <a>. This replaces the v2 hack of nesting a Link
+// inside motion.div with the (invalid) `asChild` prop.
+const MotionLink = motion.create(Link);
+
 export default function AppCTABadge() {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY;
-      setIsVisible(scrolled < window.innerHeight * 0.8);
+      setIsVisible(window.scrollY < window.innerHeight * 0.8);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -27,17 +31,14 @@ export default function AppCTABadge() {
   }).join(' ');
 
   return (
-    <motion.div
+    <MotionLink
+      to="/dashboard"
+      title="Ground Control App"
       className="group hidden md:flex fixed right-6 z-40 flex-col items-center justify-center"
-      style={{ top: 140, width: size, height: size }}
+      style={{ top: 160, width: size, height: size }}
       animate={{ opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? 'auto' : 'none' }}
       transition={{ duration: 0.6, ease: 'easeInOut' }}
-      asChild
     >
-      <Link
-        to="/dashboard"
-        title="Ground Control App"
-      >
       {/* Spinning outer ring */}
       <motion.svg
         viewBox={`0 0 ${size} ${size}`}
@@ -76,10 +77,13 @@ export default function AppCTABadge() {
         >
           <Smartphone className="w-5 h-5 text-orange-400" />
         </motion.div>
-        <p className="text-[9px] font-black uppercase tracking-widest text-orange-400 leading-none">Launch</p>
-        <p className="text-[8px] font-black text-white uppercase leading-none">Ground<br/>Control</p>
+        <p className="text-[9px] font-black uppercase tracking-[0.25em] text-orange-400 leading-none">
+          Launch
+        </p>
+        <p className="text-[8px] font-black text-white uppercase leading-none font-numeric">
+          Ground<br />Control
+        </p>
       </div>
-      </Link>
-    </motion.div>
+    </MotionLink>
   );
 }

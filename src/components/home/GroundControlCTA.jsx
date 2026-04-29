@@ -11,8 +11,9 @@ export default function GroundControlCTA() {
         backgroundSize: '40px 40px'
       }} />
 
-      {/* Teal glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Teal + orange glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-teal-500/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[400px] h-[200px] bg-orange-500/8 rounded-full blur-3xl pointer-events-none" />
 
       {/* SVG hex decoration */}
       <svg className="absolute right-8 top-8 w-48 opacity-10 text-teal-400 pointer-events-none" viewBox="0 0 200 200" fill="none">
@@ -34,14 +35,14 @@ export default function GroundControlCTA() {
             className="flex-1"
           >
             {/* NEW badge */}
-            <div className="inline-flex items-center gap-2 bg-teal-500/15 border border-teal-500/40 text-teal-400 text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-orange-500/15 border border-orange-500/40 text-orange-400 text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full mb-6">
               <Zap className="w-3 h-3" />
               New Division
             </div>
 
             <h2 className="font-barlow text-4xl md:text-6xl font-bold text-white uppercase tracking-tight leading-none mb-4">
               Introducing<br />
-              <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>Ground Control</span>
+              <span className="text-orange-500">Ground</span> <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>Control</span>
             </h2>
 
             <p className="text-gray-300 text-lg leading-relaxed max-w-xl mb-6">
@@ -54,8 +55,8 @@ export default function GroundControlCTA() {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-3 mb-10">
-              {['Military Grade', 'Aerospace Ready', 'Long Beach, CA', 'Security Cleared', 'Government Contracts'].map(tag => (
-                <span key={tag} className="text-xs font-semibold uppercase tracking-wider text-teal-300 border border-teal-500/30 bg-teal-500/5 px-3 py-1.5 rounded">
+              {['Military Grade', 'Aerospace Ready', 'Long Beach, CA', 'Security Cleared', 'Government Contracts'].map((tag, i) => (
+                <span key={tag} className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded border ${i % 2 === 0 ? 'text-orange-300 border-orange-500/30 bg-orange-500/5' : 'text-teal-300 border-teal-500/30 bg-teal-500/5'}`}>
                   {tag}
                 </span>
               ))}
@@ -91,16 +92,15 @@ export default function GroundControlCTA() {
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
 
-              {/* GC Logo placeholder */}
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-12 border-2 border-teal-500 rounded-lg flex items-center justify-center bg-teal-500/10">
-                  <Shield className="w-6 h-6 text-teal-400" />
-                </div>
-                <div>
-                  <p className="text-white font-barlow font-bold text-xl tracking-wider uppercase">Ground Control</p>
-                  <p className="text-teal-400 text-xs font-semibold uppercase tracking-widest">by All Access Services</p>
-                </div>
+              {/* GC Logo */}
+              <div className="flex justify-center mb-6">
+                <img
+                  src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/de6c833c2_Bold_GroundControl_logodesign.png"
+                  alt="Ground Control"
+                  className="h-36 w-auto object-contain drop-shadow-lg"
+                />
               </div>
+              <p className="text-center text-teal-400 text-xs font-semibold uppercase tracking-widest mb-6">by All Access Services</p>
 
               <div className="space-y-4">
                 {[

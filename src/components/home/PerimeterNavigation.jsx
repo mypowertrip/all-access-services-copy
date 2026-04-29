@@ -57,6 +57,7 @@ export default function PerimeterNavigation() {
               key={link.href}
               to={link.href}
               className="group relative text-zinc-500 hover:text-orange-500 transition-colors text-[10px] font-bold uppercase tracking-wider"
+              style={{ transform: 'rotate(-90deg)', whiteSpace: 'nowrap' }}
               title={link.label}
             >
               {link.label}
@@ -80,6 +81,7 @@ export default function PerimeterNavigation() {
               key={link.href}
               to={link.href}
               className="group relative text-zinc-500 hover:text-orange-500 transition-colors text-[10px] font-bold uppercase tracking-wider"
+              style={{ transform: 'rotate(90deg)', whiteSpace: 'nowrap' }}
               title={link.label}
             >
               {link.label}
@@ -98,6 +100,7 @@ export default function PerimeterNavigation() {
         <a
           href={`tel:${SITE_CONFIG.phoneTel}`}
           className="absolute bottom-8 text-zinc-500 hover:text-orange-500 transition-colors text-[8px] font-bold uppercase tracking-wider"
+          style={{ transform: 'rotate(90deg)', whiteSpace: 'nowrap' }}
           title="Call us"
         >
           {SITE_CONFIG.phone}

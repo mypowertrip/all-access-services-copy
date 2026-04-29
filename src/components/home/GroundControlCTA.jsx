@@ -25,7 +25,7 @@ export default function GroundControlCTA() {
       </svg>
 
       <div className="relative max-w-7xl mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 
           {/* Left: Badge + Text */}
           <motion.div
@@ -40,7 +40,7 @@ export default function GroundControlCTA() {
               New Division
             </div>
 
-            <h2 className="font-barlow text-4xl md:text-6xl font-bold text-white uppercase tracking-tight leading-none mb-4">
+            <h2 className="font-barlow text-3xl md:text-6xl font-bold text-white uppercase tracking-tight leading-none mb-4">
               Introducing<br />
               <span className="text-orange-500">Ground</span> <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>Control</span>
             </h2>
@@ -62,7 +62,7 @@ export default function GroundControlCTA() {
               )}
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <Link
                 to="/reserve" className="bg-[hsl(var(--ring))] text-black px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg inline-flex items-center gap-3 hover:bg-teal-400 transition-all">CONTACT GROUND CONTROL
 

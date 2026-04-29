@@ -48,10 +48,10 @@ export default function HeroSection() {
       </svg>
 
       {/* Content */}
-      <div className="mt-32 pt-40 pb-20 px-4 relative z-10 w-full md:pt-52">
-        <div className="ml-16 max-w-3xl">
+      <div className="mt-32 pt-32 pb-20 px-6 relative z-10 w-full md:pt-52">
+        <div className="max-w-3xl md:ml-16">
           {/* Headline — sequenced animation */}
-          <h1 className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6 overflow-hidden">
+          <h1 className="font-barlow font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl leading-none tracking-wide mb-6 overflow-hidden">
 
             {/* Line 1: REACH slides in from left */}
             <div className="overflow-hidden">

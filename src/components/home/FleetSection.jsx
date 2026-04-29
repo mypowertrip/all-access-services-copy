@@ -78,7 +78,7 @@ export default function FleetSection() {
         <HexOutline className="absolute right-24 top-0 w-28 text-teal-400/10 pointer-events-none hidden lg:block" />
         <HexOutline className="absolute -left-12 bottom-0 w-36 text-zinc-600/20 pointer-events-none hidden lg:block" />
 
-        <div className="relative max-w-7xl mx-auto px-4 py-28 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 py-16 md:py-28 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             {/* Teal eyebrow line — matches JLG style */}
             <motion.div
@@ -97,7 +97,7 @@ export default function FleetSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-barlow font-black text-6xl md:text-7xl lg:text-8xl leading-none mb-6">
+              className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none mb-6">
               
               <span className="text-white">SMART</span>
               <br />
@@ -181,8 +181,8 @@ export default function FleetSection() {
                 { val: '<2hr', label: 'Avg Response Time', sub: 'Emergency service call-out' },
                 { val: '3000+', label: 'Connected Units', sub: 'Across our SoCal fleet' }].
                 map((stat) =>
-                <div key={stat.label} className="p-6 group hover:bg-teal-500/5 transition-colors">
-                    <div className="text-[hsl(var(--primary))] mb-1 text-4xl font-black">{stat.val}</div>
+                <div key={stat.label} className="p-4 md:p-6 group hover:bg-teal-500/5 transition-colors">
+                    <div className="text-[hsl(var(--primary))] mb-1 text-2xl md:text-4xl font-black">{stat.val}</div>
                     <div className="text-white font-semibold text-sm mb-0.5">{stat.label}</div>
                     <div className="text-gray-500 text-xs">{stat.sub}</div>
                   </div>

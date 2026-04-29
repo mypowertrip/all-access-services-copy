@@ -90,7 +90,7 @@ export default function ServicesSection() {
             <Link
               key={s.title}
               to={s.href}
-              className="group relative overflow-hidden aspect-[4/5] cursor-pointer block"
+              className="group relative overflow-hidden aspect-[3/2] md:aspect-[4/5] cursor-pointer block"
             >
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -123,15 +123,15 @@ export default function ServicesSection() {
               <div className={`absolute top-0 left-0 right-0 h-1 ${s.accent === 'teal' ? 'bg-teal-400' : 'bg-orange-500'} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
 
               {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-start p-8">
+              <div className="absolute inset-0 flex flex-col justify-start p-5 md:p-8">
                 <div className={`text-xs font-bold uppercase tracking-widest mb-3 ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'}`}>
                   0{i + 1}
                 </div>
-                <h3 className="font-barlow text-3xl font-semibold text-white mb-3 tracking-tight">{s.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transform -translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                <h3 className="font-barlow text-2xl md:text-3xl font-semibold text-white mb-3 tracking-tight">{s.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 md:opacity-0 group-hover:opacity-100 transform md:-translate-y-2 group-hover:translate-y-0 transition-all duration-500">
                   {s.description}
                 </p>
-                <span className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'} opacity-0 group-hover:opacity-100 transform -translate-y-2 group-hover:translate-y-0 transition-all duration-500`}>
+                <span className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider ${s.accent === 'teal' ? 'text-teal-400' : 'text-orange-400'} md:opacity-0 group-hover:opacity-100 transform md:-translate-y-2 group-hover:translate-y-0 transition-all duration-500`}>
                   {s.cta}
                   <ArrowRight className="w-4 h-4" />
                 </span>

@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     try {
       setIsLoadingPublicSettings(true);
       setAuthError(null);
-      
+
       // First, check app public settings (with token if available)
       // This will tell us if auth is required, user not registered, etc.
       const appClient = createAxiosClient({
@@ -33,11 +33,11 @@ export const AuthProvider = ({ children }) => {
         token: appParams.token, // Include token if available
         interceptResponses: true
       });
-      
+
       try {
         const publicSettings = await appClient.get(`/prod/public-settings/by-id/${appParams.appId}`);
         setAppPublicSettings(publicSettings);
-        
+
         // If we got the app public settings successfully, check if user is authenticated
         if (appParams.token) {
           await checkUserAuth();
@@ -48,9 +48,19 @@ export const AuthProvider = ({ children }) => {
         }
         setIsLoadingPublicSettings(false);
       } catch (appError) {
-        console.error('App state check failed:', appError);
-        
-        // Handle app-level errors
+        console.warn('App state check failed (continuing with degraded mode):', appError?.message);
+
+        // If app is not found, continue with degraded mode instead of blocking the entire app
+        if (appError?.status === 404 && appError?.message?.includes('not found')) {
+          console.warn('App not found in Base44 backend. Continuing with local-only mode.');
+          setAppPublicSettings(null);
+          setIsLoadingPublicSettings(false);
+          setIsLoadingAuth(false);
+          setAuthChecked(true);
+          return;
+        }
+
+        // Handle other app-level errors
         if (appError.status === 403 && appError.data?.extra_data?.reason) {
           const reason = appError.data.extra_data.reason;
           if (reason === 'auth_required') {
@@ -69,23 +79,22 @@ export const AuthProvider = ({ children }) => {
               message: appError.message
             });
           }
-        } else {
+        } else if (appError?.status !== 404) {
+          // Only set error for non-404 errors
           setAuthError({
             type: 'unknown',
-            message: appError.message || 'Failed to load app'
+            message: appError?.message || 'Failed to load app'
           });
         }
         setIsLoadingPublicSettings(false);
         setIsLoadingAuth(false);
+        setAuthChecked(true);
       }
     } catch (error) {
-      console.error('Unexpected error:', error);
-      setAuthError({
-        type: 'unknown',
-        message: error.message || 'An unexpected error occurred'
-      });
+      console.warn('Unexpected error in checkAppState (continuing):', error?.message);
       setIsLoadingPublicSettings(false);
       setIsLoadingAuth(false);
+      setAuthChecked(true);
     }
   };
 
@@ -99,13 +108,18 @@ export const AuthProvider = ({ children }) => {
       setIsLoadingAuth(false);
       setAuthChecked(true);
     } catch (error) {
-      console.error('User auth check failed:', error);
+      console.warn('User auth check failed (continuing with degraded mode):', error?.message);
       setIsLoadingAuth(false);
       setIsAuthenticated(false);
       setAuthChecked(true);
-      
-      // If user auth fails, it might be an expired token
-      if (error.status === 401 || error.status === 403) {
+
+      // If app not found or server error, don't set auth error - just continue in degraded mode
+      if (error?.status === 404 || error?.status >= 500) {
+        return;
+      }
+
+      // If user auth fails with auth-related errors
+      if (error?.status === 401 || error?.status === 403) {
         setAuthError({
           type: 'auth_required',
           message: 'Authentication required'

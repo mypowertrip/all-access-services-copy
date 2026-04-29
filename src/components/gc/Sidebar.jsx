@@ -57,7 +57,7 @@ export default function Sidebar({ open, onClose }) {
       <div className="h-16 flex items-center justify-between px-3 border-b border-border">
         <Link to="/" onClick={onClose}>
           <img
-            src="https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/43e14deaf_Gemini_Generated_Image_s7mhb8s7mhb8s7mh1.png"
+            src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/231c7b7f8_GroundControl.png"
             alt="All Access Services"
             className="h-12 w-auto object-contain" />
           

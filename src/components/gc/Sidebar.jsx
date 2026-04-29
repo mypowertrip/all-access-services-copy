@@ -48,18 +48,19 @@ export default function Sidebar({ open, onClose }) {
 
   return (
     <aside className={`
-      w-60 h-screen bg-card border-r border-border flex flex-col z-40
-      fixed left-0 top-0 transition-transform duration-300
+      w-60 bg-card border-r border-border flex flex-col z-30
+      fixed left-0 transition-transform duration-300
+      top-[136px] bottom-0
       ${open ? 'translate-x-0' : '-translate-x-full'}
       lg:translate-x-0
     `}>
       {/* Brand */}
-      <div className="pt-36 flex items-center justify-between px-3 pb-3 border-b border-border">
+      <div className="flex items-center justify-between px-3 py-3 border-b border-border">
         <Link to="/" onClick={onClose}>
           <img
             src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/231c7b7f8_GroundControl.png"
             alt="All Access Services"
-            className="h-36 w-auto object-contain" />
+            className="h-28 w-auto object-contain" />
           
         </Link>
         <button onClick={onClose} className="lg:hidden p-1.5 rounded-md hover:bg-accent transition-colors text-muted-foreground">

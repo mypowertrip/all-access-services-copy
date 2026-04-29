@@ -41,8 +41,6 @@ export default function HeroSection() {
 
 
 
-
-
       // No-op — useTransform values are still applied but range is small enough
       // that a single pass is fine.
     }}, []);return <section ref={ref} className="relative min-h-[88vh] md:min-h-screen flex items-end overflow-hidden">
@@ -71,7 +69,9 @@ export default function HeroSection() {
       </svg>
 
       {/* Live status chip — top of content area */}
-      <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.5 }} className="absolute top-8 left-6 md:left-16 lg:top-10 z-10 flex items-center gap-2.5 px-3 py-1.5 bg-black/80 border border-orange-500/40 backdrop-blur-sm hidden">
+      <motion.div initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3, duration: 0.5 }} className="absolute top-8 left-6 md:left-16 lg:top-10 z-10 flex items-center gap-2.5 px-3 py-1.5 bg-black/80 border border-orange-500/40 backdrop-blur-sm hidden">
 
         
         <div className="w-1.5 h-1.5 bg-orange-500 live-dot" />
@@ -104,7 +104,7 @@ export default function HeroSection() {
           {/* Headline */}
           <h1 className="font-barlow font-black tracking-tight leading-[0.85] mb-8">
             <div className="overflow-hidden">
-              <motion.span className="text-white pt-2 pb-1 text-xl block"
+              <motion.span className="text-white text-xl block"
 
             style={{ fontSize: 'clamp(3rem, 12vw, 11rem)' }}
             initial={{ y: '100%' }}
@@ -115,7 +115,7 @@ export default function HeroSection() {
               </motion.span>
             </div>
             <div className="overflow-hidden">
-              <motion.span className="pt-3 pb-3 text-xl block"
+              <motion.span className="pb-2 text-xl block"
 
             style={{
               fontSize: 'clamp(3rem, 12vw, 11rem)',
@@ -132,16 +132,16 @@ export default function HeroSection() {
           </h1>
 
           {/* Subhead */}
-          <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }} className="text-zinc-300 mb-10 text-lg uppercase leading-relaxed md:text-xl max-w-xl hidden">
           
-            
-            Southern California's premier source for{' '}
-            <span className="text-white font-semibold">scissor lifts, boom lifts, telehandlers</span>{' '}
-            &amp; service. JLG-authorized — any height, any job, any time.
-          </motion.p>
+
+
+
+
+
+
+
+
+        
 
           {/* CTAs */}
           <motion.div

@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-barlow text-4xl md:text-5xl font-black text-white tracking-tight"
+            className="font-barlow text-4xl md:text-5xl font-bold text-white tracking-tight"
           >
             TRUSTED BY <span className="text-orange-500">PROFESSIONALS</span>
           </motion.h2>

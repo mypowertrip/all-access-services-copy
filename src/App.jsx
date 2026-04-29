@@ -8,9 +8,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
 import { lazy, Suspense } from 'react';
-import Navbar from './components/home/Navbar';
-import NavTabBar from './components/home/NavTabBar';
-import SafetyTicker from './components/home/SafetyTicker';
+import PerimeterNavigation from './components/home/PerimeterNavigation';
 import Footer from './components/home/Footer';
 import GCLayout from './components/gc/GCLayout';
 import { QuoteCartProvider } from './components/rentals/QuoteCartContext';
@@ -48,10 +46,8 @@ const AuthenticatedApp = () => {
   return (
     <QuoteCartProvider>
       <div className="min-h-screen bg-black flex flex-col">
-        <Navbar />
-        <SafetyTicker />
-        <NavTabBar />
-        <main className="flex-1" style={{ paddingTop: 'var(--site-nav-height)' }}>
+        <PerimeterNavigation />
+        <main className="flex-1">
           <Suspense fallback={<Spinner />}>
             <Routes>
               {/* Public site */}

@@ -1,151 +1,180 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Gauge, Ruler, Weight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Ruler, Weight, Layers } from 'lucide-react';
 
-const BOOM_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/d691b3fe6_boom-lift.png";
-const SCISSOR_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/45bbda75b_scissor-lift.png";
-const TELEHANDLER_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8f9a3cf95_telehandler.png";
-const LOWLEVEL_IMG = "https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/ae9c0d38b_low-level-access.png";
-const FORKLIFT_IMG = "https://media.base44.com/images/public/69f03230e61a9516ac171fbd/d755986ac_Untitled-2.png";
+const BOOM_IMG = 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/d691b3fe6_boom-lift.png';
+const SCISSOR_IMG = 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/45bbda75b_scissor-lift.png';
+const TELEHANDLER_IMG = 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/8f9a3cf95_telehandler.png';
+const LOWLEVEL_IMG = 'https://media.base44.com/images/public/69e03c311db29c3c17ba7e75/ae9c0d38b_low-level-access.png';
+const FORKLIFT_IMG = 'https://media.base44.com/images/public/69f03230e61a9516ac171fbd/d755986ac_Untitled-2.png';
 
 const equipment = [
   {
+    n: '01',
     name: 'Straight Boom Lifts',
     subtitle: 'Extended Reach',
     slug: 'straight-boom-lifts',
     img: BOOM_IMG,
-    specs: { height: '40-185 ft', capacity: '500-1000 lbs', types: '15+ models' },
+    specs: { height: '40 – 185 ft', capacity: '500 – 1,000 lb', count: '15+' },
   },
   {
+    n: '02',
     name: 'Scissor Lifts',
     subtitle: 'Vertical Access',
     slug: 'scissor-lifts',
     img: SCISSOR_IMG,
-    specs: { height: '20-60 ft', capacity: '500-1500 lbs', types: '10+ models' },
+    specs: { height: '20 – 60 ft', capacity: '500 – 1,500 lb', count: '10+' },
   },
   {
+    n: '03',
     name: 'Telehandlers',
     subtitle: 'Material Handling',
     slug: 'telehandlers',
     img: TELEHANDLER_IMG,
-    specs: { height: '20-55 ft', capacity: '5000-12000 lbs', types: '8+ models' },
+    specs: { height: '20 – 55 ft', capacity: '5K – 12K lb', count: '8+' },
   },
   {
+    n: '04',
     name: 'Articulating Booms',
     subtitle: 'Maximum Maneuverability',
     slug: 'articulating-boom-lifts',
     img: LOWLEVEL_IMG,
-    specs: { height: '30-100 ft', capacity: '500-660 lbs', types: '15+ models' },
+    specs: { height: '30 – 100 ft', capacity: '500 – 660 lb', count: '15+' },
   },
   {
+    n: '05',
     name: 'Forklifts',
     subtitle: 'Load & Carry',
     slug: 'forklifts',
     img: FORKLIFT_IMG,
-    specs: { height: 'Up to 20 ft', capacity: '3000-15000 lbs', types: '10+ models' },
+    specs: { height: 'Up to 20 ft', capacity: '3K – 15K lb', count: '10+' },
   },
 ];
 
 export default function EquipmentTypesSection() {
   return (
-    <section className="bg-[#111111] py-24 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 grid-bg opacity-10" />
-      
-      {/* ClearSky hex decorations */}
-      <svg className="absolute right-0 top-0 w-96 opacity-5 text-teal-400 pointer-events-none" viewBox="0 0 200 200" fill="none">
-        <polygon points="100,10 165,47.5 165,122.5 100,160 35,122.5 35,47.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-      </svg>
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
+    <section id="equipment" className="relative bg-zinc-950 py-20 md:py-32 overflow-hidden">
+      {/* atmosphere */}
+      <div className="absolute inset-0 grid-bg opacity-[0.05]" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[36rem] h-[36rem] bg-orange-500/[0.03] rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-4 mb-4"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 md:mb-16"
+        >
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-px bg-orange-500" />
+              <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-orange-400">
+                Browse the Fleet
+              </span>
+            </div>
+            <h2 className="font-barlow text-4xl md:text-6xl font-black text-white tracking-tight uppercase leading-[0.95]">
+              Find Your<br />
+              <span style={{ WebkitTextStroke: '2px #f97316', color: 'rgba(249,115,22,0.04)' }}>
+                Perfect Machine.
+              </span>
+            </h2>
+          </div>
+          <Link
+            to="/rentals"
+            className="hidden md:inline-flex items-center gap-2 text-sm font-bold text-zinc-400 hover:text-orange-400 uppercase tracking-[0.2em] transition-colors group"
           >
-            <div className="w-12 h-0.5 bg-orange-500" />
-            <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">Shop by Type</span>
-            <div className="w-12 h-0.5 bg-orange-500" />
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-barlow text-4xl md:text-5xl font-bold text-white tracking-tight"
-          >
-            FIND YOUR PERFECT <span className="text-orange-500" style={{ WebkitTextStroke: '2px #f97316', color: 'transparent' }}>MACHINE</span>
-          </motion.h2>
-        </div>
+            View Full Catalog
+            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </motion.div>
 
-        {/* Equipment grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {equipment.map((eq, i) => (
-            <Link
-              key={eq.name}
-              to={`/rentals/category/${eq.slug}`}
-              className="group relative bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/50 overflow-hidden transition-all duration-500 cursor-pointer block"
+            <motion.div
+              key={eq.slug}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Image */}
-              <div className="aspect-[4/3] relative overflow-hidden bg-zinc-800">
-                <img src={eq.img} alt={eq.name} className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 via-transparent to-transparent" />
-                
-                {/* Number badge */}
-                <div className="absolute top-4 left-4 w-10 h-10 border border-orange-500/50 flex items-center justify-center font-barlow text-orange-500 font-bold">
-                  0{i + 1}
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-5">
-                <div className="text-teal-400 text-xs font-semibold uppercase tracking-wider mb-1">{eq.subtitle}</div>
-                <h3 className="font-barlow text-xl font-bold text-white mb-4">{eq.name}</h3>
-
-                {/* Specs */}
-                <div className="space-y-2 mb-5">
-                  <div className="flex items-center gap-2 text-xs text-gray-400">
-                    <Ruler className="w-3.5 h-3.5 text-orange-500" />
-                    <span>Height: {eq.specs.height}</span>
+              <Link
+                to={`/rentals/category/${eq.slug}`}
+                className="group relative flex flex-col h-full bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/60 hover:-translate-y-1 transition-all duration-500"
+              >
+                {/* Image area */}
+                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-b from-zinc-800/40 to-zinc-900">
+                  <img
+                    src={eq.img}
+                    alt={eq.name}
+                    className="absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Hex number */}
+                  <div className="absolute top-3 left-3 w-9 h-9 flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-orange-500/50 group-hover:text-orange-500 transition-colors">
+                      <polygon points="50,4 92,28 92,72 50,96 8,72 8,28" stroke="currentColor" strokeWidth="3" fill="rgba(0,0,0,0.6)" />
+                    </svg>
+                    <span className="relative font-numeric text-[10px] font-bold text-orange-400">{eq.n}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-xs text-gray-400">
-                    <Weight className="w-3.5 h-3.5 text-orange-500" />
-                    <span>Capacity: {eq.specs.capacity}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-gray-400">
-                    <Gauge className="w-3.5 h-3.5 text-orange-500" />
-                    <span>{eq.specs.types}</span>
+                  {/* Count chip */}
+                  <div className="absolute top-3 right-3 px-2 py-0.5 bg-black/70 border border-zinc-700 text-[9px] font-numeric text-zinc-400 uppercase tracking-wider">
+                    {eq.specs.count} models
                   </div>
                 </div>
 
-                <span className="inline-flex items-center gap-2 text-orange-400 text-sm font-bold uppercase tracking-wider group-hover:text-orange-300 transition-colors">
-                  View All
-                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                </span>
-              </div>
+                {/* Body */}
+                <div className="p-5 flex-1 flex flex-col">
+                  <div className="text-[10px] text-teal-400 font-bold uppercase tracking-[0.25em] mb-1">
+                    {eq.subtitle}
+                  </div>
+                  <h3 className="font-barlow text-xl font-bold text-white uppercase tracking-tight mb-4">
+                    {eq.name}
+                  </h3>
 
-              {/* Bottom line */}
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </Link>
+                  {/* Specs in mono */}
+                  <div className="space-y-2 mb-5 text-xs">
+                    <div className="flex items-center justify-between text-zinc-400">
+                      <span className="flex items-center gap-1.5">
+                        <Ruler className="w-3 h-3 text-orange-500" />
+                        Height
+                      </span>
+                      <span className="font-numeric text-zinc-200">{eq.specs.height}</span>
+                    </div>
+                    <div className="flex items-center justify-between text-zinc-400">
+                      <span className="flex items-center gap-1.5">
+                        <Weight className="w-3 h-3 text-orange-500" />
+                        Capacity
+                      </span>
+                      <span className="font-numeric text-zinc-200">{eq.specs.capacity}</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-auto pt-3 border-t border-zinc-800 flex items-center justify-between">
+                    <span className="text-orange-400 group-hover:text-orange-300 text-[10px] font-bold uppercase tracking-[0.25em] transition-colors">
+                      View All
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-orange-400 transition-all group-hover:translate-x-0.5" />
+                  </div>
+                </div>
+
+                {/* Bottom accent */}
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              </Link>
+            </motion.div>
           ))}
         </div>
 
-        {/* View all link */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <Link to="/rentals" className="inline-flex items-center gap-3 border border-zinc-700 hover:border-orange-500 text-gray-300 hover:text-orange-400 font-semibold text-sm uppercase tracking-wider px-8 py-4 transition-all">
-            View All Equipment Types
-            <ArrowRight className="w-4 h-4" />
+        {/* Mobile catalog link */}
+        <div className="mt-10 text-center md:hidden">
+          <Link
+            to="/rentals"
+            className="inline-flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-orange-400 uppercase tracking-[0.2em] transition-colors"
+          >
+            View Full Catalog
+            <ArrowUpRight className="w-4 h-4" />
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

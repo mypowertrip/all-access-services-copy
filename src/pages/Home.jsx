@@ -7,6 +7,7 @@ import FleetSection from '../components/home/FleetSection';
 import LocationsSection from '../components/home/LocationsSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import CTASection from '../components/home/CTASection';
+import GroundControlCTA from '../components/home/GroundControlCTA';
 import FloatingCTA from '../components/home/FloatingCTA';
 import AppCTABadge from '../components/home/AppCTABadge';
 
@@ -16,6 +17,7 @@ export default function Home() {
       <NavTabBar />
       <HeroSection />
       <ServicesSection />
+      <GroundControlCTA />
       <EquipmentTypesSection />
       <FeaturedInventory />
       <FleetSection />

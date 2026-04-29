@@ -147,8 +147,8 @@ export default function Reserve() {
 
       <div className="max-w-6xl mx-auto px-6 pt-28 pb-16">
         {/* Back */}
-        <Link to="/equipment" className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 mb-8 transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back to Equipment
+        <Link to="/rentals" className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-900 mb-8 transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Back to Rentals
         </Link>
 
         {/* Steps */}
@@ -178,10 +178,10 @@ export default function Reserve() {
                 <h2 className="text-xl font-black text-slate-900">Your Quote</h2>
 
                 {cartItems.length === 0 ? (
-                  <div className="py-16 text-center rounded-2xl bg-white border border-slate-100">
-                    <p className="text-slate-500 text-sm mb-4">Your quote is empty.</p>
-                    <Link to="/equipment" className="text-sm font-bold text-orange hover:underline">Browse Equipment →</Link>
-                  </div>
+                   <div className="py-16 text-center rounded-2xl bg-white border border-slate-100">
+                     <p className="text-slate-500 text-sm mb-4">Your quote is empty.</p>
+                     <Link to="/rentals" className="text-sm font-bold text-orange hover:underline">Browse Rentals →</Link>
+                   </div>
                 ) : (
                   cartItems.map(item => (
                     <div key={item.id} className="flex gap-4 p-4 bg-white rounded-2xl border border-slate-100 shadow-sm">

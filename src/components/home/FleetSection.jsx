@@ -206,7 +206,7 @@ export default function FleetSection() {
               <div className="w-6 h-0.5 bg-teal-400" />
               <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Comprehensive Mobile App</span>
             </div>
-            <h3 className="font-barlow font-black text-4xl md:text-5xl text-white tracking-tight leading-none mb-4">
+            <h3 className="font-barlow text-4xl md:text-5xl text-white tracking-tight leading-none mb-4 font-semibold">
               PRODUCTIVITY AT<br />
               <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>THUMB'S REACH</span>
             </h3>

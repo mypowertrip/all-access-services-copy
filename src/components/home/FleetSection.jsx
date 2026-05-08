@@ -204,7 +204,7 @@ export default function FleetSection() {
             
             <div className="flex items-center gap-3 mb-3">
               <div className="w-6 h-0.5 bg-teal-400" />
-              <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Comprehensive Mobile App</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[hsl(var(--ring))]">COMPREHENSIVE MOBILE APP</span>
             </div>
             <h3 className="font-barlow text-4xl md:text-5xl text-white tracking-tight leading-none mb-4 font-bold">
               PRODUCTIVITY AT<br />

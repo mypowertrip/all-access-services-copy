@@ -20,8 +20,8 @@ export default function LocationsSection() {
           
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-orange-500" />
-            <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-orange-400">
-              Where to Find Us
+            <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-cyan-400">WHERE TO FIND US
+
             </span>
             <div className="w-8 h-px bg-orange-500" />
           </div>

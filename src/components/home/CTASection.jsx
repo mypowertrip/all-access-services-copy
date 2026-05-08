@@ -37,8 +37,8 @@ export default function CTASection() {
           className="inline-flex items-center gap-3 mb-6">
           
           <div className="w-10 h-px bg-orange-500" />
-          <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-orange-400">
-            Ready When You Are
+          <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-sky-400">READY WHEN YOU ARE
+
           </span>
           <div className="w-10 h-px bg-orange-500" />
         </motion.div>

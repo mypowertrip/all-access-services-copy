@@ -99,7 +99,7 @@ export default function FleetSection() {
               transition={{ delay: 0.1 }}
               className="font-barlow font-black text-5xl md:text-7xl lg:text-8xl leading-none mb-6">
               
-              <span className="text-white">SMART</span>
+              <span className="text-white font-extrabold">SMART</span>
               <br />
               <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>CAPABILITIES</span>
             </motion.h2>

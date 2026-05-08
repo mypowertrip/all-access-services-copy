@@ -95,7 +95,7 @@ const Card = ({ s, className = '' }) => {
         }>
           {s.blurb}
         </p>
-        <span className="inline-flex items-center gap-2 text-orange-400 group-hover:text-orange-300 text-xs font-bold uppercase tracking-[0.25em] transition-colors">
+        <span className="inline-flex items-center gap-2 group-hover:text-orange-300 text-xs font-bold uppercase tracking-[0.25em] transition-colors text-cyan-400">
           {s.cta}
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
         </span>
@@ -136,9 +136,9 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Bento grid:
-                 lg+:  [   01 lg (col-span-2 row-span-2)   ][ 02 sm ]
-                                                          [ 03 sm ]
-                       [             04 wide (col-span-3)         ] */}
+                  lg+:  [   01 lg (col-span-2 row-span-2)   ][ 02 sm ]
+                                                           [ 03 sm ]
+                        [             04 wide (col-span-3)         ] */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[16rem] md:auto-rows-[14rem]">
           {services.map((s, i) => {
             const span =

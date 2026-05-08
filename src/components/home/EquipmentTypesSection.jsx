@@ -9,47 +9,47 @@ const LOWLEVEL_IMG = 'https://media.base44.com/images/public/69e03c311db29c3c17b
 const FORKLIFT_IMG = 'https://media.base44.com/images/public/69f03230e61a9516ac171fbd/d755986ac_Untitled-2.png';
 
 const equipment = [
-  {
-    n: '01',
-    name: 'Straight Boom Lifts',
-    subtitle: 'Extended Reach',
-    slug: 'straight-boom-lifts',
-    img: BOOM_IMG,
-    specs: { height: '40 – 185 ft', capacity: '500 – 1,000 lb', count: '15+' },
-  },
-  {
-    n: '02',
-    name: 'Scissor Lifts',
-    subtitle: 'Vertical Access',
-    slug: 'scissor-lifts',
-    img: SCISSOR_IMG,
-    specs: { height: '20 – 60 ft', capacity: '500 – 1,500 lb', count: '10+' },
-  },
-  {
-    n: '03',
-    name: 'Telehandlers',
-    subtitle: 'Material Handling',
-    slug: 'telehandlers',
-    img: TELEHANDLER_IMG,
-    specs: { height: '20 – 55 ft', capacity: '5K – 12K lb', count: '8+' },
-  },
-  {
-    n: '04',
-    name: 'Articulating Booms',
-    subtitle: 'Maximum Maneuverability',
-    slug: 'articulating-boom-lifts',
-    img: LOWLEVEL_IMG,
-    specs: { height: '30 – 100 ft', capacity: '500 – 660 lb', count: '15+' },
-  },
-  {
-    n: '05',
-    name: 'Forklifts',
-    subtitle: 'Load & Carry',
-    slug: 'forklifts',
-    img: FORKLIFT_IMG,
-    specs: { height: 'Up to 20 ft', capacity: '3K – 15K lb', count: '10+' },
-  },
-];
+{
+  n: '01',
+  name: 'Straight Boom Lifts',
+  subtitle: 'Extended Reach',
+  slug: 'straight-boom-lifts',
+  img: BOOM_IMG,
+  specs: { height: '40 – 185 ft', capacity: '500 – 1,000 lb', count: '15+' }
+},
+{
+  n: '02',
+  name: 'Scissor Lifts',
+  subtitle: 'Vertical Access',
+  slug: 'scissor-lifts',
+  img: SCISSOR_IMG,
+  specs: { height: '20 – 60 ft', capacity: '500 – 1,500 lb', count: '10+' }
+},
+{
+  n: '03',
+  name: 'Telehandlers',
+  subtitle: 'Material Handling',
+  slug: 'telehandlers',
+  img: TELEHANDLER_IMG,
+  specs: { height: '20 – 55 ft', capacity: '5K – 12K lb', count: '8+' }
+},
+{
+  n: '04',
+  name: 'Articulating Booms',
+  subtitle: 'Maximum Maneuverability',
+  slug: 'articulating-boom-lifts',
+  img: LOWLEVEL_IMG,
+  specs: { height: '30 – 100 ft', capacity: '500 – 660 lb', count: '15+' }
+},
+{
+  n: '05',
+  name: 'Forklifts',
+  subtitle: 'Load & Carry',
+  slug: 'forklifts',
+  img: FORKLIFT_IMG,
+  specs: { height: 'Up to 20 ft', capacity: '3K – 15K lb', count: '10+' }
+}];
+
 
 export default function EquipmentTypesSection() {
   return (
@@ -64,8 +64,8 @@ export default function EquipmentTypesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 md:mb-16"
-        >
+          className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 md:mb-16">
+          
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-px bg-orange-500" />
@@ -73,7 +73,7 @@ export default function EquipmentTypesSection() {
                 Browse the Fleet
               </span>
             </div>
-            <h2 className="font-barlow text-4xl md:text-6xl font-black text-white tracking-tight uppercase leading-[0.95]">
+            <h2 className="font-barlow text-4xl md:text-6xl text-white tracking-tight uppercase leading-[0.95] font-bold">
               Find Your<br />
               <span style={{ WebkitTextStroke: '2px #f97316', color: 'rgba(249,115,22,0.04)' }}>
                 Perfect Machine.
@@ -82,8 +82,8 @@ export default function EquipmentTypesSection() {
           </div>
           <Link
             to="/rentals"
-            className="hidden md:inline-flex items-center gap-2 text-sm font-bold text-zinc-400 hover:text-orange-400 uppercase tracking-[0.2em] transition-colors group"
-          >
+            className="hidden md:inline-flex items-center gap-2 text-sm font-bold text-zinc-400 hover:text-orange-400 uppercase tracking-[0.2em] transition-colors group">
+            
             View Full Catalog
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
@@ -91,25 +91,25 @@ export default function EquipmentTypesSection() {
 
         {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-          {equipment.map((eq, i) => (
-            <motion.div
-              key={eq.slug}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
+          {equipment.map((eq, i) =>
+          <motion.div
+            key={eq.slug}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
+            
               <Link
-                to={`/rentals/category/${eq.slug}`}
-                className="group relative flex flex-col h-full bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/60 hover:-translate-y-1 transition-all duration-500"
-              >
+              to={`/rentals/category/${eq.slug}`}
+              className="group relative flex flex-col h-full bg-zinc-900/50 border border-zinc-800 hover:border-orange-500/60 hover:-translate-y-1 transition-all duration-500">
+              
                 {/* Image area */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-b from-zinc-800/40 to-zinc-900">
                   <img
-                    src={eq.img}
-                    alt={eq.name}
-                    className="absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-110"
-                  />
+                  src={eq.img}
+                  alt={eq.name}
+                  className="absolute inset-0 w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-110" />
+                
                   {/* Hex number */}
                   <div className="absolute top-3 left-3 w-9 h-9 flex items-center justify-center">
                     <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full text-orange-500/50 group-hover:text-orange-500 transition-colors">
@@ -162,20 +162,20 @@ export default function EquipmentTypesSection() {
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </Link>
             </motion.div>
-          ))}
+          )}
         </div>
 
         {/* Mobile catalog link */}
         <div className="mt-10 text-center md:hidden">
           <Link
             to="/rentals"
-            className="inline-flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-orange-400 uppercase tracking-[0.2em] transition-colors"
-          >
+            className="inline-flex items-center gap-2 text-xs font-bold text-zinc-400 hover:text-orange-400 uppercase tracking-[0.2em] transition-colors">
+            
             View Full Catalog
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }

@@ -69,8 +69,8 @@ export default function EquipmentTypesSection() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-px bg-orange-500" />
-              <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-orange-400">
-                Browse the Fleet
+              <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-teal-400">BROWSE THE FLEET
+
               </span>
             </div>
             <h2 className="font-barlow text-4xl md:text-6xl text-white tracking-tight uppercase leading-[0.95] font-bold">
@@ -82,10 +82,10 @@ export default function EquipmentTypesSection() {
           </div>
           <Link
             to="/rentals"
-            className="hidden md:inline-flex items-center gap-2 text-sm font-bold text-zinc-400 hover:text-orange-400 uppercase tracking-[0.2em] transition-colors group">
-            
-            View Full Catalog
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            className="hidden md:inline-flex items-center gap-2 text-sm font-bold hover:text-orange-400 uppercase tracking-[0.2em] transition-colors group text-sky-400">VIEW FULL CATALOG
+
+
+
           </Link>
         </motion.div>
 

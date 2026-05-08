@@ -35,8 +35,8 @@ export default function FeaturedInventory() {
             
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-px bg-orange-500" />
-              <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-orange-400">
-                Featured Inventory
+              <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-cyan-400">FEATURED INVENTORY
+
               </span>
             </div>
             <h2 className="font-barlow text-4xl md:text-6xl text-white tracking-tight uppercase leading-[0.95] font-bold">

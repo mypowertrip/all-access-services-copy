@@ -119,10 +119,10 @@ export default function ServicesSection() {
           className="flex items-end justify-between gap-8 mb-12 md:mb-16">
           
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-4 text-sky-400">
               <div className="w-10 h-px bg-orange-500" />
-              <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-orange-400">
-                What We Offer
+              <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-cyan-400">WHAT WE OFFER
+
               </span>
             </div>
             <h2 className="font-barlow text-4xl md:text-6xl text-white tracking-tight uppercase leading-[0.95] font-bold">
@@ -136,9 +136,9 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Bento grid:
-                lg+:  [   01 lg (col-span-2 row-span-2)   ][ 02 sm ]
-                                                         [ 03 sm ]
-                      [             04 wide (col-span-3)         ] */}
+                 lg+:  [   01 lg (col-span-2 row-span-2)   ][ 02 sm ]
+                                                          [ 03 sm ]
+                       [             04 wide (col-span-3)         ] */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[16rem] md:auto-rows-[14rem]">
           {services.map((s, i) => {
             const span =

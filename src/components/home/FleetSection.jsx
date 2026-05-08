@@ -252,7 +252,7 @@ export default function FleetSection() {
             
             <div className="flex items-center gap-3 mb-3">
               <div className="w-6 h-0.5 bg-orange-500" />
-              <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">User-Friendly Web Portal</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">USER-FRIENDLY WEB PORTAL</span>
             </div>
             <h3 className="font-barlow text-4xl md:text-5xl text-white tracking-tight leading-none mb-4 font-bold">
               TOTAL FLEET<br />
@@ -297,7 +297,7 @@ export default function FleetSection() {
               
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-6 h-0.5 bg-teal-400" />
-                <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Enhanced API Data Feed</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-[hsl(var(--ring))]">ENHANCED API DATA FEED</span>
               </div>
               <h3 className="font-barlow text-4xl md:text-5xl text-white tracking-tight leading-none mb-6 font-bold">
                 INTEGRATE WITH<br />

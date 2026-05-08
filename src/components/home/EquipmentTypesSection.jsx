@@ -128,7 +128,7 @@ export default function EquipmentTypesSection() {
                   <div className="text-[10px] text-teal-400 font-bold uppercase tracking-[0.25em] mb-1">
                     {eq.subtitle}
                   </div>
-                  <h3 className="font-barlow text-xl font-bold text-white uppercase tracking-tight mb-4">
+                  <h3 className="font-barlow text-white uppercase tracking-tight mb-4 font-semibold text-2xl">
                     {eq.name}
                   </h3>
 

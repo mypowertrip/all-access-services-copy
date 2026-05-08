@@ -125,7 +125,7 @@ export default function ServicesSection() {
                 What We Offer
               </span>
             </div>
-            <h2 className="font-barlow text-4xl md:text-6xl text-white tracking-tight uppercase leading-[0.95] font-extrabold">
+            <h2 className="font-barlow text-4xl md:text-6xl text-white tracking-tight uppercase leading-[0.95] font-bold">
               Full-Service<br />
               <span style={{ WebkitTextStroke: '2px #f97316', color: 'rgba(249,115,22,0.04)' }}>Aerial Operations.</span>
             </h2>
@@ -136,9 +136,9 @@ export default function ServicesSection() {
         </motion.div>
 
         {/* Bento grid:
-               lg+:  [   01 lg (col-span-2 row-span-2)   ][ 02 sm ]
-                                                        [ 03 sm ]
-                     [             04 wide (col-span-3)         ] */}
+                lg+:  [   01 lg (col-span-2 row-span-2)   ][ 02 sm ]
+                                                         [ 03 sm ]
+                      [             04 wide (col-span-3)         ] */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 auto-rows-[16rem] md:auto-rows-[14rem]">
           {services.map((s, i) => {
             const span =

@@ -208,7 +208,7 @@ export default function FleetSection() {
             </div>
             <h3 className="font-barlow text-4xl md:text-5xl text-white tracking-tight leading-none mb-4 font-bold">
               PRODUCTIVITY AT<br />
-              <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>THUMB'S REACH</span>
+              <span style={{ WebkitTextStroke: '2px #2dd4bf', color: 'transparent' }}>YOUR FINGERTIPS</span>
             </h3>
             <p className="text-gray-400 max-w-2xl text-sm leading-relaxed">
               Developed from the ground up for an authentic mobile experience, the Ground Control™ app keeps you in control — even when cellular data and Wi-Fi are unavailable.*

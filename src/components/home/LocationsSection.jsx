@@ -61,7 +61,7 @@ export default function LocationsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent pointer-events-none" />
                 {/* Name overlay */}
                 <div className="absolute bottom-3 left-4 right-4 flex items-end justify-between pointer-events-none">
-                  <h3 className="font-barlow text-xl md:text-2xl font-black text-white uppercase tracking-tight">
+                  <h3 className="font-barlow text-xl md:text-2xl font-semibold text-white uppercase tracking-tight">
                     {loc.name}
                   </h3>
                   <div className="flex items-center gap-1.5">

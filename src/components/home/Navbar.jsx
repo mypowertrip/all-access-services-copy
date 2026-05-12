@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MapPin, Menu, X, Search, User } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
+import { base44 } from '@/api/base44Client';
+import { useAuth } from '@/lib/AuthContext';
 import { rentalModels } from '../../lib/rentalInventory';
 import { SITE_CONFIG } from '../../lib/siteConfig';
 
@@ -48,6 +50,7 @@ export default function Navbar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -139,13 +142,23 @@ export default function Navbar() {
             </a>
 
             {/* Customer portal */}
-            <Link
-              to="/dashboard"
-              title="Customer Portal"
-              className="hidden md:flex items-center justify-center w-9 h-9 bg-orange-500 hover:bg-orange-400 text-black transition-all"
-            >
-              <User className="w-4 h-4" />
-            </Link>
+            {isAuthenticated ? (
+              <Link
+                to="/dashboard"
+                title="Customer Portal"
+                className="hidden md:flex items-center justify-center w-9 h-9 bg-orange-500 hover:bg-orange-400 text-black transition-all"
+              >
+                <User className="w-4 h-4" />
+              </Link>
+            ) : (
+              <button
+                onClick={() => base44.auth.redirectToLogin('/dashboard')}
+                title="Sign In"
+                className="hidden md:flex items-center justify-center w-9 h-9 bg-orange-500 hover:bg-orange-400 text-black transition-all"
+              >
+                <User className="w-4 h-4" />
+              </button>
+            )}
 
             {/* Hamburger */}
             <button
@@ -267,14 +280,24 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                <Link
-                  to="/dashboard"
-                  onClick={() => setDrawerOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-3 bg-orange-500 hover:bg-orange-400 text-black text-xs font-bold uppercase tracking-[0.25em] transition-colors"
-                >
-                  <User className="w-4 h-4" />
-                  Customer Portal
-                </Link>
+                {isAuthenticated ? (
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setDrawerOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-orange-500 hover:bg-orange-400 text-black text-xs font-bold uppercase tracking-[0.25em] transition-colors"
+                  >
+                    <User className="w-4 h-4" />
+                    Customer Portal
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => { setDrawerOpen(false); base44.auth.redirectToLogin('/dashboard'); }}
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-orange-500 hover:bg-orange-400 text-black text-xs font-bold uppercase tracking-[0.25em] transition-colors"
+                  >
+                    <User className="w-4 h-4" />
+                    Sign In / Portal
+                  </button>
+                )}
               </div>
 
               {/* Drawer footer */}

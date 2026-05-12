@@ -51,7 +51,7 @@ export default function CTASection() {
           className="font-barlow text-5xl md:text-7xl lg:text-8xl text-white tracking-tight uppercase leading-[0.9] mb-8 font-extrabold">
           
           Let's Get Your<br />
-          <span style={{ WebkitTextStroke: '2px #f97316', color: 'rgba(249,115,22,0.04)' }}>
+          <span style={{ WebkitTextStroke: '2px #f94200', color: 'rgba(249,66,0,0.04)' }}>
             Project Elevated.
           </span>
         </motion.h2>

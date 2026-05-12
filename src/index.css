@@ -12,7 +12,7 @@
     --card-foreground: 0 0% 97%;
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 97%;
-    --primary: 24 100% 50%;
+    --primary: 16 100% 50%;
     --primary-foreground: 0 0% 4%;
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 97%;
@@ -24,7 +24,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14%;
     --input: 0 0% 14%;
-    --ring: 24 100% 50%;
+    --ring: 16 100% 50%;
     --radius: 0.375rem;
 
     /* Nav stack height — ticker(32px) + navbar + optional NavTabBar */
@@ -74,7 +74,7 @@
 ::-webkit-scrollbar-corner { background: #0a0a0a; }
 
 /* Brand effects */
-.glow-orange { box-shadow: 0 0 30px hsla(24, 100%, 50%, 0.3); }
+.glow-orange { box-shadow: 0 0 30px hsla(16, 100%, 50%, 0.3); }
 .glow-teal   { box-shadow: 0 0 20px hsla(180, 80%, 42%, 0.4); }
 
 .grid-bg {
@@ -99,7 +99,7 @@
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.animate-ticker { animation: ticker 50s linear infinite; }
+.animate-ticker { animation: ticker 30s linear infinite; }
 
 /* Subtle scanline overlay for ops-console feel (used on Hero) */
 .scanlines {

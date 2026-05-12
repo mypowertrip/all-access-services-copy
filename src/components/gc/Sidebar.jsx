@@ -43,7 +43,7 @@ export default function Sidebar({ open, onClose }) {
       lg:translate-x-0
     `}>
       {/* Brand */}
-      <div className="flex items-center justify-between px-3 py-3 border-b border-border">
+      <div className="flex items-center justify-between px-3 py-3 border-b border-border mr-3 ml-3 mt-20">
         <Link to="/" onClick={onClose}>
           <img
             src="https://media.base44.com/images/public/69f03230e61a9516ac171fbd/231c7b7f8_GroundControl.png"

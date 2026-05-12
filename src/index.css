@@ -12,7 +12,7 @@
     --card-foreground: 0 0% 97%;
     --popover: 0 0% 7%;
     --popover-foreground: 0 0% 97%;
-    --primary: 16 100% 50%;
+    --primary: 18 100% 54%;
     --primary-foreground: 0 0% 4%;
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 97%;
@@ -99,7 +99,7 @@
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.animate-ticker { animation: ticker 30s linear infinite; }
+.animate-ticker { animation: ticker 20s linear infinite; }
 
 /* Subtle scanline overlay for ops-console feel (used on Hero) */
 .scanlines {

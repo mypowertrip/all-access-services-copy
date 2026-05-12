@@ -27,7 +27,7 @@ module.exports = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        orange: { DEFAULT: 'hsl(16 100% 50%)', light: 'hsl(16 100% 62%)', dark: 'hsl(16 100% 40%)' },
+        orange: { DEFAULT: 'hsl(18 100% 54%)', light: 'hsl(18 100% 65%)', dark: 'hsl(18 100% 42%)' },
         slate: {
           50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
           400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',

@@ -30,11 +30,10 @@ export default function Sidebar({ open, onClose }) {
   };
 
   return (
-    <aside className={`
-      w-60 bg-card border-r border-border flex flex-col z-30 fixed left-0 transition-transform duration-300 top-[96px] md:top-[120px] lg:top-[136px] bottom-0
-      ${open ? 'translate-x-0' : '-translate-x-full'}
-      lg:translate-x-0
-    `}>
+    <aside
+      style={{ top: 'var(--site-nav-height)' }}
+      className={`w-60 bg-card border-r border-border flex flex-col z-30 fixed left-0 transition-transform duration-300 bottom-0 ${open ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}
+    >
       {/* Brand */}
       <div className="flex items-center justify-between px-4 py-4 border-b border-border">
         <Link to="/" onClick={onClose}>

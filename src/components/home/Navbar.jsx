@@ -146,7 +146,7 @@ export default function Navbar() {
             <Link
               to="/dashboard"
               title="Customer Portal"
-              className="hidden md:flex items-center justify-center w-9 h-9 hover:bg-orange-400 text-black transition-all bg-[#00a2ff]">
+              className="hidden md:flex items-center justify-center w-9 h-9 hover:bg-orange-400 transition-all bg-[hsl(var(--accent))] text-[hsl(var(--background))]">
 
 
             </Link> :

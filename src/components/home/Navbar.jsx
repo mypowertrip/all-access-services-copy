@@ -6,6 +6,7 @@ import { base44 } from '@/api/base44Client';
 import { useAuth } from '@/lib/AuthContext';
 import { rentalModels } from '../../lib/rentalInventory';
 import { SITE_CONFIG } from '../../lib/siteConfig';
+import NavPhoneButton from './NavPhoneButton';
 
 const mainNavLinks = [
 {
@@ -133,13 +134,7 @@ export default function Navbar() {
             </button>
 
             {/* Phone CTA — visible on tablet+ */}
-            <a
-              href={`tel:${SITE_CONFIG.phoneTel}`}
-              className="hidden lg:flex items-center gap-2 text-zinc-300 hover:text-orange-400 text-sm font-medium transition-colors">
-              
-              <Phone className="w-4 h-4 text-orange-500" />
-              <span className="font-numeric">{SITE_CONFIG.phone}</span>
-            </a>
+            <NavPhoneButton />
 
             {/* Customer portal */}
             {isAuthenticated ? null :

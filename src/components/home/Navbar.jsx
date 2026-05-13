@@ -87,7 +87,7 @@ export default function Navbar() {
   }, [drawerOpen]);
 
   return (
-    <header className="fixed top-8 left-0 right-0 z-50">
+    <header className={`fixed left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'top-0' : 'top-8'}`}>
       <nav
         className={`relative transition-all duration-300 border-b ${
         scrolled ?

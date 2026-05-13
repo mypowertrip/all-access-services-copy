@@ -142,14 +142,14 @@ export default function Navbar() {
             </a>
 
             {/* Customer portal */}
-            {isAuthenticated ?
-            <Link
-              to="/dashboard"
-              title="Customer Portal"
-              className="hidden md:flex items-center justify-center w-9 h-9 hover:bg-orange-400 transition-all bg-[hsl(var(--accent))] text-[hsl(var(--background))]">
+            {isAuthenticated ? null :
 
 
-            </Link> :
+
+
+
+
+
 
             <button
               onClick={() => base44.auth.redirectToLogin('/dashboard')}

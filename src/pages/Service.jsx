@@ -35,8 +35,8 @@ export default function Service() {
               <div className="w-12 h-0.5 bg-orange-500" />
               <span className="text-xs font-bold uppercase tracking-widest text-[hsl(var(--accent))]">REPAIR & SERVICE</span>
             </div>
-            <h1 className="font-barlow text-5xl md:text-7xl font-black text-white tracking-tight mb-6">
-              Keep Your Fleet <span className="text-orange-600 uppercase">Running Strong</span>
+            <h1 className="font-barlow md:text-7xl font-black text-white tracking-tight mb-6 uppercase text-sm">Keep Your Fleet RUNNING STRONG
+
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl">JLG-authorized factory-trained technicians keeping your equipment operating at peak performance.</p>
           </motion.div>

@@ -28,23 +28,23 @@ function hexPoints(w, h) {
 function HexContainer({ width, height, bg, stroke, strokeWidth = 2, glow, children, className = '', style = {} }) {
   return (
     <div className={`relative flex items-center justify-center ${className}`} style={{ width, height, ...style }}>
-      <svg className="absolute inset-0 hidden" width={width} height={height} style={{ overflow: 'visible' }}>
-        {glow &&
-        <polygon
-          points={hexPoints(width, height)}
-          fill="rgba(45,212,191,0.12)"
-          stroke="rgba(45,212,191,0.2)"
-          strokeWidth={8}
-          style={{ filter: 'blur(6px)' }} />
+      
 
-        }
-        <polygon
-          points={hexPoints(width, height)}
-          fill={bg}
-          stroke={stroke}
-          strokeWidth={strokeWidth} />
-        
-      </svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
       <div className="relative z-10 flex flex-col items-center justify-center" style={{ gap: 3 }}>
         {children}
       </div>

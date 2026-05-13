@@ -74,7 +74,7 @@ export default function NavTabBar() {
 
   // top-[6rem] sm:top-[7rem] = navbar h-16/h-20 + ticker (~2rem). md+ shows the nav-tab.
   return (
-    <div className="hidden md:block fixed top-[8rem] left-0 right-0 z-30 bg-orange-500 border-b border-orange-700/40">
+    <div className="hidden md:block fixed top-[8rem] left-0 right-0 z-30 border-b border-black/20" style={{ backgroundColor: '#FF5C00' }}>
       <div className="max-w-7xl mx-auto flex items-center h-10">
         {mainNavLinks.map((link) => {
           const isActive = activeDropdown === link.label;

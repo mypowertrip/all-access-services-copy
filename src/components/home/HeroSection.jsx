@@ -26,9 +26,9 @@ export default function HeroSection() {
     if (mq.matches) {
 
 
+
       // No-op
-    }}, []);
-  return (
+    }}, []);return (
     <section
       ref={ref}
       className="relative min-h-[88vh] md:min-h-screen flex items-end overflow-hidden">
@@ -122,7 +122,7 @@ export default function HeroSection() {
             className="text-zinc-300 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
             
             Southern California's premier source for{' '}
-            <span className="text-white font-semibold">scissor lifts, boom lifts, telehandlers</span>{' '}
+            <span className="text-white font-semibold uppercase text-xs">scissor lifts, boom lifts, telehandlers</span>{' '}
             &amp; service. JLG-authorized — any height, any job, any time.
           </motion.p>
 

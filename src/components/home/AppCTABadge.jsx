@@ -34,7 +34,7 @@ export default function AppCTABadge() {
     <MotionLink
       to="/dashboard"
       title="Ground Control App"
-      className="group hidden md:flex fixed right-6 z-40 flex-col items-center justify-center"
+      className="group hidden md:flex fixed right-6 z-40 flex-col items-center justify-center mt-10"
       style={{ top: 160, width: size, height: size }}
       animate={{ opacity: isVisible ? 1 : 0, pointerEvents: isVisible ? 'auto' : 'none' }}
       transition={{ duration: 0.6, ease: 'easeInOut' }}>

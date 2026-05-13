@@ -25,8 +25,7 @@ const mainNavLinks = [
   href: '/sales',
   children: [
   { label: 'New Equipment', href: '/sales?filter=new' },
-  { label: 'Pre-Owned', href: '/sales?filter=pre-owned' },
-  { label: 'Certified', href: '/sales?filter=certified' }]
+  { label: 'Pre-Owned', href: '/sales?filter=pre-owned' }]
 
 },
 { label: 'Service', href: '/service' },

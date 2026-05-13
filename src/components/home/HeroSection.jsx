@@ -140,6 +140,11 @@ export default function HeroSection() {
               Browse Equipment
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
+            <button
+            onClick={() => { import('@/api/base44Client').then(({ base44 }) => base44.auth.redirectToLogin('/dashboard')); }}
+            className="group inline-flex items-center justify-center gap-3 border border-orange-500/60 hover:border-orange-400 text-orange-400 hover:text-orange-300 font-bold text-xs sm:text-sm uppercase tracking-[0.25em] px-7 py-4 transition-all bg-black/30 hover:bg-black/50 backdrop-blur-sm">
+              Sign In / Sign Up
+            </button>
             <Link
             to="/reserve"
             className="group inline-flex items-center justify-center gap-3 border border-zinc-700 hover:border-orange-500 text-white hover:text-orange-400 font-semibold text-xs sm:text-sm uppercase tracking-[0.25em] px-7 py-4 transition-all bg-black/30 hover:bg-black/50 backdrop-blur-sm">

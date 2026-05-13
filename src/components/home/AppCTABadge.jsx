@@ -70,7 +70,7 @@ export default function AppCTABadge() {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center gap-1 mt-24">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center gap-1 mt-10">
         <motion.div
           animate={{ scale: [1, 1.15, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>

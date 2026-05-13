@@ -28,10 +28,10 @@ export default function HeroSection() {
 
 
 
+
       // No-op
-    }}, []);return <section
-    ref={ref}
-    className="relative min-h-[88vh] md:min-h-screen flex items-end overflow-hidden">
+    }}, []);return <section ref={ref}
+  className="relative min-h-[88vh] md:min-h-screen flex items-end overflow-hidden">
       
       {/* Background image with parallax */}
       <motion.div className="absolute inset-0" style={{ y: imgY }}>
@@ -99,7 +99,7 @@ export default function HeroSection() {
             </div>
             <div className="overflow-hidden">
               <motion.span
-              className="block"
+              className="block mb-3"
               style={{
                 fontSize: 'clamp(3rem, 12vw, 11rem)',
                 WebkitTextStroke: '2px #FF5F00',
@@ -119,7 +119,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.6 }}
-          className="text-zinc-300 md:text-xl max-w-xl mb-10 leading-relaxed font-extralight text-xs">
+          className="text-zinc-300 md:text-xl max-w-xl mb-10 leading-relaxed font-extralight text-xs uppercase hidden">
             
             Southern California's premier source for{' '}
             <span className="text-white font-semibold uppercase text-xs">scissor lifts, boom lifts, telehandlers</span>{' '}

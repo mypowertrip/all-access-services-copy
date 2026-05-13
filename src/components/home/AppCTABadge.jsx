@@ -42,7 +42,7 @@ export default function AppCTABadge() {
       {/* Spinning outer ring */}
       <motion.svg
         viewBox={`0 0 ${size} ${size}`}
-        className="absolute inset-0 w-full h-full mt-10"
+        className="absolute inset-0 w-full h-full mt-12"
         animate={{ rotate: 360 }}
         transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}>
         
@@ -70,7 +70,7 @@ export default function AppCTABadge() {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center gap-1">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center gap-1 mt-24">
         <motion.div
           animate={{ scale: [1, 1.15, 1] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>

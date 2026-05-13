@@ -15,7 +15,7 @@ export default function SafetyTicker() {
   return (
     <Link
       to="/safety"
-      className="block w-full bg-orange-500 hover:bg-orange-400 transition-colors overflow-hidden fixed top-0 left-0 right-0 z-50 group"
+      className="block w-full overflow-hidden fixed top-0 left-0 right-0 z-50 group transition-colors" style={{ backgroundColor: '#FF5C00' }}
     >
       <div className="flex gap-0 py-2 animate-ticker whitespace-nowrap items-center">
         {repeated.map((text, i) => (

@@ -42,7 +42,7 @@ export default function AppCTABadge() {
       {/* Spinning outer ring */}
       <motion.svg
         viewBox={`0 0 ${size} ${size}`}
-        className="absolute inset-0 w-full h-full mt-12"
+        className="absolute inset-0 w-full h-full mt-6"
         animate={{ rotate: 360 }}
         transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}>
         
@@ -56,7 +56,7 @@ export default function AppCTABadge() {
       </motion.svg>
 
       {/* Static inner hex */}
-      <svg viewBox={`0 0 ${size} ${size}`} className="absolute inset-0 w-full h-full mt-12">
+      <svg viewBox={`0 0 ${size} ${size}`} className="absolute inset-0 w-full h-full mt-6">
         <polygon
           points={Array.from({ length: 6 }, (_, i) => {
             const angle = Math.PI / 180 * (60 * i - 30);

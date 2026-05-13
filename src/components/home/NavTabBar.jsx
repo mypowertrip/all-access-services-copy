@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
@@ -41,7 +41,14 @@ const mainNavLinks = [
 
 export default function NavTabBar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
   const timeouts = useRef({});
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const openDropdown = (label) => {
     clearTimeout(timeouts.current[label]);
@@ -72,9 +79,9 @@ export default function NavTabBar() {
     </>
   );
 
-  // top-[6rem] sm:top-[7rem] = navbar h-16/h-20 + ticker (~2rem). md+ shows the nav-tab.
+  // When not scrolled: top-[8rem] = ticker(2rem) + navbar(~6rem). When scrolled: ticker gone, navbar at top-0 so top-[5rem] (navbar h-20).
   return (
-    <div className="hidden md:block fixed top-[8rem] left-0 right-0 z-30 border-b border-black/20" style={{ backgroundColor: '#FF5C00' }}>
+    <div className={`hidden md:block fixed left-0 right-0 z-30 border-b border-black/20 transition-all duration-300 ${scrolled ? 'top-[5rem]' : 'top-[8rem]'}`} style={{ backgroundColor: '#FF5C00' }}>
       <div className="max-w-7xl mx-auto flex items-center h-10">
         {mainNavLinks.map((link) => {
           const isActive = activeDropdown === link.label;

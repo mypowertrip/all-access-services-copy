@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ShieldCheck } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const ITEMS = [
   "SAFETY IS OUR TOP PRIORITY — THAT'S WHY IT'S AT THE TOP OF OUR WEBSITE",
@@ -11,11 +12,19 @@ const ITEMS = [
 
 export default function SafetyTicker() {
   const repeated = [...ITEMS, ...ITEMS];
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY < 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <Link
       to="/safety"
-      className="block w-full overflow-hidden fixed top-0 left-0 right-0 z-50 group transition-colors" style={{ backgroundColor: '#FF5C00' }}
+      className="block w-full overflow-hidden fixed top-0 left-0 right-0 z-50 group transition-all duration-300"
+      style={{ backgroundColor: '#FF5C00', opacity: visible ? 1 : 0, pointerEvents: visible ? 'auto' : 'none', transform: visible ? 'translateY(0)' : 'translateY(-100%)' }}
     >
       <div className="flex gap-0 py-2 animate-ticker whitespace-nowrap items-center">
         {repeated.map((text, i) => (

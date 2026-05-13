@@ -79,7 +79,7 @@ export default function HeroSection() {
           className="flex items-center gap-3 mb-6">
             
             <div className="w-10 h-px bg-orange-500" />
-            <span className="text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase text-sky-400">SIGN IN OR SIGN UP TO VIEW PRICES, AVAILABILITY, AND RESERVE
+            <span className="text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase text-sky-400">AERIAL LIFT SPECIALISTS
 
             </span>
           </motion.div>

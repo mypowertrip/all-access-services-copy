@@ -37,7 +37,7 @@ export default function GroundControlCTA() {
             {/* NEW badge */}
             <div className="inline-flex items-center gap-2 bg-orange-500/15 border border-orange-500/40 text-orange-400 text-xs font-black uppercase tracking-widest px-4 py-2 rounded-full mb-6">
               <Zap className="w-3 h-3" />
-              New Division
+              Coming Soon
             </div>
 
             <h2 className="font-barlow text-3xl md:text-6xl font-bold text-white uppercase tracking-tight leading-none mb-4">

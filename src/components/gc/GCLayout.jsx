@@ -58,7 +58,8 @@ export default function GCLayout() {
 
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <main className="flex-1 lg:ml-60 min-h-screen w-full" style={{ paddingTop: 'var(--site-nav-height)' }}>
+      {/* No NavTabBar on dashboard — padding = ticker(2rem) + navbar height only */}
+      <main className="flex-1 lg:ml-60 min-h-screen w-full pt-[6rem] sm:pt-[7rem] md:pt-[8rem]">
         <Outlet context={{ onMenuClick: () => setSidebarOpen(true) }} />
       </main>
     </div>

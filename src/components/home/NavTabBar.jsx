@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 
 const mainNavLinks = [
@@ -43,12 +43,16 @@ export default function NavTabBar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const timeouts = useRef({});
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Hide on dashboard routes
+  if (location.pathname.startsWith('/dashboard')) return null;
 
   const openDropdown = (label) => {
     clearTimeout(timeouts.current[label]);

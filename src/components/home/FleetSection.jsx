@@ -256,7 +256,7 @@ export default function FleetSection() {
             </div>
             <h3 className="font-barlow text-4xl md:text-5xl text-white tracking-tight leading-none mb-4 font-bold">
               TOTAL FLEET<br />
-              <span style={{ WebkitTextStroke: '2px #f94200', color: 'transparent' }}>VISIBILITY</span>
+              <span style={{ WebkitTextStroke: '2px #FF5C00', color: 'transparent' }}>VISIBILITY</span>
             </h3>
             <p className="text-gray-400 max-w-2xl text-sm leading-relaxed">
               Clear, intuitive navigation alongside powerful features for immediate visibility to your fleet's health and performance data — all in one place.

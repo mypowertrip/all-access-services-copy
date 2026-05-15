@@ -64,8 +64,8 @@ export default function GroundControlCTA() {
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                <Link
-                 to="/dashboard" className="bg-[hsl(var(--ring))] text-black px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg inline-flex items-center gap-3 hover:bg-teal-400 transition-all">CONTACT GROUND CONTROL
-              </Link>
+                 to="/dashboard" className="bg-[hsl(var(--ring))] text-black px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg inline-flex items-center gap-3 hover:bg-teal-400 transition-all">CONTACT US NOW
+               </Link>
               <Link
                 to="/dashboard"
                 className="inline-flex items-center gap-3 border border-teal-500/50 hover:border-teal-400 text-teal-400 hover:text-teal-300 font-bold text-sm uppercase tracking-widest px-8 py-4 rounded-lg transition-all">

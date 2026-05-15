@@ -56,7 +56,7 @@ export default function GroundControlCTA() {
             {/* Tags */}
             <div className="flex flex-wrap gap-3 mb-10">
               {['24/7 Monitoring', 'Real-Time Visibility', 'Rapid Response', 'Always-On Uptime'].map((tag, i) =>
-              <span key={tag} className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded border ${i % 2 === 0 ? 'text-orange-300 border-orange-500/30 bg-orange-500/5' : 'text-teal-300 border-teal-500/30 bg-teal-500/5'}`}>
+              <span key={tag} className={`text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded border text-[hsl(var(--primary))] ${i % 2 === 0 ? 'text-orange-300 border-orange-500/30 bg-orange-500/5' : "border-teal-500/30 bg-teal-500/5"}`}>
                   {tag}
                 </span>
               )}
@@ -64,7 +64,7 @@ export default function GroundControlCTA() {
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                <Link
-                 to="/dashboard" className="bg-[hsl(var(--ring))] text-black px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg inline-flex items-center gap-3 hover:bg-teal-400 transition-all">CONTACT US NOW
+                to="/dashboard" className="bg-[hsl(var(--ring))] text-black px-8 py-4 text-sm font-bold uppercase tracking-widest rounded-lg inline-flex items-center gap-3 hover:bg-teal-400 transition-all">CONTACT US NOW
                </Link>
               <Link
                 to="/dashboard"
@@ -96,7 +96,7 @@ export default function GroundControlCTA() {
                   className="h-36 w-auto object-contain drop-shadow-lg" />
                 
               </div>
-              <p className="text-center text-teal-400 text-xs font-semibold uppercase tracking-widest mb-6">by All Access Services</p>
+              <p className="text-center text-xs font-semibold uppercase tracking-widest mb-6 text-[hsl(var(--primary))]">BY ALL ACCESS SERVICES</p>
 
               <div className="space-y-4">
                 {[
@@ -107,7 +107,7 @@ export default function GroundControlCTA() {
                 map((item) =>
                 <div key={item.label} className="flex items-center justify-between py-3 border-b border-zinc-800 last:border-0">
                     <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">{item.label}</span>
-                    <span className={`text-sm font-medium ${item.accent === 'orange' ? 'text-orange-400' : 'text-teal-400'}`}>{item.value}</span>
+                    <span className={`text-sm font-medium text-[hsl(var(--primary))] ${item.accent === 'orange' ? 'text-orange-400' : ""}`}>{item.value}</span>
                   </div>
                 )}
               </div>
@@ -115,11 +115,11 @@ export default function GroundControlCTA() {
               <div className="mt-6">
                 <Link
                   to="/dashboard"
-                  className="flex items-center justify-center gap-3 w-full bg-teal-500 hover:bg-teal-400 text-black font-bold text-sm uppercase tracking-widest py-4 rounded-lg transition-all">
-                  
-                  <Zap className="w-4 h-4" />
-                  Preview the App
-                  <ArrowRight className="w-4 h-4" />
+                  className="flex items-center justify-center gap-3 w-full hover:bg-teal-400 text-black font-bold text-sm uppercase tracking-widest py-4 rounded-lg transition-all bg-[hsl(var(--primary))]">PREVIEW THE APP
+
+
+
+
                 </Link>
               </div>
             </div>

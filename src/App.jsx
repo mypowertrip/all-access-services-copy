@@ -26,6 +26,8 @@ const GCDashboard = lazy(() => import('./pages/GCDashboard'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 const GCFleet = lazy(() => import('./pages/GCFleet'));
 const About = lazy(() => import('./pages/About'));
+const AdminIngest = lazy(() => import('./pages/AdminIngest'));
+const CustomerPortal = lazy(() => import('./pages/CustomerPortal'));
 
 const Spinner = () => (
   <div className="fixed inset-0 flex items-center justify-center bg-black">
@@ -68,6 +70,8 @@ const AuthenticatedApp = () => {
               <Route path="/safety" element={<Safety />} />
               <Route path="/about" element={<About />} />
               <Route path="/reserve" element={<Reserve />} />
+              <Route path="/admin/ingest" element={<AdminIngest />} />
+              <Route path="/portal" element={<CustomerPortal />} />
 
               {/* Ground Control dashboard (member portal) */}
               <Route element={<GCLayout />}>

@@ -1,0 +1,52 @@
+{
+  "name": "RentalContract",
+  "type": "object",
+  "properties": {
+    "invoice_number": { "type": "string", "description": "Invoice number e.g. 180487-5" },
+    "invoice_date": { "type": "string", "description": "Invoice date" },
+    "invoice_status": { "type": "string", "description": "e.g. Closed, Open" },
+    "customer_number": { "type": "string", "description": "Customer # from invoice" },
+    "customer_name": { "type": "string", "description": "Customer company or full name" },
+    "customer_address": { "type": "string", "description": "Customer billing address" },
+    "job_description": { "type": "string", "description": "Job site / description" },
+    "delivery_address": { "type": "string", "description": "Delivery address" },
+    "pickup_address": { "type": "string", "description": "Pickup address" },
+    "date_out": { "type": "string", "description": "Equipment out date" },
+    "date_in": { "type": "string", "description": "Equipment return date" },
+    "ordered_by": { "type": "string", "description": "Person who ordered" },
+    "sales_rep": { "type": "string", "description": "Sales rep name and contact" },
+    "equipment_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "qty": { "type": "number" },
+          "key": { "type": "string" },
+          "description": { "type": "string" },
+          "serial_number": { "type": "string" },
+          "status": { "type": "string" },
+          "returned_date": { "type": "string" },
+          "price": { "type": "number" }
+        }
+      }
+    },
+    "rental_sales_subtotal": { "type": "number" },
+    "epa_fee": { "type": "number" },
+    "rf_fee": { "type": "number" },
+    "subtotal": { "type": "number" },
+    "total_amount": { "type": "number" },
+    "discount": { "type": "number" },
+    "total_paid": { "type": "number" },
+    "total_due": { "type": "number" },
+    "payment_terms": { "type": "string" },
+    "payment_status": {
+      "type": "string",
+      "enum": ["unpaid", "partial", "paid", "overdue"],
+      "default": "unpaid"
+    },
+    "pdf_url": { "type": "string", "description": "URL of the uploaded PDF" },
+    "notes": { "type": "string" },
+    "assigned_user_email": { "type": "string", "description": "App user email this contract is assigned to for portal access" }
+  },
+  "required": ["customer_name", "invoice_number"]
+}

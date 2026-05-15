@@ -102,8 +102,8 @@ export default function HeroSection() {
               className="block mb-3"
               style={{
                 fontSize: 'clamp(3rem, 12vw, 11rem)',
-                WebkitTextStroke: '2px #FF5F00',
-                color: 'rgba(249,66,0,0.04)'
+                WebkitTextStroke: '2px #FF5C00',
+                color: 'rgba(255,92,0,0.04)'
               }}
               initial={{ y: '100%' }}
               animate={{ y: 0 }}

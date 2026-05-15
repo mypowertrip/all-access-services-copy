@@ -75,7 +75,7 @@ export default function EquipmentTypesSection() {
             </div>
             <h2 className="font-barlow text-4xl md:text-6xl text-white tracking-tight uppercase leading-[0.95] font-bold">
               Find Your<br />
-              <span style={{ WebkitTextStroke: '2px hsl(21 100% 50%)', color: 'rgba(249,115,22,0.04)' }}>
+              <span style={{ WebkitTextStroke: '2px #FF5C00', color: 'rgba(255,92,0,0.04)' }}>
                 Perfect Machine.
               </span>
             </h2>

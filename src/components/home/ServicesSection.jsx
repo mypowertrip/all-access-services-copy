@@ -127,7 +127,7 @@ export default function ServicesSection() {
             </div>
             <h2 className="font-barlow text-4xl md:text-6xl text-white tracking-tight uppercase leading-[0.95] font-bold">
               Full-Service<br />
-              <span style={{ WebkitTextStroke: '2px #f94200', color: 'rgba(249,66,0,0.04)' }}>Aerial & Material Handling Equipment.</span>
+              <span style={{ WebkitTextStroke: '2px #FF5C00', color: 'rgba(255,92,0,0.04)' }}>Aerial & Material Handling Equipment.</span>
             </h2>
           </div>
           <div className="hidden md:block font-numeric text-zinc-700 text-sm">

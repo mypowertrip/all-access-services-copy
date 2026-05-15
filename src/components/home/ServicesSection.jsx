@@ -10,7 +10,7 @@ const services = [
   "Daily, weekly, monthly. JLG-authorized fleet — scissor lifts, boom lifts, telehandlers, forklifts. Delivered, fueled, and inspected.",
   cta: 'Browse Rentals',
   href: '/rentals/category/scissor-lifts',
-  image: 'https://media.base44.com/images/public/69f03230e61a9516ac171fbd/aaeb30642_Screenshot2026-04-27at110540PM.png',
+  image: 'https://media.base44.com/images/public/69f03230e61a9516ac171fbd/74cefc16e_AllAccessShowroom.png',
   icon: Truck,
   size: 'lg'
 },

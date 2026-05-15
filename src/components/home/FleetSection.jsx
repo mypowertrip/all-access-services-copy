@@ -88,7 +88,7 @@ export default function FleetSection() {
               className="flex items-center gap-3 mb-6">
               
               <div className="w-8 h-0.5 bg-teal-400" />
-              <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Powered by Ground Control™</span>
+              <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">Powered by ClearSky Telematics</span>
             </motion.div>
 
             {/* Outlined headline — matches JLG "SMART CAPABILITIES" style */}
